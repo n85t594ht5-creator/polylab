@@ -1,0 +1,192 @@
+{
+ "probed_at": "2026-08-29T08:50:09.432479+00:00",
+ "sources": {
+  "gamma_markets": {
+   "latency_ms": 286.3,
+   "n_markets": 50,
+   "n_updown": 8,
+   "fields": [
+    "acceptingOrders",
+    "acceptingOrdersTimestamp",
+    "active",
+    "approved",
+    "archived",
+    "automaticallyActive",
+    "bestAsk",
+    "bestBid",
+    "clearBookOnStart",
+    "clobTokenIds",
+    "closed",
+    "comboStatus",
+    "competitive",
+    "conditionId",
+    "createdAt",
+    "cryptoMarketConfig",
+    "cryptoMarketConfigId",
+    "cyom",
+    "deploying",
+    "description",
+    "enableOrderBook",
+    "endDate",
+    "endDateIso",
+    "eventStartTime",
+    "events",
+    "featured",
+    "feeSchedule",
+    "feeType",
+    "feesEnabled",
+    "funded",
+    "groupItemThreshold",
+    "hasReviewedDates",
+    "holdingRewardsEnabled",
+    "icon",
+    "id",
+    "image",
+    "liquidity",
+    "liquidityClob",
+    "liquidityNum",
+    "makerBaseFee",
+    "makerRebatesFeeShareBps",
+    "manualActivation",
+    "marketMakerAddress",
+    "negRisk",
+    "negRiskOther",
+    "new",
+    "oneHourPriceChange",
+    "orderMinSize",
+    "orderPriceMinTickSize",
+    "outcomePrices",
+    "outcomes",
+    "pagerDutyNotificationEnabled",
+    "pendingDeployment",
+    "question",
+    "questionID",
+    "ready",
+    "requiresTranslation",
+    "resolutionSource",
+    "restricted",
+    "rewardsMaxSpread",
+    "rewardsMinSize",
+    "rfqEnabled",
+    "showGmpOutcome",
+    "showGmpSeries",
+    "slug",
+    "spread",
+    "startDate",
+    "startDateIso",
+    "takerBaseFee",
+    "umaResolutionStatuses",
+    "updatedAt",
+    "version"
+   ],
+   "has_volume": false,
+   "has_liquidity": true,
+   "server_date_header": "Sat, 29 Aug 2026 08:50:09 GMT",
+   "sample_slug": "doge-updown-5m-1787993400",
+   "sample_volume": {
+    "liquidity": "1965.8378",
+    "liquidityNum": 1965.8378
+   },
+   "status": "OK"
+  },
+  "clob_book": {
+   "latency_ms": 258.7,
+   "top_level_fields": [
+    "price",
+    "size"
+   ],
+   "book_fields": [
+    "asks",
+    "asset_id",
+    "bids",
+    "hash",
+    "last_trade_price",
+    "market",
+    "min_order_size",
+    "neg_risk",
+    "tick_size",
+    "timestamp"
+   ],
+   "has_timestamp": true,
+   "timestamp_value": "1787993409921",
+   "n_ask_levels": 67,
+   "n_bid_levels": 29,
+   "best_ask": 0.33,
+   "best_bid": 0.3,
+   "spread": 0.03,
+   "ask_depth_usd": 11439.96,
+   "bid_depth_usd": 381.68,
+   "server_date_header": "Sat, 29 Aug 2026 08:50:10 GMT",
+   "sample_market": "doge-updown-5m-1787993400",
+   "status": "OK"
+  },
+  "clob_price": {
+   "latency_ms": 133.7,
+   "fields": [
+    "price"
+   ],
+   "value": {
+    "price": "0.3"
+   },
+   "server_time_endpoint": "1787993410",
+   "server_time_resolution": "секунды",
+   "status": "OK"
+  },
+  "coinbase_ticker": {
+   "latency_ms": 243.9,
+   "fields": [
+    "ask",
+    "bid",
+    "price",
+    "rfq_volume",
+    "size",
+    "time",
+    "trade_id",
+    "volume"
+   ],
+   "time_value": "2026-08-29T08:50:10.508965200Z",
+   "time_fraction_digits": 9,
+   "resolution": "миллисекунды",
+   "has_volume": true,
+   "has_bid_ask": true,
+   "server_date_header": "Sat, 29 Aug 2026 08:50:10 GMT",
+   "status": "OK"
+  },
+  "coinbase_candles": {
+   "latency_ms": 155.8,
+   "n": 5,
+   "row_len": 6,
+   "row_format": "[time, low, high, open, close, volume]",
+   "granularity_sec": 60,
+   "sample": [
+    1787993400,
+    77573.79,
+    77573.79,
+    77573.79,
+    77573.79,
+    4.695e-05
+   ],
+   "min_granularity_supported": [
+    60,
+    300,
+    900,
+    3600
+   ],
+   "status": "OK"
+  },
+  "clock_skew": {
+   "server_date": "Sat, 29 Aug 2026 08:50:11 GMT",
+   "skew_ms": 171.8,
+   "header_resolution": "секунды (заголовок Date не даёт долей)",
+   "status": "OK"
+  },
+  "poll_jitter": {
+   "n": 8,
+   "median_ms": 25.1,
+   "min_ms": 23.9,
+   "max_ms": 25.8,
+   "stdev_ms": 0.5,
+   "status": "OK"
+  }
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "snapshots": 12,
+ "duplicates": 0,
+ "markets": 4,
+ "assets": 4,
+ "by_window": {
+  "5m": 12
+ },
+ "quality": {
+  "DEGRADED": 12
+ },
+ "latency_events": 12,
+ "moves": 4,
+ "ref_missing": 0,
+ "latency_quality": {
+  "LOW": 12
+ },
+ "stale": 0,
+ "incomplete": 0,
+ "api": {
+  "requests": 68,
+  "failures": 0,
+  "retries": 0,
+  "latency_median_ms": 151.8,
+  "latency_max_ms": 344.5
+ },
+ "storage": {
+  "dna": {
+   "files": 2,
+   "bytes": 29602
+  },
+  "latency": {
+   "files": 1,
+   "bytes": 36747
+  },
+  "moves": {
+   "files": 0,
+   "bytes": 0
+  },
+  "agg": {
+   "files": 0,
+   "bytes": 0
+  },
+  "total_bytes": 66349
+ },
+ "duplicates_store": 0,
+ "restored_ids": 180,
+ "run_sec": 120,
+ "sample_sec": 15,
+ "finished_at": "2026-08-29T15:47:54.533385+00:00"
+}
