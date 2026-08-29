@@ -1,0 +1,19 @@
+{
+ "days": [
+  {
+   "day": "2026-08-28",
+   "snapshots": 0,
+   "valid": 0,
+   "moves": 0,
+   "raw_present": false
+  },
+  {
+   "day": "2026-08-29",
+   "snapshots": 50,
+   "valid": 45,
+   "moves": 0,
+   "raw_present": true
+  }
+ ],
+ "agg_version": "1"
+}

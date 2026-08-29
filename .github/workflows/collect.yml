@@ -52,6 +52,12 @@ jobs:
           python polylab/data/aggregate.py "$(date -u +%Y-%m-%d)"
           python polylab/data/aggregate.py "$(date -u -d yesterday +%Y-%m-%d)" || true
 
+      - name: Publish aggregates to dashboard
+        run: |
+          mkdir -p docs/data/agg
+          cp -f data/agg/*.json docs/data/agg/ 2>/dev/null || true
+          echo "агрегатов в docs: $(ls -1 docs/data/agg | wc -l)"
+
       - name: Rotate local files
         run: |
           python - <<'PY'
@@ -82,6 +88,6 @@ jobs:
         run: |
           git config user.name "polylab"
           git config user.email "polylab@users.noreply.github.com"
-          git add data/agg data/moves data/state/ids.txt research/COLLECTOR_RUN.json
+          git add data/agg data/moves data/state/ids.txt docs/data research/COLLECTOR_RUN.json
           git commit -m "aggregates $(date -u +'%Y-%m-%d %H:%M')" || echo "нет изменений"
           git pull --rebase && git push

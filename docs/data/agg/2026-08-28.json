@@ -1,0 +1,42 @@
+{
+ "agg_version": "1",
+ "built_at": "2026-08-29T16:15:29Z",
+ "cuts": {
+  "asset": {},
+  "elapsed_bucket": {},
+  "entry_bucket": {},
+  "move_bucket": {},
+  "quality": {},
+  "window": {}
+ },
+ "day": "2026-08-28",
+ "feature_availability": {
+  "acceleration": 0,
+  "book_ts_up": 0,
+  "depth_10_up": 0,
+  "depth_1_up": 0,
+  "imbalance_up": 0,
+  "liquidity": 0,
+  "market_volume": 0,
+  "spread_up": 0,
+  "volatility": 0
+ },
+ "latency": {
+  "n": 0,
+  "quality": {}
+ },
+ "missing_fields": {},
+ "moves": {
+  "avg_time_to_reversal_sec": null,
+  "by_window": {},
+  "continued": 0,
+  "n": 0,
+  "reversed": 0,
+  "with_outcome": 0
+ },
+ "quality": {},
+ "raw_present": false,
+ "raw_truncated": false,
+ "snapshots": 0,
+ "valid": 0
+}

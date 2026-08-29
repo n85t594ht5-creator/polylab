@@ -1,0 +1,198 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>POLYLAB · Research Platform</title>
+<style>
+:root{--bg:#0b0f17;--panel:#121826;--panel2:#171f31;--line:#232d42;--txt:#e6ecf5;--mut:#7c8aa3;
+--ok:#3ddc97;--warn:#f2b544;--bad:#ff6b7a;--acc:#7aa2ff;--vio:#b48ce8;
+--mono:"JetBrains Mono","SF Mono",Consolas,monospace;--sans:"Inter",system-ui,-apple-system,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.5 var(--sans);overflow-wrap:anywhere}
+.wrap{max-width:1280px;margin:0 auto;padding:18px;padding-bottom:calc(90px + env(safe-area-inset-bottom))}
+header{display:flex;align-items:baseline;gap:10px 14px;flex-wrap:wrap;margin-bottom:6px}
+h1{font:600 19px var(--mono);letter-spacing:.06em;margin:0}
+.sub{color:var(--mut);font-size:12px;font-family:var(--mono)}
+.tag{font:600 10px var(--mono);letter-spacing:.12em;padding:4px 9px;border-radius:999px;border:1px solid var(--line);color:var(--mut)}
+.tag.shadow{border-color:var(--vio);color:var(--vio)}.tag.off{border-color:var(--line)}
+.lead{color:var(--mut);font-size:13px;margin:2px 0 16px;max-width:70ch}
+nav{display:flex;gap:4px;overflow-x:auto;border-bottom:1px solid var(--line);margin-bottom:16px;padding-bottom:0}
+nav button{background:none;border:0;border-bottom:2px solid transparent;color:var(--mut);font:500 13px var(--sans);
+padding:9px 12px;cursor:pointer;white-space:nowrap}
+nav button.on{color:var(--txt);border-bottom-color:var(--acc)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(12,minmax(0,1fr))}.grid>*{min-width:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:hidden}
+.card h2{margin:0 0 10px;font:600 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.c3{grid-column:span 3}.c4{grid-column:span 4}.c6{grid-column:span 6}.c8{grid-column:span 8}.c12{grid-column:span 12}
+@media(max-width:960px){.c3,.c4{grid-column:span 6}.c6,.c8{grid-column:span 12}}
+@media(max-width:620px){.c3,.c4,.c6{grid-column:span 12}.wrap{padding:12px}h1{font-size:16px}.big{font-size:22px!important}}
+.big{font:600 26px/1.1 var(--mono)}
+.ok{color:var(--ok)}.warn{color:var(--warn)}.bad{color:var(--bad)}.mut{color:var(--mut)}
+.row{display:grid;grid-template-columns:minmax(0,110px) minmax(0,1fr) minmax(0,auto);gap:8px;align-items:center;
+padding:5px 0;font:12px var(--mono);border-bottom:1px solid rgba(35,45,66,.6)}.row:last-child{border-bottom:0}
+.row>*{min-width:0}.row .k{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar{display:block;height:8px;background:#0a0e16;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;border-radius:99px}
+.row .v{text-align:right;color:var(--mut);white-space:nowrap}
+table{width:100%;border-collapse:collapse;font:12px var(--mono)}
+th{text-align:left;color:var(--mut);font-weight:500;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:6px 8px;border-bottom:1px solid rgba(35,45,66,.6);white-space:nowrap;max-width:280px;overflow:hidden;text-overflow:ellipsis}
+.tw{overflow:auto;max-height:420px}
+.pill{display:inline-block;font:600 10px var(--mono);padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut)}
+.pill.ok{border-color:var(--ok);color:var(--ok)}.pill.warn{border-color:var(--warn);color:var(--warn)}.pill.bad{border-color:var(--bad);color:var(--bad)}
+.note{font-size:12px;color:var(--mut);line-height:1.55}
+.empty{color:var(--mut);font-size:13px;padding:14px 0}
+.kv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,auto);gap:4px 12px;font:12px var(--mono)}
+.kv span:nth-child(odd){color:var(--mut)}
+.spark{display:flex;gap:2px;align-items:flex-end;height:44px}
+.spark i{flex:1;min-width:2px;background:var(--acc);border-radius:1px;opacity:.85}
+</style></head><body><div class="wrap">
+<header><h1>POLYLAB</h1><span class="sub" id="ver"></span>
+<span class="tag shadow">SHADOW</span><span class="tag off">LIVE OFF</span>
+<span class="sub" id="updated"></span></header>
+<p class="lead">Исследовательская платформа: сначала доказываем качество данных, потом ищем закономерности.
+Здесь нет торговых результатов — это слой наблюдения.</p>
+
+<nav id="nav"></nav>
+
+<div id="v_health" class="view">
+ <div class="grid">
+  <div class="card c3"><h2>Дней собрано</h2><div class="big" id="h_days">—</div><div class="sub" id="h_range"></div></div>
+  <div class="card c3"><h2>Снимков всего</h2><div class="big" id="h_snaps">—</div><div class="sub" id="h_perday"></div></div>
+  <div class="card c3"><h2>Валидных</h2><div class="big" id="h_valid">—</div><div class="sub" id="h_validsub"></div></div>
+  <div class="card c3"><h2>Последний сбор</h2><div class="big" id="h_last">—</div><div class="sub" id="h_lastsub"></div></div>
+  <div class="card c8"><h2>Снимков по дням</h2><div class="spark" id="h_spark"></div><div class="sub" id="h_sparksub"></div></div>
+  <div class="card c4"><h2>Качество записей</h2><div id="h_quality"></div>
+   <div class="note" style="margin-top:8px">DEGRADED — не хватает признаков, требующих истории. INVALID — источник не дал опорную цену.</div></div>
+  <div class="card c6"><h2>Покрытие по окнам</h2><div id="h_windows"></div>
+   <div class="note" style="margin-top:8px">60m рынки пока не встречались. Не утверждаем, что их нет — нужно отдельное наблюдение.</div></div>
+  <div class="card c6"><h2>Покрытие по активам</h2><div id="h_assets"></div></div>
+  <div class="card c6"><h2>Доступность признаков</h2><div id="h_feats"></div>
+   <div class="note" style="margin-top:8px">market_volume всегда 0: Polymarket не отдаёт объём. Подменять его ликвидностью нельзя.</div></div>
+  <div class="card c6"><h2>Отсутствующие поля</h2><div id="h_missing"></div></div>
+ </div>
+</div>
+
+<div id="v_storage" class="view" hidden>
+ <div class="grid">
+  <div class="card c12"><h2>Решение по хранению</h2>
+   <div class="note">Схема «7 дней raw в Git» отвергнута по измерению: после удаления raw и <code>gc --prune=now</code>
+   рабочее дерево уменьшилось с 49 до 27 МБ, а <code>.git</code> остался 45 МБ — объекты достижимы из истории.
+   Прирост ≈ 3.2 МБ/сутки → ≈ 1.2 ГБ/год. Поэтому raw в Git не попадает вообще.</div></div>
+  <div class="card c4"><h2>В Git</h2><div class="kv" id="s_git"></div></div>
+  <div class="card c4"><h2>В артефактах Actions</h2><div class="kv" id="s_art"></div></div>
+  <div class="card c4"><h2>Прогноз роста Git</h2><div class="kv" id="s_growth"></div></div>
+  <div class="card c12"><h2>Retention</h2><div class="tw"><table><thead><tr>
+   <th>Данные</th><th>Где</th><th>Срок</th><th>Почему</th></tr></thead><tbody id="s_ret"></tbody></table></div></div>
+ </div>
+</div>
+
+<div id="v_coverage" class="view" hidden>
+ <div class="grid">
+  <div class="card c12"><h2>Дни сбора</h2><div class="tw"><table><thead><tr>
+   <th>День</th><th>Снимков</th><th>Валидных</th><th>Доля валидных</th><th>Движений с исходом</th><th>Raw</th>
+   </tr></thead><tbody id="c_days"></tbody></table></div></div>
+  <div class="card c6"><h2>Бакеты цены входа</h2><div id="c_entry"></div></div>
+  <div class="card c6"><h2>Бакеты движения</h2><div id="c_move"></div></div>
+  <div class="card c6"><h2>Бакеты фазы окна</h2><div id="c_elapsed"></div></div>
+  <div class="card c6"><h2>Движения и их исход</h2><div id="c_moves"></div>
+   <div class="note" style="margin-top:8px">Классификация постфактум, не предсказание. Признаки момента обнаружения и исход хранятся раздельно.</div></div>
+ </div>
+</div>
+
+<div id="v_latency" class="view" hidden>
+ <div class="grid">
+  <div class="card c12"><h2>Статус исследования задержек</h2>
+   <div class="note">При шаге опроса 15 секунд задержка меньше интервала <b>принципиально неизмерима</b>.
+   Замер: 106 записей LOW, 2 MEDIUM, 0 HIGH. Это данные о том, что при такой частоте задержку не поймать,
+   а не данные о задержке. Здесь показана <b>наблюдаемая разница времён</b> — не доказанная причинность.
+   Отдельный высокочастотный зонд появится позже и не будет загрязнять Market DNA.</div></div>
+  <div class="card c6"><h2>Записей и качество</h2><div id="l_quality"></div></div>
+  <div class="card c6"><h2>Что доступно от источников</h2><div class="kv" id="l_sources"></div></div>
+ </div>
+</div>
+</div>
+<script>
+const $=id=>document.getElementById(id), fmt=(n,d=0)=>n==null||isNaN(n)?'—':Number(n).toFixed(d);
+const esc=s=>String(s??'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const PAGES=[['health','Data Health'],['coverage','Покрытие'],['storage','Хранение'],['latency','Задержки']];
+let cur='health', DAYS=[], AGG=null;
+function nav(){$('nav').innerHTML=PAGES.map(([k,n])=>`<button class="${k===cur?'on':''}" onclick="go('${k}')">${n}</button>`).join('')}
+function go(k){cur=k;PAGES.forEach(([p])=>{const e=$('v_'+p);if(e)e.hidden=p!==k});nav();window.scrollTo(0,0)}
+const bars=(el,obj,color)=>{const t=Object.values(obj||{}).reduce((a,b)=>a+(b.n??b),0)||1;
+ $(el).innerHTML=Object.entries(obj||{}).sort().map(([k,v])=>{const n=v.n??v;
+  return `<div class="row"><span class="k">${esc(k)}</span><span class="bar"><i style="width:${(n/t*100).toFixed(0)}%;background:${color||'var(--acc)'}"></i></span><span class="v">${n}</span></div>`}).join('')||'<div class="empty">нет данных</div>'};
+async function load(){
+ try{
+  const idx=await (await fetch('./data/agg/index.json?t='+Date.now())).json();
+  DAYS=idx.days||[];
+  const last=DAYS[DAYS.length-1];
+  if(last) AGG=await (await fetch(`./data/agg/${last.day}.json?t=`+Date.now())).json();
+ }catch(e){}
+ render();
+}
+function render(){
+ $('ver').textContent='v0.2.0 · storage 5C';
+ const tot=DAYS.reduce((a,d)=>a+d.snapshots,0), val=DAYS.reduce((a,d)=>a+d.valid,0);
+ $('h_days').textContent=DAYS.length;
+ $('h_range').textContent=DAYS.length?`${DAYS[0].day} — ${DAYS[DAYS.length-1].day}`:'сбор не начался';
+ $('h_snaps').textContent=tot.toLocaleString('ru');
+ $('h_perday').textContent=DAYS.length?`≈ ${Math.round(tot/DAYS.length)} в сутки`:'';
+ const share=tot?val/tot:0;
+ $('h_valid').textContent=tot?(share*100).toFixed(0)+'%':'—';
+ $('h_valid').className='big '+(share>=.8?'ok':share>=.5?'warn':'bad');
+ $('h_validsub').textContent=`${val.toLocaleString('ru')} из ${tot.toLocaleString('ru')}`;
+ const L=DAYS[DAYS.length-1];
+ $('h_last').textContent=L?L.day.slice(5):'—';
+ $('h_lastsub').textContent=L?`${L.snapshots} снимков${L.raw_present?' · raw на месте':' · raw в артефакте'}`:'';
+ const mx=Math.max(...DAYS.map(d=>d.snapshots),1);
+ $('h_spark').innerHTML=DAYS.slice(-30).map(d=>`<i style="height:${Math.max(4,d.snapshots/mx*100)}%" title="${d.day}: ${d.snapshots}"></i>`).join('')||'';
+ $('h_sparksub').textContent=DAYS.length?`последние ${Math.min(30,DAYS.length)} дней`:'данных пока нет';
+ if(AGG){
+  const q=AGG.quality||{};
+  $('h_quality').innerHTML=Object.entries(q).sort().map(([k,v])=>{const t=Object.values(q).reduce((a,b)=>a+b,0)||1;
+   const c=k==='GOOD'?'var(--ok)':k==='INVALID'?'var(--bad)':'var(--warn)';
+   return `<div class="row"><span class="k">${k}</span><span class="bar"><i style="width:${(v/t*100).toFixed(0)}%;background:${c}"></i></span><span class="v">${v}</span></div>`}).join('');
+  bars('h_windows',(AGG.cuts||{}).window,'var(--vio)');
+  bars('h_assets',(AGG.cuts||{}).asset);
+  const fa=AGG.feature_availability||{}, n=AGG.snapshots||1;
+  $('h_feats').innerHTML=Object.entries(fa).sort().map(([k,v])=>
+   `<div class="row"><span class="k">${esc(k)}</span><span class="bar"><i style="width:${(v/n*100).toFixed(0)}%;background:${v?'var(--ok)':'var(--bad)'}"></i></span><span class="v">${(v/n*100).toFixed(0)}%</span></div>`).join('');
+  bars('h_missing',AGG.missing_fields,'var(--warn)');
+  bars('c_entry',(AGG.cuts||{}).entry_bucket);
+  bars('c_move',(AGG.cuts||{}).move_bucket,'var(--vio)');
+  bars('c_elapsed',(AGG.cuts||{}).elapsed_bucket);
+  const mv=AGG.moves||{};
+  $('c_moves').innerHTML=`<div class="kv"><span>обнаружено</span><span>${mv.n||0}</span>
+   <span>с известным исходом</span><span>${mv.with_outcome||0}</span>
+   <span>продолжилось</span><span class="ok">${mv.continued||0}</span>
+   <span>развернулось</span><span class="bad">${mv.reversed||0}</span>
+   <span>среднее время до разворота</span><span>${mv.avg_time_to_reversal_sec??'—'}</span></div>`;
+  const lq=(AGG.latency||{}).quality||{};
+  $('l_quality').innerHTML=Object.keys(lq).length?Object.entries(lq).sort().map(([k,v])=>{
+   const t=Object.values(lq).reduce((a,b)=>a+b,0)||1;const c=k==='HIGH'?'var(--ok)':k==='MEDIUM'?'var(--warn)':'var(--mut)';
+   return `<div class="row"><span class="k">${k}</span><span class="bar"><i style="width:${(v/t*100).toFixed(0)}%;background:${c}"></i></span><span class="v">${v}</span></div>`}).join(''):'<div class="empty">нет записей</div>';
+ }
+ $('c_days').innerHTML=DAYS.slice().reverse().map(d=>{const sh=d.snapshots?d.valid/d.snapshots:0;
+  return `<tr><td>${d.day}</td><td>${d.snapshots}</td><td>${d.valid}</td>
+  <td class="${sh>=.8?'ok':sh>=.5?'warn':'bad'}">${(sh*100).toFixed(0)}%</td><td>${d.moves}</td>
+  <td><span class="pill ${d.raw_present?'ok':''}">${d.raw_present?'локально':'артефакт'}</span></td></tr>`}).join('')
+  ||'<tr><td colspan="6" class="empty">сбор ещё не начинался</td></tr>';
+ $('s_git').innerHTML=`<span>дневные агрегаты</span><span>~4 КБ/сут</span><span>движения с исходами</span><span>~30 КБ/сут</span>
+  <span>индекс id</span><span>постоянный, обрезается</span><span>журнал сигналов</span><span>мало</span>`;
+ $('s_art').innerHTML=`<span>raw Market DNA</span><span>4.7 МБ/сут (gzip)</span><span>raw latency</span><span>5.9 МБ/сут</span>
+  <span>срок хранения</span><span>90 дней</span><span>стоимость</span><span class="ok">бесплатно (public)</span>`;
+ $('s_growth').innerHTML=`<span>было бы с raw в Git</span><span class="bad">≈ 1.2 ГБ/год</span>
+  <span>стало (только агрегаты)</span><span class="ok">≈ 12 МБ/год</span>
+  <span>сейчас .git</span><span>1.3 МБ</span>`;
+ $('s_ret').innerHTML=[['raw Market DNA','артефакт Actions','90 дней','в Git рос бы необратимо'],
+  ['raw latency','артефакт Actions','90 дней','пока неинформативен, но пусть лежит'],
+  ['движения с исходами','Git','90 дней','размеченный датасет, компактный'],
+  ['дневные агрегаты','Git','бессрочно','основа долгосрочного анализа'],
+  ['индекс id','Git','6 часов скользящим окном','идемпотентность; окно закрыто — id не повторится'],
+  ['локальные raw','рабочая папка','2 дня','нужны только для дозаписи суточного файла']]
+  .map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join('')}</tr>`).join('');
+ $('l_sources').innerHTML=`<span>Coinbase ticker</span><span class="ok">мс</span>
+  <span>CLOB /book timestamp</span><span class="ok">мс</span><span>CLOB /price</span><span class="bad">времени нет</span>
+  <span>CLOB /time</span><span class="warn">секунды</span><span>Coinbase candles</span><span class="warn">60 сек</span>
+  <span>расхождение часов</span><span class="warn">точнее секунды не измеримо</span>`;
+ $('updated').textContent='обновлено '+new Date().toLocaleString('ru');
+}
+nav();load();
+</script></body></html>
