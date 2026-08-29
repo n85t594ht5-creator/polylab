@@ -39,7 +39,7 @@ class Collector:
         self.moves: dict[str, dict] = {}          # активные движения (features уже зафиксированы)
         self.pending_moves: list[dict] = []       # ждут outcome после конца окна
         self.stats = {"snapshots": 0, "duplicates": 0, "markets": set(), "assets": set(),
-                      "by_window": {}, "quality": {}, "latency_events": 0, "moves": 0,
+                      "by_window": {}, "quality": {}, "latency_events": 0, "moves": 0, "ref_missing": 0, "latency_quality": {},
                       "stale": 0, "incomplete": 0}
 
     # ── один проход по всем активным окнам ──
@@ -68,9 +68,13 @@ class Collector:
                 continue
             ref = self.refs.get(m["market_id"])
             if ref is None:
+                # свеча старта могла ещё не опубликоваться — пробуем на каждом проходе,
+                # пока окно живо; удачное значение кэшируем на всё окно
                 ref = SRC.minute_ref(m["asset"], m["start"])
                 if ref:
                     self.refs[m["market_id"]] = ref
+                else:
+                    self.stats["ref_missing"] = self.stats.get("ref_missing", 0) + 1
             cur = tk["price"]
             book_up = SRC.book_metrics(SRC.fetch_book(m["up_token"]))
             book_dn = SRC.book_metrics(SRC.fetch_book(m["down_token"]))
@@ -160,6 +164,7 @@ class Collector:
             "note": "observed timing difference; causality not established",
             "collector_version": SRC.COLLECTOR_VERSION}, now)
         self.stats["latency_events"] += 1
+        self.stats["latency_quality"][qual] = self.stats["latency_quality"].get(qual, 0) + 1
 
     # ── движения: признаки фиксируются в момент обнаружения, исход — только позже ──
     def _detect_move(self, m: dict, row: dict, now: datetime) -> None:

@@ -173,14 +173,24 @@ def ticker(asset: str) -> Optional[dict]:
 
 
 def minute_ref(asset: str, dt: datetime) -> Optional[float]:
-    """Опорная цена окна: TWAP минуты старта (среднее open/close), как у Chainlink."""
+    """Опорная цена окна: TWAP минуты старта (среднее open/close), как у Chainlink.
+
+    Замер 5B показал: у Coinbase есть лаг публикации свечей и пропуски минут без
+    сделок. Узкий запрос [start, start+2m] для только что стартовавших 5-минутных
+    окон возвращал пустой массив в 100% случаев. Поэтому берём широкий диапазон и
+    выбираем ведро ТОЧНО по времени старта. Если его нет — возвращаем None
+    (запись получит quality=INVALID), но не подставляем соседнюю минуту.
+    """
+    bucket = int(dt.timestamp()) // 60 * 60
     j = get(f"{COINBASE}/products/{CB_PRODUCT[asset]}/candles", granularity=60,
-            start=dt.strftime("%Y-%m-%dT%H:%M:%SZ"),
-            end=(dt + timedelta(minutes=2)).strftime("%Y-%m-%dT%H:%M:%SZ"))
+            start=(dt - timedelta(minutes=3)).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            end=(dt + timedelta(minutes=3)).strftime("%Y-%m-%dT%H:%M:%SZ"))
     if not j:
         return None
-    j = sorted(j, key=lambda c: c[0])
-    return round((float(j[0][3]) + float(j[0][4])) / 2, 6)
+    for c in j:
+        if int(c[0]) == bucket:
+            return round((float(c[3]) + float(c[4])) / 2, 6)
+    return None
 
 
 def _f(v):
