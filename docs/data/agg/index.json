@@ -9,8 +9,8 @@
   },
   {
    "day": "2026-08-29",
-   "snapshots": 50,
-   "valid": 45,
+   "snapshots": 45,
+   "valid": 41,
    "moves": 0,
    "raw_present": true
   }
