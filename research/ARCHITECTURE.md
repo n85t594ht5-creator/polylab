@@ -67,8 +67,8 @@ LIVE отключён на уровне кода: `EXECUTION_MODES` не сод�
 
 - [x] PHASE 0 — backup A, независимый репозиторий B
 - [x] PHASE 1 — аудит, архитектура
-- [ ] PHASE 2 — data layer + universal signal ledger
-- [ ] PHASE 3 — strategy interface + Shadow/Paper Arena
+- [x] PHASE 2 — data layer + universal signal ledger
+- [x] PHASE 3 — strategy interface + Shadow/Paper Arena
 - [ ] PHASE 4 — Portfolio + Risk
 - [ ] PHASE 5 — Market DNA / Latency / Fake Move / Order Book
 - [ ] PHASE 6 — Dashboard
