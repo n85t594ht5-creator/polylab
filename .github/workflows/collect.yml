@@ -32,12 +32,25 @@ jobs:
       - run: pip install requests
 
       # raw предыдущего прогона нужен, чтобы дописывать тот же суточный файл
-      - name: Restore previous raw
+      - name: Day key
+        id: day
+        run: echo "d=$(date -u +%Y-%m-%d)" >> $GITHUB_OUTPUT
+
+      # Суточный raw обязан накапливаться между прогонами. Артефакт именуется по
+      # дню: иначе прогон следующих суток затирает предыдущие (это уже случилось —
+      # 50 снимков превратились в 45).
+      - name: Restore raw of the day
+        id: restore
         uses: actions/download-artifact@v4
         continue-on-error: true
         with:
-          name: polylab-raw-latest
+          name: raw-${{ steps.day.outputs.d }}
           path: data/raw
+
+      - name: Report restore result
+        run: |
+          echo "восстановление: ${{ steps.restore.outcome }}"
+          ls -la data/raw/dna 2>/dev/null || echo "raw пуст — это первый прогон суток"
 
       - name: Collect
         env:
@@ -68,10 +81,10 @@ jobs:
           PY
 
       # raw НЕ коммитится: замер показал рост .git на 3.2 МБ/сутки без возможности вернуть
-      - name: Upload raw (artifact, public repo — бесплатно, до 90 дней)
+      - name: Upload raw of the day
         uses: actions/upload-artifact@v4
         with:
-          name: polylab-raw-latest
+          name: raw-${{ steps.day.outputs.d }}
           path: data/raw
           retention-days: 90
           overwrite: true

@@ -157,6 +157,23 @@ def main() -> None:
     agg = build(day)
     os.makedirs("data/agg", exist_ok=True)
     p = f"data/agg/{day}.json"
+
+    # Защита долгосрочного датасета: raw живёт в артефактах и может не
+    # восстановиться. Если новый расчёт беднее уже сохранённого — сохраняем
+    # прежний и помечаем факт, а не молча теряем сутки.
+    if os.path.exists(p):
+        try:
+            old = json.load(open(p, encoding="utf-8"))
+        except Exception:
+            old = None
+        if old and old.get("snapshots", 0) > agg.get("snapshots", 0):
+            print(f"ВНИМАНИЕ: пересчёт дал {agg['snapshots']} снимков против {old['snapshots']} "
+                  f"сохранённых — raw неполон. Оставляю прежний агрегат.")
+            old["raw_incomplete_on_rebuild"] = True
+            old["last_rebuild_attempt"] = {
+                "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "snapshots_seen": agg.get("snapshots", 0)}
+            agg = old
     tmp = p + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(agg, f, ensure_ascii=False, indent=1, sort_keys=True)

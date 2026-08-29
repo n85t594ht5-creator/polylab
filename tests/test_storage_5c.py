@@ -175,6 +175,45 @@ a4 = AGG.build(day3)
 ck("часть записей спасена при обрыве", a4["snapshots"] > 0, f"{a4['snapshots']} из 40")
 ck("обрыв отмечен флагом", a4.get("raw_truncated") is True, str(a4.get("raw_truncated")))
 
+# ── защита агрегата от потери данных при неполном raw ──
+print("\nагрегат не уменьшается при неполном raw")
+import subprocess
+day4 = "2026-09-01"
+d4 = datetime(2026, 9, 1, 12, 0, 0, tzinfo=timezone.utc)
+s9 = Store()
+for i in range(30):
+    s9.add_dna(row(f"full@{i*15}", asset="BTC", window="5m"))
+s9.flush_dna(d4)
+r1 = subprocess.run([sys.executable, os.path.join(ROOT, "polylab/data/aggregate.py"), day4],
+                    capture_output=True, text=True)
+a_full = json.load(open(f"data/agg/{day4}.json"))
+ck("полный агрегат построен", a_full["snapshots"] == 30, str(a_full["snapshots"]))
+
+# имитируем потерю raw: артефакт не восстановился, файл начат заново
+os.remove(s9.dna_path(d4))
+s10 = Store(); s10.seen = set()
+for i in range(5):
+    s10.add_dna(row(f"partial@{i*15}", asset="BTC", window="5m"))
+s10.flush_dna(d4)
+r2 = subprocess.run([sys.executable, os.path.join(ROOT, "polylab/data/aggregate.py"), day4],
+                    capture_output=True, text=True)
+a_after = json.load(open(f"data/agg/{day4}.json"))
+ck("агрегат НЕ уменьшился", a_after["snapshots"] == 30, f"{a_after['snapshots']} (было 30)")
+ck("факт неполноты помечен", a_after.get("raw_incomplete_on_rebuild") is True)
+ck("зафиксировано, сколько увидели", (a_after.get("last_rebuild_attempt") or {}).get("snapshots_seen") == 5,
+   str(a_after.get("last_rebuild_attempt")))
+ck("предупреждение выведено", "ВНИМАНИЕ" in r2.stdout, r2.stdout.strip()[:60])
+
+# рост по-прежнему возможен
+s11 = Store(); s11.load_seen()
+for i in range(40):
+    s11.add_dna(row(f"more@{i*15}", asset="ETH", window="15m"))
+s11.flush_dna(d4)
+subprocess.run([sys.executable, os.path.join(ROOT, "polylab/data/aggregate.py"), day4],
+               capture_output=True, text=True)
+a_grow = json.load(open(f"data/agg/{day4}.json"))
+ck("при полном raw агрегат растёт", a_grow["snapshots"] >= 40, str(a_grow["snapshots"]))
+
 bad = [n for n, o in R if not o]
 print(f"\n{'='*52}\nSTORAGE-5C: {len(R)-len(bad)}/{len(R)}")
 if bad: print("ПРОВАЛЕНО:", *bad, sep="\n  ")

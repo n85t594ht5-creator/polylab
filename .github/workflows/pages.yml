@@ -4,6 +4,12 @@ on:
   push:
     branches: [main]
     paths: ["docs/**"]
+  # Push, сделанный workflow с GITHUB_TOKEN, намеренно не запускает другие
+  # workflow (защита GitHub от рекурсии). Поэтому публикацию после сбора
+  # данных запускаем явно по завершении коллектора.
+  workflow_run:
+    workflows: ["POLYLAB collector"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -23,11 +29,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main          # workflow_run отдаёт коммит триггера, нам нужен свежий main
       - name: Stamp build with commit
         run: |
           mkdir -p docs
           cat > docs/build.json <<EOF
-          {"commit": "${{ github.sha }}",
+          {"commit": "$(git rev-parse HEAD)",
            "built_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
            "run_id": "${{ github.run_id }}"}
           EOF
@@ -57,7 +65,8 @@ jobs:
 
           B=$(curl -s "${URL}build.json")
           echo "build.json: $B"
-          echo "$B" | grep -q "${{ github.sha }}" || { echo "САЙТ ОТДАЁТ СТАРЫЙ КОММИТ"; exit 1; }
+          SHA=$(git rev-parse HEAD)
+          echo "$B" | grep -q "$SHA" || { echo "САЙТ ОТДАЁТ СТАРЫЙ КОММИТ (ожидался $SHA)"; exit 1; }
 
           IDX=$(curl -s -o /tmp/idx.json -w "%{http_code}" "${URL}data/agg/index.json")
           echo "index.json: HTTP $IDX, $(wc -c < /tmp/idx.json) байт"
@@ -81,4 +90,4 @@ jobs:
           print('снимков:',a['snapshots'],'валидных:',a['valid'])
           print('разрезы:',sorted(a['cuts']))
           "
-          echo "✔ САЙТ ОПУБЛИКОВАН И СООТВЕТСТВУЕТ КОММИТУ ${{ github.sha }}"
+          echo "✔ САЙТ ОПУБЛИКОВАН И СООТВЕТСТВУЕТ КОММИТУ $(git rev-parse HEAD)"
