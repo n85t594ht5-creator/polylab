@@ -1,36 +1,42 @@
 {
- "snapshots": 72,
+ "snapshots": 108,
  "duplicates": 0,
- "markets": 12,
+ "markets": 8,
  "assets": 4,
  "by_window": {
-  "5m": 48,
-  "15m": 24
+  "15m": 60,
+  "5m": 48
  },
  "quality": {
-  "INVALID": 48,
-  "DEGRADED": 20,
-  "GOOD": 4
+  "DEGRADED": 41,
+  "INVALID": 12,
+  "GOOD": 24,
+  "INCOMPLETE": 31
  },
- "latency_events": 72,
- "moves": 4,
+ "latency_events": 108,
+ "moves": 5,
+ "ref_missing": 12,
+ "latency_quality": {
+  "LOW": 106,
+  "MEDIUM": 2
+ },
  "stale": 0,
- "incomplete": 0,
+ "incomplete": 31,
  "api": {
-  "requests": 296,
+  "requests": 335,
   "failures": 0,
   "retries": 0,
-  "latency_median_ms": 105.9,
-  "latency_max_ms": 285.2
+  "latency_median_ms": 96.5,
+  "latency_max_ms": 224.0
  },
  "storage": {
   "dna": {
    "files": 1,
-   "bytes": 12237
+   "bytes": 27336
   },
   "latency": {
    "files": 1,
-   "bytes": 13880
+   "bytes": 34467
   },
   "moves": {
    "files": 0,
@@ -40,11 +46,11 @@
    "files": 0,
    "bytes": 0
   },
-  "total_bytes": 26117
+  "total_bytes": 61803
  },
  "duplicates_store": 0,
- "restored_ids": 0,
+ "restored_ids": 72,
  "run_sec": 300,
  "sample_sec": 15,
- "finished_at": "2026-08-29T09:07:34.153867+00:00"
+ "finished_at": "2026-08-29T09:16:26.746058+00:00"
 }
