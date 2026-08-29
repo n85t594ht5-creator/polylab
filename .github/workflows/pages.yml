@@ -23,9 +23,62 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Stamp build with commit
+        run: |
+          mkdir -p docs
+          cat > docs/build.json <<EOF
+          {"commit": "${{ github.sha }}",
+           "built_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+           "run_id": "${{ github.run_id }}"}
+          EOF
+          cp -f data/agg/*.json docs/data/agg/ 2>/dev/null || true
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs
       - id: deployment
         uses: actions/deploy-pages@v4
+
+      # Публикация не считается завершённой, пока сайт фактически не открылся
+      # и не подтвердил, что отдаёт именно этот коммит.
+      - name: Verify published site
+        run: |
+          URL="${{ steps.deployment.outputs.page_url }}"
+          echo "проверяю $URL"
+          for i in $(seq 1 12); do
+            CODE=$(curl -s -o /tmp/page.html -w "%{http_code}" "$URL" || echo 000)
+            [ "$CODE" = "200" ] && break
+            echo "  попытка $i: HTTP $CODE, жду 10с"; sleep 10
+          done
+          echo "страница: HTTP $CODE, $(wc -c < /tmp/page.html) байт"
+          [ "$CODE" = "200" ] || { echo "САЙТ НЕ ОТКРЫЛСЯ"; exit 1; }
+          grep -q "POLYLAB" /tmp/page.html || { echo "НЕ ТА СТРАНИЦА"; exit 1; }
+
+          B=$(curl -s "${URL}build.json")
+          echo "build.json: $B"
+          echo "$B" | grep -q "${{ github.sha }}" || { echo "САЙТ ОТДАЁТ СТАРЫЙ КОММИТ"; exit 1; }
+
+          IDX=$(curl -s -o /tmp/idx.json -w "%{http_code}" "${URL}data/agg/index.json")
+          echo "index.json: HTTP $IDX, $(wc -c < /tmp/idx.json) байт"
+          [ "$IDX" = "200" ] || { echo "ДАННЫЕ НЕДОСТУПНЫ С САЙТА"; exit 1; }
+          python3 -c "
+          import json,sys
+          d=json.load(open('/tmp/idx.json'))
+          days=d.get('days') or []
+          print('дней в индексе:', len(days))
+          if days: print('последний день:', days[-1])
+          sys.exit(0 if days else 1)
+          " || { echo "ИНДЕКС ПУСТ"; exit 1; }
+
+          DAY=$(python3 -c "import json;print(json.load(open('/tmp/idx.json'))['days'][-1]['day'])")
+          AGG=$(curl -s -o /tmp/agg.json -w "%{http_code}" "${URL}data/agg/${DAY}.json")
+          echo "агрегат $DAY: HTTP $AGG, $(wc -c < /tmp/agg.json) байт"
+          [ "$AGG" = "200" ] || { echo "АГРЕГАТ НЕДОСТУПЕН"; exit 1; }
+          python3 -c "
+          import json
+          a=json.load(open('/tmp/agg.json'))
+          print('снимков:',a['snapshots'],'валидных:',a['valid'])
+          print('разрезы:',sorted(a['cuts']))
+          "
+          echo "✔ САЙТ ОПУБЛИКОВАН И СООТВЕТСТВУЕТ КОММИТУ ${{ github.sha }}"
