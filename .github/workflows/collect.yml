@@ -1,0 +1,56 @@
+name: POLYLAB collector
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_sec:
+        description: "Длительность прогона, сек"
+        default: "300"
+      sample_sec:
+        description: "Интервал снимков, сек"
+        default: "15"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: polylab-collector
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Collect
+        env:
+          RUN_SEC: ${{ github.event.inputs.run_sec || '300' }}
+          SAMPLE_SEC: ${{ github.event.inputs.sample_sec || '15' }}
+          ASSETS: BTC,ETH,SOL,XRP
+          WINDOWS: "5,15,60"
+        run: python polylab/data/collector.py
+      - name: Rotate old data
+        run: |
+          python - <<'PY'
+          import sys; sys.path.insert(0,'.')
+          from polylab.data.store import Store
+          from datetime import datetime, timezone
+          print("удалено:", Store().rotate(datetime.now(timezone.utc)))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: collector-run
+          path: research/COLLECTOR_RUN.json
+          retention-days: 7
+      - name: Commit data
+        run: |
+          git config user.name "polylab"
+          git config user.email "polylab@users.noreply.github.com"
+          git add data/ research/COLLECTOR_RUN.json
+          git commit -m "collector run $(date -u +'%Y-%m-%d %H:%M')" || echo "нет изменений"
+          git pull --rebase && git push
