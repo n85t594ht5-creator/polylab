@@ -82,6 +82,31 @@ class Signal:
         return asdict(self)
 
 
+@dataclass(frozen=True)
+class Outcome:
+    """Исход, известный ТОЛЬКО после закрытия окна.
+
+    Связан со снимком по snapshot_id и живёт отдельно от него. Признаки снимка
+    заморожены (MarketSnapshot — frozen), поэтому исход физически не может
+    попасть обратно в вектор признаков. Это ключевой инвариант POLYLAB.
+    """
+    snapshot_id: str
+    resolved_at: datetime
+    final_price: float
+    final_direction: str            # UP | DOWN
+    resolution: str                 # CONTINUED | REVERSED | WIN | LOSS
+    max_continuation: Optional[float] = None
+    max_reversal: Optional[float] = None
+    time_to_reversal_sec: Optional[float] = None
+
+    # Поля, которые НИКОГДА не должны появиться в признаках снимка.
+    FORBIDDEN_IN_FEATURES = ("final_price", "final_direction", "resolution",
+                             "max_continuation", "max_reversal", "time_to_reversal_sec")
+
+    def to_dict(self) -> dict:
+        return {k: v for k, v in asdict(self).items()}
+
+
 @dataclass
 class Decision:
     """Вердикт Portfolio Manager по сигналу."""

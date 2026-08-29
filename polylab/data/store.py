@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import csv
 import gzip
+import zlib
 import io
 import os
 from datetime import datetime, timedelta, timezone
@@ -69,16 +70,60 @@ class Store:
     def dna_path(self, ts: datetime) -> str:
         return os.path.join(self.root, "dna", f"{_day(ts)}.csv.gz")
 
+    def index_path(self, ts: datetime) -> str:
+        """Плоский индекс записанных id.
+
+        Нужен потому, что gzip — единый deflate-поток: обрыв файла при падении
+        процесса делает нечитаемым всё, а не только хвост (проверено тестом).
+        Текстовый индекс теряет максимум последнюю строку, поэтому именно он —
+        источник истины для идемпотентности.
+        """
+        return os.path.join(self.root, "dna", f"{_day(ts)}.ids")
+
     def load_seen(self, ts: datetime) -> int:
-        """Восстанавливает id уже записанных снимков суток — защита от дублей после рестарта."""
+        """Восстанавливает id записанных снимков суток — защита от дублей после рестарта.
+
+        Читает построчно и сохраняет всё, что успело распаковаться: если процесс
+        упал посреди записи, хвост файла битый, но уже записанные id мы обязаны
+        узнать, иначе появятся дубли. Полностью повреждённый заголовок
+        восстановить нельзя — это ограничение зафиксировано в тестах.
+        """
+        # 1) основной источник — плоский индекс
+        ip = self.index_path(ts)
+        if os.path.exists(ip):
+            try:
+                with open(ip, encoding="utf-8", errors="replace") as f:
+                    for line in f:
+                        sid = line.strip()
+                        if sid:
+                            self.seen.add(sid)
+            except OSError:
+                pass
+        # 2) дополняем тем, что удастся вычитать из gz
         p = self.dna_path(ts)
         if not os.path.exists(p):
-            return 0
+            return len(self.seen)
+        lines: list[str] = []
         try:
-            with gzip.open(p, "rt", encoding="utf-8") as f:
-                for r in csv.DictReader(f):
-                    self.seen.add(r["snapshot_id"])
-        except Exception:
+            with gzip.open(p, "rt", encoding="utf-8", errors="replace") as f:
+                while True:
+                    try:
+                        line = f.readline()
+                    except (EOFError, OSError, gzip.BadGzipFile, zlib.error):
+                        break                      # обрыв потока — берём что успели
+                    if not line:
+                        break
+                    lines.append(line)
+        except (OSError, gzip.BadGzipFile, EOFError, zlib.error):
+            lines = []
+        if len(lines) < 2:
+            return len(self.seen)
+        try:
+            for r in csv.DictReader(lines):
+                sid = (r or {}).get("snapshot_id")
+                if sid:
+                    self.seen.add(sid)
+        except csv.Error:
             pass
         return len(self.seen)
 
@@ -103,6 +148,12 @@ class Store:
             w.writeheader()
         for r in self._buf:
             w.writerow({k: ("" if r.get(k) is None else r.get(k)) for k in DNA_FIELDS})
+        # индекс пишем и сбрасываем на диск ПЕРЕД сжатым файлом:
+        # лучше знать о лишнем id, чем записать дубль
+        with open(self.index_path(ts), "a", encoding="utf-8") as f:
+            f.write("".join(r["snapshot_id"] + "\n" for r in self._buf))
+            f.flush()
+            os.fsync(f.fileno())
         mode = "wt" if new else "at"
         with gzip.open(p, mode, encoding="utf-8") as f:
             f.write(buf.getvalue())
@@ -123,6 +174,7 @@ class Store:
     # ── ротация ──
     def rotate(self, now: datetime, keep: dict | None = None) -> dict:
         keep = keep or {"dna": 14, "latency": 90, "moves": 90}
+        # индексы .ids ротируются вместе с dna
         removed = {}
         for kind, days in keep.items():
             cutoff = (now - timedelta(days=days)).strftime("%Y-%m-%d")
