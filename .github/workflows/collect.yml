@@ -13,6 +13,8 @@ on:
 permissions:
   contents: write
 
+# защита от параллельных коллекторов на уровне Actions;
+# файловый замок в коде закрывает остальные случаи
 concurrency:
   group: polylab-collector
   cancel-in-progress: false
@@ -23,10 +25,20 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install requests
+
+      # raw предыдущего прогона нужен, чтобы дописывать тот же суточный файл
+      - name: Restore previous raw
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: polylab-raw-latest
+          path: data/raw
+
       - name: Collect
         env:
           RUN_SEC: ${{ github.event.inputs.run_sec || '300' }}
@@ -34,23 +46,42 @@ jobs:
           ASSETS: BTC,ETH,SOL,XRP
           WINDOWS: "5,15,60"
         run: python polylab/data/collector.py
-      - name: Rotate old data
+
+      - name: Build daily aggregate
+        run: |
+          python polylab/data/aggregate.py "$(date -u +%Y-%m-%d)"
+          python polylab/data/aggregate.py "$(date -u -d yesterday +%Y-%m-%d)" || true
+
+      - name: Rotate local files
         run: |
           python - <<'PY'
           import sys; sys.path.insert(0,'.')
           from polylab.data.store import Store
           from datetime import datetime, timezone
-          print("удалено:", Store().rotate(datetime.now(timezone.utc)))
+          print("удалено локально:", Store().rotate(datetime.now(timezone.utc)))
           PY
-      - uses: actions/upload-artifact@v4
+
+      # raw НЕ коммитится: замер показал рост .git на 3.2 МБ/сутки без возможности вернуть
+      - name: Upload raw (artifact, public repo — бесплатно, до 90 дней)
+        uses: actions/upload-artifact@v4
+        with:
+          name: polylab-raw-latest
+          path: data/raw
+          retention-days: 90
+          overwrite: true
+
+      - name: Upload run report
+        uses: actions/upload-artifact@v4
         with:
           name: collector-run
           path: research/COLLECTOR_RUN.json
-          retention-days: 7
-      - name: Commit data
+          retention-days: 30
+          overwrite: true
+
+      - name: Commit aggregates only
         run: |
           git config user.name "polylab"
           git config user.email "polylab@users.noreply.github.com"
-          git add data/ research/COLLECTOR_RUN.json
-          git commit -m "collector run $(date -u +'%Y-%m-%d %H:%M')" || echo "нет изменений"
+          git add data/agg data/moves data/state/ids.txt research/COLLECTOR_RUN.json
+          git commit -m "aggregates $(date -u +'%Y-%m-%d %H:%M')" || echo "нет изменений"
           git pull --rebase && git push

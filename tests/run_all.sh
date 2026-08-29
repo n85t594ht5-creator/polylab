@@ -2,11 +2,11 @@
 # Полный набор тестов POLYLAB. Сеть не используется — источники замоканы.
 cd "$(dirname "$0")/.."
 declare -A GROUP=( [test_collector.py]="collector" [test_quality.py]="data-quality" \
-                   [test_leakage.py]="leakage" [test_storage.py]="storage" )
+                   [test_leakage.py]="leakage" [test_storage.py]="storage" [test_storage_5c.py]="storage-5C" )
 TOTAL=0; PASSED=0; FAILED=0
-for t in test_collector.py test_quality.py test_leakage.py test_storage.py; do
+for t in test_collector.py test_quality.py test_leakage.py test_storage.py test_storage_5c.py; do
   OUT=$(timeout 300 python3 "tests/$t" 2>&1)
-  LINE=$(echo "$OUT" | grep -E "^(COLLECTOR|QUALITY|LEAKAGE|STORAGE):" | tail -1)
+  LINE=$(echo "$OUT" | grep -E "^(COLLECTOR|QUALITY|LEAKAGE|STORAGE|STORAGE-5C):" | tail -1)
   echo "$OUT" | grep -E "^ FAIL" | head -20
   P=$(echo "$LINE" | grep -oE "[0-9]+/[0-9]+" | cut -d/ -f1)
   N=$(echo "$LINE" | grep -oE "[0-9]+/[0-9]+" | cut -d/ -f2)

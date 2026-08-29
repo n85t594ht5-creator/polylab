@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 
 from polylab.core.features import build_features, quality, snapshot_id, FEATURE_VERSION
 from polylab.data import sources as SRC
-from polylab.data.store import LATENCY_FIELDS, MOVE_FIELDS, Store, SCHEMA_VERSION
+from polylab.data.store import LATENCY_FIELDS, MOVE_FIELDS, CollectorLock, Store, SCHEMA_VERSION
 
 SAMPLE_SEC = int(os.getenv("SAMPLE_SEC", "15"))       # частота снимков (5A: 15 с)
 MIN_ELAPSED_COLLECT = float(os.getenv("MIN_ELAPSED_COLLECT", "0.4"))
@@ -229,6 +229,17 @@ class Collector:
 
 
 def main() -> None:
+    lock = CollectorLock()
+    if not lock.acquire():
+        log.error("другой коллектор уже работает — выходим, чтобы не создать дубли")
+        sys.exit(0)
+    try:
+        _run()
+    finally:
+        lock.release()
+
+
+def _run() -> None:
     store = Store()
     now = SRC.now()
     restored = store.load_seen(now)
@@ -245,7 +256,9 @@ def main() -> None:
         store.flush_dna(SRC.now())
         time.sleep(max(0.0, SAMPLE_SEC - (time.time() - t0)))
     store.flush_dna(SRC.now())
-    rep = {**c.report(), "storage": store.size_report(),
+    pruned = store.prune_ids(SRC.now())
+    rep = {**c.report(), "storage": store.size_report(), "ids_pruned": pruned,
+           "ids_kept": len(store.seen),
            "duplicates_store": store.duplicates, "restored_ids": restored,
            "run_sec": RUN_SEC, "sample_sec": SAMPLE_SEC,
            "finished_at": SRC.now().isoformat()}

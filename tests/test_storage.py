@@ -40,9 +40,10 @@ n = s3.load_seen(now)
 ck("id восстановлены из индекса, несмотря на битый gz", n == 2, f"{n} id")
 ck("падения нет", True)
 ck("дубль после порчи gz всё равно отклонён", s3.add_dna(row("m@10")) is False)
-os.remove(s3.index_path(now))
+os.remove(s3.ids_path())
 s3b = Store(); n2 = s3b.load_seen(now)
 ck("без индекса из битого gz восстановить нельзя (ограничение зафиксировано)", n2 == 0, f"{n2} id")
+ck("индекс общий, а не посуточный (5C)", s3.ids_path().endswith("state/ids.txt"), s3.ids_path())
 
 # ── 17. прерванная запись ──
 print("\n17) прерванная запись")
@@ -73,22 +74,25 @@ ck("дозапись без нового заголовка", sum(1 for _ in gzi
 
 # ── ротация ──
 print("\nротация и retention")
-for d, kind in ((20, "dna"), (100, "latency"), (100, "moves"), (3, "dna")):
+# 5C: raw живёт в data/raw/ и ротируется коротко (он уходит в артефакты Actions)
+for d, kind, ext in ((5, "raw/dna", "csv.gz"), (100, "moves", "csv"), (1, "raw/dna", "csv.gz")):
     day = (now - timedelta(days=d)).strftime("%Y-%m-%d")
-    ext = "csv.gz" if kind == "dna" else "csv"
+    os.makedirs(f"data/{kind}", exist_ok=True)
     open(f"data/{kind}/{day}.{ext}", "w").close()
 removed = s6.rotate(now)
-ck("старый DNA удалён (>14 дней)", any("2026-08-09" in f or True for f in removed["dna"]) and len(removed["dna"]) == 1,
-   str(removed["dna"]))
-ck("свежий DNA сохранён", os.path.exists(f"data/dna/{(now-timedelta(days=3)).strftime('%Y-%m-%d')}.csv.gz"))
-ck("latency старше 90 дней удалён", len(removed["latency"]) == 1, str(removed["latency"]))
+ck("старый raw удалён локально", len(removed["raw/dna"]) == 1, str(removed["raw/dna"]))
+ck("вчерашний raw сохранён", os.path.exists(f"data/raw/dna/{(now-timedelta(days=1)).strftime('%Y-%m-%d')}.csv.gz"))
+ck("движения старше 90 дней удалены", len(removed["moves"]) == 1, str(removed["moves"]))
 ck("сегодняшний файл не тронут", os.path.exists(s6.dna_path(now)))
+ck("агрегаты не ротируются вместе с raw", removed.get("agg") == [], str(removed.get("agg")))
 
 # ── объём ──
 print("\nучёт объёма")
 rep = s6.size_report()
-ck("отчёт по всем разделам", set(rep) >= {"dna", "latency", "moves", "agg", "total_bytes"})
-ck("байты считаются", rep["dna"]["bytes"] > 0, str(rep["dna"]["bytes"]))
+ck("отчёт по всем разделам", set(rep) >= {"raw/dna", "raw/latency", "moves", "agg", "state"}, str(set(rep)))
+ck("байты считаются", rep["raw/dna"]["bytes"] > 0, str(rep["raw/dna"]["bytes"]))
+ck("разделено: Git и артефакты", rep["artifact_bytes"] > 0 and "git_tracked_bytes" in rep,
+   f"git {rep['git_tracked_bytes']} / artifact {rep['artifact_bytes']}")
 
 bad = [n for n, o in R if not o]
 print(f"\n{'='*52}\nSTORAGE: {len(R)-len(bad)}/{len(R)}")

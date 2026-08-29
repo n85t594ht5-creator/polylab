@@ -1,5 +1,7 @@
 .env
 __pycache__/
 *.pyc
-data/raw/
+*.tmp
 .DS_Store
+data/raw/
+data/state/collector.lock
