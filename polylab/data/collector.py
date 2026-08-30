@@ -16,6 +16,8 @@ from datetime import datetime, timedelta, timezone
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from polylab.core.features import build_features, quality, snapshot_id, FEATURE_VERSION
+from polylab.core.shadow import ShadowRunner
+from polylab.strategies.momentum_late_window import MomentumLateWindow
 from polylab.data import sources as SRC
 from polylab.data.store import LATENCY_FIELDS, MOVE_FIELDS, CollectorLock, Store, SCHEMA_VERSION
 
@@ -25,6 +27,8 @@ ASSETS = [a.strip().upper() for a in os.getenv("ASSETS", "BTC,ETH,SOL,XRP").spli
 WINDOWS = [int(w) for w in os.getenv("WINDOWS", "5,15,60").split(",")]
 RUN_SEC = int(os.getenv("RUN_SEC", "300"))            # длительность прогона
 MOVE_TRIGGER = float(os.getenv("MOVE_TRIGGER", "0.0005"))   # порог фиксации движения
+SHADOW = os.getenv("SHADOW_ARENA", "1") == "1"             # арена в shadow, ордеров нет
+SHADOW_BANKROLL = float(os.getenv("SHADOW_BANKROLL", "1000"))
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)-5s %(message)s",
                     handlers=[logging.StreamHandler(sys.stdout)])
@@ -32,8 +36,9 @@ log = logging.getLogger("collector")
 
 
 class Collector:
-    def __init__(self, store: Store):
+    def __init__(self, store: Store, shadow=None):
         self.store = store
+        self.shadow = shadow
         self.hist: dict[str, list[dict]] = {}     # market_id -> снимки этого окна
         self.refs: dict[str, float] = {}          # market_id -> опорная цена
         self.moves: dict[str, dict] = {}          # активные движения (features уже зафиксированы)
@@ -128,7 +133,22 @@ class Collector:
             self._latency(m, tk, book_up, now)
             self._detect_move(m, row, now)
 
+            # SHADOW-арена: сбой стратегии не должен ронять сбор данных
+            if self.shadow is not None:
+                try:
+                    self.shadow.on_market(m, row, book_up, book_dn, now)
+                except Exception as e:
+                    log.warning("shadow on_market %s: %s", m["market_id"], e)
+
         self._close_moves(now)
+        if self.shadow is not None:
+            try:
+                n = self.shadow.resolve(now, lambda a, dt: SRC.minute_ref(a, dt))
+                if n:
+                    log.info("shadow: разрешено сигналов %d", n)
+                self.shadow.save()
+            except Exception as e:
+                log.warning("shadow resolve: %s", e)
 
     # ── latency: только наблюдаемая разница времён, без утверждений о причинности ──
     def _latency(self, m: dict, tk: dict, book: dict, now: datetime) -> None:
@@ -245,7 +265,12 @@ def _run() -> None:
     restored = store.load_seen(now)
     log.info("старт: sample=%ds, окна=%s, активы=%s, восстановлено id=%d",
              SAMPLE_SEC, WINDOWS, ASSETS, restored)
-    c = Collector(store)
+    shadow = None
+    if SHADOW:
+        shadow = ShadowRunner([MomentumLateWindow()], bankroll=SHADOW_BANKROLL)
+        log.info("SHADOW-арена включена: стратегий %d, банкролл %.0f, ордеров НЕТ",
+                 len(shadow.arena.strategies), SHADOW_BANKROLL)
+    c = Collector(store, shadow)
     t_end = time.time() + RUN_SEC
     while time.time() < t_end:
         t0 = time.time()
@@ -257,7 +282,10 @@ def _run() -> None:
         time.sleep(max(0.0, SAMPLE_SEC - (time.time() - t0)))
     store.flush_dna(SRC.now())
     pruned = store.prune_ids(SRC.now())
-    rep = {**c.report(), "storage": store.size_report(), "ids_pruned": pruned,
+    if shadow:
+        shadow.save()
+    rep = {**c.report(), "shadow": (shadow.stats if shadow else {"enabled": False}),
+           "storage": store.size_report(), "ids_pruned": pruned,
            "ids_kept": len(store.seen),
            "duplicates_store": store.duplicates, "restored_ids": restored,
            "run_sec": RUN_SEC, "sample_sec": SAMPLE_SEC,

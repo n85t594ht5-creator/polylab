@@ -58,6 +58,8 @@ jobs:
           SAMPLE_SEC: ${{ github.event.inputs.sample_sec || '15' }}
           ASSETS: BTC,ETH,SOL,XRP
           WINDOWS: "5,15,60"
+          SHADOW_ARENA: "1"
+          SHADOW_BANKROLL: "1000"
         run: python polylab/data/collector.py
 
       - name: Build daily aggregate
@@ -98,6 +100,6 @@ jobs:
         run: |
           git config user.name "polylab"
           git config user.email "polylab@users.noreply.github.com"
-          git add data/agg data/moves data/state/ids.txt docs/data research/COLLECTOR_RUN.json
+          git add data/agg data/moves data/signals.csv data/state/ids.txt data/state/shadow.json docs/data research/COLLECTOR_RUN.json
           git commit -m "aggregates $(date -u +'%Y-%m-%d %H:%M')" || echo "нет изменений"
           git pull --rebase && git push
