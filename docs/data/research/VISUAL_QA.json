@@ -1,6 +1,6 @@
 {
  "url": "https://n85t594ht5-creator.github.io/polylab/",
- "checked_at": "2026-08-30T16:23:13.801Z",
+ "checked_at": "2026-08-30T16:27:48.967Z",
  "viewports": [
   320,
   375,
@@ -24,6 +24,24 @@
   "corr",
   "forward",
   "storage"
+ ],
+ "checks_performed": 91,
+ "sample_checks": [
+  "home@320:v_home:6",
+  "health@320:v_health:10",
+  "coverage@320:v_coverage:5",
+  "dna@320:v_dna:5",
+  "signals@320:v_signals:1",
+  "arena@320:v_arena:1",
+  "perf@320:v_perf:1",
+  "latency@320:v_latency:5",
+  "moves@320:v_moves:1",
+  "book@320:v_book:3",
+  "corr@320:v_corr:1",
+  "forward@320:v_forward:1",
+  "storage@320:v_storage:5",
+  "home@375:v_home:6",
+  "health@375:v_health:10"
  ],
  "total_issues": 0,
  "by_kind": {},
