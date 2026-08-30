@@ -65,11 +65,8 @@ jobs:
           python polylab/data/aggregate.py "$(date -u +%Y-%m-%d)"
           python polylab/data/aggregate.py "$(date -u -d yesterday +%Y-%m-%d)" || true
 
-      - name: Publish aggregates to dashboard
-        run: |
-          mkdir -p docs/data/agg
-          cp -f data/agg/*.json docs/data/agg/ 2>/dev/null || true
-          echo "агрегатов в docs: $(ls -1 docs/data/agg | wc -l)"
+      - name: Publish dashboard data
+        run: python polylab/data/publish.py
 
       - name: Rotate local files
         run: |

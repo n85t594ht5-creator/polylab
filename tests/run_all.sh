@@ -2,11 +2,11 @@
 # Полный набор тестов POLYLAB. Сеть не используется — источники замоканы.
 cd "$(dirname "$0")/.."
 declare -A GROUP=( [test_collector.py]="collector" [test_quality.py]="data-quality" \
-                   [test_leakage.py]="leakage" [test_storage.py]="storage" [test_storage_5c.py]="storage-5C" [test_5d.py]="phase-5D" )
+                   [test_leakage.py]="leakage" [test_storage.py]="storage" [test_storage_5c.py]="storage-5C" [test_5d.py]="phase-5D" [test_dashboard.py]="dashboard" )
 TOTAL=0; PASSED=0; FAILED=0
-for t in test_collector.py test_quality.py test_leakage.py test_storage.py test_storage_5c.py test_5d.py; do
+for t in test_collector.py test_quality.py test_leakage.py test_storage.py test_storage_5c.py test_5d.py test_dashboard.py; do
   OUT=$(timeout 300 python3 "tests/$t" 2>&1)
-  LINE=$(echo "$OUT" | grep -E "^(COLLECTOR|QUALITY|LEAKAGE|STORAGE|STORAGE-5C|PHASE-5D):" | tail -1)
+  LINE=$(echo "$OUT" | grep -E "^(COLLECTOR|QUALITY|LEAKAGE|STORAGE|STORAGE-5C|PHASE-5D|DASHBOARD):" | tail -1)
   echo "$OUT" | grep -E "^ FAIL" | head -20
   P=$(echo "$LINE" | grep -oE "[0-9]+/[0-9]+" | cut -d/ -f1)
   N=$(echo "$LINE" | grep -oE "[0-9]+/[0-9]+" | cut -d/ -f2)

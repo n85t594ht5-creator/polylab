@@ -63,9 +63,7 @@ jobs:
         run: |
           git config user.name "polylab"
           git config user.email "polylab@users.noreply.github.com"
-          mkdir -p docs/data/research
-          cp -f research/*.json docs/data/research/ 2>/dev/null || true
-          cp -f research/DATA_QUALITY_REPORT.md docs/data/research/ 2>/dev/null || true
+          python polylab/data/publish.py
           git add research docs/data
           git commit -m "research probes $(date -u +'%Y-%m-%d %H:%M')" || echo "нет изменений"
           git pull --rebase && git push

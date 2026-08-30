@@ -1,0 +1,35 @@
+{
+ "publish_version": "1",
+ "built_at": "2026-08-30T10:42:33Z",
+ "mode": "SHADOW",
+ "live": false,
+ "venues": [
+  "polymarket"
+ ],
+ "sources": {
+  "dna": {
+   "status": "NO_LOCAL_RAW",
+   "count": 0,
+   "note": "сырые снимки хранятся в артефактах Actions; график строится по последней выгрузке",
+   "stale": false
+  },
+  "moves": {
+   "status": "NO_DATA",
+   "count": 0,
+   "note": "движения ещё не зафиксированы",
+   "stale": false
+  },
+  "signals": {
+   "status": "NO_DATA",
+   "count": 0,
+   "note": "арена стратегий в проде ещё не запускалась — журнал пуст",
+   "stale": false
+  },
+  "latency": {
+   "status": "NO_LOCAL_RAW",
+   "count": 0,
+   "note": "сырые пробы в артефактах; сводка — в research/LATENCY_PROBE.json",
+   "stale": false
+  }
+ }
+}

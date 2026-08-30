@@ -42,6 +42,22 @@ td{padding:6px 8px;border-bottom:1px solid rgba(35,45,66,.6);white-space:nowrap;
 .kv span:nth-child(odd){color:var(--mut)}
 .spark{display:flex;gap:2px;align-items:flex-end;height:44px}
 .spark i{flex:1;min-width:2px;background:var(--acc);border-radius:1px;opacity:.85}
+svg{display:block;width:100%;overflow:visible}
+.st{display:inline-block;font:600 10px var(--mono);letter-spacing:.08em;padding:4px 9px;border-radius:6px;border:1px solid var(--line);color:var(--mut)}
+.st.no{border-color:var(--line);color:var(--mut)}.st.inc{border-color:var(--warn);color:var(--warn)}
+.st.un{border-color:var(--vio);color:var(--vio)}.st.ok{border-color:var(--ok);color:var(--ok)}
+.blank{border:1px dashed var(--line);border-radius:10px;padding:18px;text-align:center;color:var(--mut);font-size:13px}
+.blank b{display:block;color:var(--txt);font:600 12px var(--mono);letter-spacing:.1em;margin-bottom:6px}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.filters button{background:var(--panel2);border:1px solid var(--line);color:var(--mut);border-radius:999px;
+padding:5px 11px;font:600 11px var(--mono);cursor:pointer}.filters button.on{border-color:var(--acc);color:var(--txt)}
+.filters .lbl{align-self:center;font:11px var(--mono);color:var(--mut);margin-right:2px}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi>div{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+.kpi .l{font:10px var(--mono);letter-spacing:.1em;color:var(--mut);text-transform:uppercase}
+.kpi .n{font:600 20px var(--mono);margin-top:3px}
+.warnbox{border:1px solid var(--warn);background:rgba(242,181,68,.07);border-radius:10px;padding:11px 13px;font-size:13px}
+.hint{font-size:12px;color:var(--mut);margin-top:6px;line-height:1.5}
 </style></head><body><div class="wrap">
 <header><h1>POLYLAB</h1><span class="sub" id="ver"></span>
 <span class="tag shadow">SHADOW</span><span class="tag off">LIVE OFF</span>
@@ -50,6 +66,100 @@ td{padding:6px 8px;border-bottom:1px solid rgba(35,45,66,.6);white-space:nowrap;
 Здесь нет торговых результатов — это слой наблюдения.</p>
 
 <nav id="nav"></nav>
+
+<div id="v_home" class="view">
+ <div class="grid">
+  <div class="card c12" id="homeWarn" hidden></div>
+  <div class="card c12"><h2>Состояние системы</h2><div class="kpi" id="ho_kpi"></div>
+   <div class="hint" id="ho_hint"></div></div>
+  <div class="card c8"><h2>Сбор данных по дням</h2><div class="spark" id="ho_spark"></div>
+   <div class="sub" id="ho_sparksub"></div></div>
+  <div class="card c4"><h2>Источники данных</h2><div id="ho_sources"></div></div>
+  <div class="card c6"><h2>Активные рынки</h2><div id="ho_markets"></div></div>
+  <div class="card c6"><h2>Результаты исследований</h2><div id="ho_findings"></div>
+   <div class="hint">Подробности — на страницах Задержки, Качество данных и в отчёте 5D.4.</div></div>
+ </div>
+</div>
+
+<div id="v_dna" class="view" hidden>
+ <div class="grid">
+  <div class="card c12"><h2>Market DNA · состояние рынка</h2>
+   <div class="filters" id="dna_filters"></div>
+   <div id="dna_body"></div></div>
+  <div class="card c6"><h2>Движение относительно старта окна</h2><div id="dna_move"></div></div>
+  <div class="card c6"><h2>Волатильность и ускорение</h2><div id="dna_vol"></div></div>
+  <div class="card c6"><h2>Спред и дисбаланс стакана</h2><div id="dna_book"></div></div>
+  <div class="card c6"><h2>Распределение по фазе окна</h2><div id="dna_phase"></div></div>
+ </div>
+</div>
+
+<div id="v_signals" class="view" hidden>
+ <div class="grid">
+  <div class="card c12"><h2>Журнал сигналов</h2>
+   <div class="filters" id="sig_filters"></div><div id="sig_body"></div>
+   <div class="hint">HYPOTHETICAL и REALIZED никогда не складываются: это разные величины.</div></div>
+ </div>
+</div>
+
+<div id="v_arena" class="view" hidden>
+ <div class="grid">
+  <div class="card c12"><h2>Арена стратегий</h2><div id="arena_body"></div>
+   <div class="hint">Малая выборка не может означать «прибыльно». Порог для предварительной
+   оценки — 100 сигналов, из них ≥50 на каждое окно.</div></div>
+ </div>
+</div>
+
+<div id="v_perf" class="view" hidden>
+ <div class="grid">
+  <div class="card c12"><h2>Результативность</h2><div id="perf_body"></div>
+   <div class="hint">Обязательные проверки: результат без лучшего дня, без топ-3 дней,
+   концентрация. Если один день даёт большую часть — это событие, а не edge.</div></div>
+ </div>
+</div>
+
+<div id="v_latency" class="view" hidden>
+ <div class="grid">
+  <div class="card c12"><h2>Наблюдаемая разница времён ≠ причинная задержка</h2>
+   <div class="warnbox" id="lat_warn"></div></div>
+  <div class="card c12"><h2>Измерения</h2><div class="kpi" id="lat_kpi"></div></div>
+  <div class="card c6"><h2>Классификация измеримости</h2><div id="lat_class"></div></div>
+  <div class="card c6"><h2>Задержка запроса</h2><div id="lat_req"></div></div>
+  <div class="card c12"><h2>Разница времён во времени</h2><div id="lat_series"></div>
+   <div class="hint" id="lat_hint"></div></div>
+ </div>
+</div>
+
+<div id="v_moves" class="view" hidden>
+ <div class="grid">
+  <div class="card c12"><h2>Движения: продолжение против разворота</h2><div id="mv_body"></div>
+   <div class="hint">Нейтральные обозначения: CONTINUED / REVERSED. Разворот не означает,
+   что движение было «ложным» — это классификация постфактум.</div></div>
+ </div>
+</div>
+
+<div id="v_book" class="view" hidden>
+ <div class="grid">
+  <div class="card c12"><h2>Стакан и ликвидность</h2><div id="ob_body"></div>
+   <div class="hint">Крупный исчезнувший уровень — это НАБЛЮДЕНИЕ, а не «спуфинг».
+   Разрежённая выборка не отличает снятие ордера от исполнения.</div></div>
+  <div class="card c6"><h2>Спред</h2><div id="ob_spread"></div></div>
+  <div class="card c6"><h2>Глубина и дисбаланс</h2><div id="ob_depth"></div></div>
+ </div>
+</div>
+
+<div id="v_corr" class="view" hidden>
+ <div class="grid">
+  <div class="card c12"><h2>Корреляция стратегий</h2><div id="corr_body"></div>
+   <div class="hint">Считать корреляцию на нескольких наблюдениях бессмысленно.
+   Пока стратегий меньше двух и сигналов мало — статус INCONCLUSIVE.</div></div>
+ </div>
+</div>
+
+<div id="v_forward" class="view" hidden>
+ <div class="grid">
+  <div class="card c12"><h2>Разделение режимов</h2><div id="fw_body"></div></div>
+ </div>
+</div>
 
 <div id="v_health" class="view">
  <div class="grid">
@@ -95,104 +205,352 @@ td{padding:6px 8px;border-bottom:1px solid rgba(35,45,66,.6);white-space:nowrap;
    <div class="note" style="margin-top:8px">Классификация постфактум, не предсказание. Признаки момента обнаружения и исход хранятся раздельно.</div></div>
  </div>
 </div>
-
-<div id="v_latency" class="view" hidden>
- <div class="grid">
-  <div class="card c12"><h2>Статус исследования задержек</h2>
-   <div class="note">При шаге опроса 15 секунд задержка меньше интервала <b>принципиально неизмерима</b>.
-   Замер: 106 записей LOW, 2 MEDIUM, 0 HIGH. Это данные о том, что при такой частоте задержку не поймать,
-   а не данные о задержке. Здесь показана <b>наблюдаемая разница времён</b> — не доказанная причинность.
-   Отдельный высокочастотный зонд появится позже и не будет загрязнять Market DNA.</div></div>
-  <div class="card c6"><h2>Записей и качество</h2><div id="l_quality"></div></div>
-  <div class="card c6"><h2>Что доступно от источников</h2><div class="kv" id="l_sources"></div></div>
- </div>
-</div>
 </div>
 <script>
-const $=id=>document.getElementById(id), fmt=(n,d=0)=>n==null||isNaN(n)?'—':Number(n).toFixed(d);
+const $=id=>document.getElementById(id);
+const fmt=(n,d=0)=>(n==null||isNaN(n))?'—':Number(n).toFixed(d);
 const esc=s=>String(s??'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-const PAGES=[['health','Data Health'],['coverage','Покрытие'],['storage','Хранение'],['latency','Задержки']];
-let cur='health', DAYS=[], AGG=null;
+const sgn=n=>n==null?'—':(n>0?'+':'')+fmt(n,2);
+const cls=n=>n==null?'':n>0?'ok':n<0?'bad':'';
+
+// Единые честные статусы. Пустое состояние — это ответ, а не ошибка.
+const ST={NO_DATA:['no','НЕТ ДАННЫХ'],INSUFFICIENT:['inc','НЕДОСТАТОЧНАЯ ВЫБОРКА'],
+ INCONCLUSIVE:['inc','ВЫВОД НЕВОЗМОЖЕН'],UNAVAILABLE:['un','ИСТОЧНИК НЕ ОТДАЁТ'],
+ NOT_OBSERVED:['no','НЕ НАБЛЮДАЛОСЬ'],OK:['ok','ЕСТЬ ДАННЫЕ'],STALE:['inc','УСТАРЕВШАЯ ВЫГРУЗКА']};
+const badge=k=>{const s=ST[k]||['no',k];return `<span class="st ${s[0]}">${s[1]}</span>`};
+const blank=(k,txt,extra='')=>`<div class="blank"><b>${(ST[k]||['','—'])[1]}</b>${esc(txt)}${extra?'<div class="hint">'+extra+'</div>':''}</div>`;
+
+const PAGES=[['home','Обзор'],['health','Качество данных'],['coverage','Покрытие'],['dna','Market DNA'],
+ ['signals','Сигналы'],['arena','Арена стратегий'],['perf','Результативность'],['latency','Задержки'],
+ ['moves','Движения'],['book','Стакан'],['corr','Корреляция'],['forward','Режимы'],['storage','Хранение']];
+let cur='home', D={};
+
 function nav(){$('nav').innerHTML=PAGES.map(([k,n])=>`<button class="${k===cur?'on':''}" onclick="go('${k}')">${n}</button>`).join('')}
-function go(k){cur=k;PAGES.forEach(([p])=>{const e=$('v_'+p);if(e)e.hidden=p!==k});nav();window.scrollTo(0,0)}
-const bars=(el,obj,color)=>{const t=Object.values(obj||{}).reduce((a,b)=>a+(b.n??b),0)||1;
- $(el).innerHTML=Object.entries(obj||{}).sort().map(([k,v])=>{const n=v.n??v;
-  return `<div class="row"><span class="k">${esc(k)}</span><span class="bar"><i style="width:${(n/t*100).toFixed(0)}%;background:${color||'var(--acc)'}"></i></span><span class="v">${n}</span></div>`}).join('')||'<div class="empty">нет данных</div>'};
+function go(k){cur=k;PAGES.forEach(([p])=>{const e=$('v_'+p);if(e)e.hidden=p!==k});nav();window.scrollTo(0,0);draw(k)}
+
+const J=async p=>{try{const r=await fetch(p+'?t='+Date.now());return r.ok?await r.json():null}catch(e){return null}};
+
 async function load(){
- try{
-  const idx=await (await fetch('./data/agg/index.json?t='+Date.now())).json();
-  DAYS=idx.days||[];
-  const last=DAYS[DAYS.length-1];
-  if(last) AGG=await (await fetch(`./data/agg/${last.day}.json?t=`+Date.now())).json();
- }catch(e){}
- render();
+ D.manifest=await J('./data/manifest.json');
+ D.index=await J('./data/agg/index.json');
+ D.days=(D.index&&D.index.days)||[];
+ const last=D.days.filter(d=>d.snapshots>0).slice(-1)[0];
+ if(last) D.agg=await J(`./data/agg/${last.day}.json`);
+ D.lat=await J('./data/research/LATENCY_PROBE.json');
+ D.win=await J('./data/research/WINDOW_OBSERVATION.json');
+ D.qual=await J('./data/research/DATA_QUALITY.json');
+ D.ls=await J('./data/research/LONG_SERIES.json');
+ D.dna=await J('./data/dna.json');
+ D.moves=await J('./data/moves.json');
+ D.signals=await J('./data/signals.json');
+ D.latRaw=await J('./data/latency.json');
+ $('ver').textContent='v0.3.0 · research dashboard';
+ $('updated').textContent='обновлено '+new Date().toLocaleString('ru');
+ nav();draw(cur);
 }
-function render(){
- $('ver').textContent='v0.2.0 · storage 5C';
- const tot=DAYS.reduce((a,d)=>a+d.snapshots,0), val=DAYS.reduce((a,d)=>a+d.valid,0);
- $('h_days').textContent=DAYS.length;
- $('h_range').textContent=DAYS.length?`${DAYS[0].day} — ${DAYS[DAYS.length-1].day}`:'сбор не начался';
+
+// ── графики ──
+function line(el,series,opts){opts=opts||{};const W=800,H=opts.h||160,p=26;
+ const all=series.flatMap(s=>s.v).filter(v=>v!=null&&!isNaN(v));
+ if(!all.length){$(el).innerHTML='<div class="empty">нет значений</div>';return}
+ const mn=opts.min!=null?opts.min:Math.min(...all),mx=opts.max!=null?opts.max:Math.max(...all),r=(mx-mn)||1;
+ const n=Math.max(...series.map(s=>s.v.length));
+ const x=i=>p+i*(W-p-6)/Math.max(n-1,1), y=v=>H-18-(v-mn)*(H-30)/r;
+ let g=`<line x1="${p}" x2="${W-6}" y1="${y(mn)}" y2="${y(mn)}" stroke="var(--line)"/>`;
+ if(mn<0&&mx>0) g+=`<line x1="${p}" x2="${W-6}" y1="${y(0)}" y2="${y(0)}" stroke="var(--line)" stroke-dasharray="3 3"/>`;
+ [mx,mn].forEach(v=>{g+=`<text x="0" y="${y(v)+4}" fill="var(--mut)" font-size="10" font-family="monospace">${fmt(v,opts.d??2)}</text>`});
+ series.forEach(s=>{const pts=s.v.map((v,i)=>v==null?null:`${x(i).toFixed(1)},${y(v).toFixed(1)}`).filter(Boolean).join(' ');
+  g+=`<polyline points="${pts}" fill="none" stroke="${s.c||'var(--acc)'}" stroke-width="1.6" vector-effect="non-scaling-stroke"/>`});
+ const leg=series.filter(s=>s.n).map(s=>`<span style="color:${s.c||'var(--acc)'}">■</span> ${esc(s.n)}`).join(' &nbsp; ');
+ $(el).innerHTML=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="height:${H}px">${g}</svg>`+
+  (leg?`<div class="sub">${leg}</div>`:'');}
+
+function hist(el,vals,bins,label){vals=vals.filter(v=>v!=null&&!isNaN(v));
+ if(!vals.length){$(el).innerHTML='<div class="empty">нет значений</div>';return}
+ bins=bins||10;const mn=Math.min(...vals),mx=Math.max(...vals),w=(mx-mn)/bins||1;
+ const c=new Array(bins).fill(0);vals.forEach(v=>{c[Math.min(bins-1,Math.floor((v-mn)/w))]++});
+ const m=Math.max(...c);
+ $(el).innerHTML=c.map((n,i)=>{const lo=mn+i*w;
+  return `<div class="row"><span class="k">${fmt(lo,2)}</span><span class="bar"><i style="width:${(n/m*100).toFixed(0)}%;background:var(--acc)"></i></span><span class="v">${n}</span></div>`}).join('')
+  +(label?`<div class="hint">${label}</div>`:'');}
+
+function bars(el,obj,color){const e=Object.entries(obj||{});
+ if(!e.length){$(el).innerHTML='<div class="empty">нет данных</div>';return}
+ const t=e.reduce((a,[,v])=>a+(v.n??v),0)||1;
+ $(el).innerHTML=e.sort().map(([k,v])=>{const n=v.n??v;
+  return `<div class="row"><span class="k">${esc(k)}</span><span class="bar"><i style="width:${(n/t*100).toFixed(0)}%;background:${color||'var(--acc)'}"></i></span><span class="v">${n}</span></div>`}).join('')}
+
+// ── страницы ──
+const drawers={};
+
+drawers.home=()=>{
+ const m=D.manifest||{},src=m.sources||{};
+ const tot=D.days.reduce((a,d)=>a+d.snapshots,0),val=D.days.reduce((a,d)=>a+d.valid,0);
+ const active=D.win&&D.win.windows_ever_seen?Object.values(D.win.windows_ever_seen).reduce((a,b)=>a+b,0):0;
+ $('ho_kpi').innerHTML=[
+  ['Режим',(m.mode||'SHADOW')+' · LIVE OFF'],['Дней сбора',D.days.length],
+  ['Снимков',tot.toLocaleString('ru')],['Валидных',tot?(val/tot*100).toFixed(0)+'%':'—'],
+  ['Последний сбор',D.days.length?D.days[D.days.length-1].day:'—'],
+  ['Площадки',(m.venues||['polymarket']).join(', ')]
+ ].map(([l,n])=>`<div><div class="l">${l}</div><div class="n">${n}</div></div>`).join('');
+ $('ho_hint').textContent=`Данные собраны с ${(m.venues||['polymarket']).join(', ')}. Реальных ордеров нет, LIVE отсутствует на уровне архитектуры.`;
+ const mx=Math.max(...D.days.map(d=>d.snapshots),1);
+ $('ho_spark').innerHTML=D.days.slice(-30).map(d=>`<i style="height:${Math.max(4,d.snapshots/mx*100)}%" title="${d.day}: ${d.snapshots}"></i>`).join('');
+ $('ho_sparksub').textContent=D.days.length?`последние ${Math.min(30,D.days.length)} дней`:'сбор не начинался';
+ $('ho_sources').innerHTML=Object.entries(src).map(([k,v])=>
+  `<div class="row"><span class="k">${esc(k)}</span><span>${badge(v.stale?'STALE':v.status==='NO_LOCAL_RAW'?'NO_DATA':v.status)}</span><span class="v">${v.count||0}</span></div>`).join('')
+  ||'<div class="empty">манифест не загружен</div>';
+ const w=D.win||{};
+ $('ho_markets').innerHTML=w.windows_ever_seen?Object.entries(w.windows_ever_seen).sort().map(([k,v])=>
+  `<div class="row"><span class="k">окно ${esc(k)}</span><span class="bar"><i style="width:${Math.min(100,v)}%;background:var(--vio)"></i></span><span class="v">${v} набл.</span></div>`).join('')
+  +`<div class="hint">активы: ${(w.assets_ever_seen||[]).join(', ')||'—'} · 60m: ${w.status_60m||'—'}</div>`
+  :blank('NO_DATA','наблюдение рынков ещё не запускалось');
+ const f=(D.qual&&D.qual.findings)||[];
+ $('ho_findings').innerHTML=f.length?f.map(x=>
+  `<div class="row"><span class="k" title="${esc(x.area)}">${esc(x.area)}</span><span>${badge(x.status.replace(' ','_'))}</span><span class="v" style="max-width:40%;overflow:hidden;text-overflow:ellipsis">${esc((x.detail||'').slice(0,40))}</span></div>`).join('')
+  :blank('NO_DATA','отчёт качества ещё не собран');
+ const warns=f.filter(x=>['INCONCLUSIVE','UNAVAILABLE','NOT OBSERVED'].includes(x.status));
+ if(warns.length){$('homeWarn').hidden=false;
+  $('homeWarn').innerHTML=`<h2>Что пока нельзя утверждать</h2><div class="warnbox">`+
+   warns.map(x=>`<div>• <b>${esc(x.area)}</b> — ${esc(x.status)}: ${esc(x.note||x.detail)}</div>`).join('')+`</div>`}
+};
+
+drawers.health=()=>{
+ const tot=D.days.reduce((a,d)=>a+d.snapshots,0),val=D.days.reduce((a,d)=>a+d.valid,0);
+ $('h_days').textContent=D.days.length;
+ $('h_range').textContent=D.days.length?`${D.days[0].day} — ${D.days[D.days.length-1].day}`:'сбор не начался';
  $('h_snaps').textContent=tot.toLocaleString('ru');
- $('h_perday').textContent=DAYS.length?`≈ ${Math.round(tot/DAYS.length)} в сутки`:'';
+ $('h_perday').textContent=D.days.length?`≈ ${Math.round(tot/D.days.length)} в сутки`:'';
  const share=tot?val/tot:0;
  $('h_valid').textContent=tot?(share*100).toFixed(0)+'%':'—';
  $('h_valid').className='big '+(share>=.8?'ok':share>=.5?'warn':'bad');
- $('h_validsub').textContent=`${val.toLocaleString('ru')} из ${tot.toLocaleString('ru')}`;
- const L=DAYS[DAYS.length-1];
+ $('h_validsub').textContent=`${val} из ${tot}`;
+ const L=D.days[D.days.length-1];
  $('h_last').textContent=L?L.day.slice(5):'—';
- $('h_lastsub').textContent=L?`${L.snapshots} снимков${L.raw_present?' · raw на месте':' · raw в артефакте'}`:'';
- const mx=Math.max(...DAYS.map(d=>d.snapshots),1);
- $('h_spark').innerHTML=DAYS.slice(-30).map(d=>`<i style="height:${Math.max(4,d.snapshots/mx*100)}%" title="${d.day}: ${d.snapshots}"></i>`).join('')||'';
- $('h_sparksub').textContent=DAYS.length?`последние ${Math.min(30,DAYS.length)} дней`:'данных пока нет';
- if(AGG){
-  const q=AGG.quality||{};
-  $('h_quality').innerHTML=Object.entries(q).sort().map(([k,v])=>{const t=Object.values(q).reduce((a,b)=>a+b,0)||1;
-   const c=k==='GOOD'?'var(--ok)':k==='INVALID'?'var(--bad)':'var(--warn)';
-   return `<div class="row"><span class="k">${k}</span><span class="bar"><i style="width:${(v/t*100).toFixed(0)}%;background:${c}"></i></span><span class="v">${v}</span></div>`}).join('');
-  bars('h_windows',(AGG.cuts||{}).window,'var(--vio)');
-  bars('h_assets',(AGG.cuts||{}).asset);
-  const fa=AGG.feature_availability||{}, n=AGG.snapshots||1;
-  $('h_feats').innerHTML=Object.entries(fa).sort().map(([k,v])=>
-   `<div class="row"><span class="k">${esc(k)}</span><span class="bar"><i style="width:${(v/n*100).toFixed(0)}%;background:${v?'var(--ok)':'var(--bad)'}"></i></span><span class="v">${(v/n*100).toFixed(0)}%</span></div>`).join('');
-  bars('h_missing',AGG.missing_fields,'var(--warn)');
-  bars('c_entry',(AGG.cuts||{}).entry_bucket);
-  bars('c_move',(AGG.cuts||{}).move_bucket,'var(--vio)');
-  bars('c_elapsed',(AGG.cuts||{}).elapsed_bucket);
-  const mv=AGG.moves||{};
-  $('c_moves').innerHTML=`<div class="kv"><span>обнаружено</span><span>${mv.n||0}</span>
-   <span>с известным исходом</span><span>${mv.with_outcome||0}</span>
-   <span>продолжилось</span><span class="ok">${mv.continued||0}</span>
-   <span>развернулось</span><span class="bad">${mv.reversed||0}</span>
-   <span>среднее время до разворота</span><span>${mv.avg_time_to_reversal_sec??'—'}</span></div>`;
-  const lq=(AGG.latency||{}).quality||{};
-  $('l_quality').innerHTML=Object.keys(lq).length?Object.entries(lq).sort().map(([k,v])=>{
-   const t=Object.values(lq).reduce((a,b)=>a+b,0)||1;const c=k==='HIGH'?'var(--ok)':k==='MEDIUM'?'var(--warn)':'var(--mut)';
-   return `<div class="row"><span class="k">${k}</span><span class="bar"><i style="width:${(v/t*100).toFixed(0)}%;background:${c}"></i></span><span class="v">${v}</span></div>`}).join(''):'<div class="empty">нет записей</div>';
- }
- $('c_days').innerHTML=DAYS.slice().reverse().map(d=>{const sh=d.snapshots?d.valid/d.snapshots:0;
+ $('h_lastsub').textContent=L?`${L.snapshots} снимков${L.raw_present?' · raw локально':' · raw в артефакте'}`:'';
+ const mx=Math.max(...D.days.map(d=>d.snapshots),1);
+ $('h_spark').innerHTML=D.days.slice(-30).map(d=>`<i style="height:${Math.max(4,d.snapshots/mx*100)}%" title="${d.day}: ${d.snapshots}"></i>`).join('');
+ $('h_sparksub').textContent=D.days.length?`последние ${Math.min(30,D.days.length)} дней`:'данных нет';
+ const A=D.agg;
+ if(!A){['h_quality','h_windows','h_assets','h_feats','h_missing'].forEach(id=>$(id).innerHTML=blank('NO_DATA','агрегат не загружен'));return}
+ const q=A.quality||{};const t=Object.values(q).reduce((a,b)=>a+b,0)||1;
+ $('h_quality').innerHTML=Object.entries(q).sort().map(([k,v])=>{
+  const c=k==='GOOD'?'var(--ok)':k==='INVALID'?'var(--bad)':'var(--warn)';
+  return `<div class="row"><span class="k">${k}</span><span class="bar"><i style="width:${(v/t*100).toFixed(0)}%;background:${c}"></i></span><span class="v">${v}</span></div>`}).join('');
+ bars('h_windows',(A.cuts||{}).window,'var(--vio)');bars('h_assets',(A.cuts||{}).asset);
+ const fa=A.feature_availability||{},n=A.snapshots||1;
+ $('h_feats').innerHTML=Object.entries(fa).sort().map(([k,v])=>
+  `<div class="row"><span class="k">${esc(k)}</span><span class="bar"><i style="width:${(v/n*100).toFixed(0)}%;background:${v?'var(--ok)':'var(--bad)'}"></i></span><span class="v">${(v/n*100).toFixed(0)}%</span></div>`).join('');
+ bars('h_missing',A.missing_fields,'var(--warn)');
+};
+
+drawers.coverage=()=>{
+ $('c_days').innerHTML=D.days.slice().reverse().map(d=>{const sh=d.snapshots?d.valid/d.snapshots:0;
   return `<tr><td>${d.day}</td><td>${d.snapshots}</td><td>${d.valid}</td>
-  <td class="${sh>=.8?'ok':sh>=.5?'warn':'bad'}">${(sh*100).toFixed(0)}%</td><td>${d.moves}</td>
+  <td class="${sh>=.8?'ok':sh>=.5?'warn':'bad'}">${d.snapshots?(sh*100).toFixed(0)+'%':'—'}</td><td>${d.moves}</td>
   <td><span class="pill ${d.raw_present?'ok':''}">${d.raw_present?'локально':'артефакт'}</span></td></tr>`}).join('')
   ||'<tr><td colspan="6" class="empty">сбор ещё не начинался</td></tr>';
+ const A=D.agg;
+ if(!A){['c_entry','c_move','c_elapsed','c_moves'].forEach(id=>$(id).innerHTML=blank('NO_DATA','нет агрегата'));return}
+ bars('c_entry',(A.cuts||{}).entry_bucket);bars('c_move',(A.cuts||{}).move_bucket,'var(--vio)');
+ bars('c_elapsed',(A.cuts||{}).elapsed_bucket);
+ const mv=A.moves||{};
+ $('c_moves').innerHTML=mv.n?`<div class="kv"><span>обнаружено</span><span>${mv.n}</span>
+  <span>с известным исходом</span><span>${mv.with_outcome||0}</span>
+  <span>продолжилось</span><span class="ok">${mv.continued||0}</span>
+  <span>развернулось</span><span class="bad">${mv.reversed||0}</span></div>`
+  :blank('NO_DATA','движений пока не зафиксировано','Порог фиксации — 0.05% за ≤60 с.');
+};
+
+drawers.dna=()=>{
+ const src=D.dna||{};const rows=src.rows||[];
+ if(!rows.length){$('dna_body').innerHTML=blank(src.status==='NO_LOCAL_RAW'?'NO_DATA':'NO_DATA',
+   src.note||'снимки не опубликованы','Сырые снимки уезжают в артефакты Actions; выгрузка обновляется при прогоне коллектора.');
+  ['dna_move','dna_vol','dna_book','dna_phase'].forEach(id=>$(id).innerHTML='');$('dna_filters').innerHTML='';return}
+ const assets=[...new Set(rows.map(r=>r.asset))].sort();
+ const wins=[...new Set(rows.map(r=>r.window))].sort();
+ D.f=D.f||{asset:assets[0],window:''};
+ $('dna_filters').innerHTML='<span class="lbl">актив</span>'+assets.map(a=>`<button class="${D.f.asset===a?'on':''}" onclick="D.f.asset='${a}';draw('dna')">${a}</button>`).join('')
+  +'<span class="lbl">окно</span>'+[''].concat(wins).map(w=>`<button class="${D.f.window===w?'on':''}" onclick="D.f.window='${w}';draw('dna')">${w||'все'}</button>`).join('');
+ const sel=rows.filter(r=>(!D.f.asset||r.asset===D.f.asset)&&(!D.f.window||r.window===D.f.window));
+ if(!sel.length){$('dna_body').innerHTML=blank('NO_DATA','нет снимков по выбранному фильтру');return}
+ const last=sel[sel.length-1];
+ $('dna_body').innerHTML=`<div class="kpi">`+[
+  ['Цена',fmt(last.current_price,2)],['Опора',fmt(last.reference_price,2)],
+  ['Движение',last.move==null?'—':(last.move*100).toFixed(3)+'%'],
+  ['Волатильность',last.volatility==null?'—':(last.volatility*100).toFixed(3)+'%'],
+  ['Ускорение',fmt(last.acceleration,2)],['До конца',last.time_remaining==null?'—':fmt(last.time_remaining,0)+' с'],
+  ['Спред UP',fmt(last.spread_up,3)],['Дисбаланс',fmt(last.imbalance_up,3)],
+  ['Ликвидность',fmt(last.liquidity,0)],['Качество',last.quality||'—']
+ ].map(([l,n])=>`<div><div class="l">${l}</div><div class="n">${n}</div></div>`).join('')+`</div>
+ <div class="hint">${sel.length} снимков · ${esc(last.venue||'—')} / ${esc(last.instrument||last.asset)} · последний ${esc((last.ts||'').slice(5,16).replace('T',' '))}. Пропуски не интерполируются.</div>`;
+ line('dna_move',[{v:sel.map(r=>r.move==null?null:r.move*100),n:'движение, %',c:'var(--acc)'}],{d:3});
+ line('dna_vol',[{v:sel.map(r=>r.volatility==null?null:r.volatility*100),n:'волатильность, %',c:'var(--vio)'},
+                 {v:sel.map(r=>r.acceleration),n:'ускорение',c:'var(--warn)'}],{d:3});
+ line('dna_book',[{v:sel.map(r=>r.spread_up),n:'спред UP',c:'var(--warn)'},
+                  {v:sel.map(r=>r.imbalance_up),n:'дисбаланс',c:'var(--ok)'}],{d:3});
+ const ph={};sel.forEach(r=>{if(r.elapsed==null)return;const k=(Math.floor(r.elapsed*10)/10).toFixed(1);ph[k]=(ph[k]||0)+1});
+ bars('dna_phase',ph,'var(--acc)');
+};
+
+drawers.signals=()=>{
+ const s=D.signals||{};const rows=s.rows||[];
+ $('sig_filters').innerHTML='';
+ if(!rows.length){$('sig_body').innerHTML=blank('NO_DATA',
+   s.note||'журнал сигналов пуст',
+   'Арена стратегий реализована (PHASE 3–4) и покрыта тестами, но в продовом сборе ещё не запускалась: '+
+   'сейчас POLYLAB собирает данные, а не генерирует сигналы. Как только арена пойдёт в SHADOW, здесь появятся записи.');
+  return}
+ const cols=['ts','strategy','strategy_version','asset','window','direction','entry_price','confidence','decision','execution_state','resolution','hypothetical_pnl','realized_pnl'];
+ $('sig_body').innerHTML=`<div class="tw"><table><thead><tr>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>`+
+  rows.slice(-200).reverse().map(r=>`<tr>${cols.map(c=>{
+   const v=r[c];const cl=c==='hypothetical_pnl'?'warn':c==='realized_pnl'?cls(parseFloat(v)):'';
+   return `<td class="${cl}">${esc(v??'—')}</td>`}).join('')}</tr>`).join('')+'</tbody></table></div>';
+};
+
+drawers.arena=()=>{
+ const s=D.signals||{};const rows=s.rows||[];
+ if(!rows.length){$('arena_body').innerHTML=blank('NO_DATA','стратегии ещё не порождали сигналов',
+  'Инфраструктура готова: изоляция стратегий, портфель с риск-гейтами и журнал покрыты тестами. '+
+  'Сравнивать пока нечего — это честное «нет данных», а не ноль результата.');return}
+ const by={};rows.forEach(r=>{const k=r.strategy||'?';(by[k]=by[k]||[]).push(r)});
+ $('arena_body').innerHTML=`<div class="tw"><table><thead><tr><th>Стратегия</th><th>Версия</th><th>Сигналов</th>
+  <th>Исполнено</th><th>Заблок.</th><th>Winrate</th><th>Hypothetical</th><th>Realized</th><th>Статус</th></tr></thead><tbody>`+
+  Object.entries(by).map(([k,v])=>{
+   const res=v.filter(r=>r.resolution);const wins=res.filter(r=>r.resolution==='WIN').length;
+   const hyp=v.reduce((a,r)=>a+(parseFloat(r.hypothetical_pnl)||0),0);
+   const real=v.reduce((a,r)=>a+(parseFloat(r.realized_pnl)||0),0);
+   const st=res.length<100?'INSUFFICIENT':'OK';
+   return `<tr><td>${esc(k)}</td><td>${esc(v[0].strategy_version||'—')}</td><td>${v.length}</td>
+   <td>${v.filter(r=>r.execution_state==='FILLED').length}</td>
+   <td>${v.filter(r=>r.decision==='REJECT'||r.decision==='CONFLICT').length}</td>
+   <td>${res.length?(wins/res.length*100).toFixed(0)+'%':'—'}</td>
+   <td class="warn">${sgn(hyp)}</td><td class="${cls(real)}">${sgn(real)}</td><td>${badge(st)}</td></tr>`}).join('')
+  +'</tbody></table></div>';
+};
+
+drawers.perf=()=>{
+ const rows=((D.signals||{}).rows||[]).filter(r=>r.resolution);
+ if(!rows.length){$('perf_body').innerHTML=blank('NO_DATA','нет закрытых сигналов',
+  'Кривая капитала, просадка, концентрация по дням и результат без лучшего дня появятся здесь, '+
+  'как только арена начнёт генерировать сигналы в SHADOW.');return}
+ const byDay={};rows.forEach(r=>{const d=(r.ts||'').slice(0,10);byDay[d]=(byDay[d]||0)+(parseFloat(r.hypothetical_pnl)||0)});
+ const days=Object.entries(byDay).sort();const tot=days.reduce((a,[,v])=>a+v,0);
+ const best=days.slice().sort((a,b)=>b[1]-a[1])[0];
+ const share=tot?Math.abs(best[1])/Math.abs(tot)*100:0;
+ let cum=0;const eq=days.map(([,v])=>cum+=v);
+ $('perf_body').innerHTML=`<div class="kpi">`+[
+  ['Сигналов',rows.length],['Дней',days.length],['Hypothetical P&L',sgn(tot)],
+  ['Лучший день',best?best[0]:'—'],['Доля лучшего дня',share.toFixed(0)+'%'],
+  ['Без лучшего дня',sgn(tot-(best?best[1]:0))]
+ ].map(([l,n])=>`<div><div class="l">${l}</div><div class="n">${n}</div></div>`).join('')+`</div>`
+ +(share>50?`<div class="warnbox" style="margin-top:10px">CONCENTRATED: ${share.toFixed(0)}% результата даёт один день. Это событие, а не устойчивый edge.</div>`:'')
+ +`<div id="perf_eq" style="margin-top:12px"></div>`;
+ line('perf_eq',[{v:eq,n:'накопленный hypothetical P&L',c:'var(--warn)'}],{d:2});
+};
+
+drawers.latency=()=>{
+ const L=D.lat;
+ if(!L||L.status!=='OK'){$('lat_warn').innerHTML='Зонд ещё не запускался.';
+  ['lat_kpi','lat_class','lat_req','lat_series'].forEach(id=>$(id).innerHTML=blank('NO_DATA','нет измерений'));return}
+ $('lat_warn').innerHTML=`<b>${esc(L.relationship||'OBSERVED TIMING DIFFERENCE — CAUSALITY NOT ESTABLISHED')}</b>
+ <div class="hint" style="color:var(--txt)">Наблюдаемая разница времён — это разница между временем сделки источника и временем состояния стакана.
+ Она устойчива, но <b>не доказывает</b> задержку реакции: стакан менялся в ${((L.book_change_rate||0)*100).toFixed(0)}% интервалов,
+ поэтому привязать изменение к конкретному событию нельзя. Торговых выводов не делаем.</div>`;
+ const od=L.observed_diff_ms||{},rl=L.request_latency_ms||{};
+ $('lat_kpi').innerHTML=[['Проб',L.samples],['Интервал зонда',fmt(L.interval_target_ms,0)+' мс'],
+  ['Разница, медиана',fmt(od.median,0)+' мс'],['Разница, p90',fmt(od.p90,0)+' мс'],
+  ['Мин. измеримая',fmt(L.min_measurable_latency_ms,0)+' мс'],['Порядок событий',L.event_ordering_ok?'верный':'нарушен']
+ ].map(([l,n])=>`<div><div class="l">${l}</div><div class="n">${n}</div></div>`).join('');
+ const mc=L.measurable_counts||{};
+ $('lat_class').innerHTML=Object.entries(mc).sort().map(([k,v])=>{
+  const t=Object.values(mc).reduce((a,b)=>a+b,0)||1;
+  const c=k==='MEASURABLE'?'var(--ok)':k==='BORDERLINE'?'var(--warn)':'var(--mut)';
+  return `<div class="row"><span class="k">${k}</span><span class="bar"><i style="width:${(v/t*100).toFixed(0)}%;background:${c}"></i></span><span class="v">${v}</span></div>`}).join('')
+  +`<div class="hint">MEASURABLE — разница заметно больше интервала опроса. Это НЕ значит «доказанная задержка».</div>`;
+ $('lat_req').innerHTML=['median','p90','p95','p99','max'].map(k=>
+  `<div class="row"><span class="k">${k}</span><span class="bar"><i style="width:${Math.min(100,(rl[k]||0)/(rl.max||1)*100).toFixed(0)}%;background:var(--acc)"></i></span><span class="v">${fmt(rl[k],1)} мс</span></div>`).join('')
+  +`<div class="hint">Измеряется напрямую: наш запрос → ответ. Единственная величина здесь без допущений.</div>`;
+ const raw=(D.latRaw&&D.latRaw.rows)||[];
+ if(raw.length) line('lat_series',[{v:raw.map(r=>r.observed_diff_ms),n:'наблюдаемая разница, мс',c:'var(--warn)'}],{d:0});
+ else $('lat_series').innerHTML=blank('NO_DATA','сырые пробы в артефактах','Сводка выше построена по отчёту зонда.');
+ $('lat_hint').textContent='Расхождение часов точнее 1 секунды не измеряется, поэтому абсолютные значения меньше секунды фактом не считаются.';
+};
+
+drawers.moves=()=>{
+ const m=D.moves||{};const rows=(m.rows||[]).filter(r=>r.outcome_ready==='1'||r.outcome_ready===1);
+ const A=D.agg&&D.agg.moves;
+ if(!rows.length){$('mv_body').innerHTML=blank('NO_DATA',
+  (A&&A.n)?`обнаружено ${A.n} движений, но исход ещё не известен`:'движения ещё не зафиксированы',
+  'Признаки момента обнаружения и исход хранятся раздельно — исход появляется только после закрытия окна.');return}
+ const cont=rows.filter(r=>r.resolution==='CONTINUED').length,rev=rows.filter(r=>r.resolution==='REVERSED').length;
+ const st=rows.length<30?'INSUFFICIENT':'OK';
+ $('mv_body').innerHTML=`<div class="kpi">`+[
+  ['Движений',rows.length],['CONTINUED',cont],['REVERSED',rev],
+  ['Доля разворотов',rows.length?(rev/rows.length*100).toFixed(0)+'%':'—'],
+  ['Статус выборки',(ST[st]||['','—'])[1]]
+ ].map(([l,n])=>`<div><div class="l">${l}</div><div class="n">${n}</div></div>`).join('')+`</div>
+ <div id="mv_hist" style="margin-top:12px"></div>`;
+ hist('mv_hist',rows.map(r=>(r.initial_move||0)*100),8,'распределение размера движения, %');
+};
+
+drawers.book=()=>{
+ const rows=((D.dna||{}).rows||[]).filter(r=>r.spread_up!=null);
+ if(!rows.length){$('ob_body').innerHTML=blank('NO_DATA','снимки стакана не опубликованы',
+  'Метрики стакана собираются вместе с Market DNA; выгрузка обновляется при прогоне коллектора.');
+  ['ob_spread','ob_depth'].forEach(id=>$(id).innerHTML='');return}
+ const last=rows[rows.length-1];
+ $('ob_body').innerHTML=`<div class="kpi">`+[
+  ['Лучший ask',fmt(last.up_ask,3)],['Спред',fmt(last.spread_up,3)],
+  ['Глубина bid',fmt(last.bid_depth_up,0)],['Глубина ask',fmt(last.ask_depth_up,0)],
+  ['Дисбаланс',fmt(last.imbalance_up,3)],['Глубина 1 ур.',fmt(last.depth_1_up,1)],
+  ['Глубина 10 ур.',fmt(last.depth_10_up,1)],['Наблюдений',rows.length]
+ ].map(([l,n])=>`<div><div class="l">${l}</div><div class="n">${n}</div></div>`).join('')+`</div>`;
+ line('ob_spread',[{v:rows.map(r=>r.spread_up),n:'спред',c:'var(--warn)'}],{d:3});
+ line('ob_depth',[{v:rows.map(r=>r.depth_10_up),n:'глубина 10 уровней',c:'var(--acc)'},
+                  {v:rows.map(r=>r.imbalance_up!=null?r.imbalance_up*100:null),n:'дисбаланс ×100',c:'var(--ok)'}],{d:1});
+};
+
+drawers.corr=()=>{
+ const rows=((D.signals||{}).rows||[]);
+ const strat=[...new Set(rows.map(r=>r.strategy))];
+ $('corr_body').innerHTML=blank(strat.length<2?'INCONCLUSIVE':'INSUFFICIENT',
+  strat.length<2?`в системе ${strat.length} стратегия — корреляцию считать не с чем`
+   :`сигналов ${rows.length}, этого мало для осмысленной корреляции`,
+  'Корреляция станет содержательной, когда будет ≥2 стратегий и достаточная выборка. '+
+  'Считать её на нескольких наблюдениях и выдавать за результат — самообман.');
+};
+
+drawers.forward=()=>{
+ const m=D.manifest||{};
+ const modes=[['BACKTEST','прогон по истории','не запускался','no'],
+  ['OOS','проверка на нетронутых данных','не запускался','no'],
+  ['SHADOW','сигналы без исполнения','инфраструктура готова, сбор данных идёт','inc'],
+  ['PAPER','виртуальные сделки','не запускался','no'],
+  ['LIVE','реальные ордера','ОТКЛЮЧЁН на уровне архитектуры','un']];
+ $('fw_body').innerHTML=`<div class="tw"><table><thead><tr><th>Режим</th><th>Что это</th><th>Статус</th></tr></thead><tbody>`+
+  modes.map(([k,d,s,c])=>`<tr><td><b>${k}</b></td><td>${d}</td><td><span class="st ${c}">${esc(s)}</span></td></tr>`).join('')
+  +`</tbody></table></div><div class="hint">Результаты этих режимов никогда не смешиваются в одной метрике.
+  Текущий режим системы: <b>${esc(m.mode||'SHADOW')}</b>, LIVE = ${m.live?'ON':'OFF'}.</div>`;
+};
+
+drawers.storage=()=>{
  $('s_git').innerHTML=`<span>дневные агрегаты</span><span>~4 КБ/сут</span><span>движения с исходами</span><span>~30 КБ/сут</span>
-  <span>индекс id</span><span>постоянный, обрезается</span><span>журнал сигналов</span><span>мало</span>`;
+  <span>индекс id</span><span>обрезается по времени</span><span>журнал сигналов</span><span>появится с ареной</span>`;
  $('s_art').innerHTML=`<span>raw Market DNA</span><span>4.7 МБ/сут (gzip)</span><span>raw latency</span><span>5.9 МБ/сут</span>
   <span>срок хранения</span><span>90 дней</span><span>стоимость</span><span class="ok">бесплатно (public)</span>`;
  $('s_growth').innerHTML=`<span>было бы с raw в Git</span><span class="bad">≈ 1.2 ГБ/год</span>
-  <span>стало (только агрегаты)</span><span class="ok">≈ 12 МБ/год</span>
-  <span>сейчас .git</span><span>1.3 МБ</span>`;
+  <span>стало (только агрегаты)</span><span class="ok">≈ 12 МБ/год</span>`;
  $('s_ret').innerHTML=[['raw Market DNA','артефакт Actions','90 дней','в Git рос бы необратимо'],
-  ['raw latency','артефакт Actions','90 дней','пока неинформативен, но пусть лежит'],
-  ['движения с исходами','Git','90 дней','размеченный датасет, компактный'],
+  ['raw latency','артефакт Actions','90 дней','пока неинформативен'],
+  ['движения с исходами','Git','90 дней','размеченный датасет'],
   ['дневные агрегаты','Git','бессрочно','основа долгосрочного анализа'],
-  ['индекс id','Git','6 часов скользящим окном','идемпотентность; окно закрыто — id не повторится'],
-  ['локальные raw','рабочая папка','2 дня','нужны только для дозаписи суточного файла']]
+  ['индекс id','Git','6 часов','идемпотентность'],
+  ['локальные raw','рабочая папка','2 дня','для дозаписи суточного файла']]
   .map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join('')}</tr>`).join('');
- $('l_sources').innerHTML=`<span>Coinbase ticker</span><span class="ok">мс</span>
-  <span>CLOB /book timestamp</span><span class="ok">мс</span><span>CLOB /price</span><span class="bad">времени нет</span>
-  <span>CLOB /time</span><span class="warn">секунды</span><span>Coinbase candles</span><span class="warn">60 сек</span>
-  <span>расхождение часов</span><span class="warn">точнее секунды не измеримо</span>`;
- $('updated').textContent='обновлено '+new Date().toLocaleString('ru');
-}
-nav();load();
+
+};
+
+function draw(k){try{(drawers[k]||(()=>{}))()}catch(e){console.error(k,e)}}
+load();
 </script></body></html>
