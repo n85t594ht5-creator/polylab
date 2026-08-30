@@ -1,0 +1,91 @@
+{
+ "report_version": "1",
+ "findings": [
+  {
+   "area": "Целостность длинной серии",
+   "status": "SUPPORTED",
+   "detail": "2 дней, 48 снимков, валидных 48 (100%), дублей id 0",
+   "note": "выборка мала для CONFIRMED (нужно ≥500 снимков подряд)",
+   "source": "REAL"
+  },
+  {
+   "area": "Отсутствие утечек будущего",
+   "status": "CONFIRMED",
+   "detail": "полей исхода в векторе признаков не найдено",
+   "note": "проверяется на raw, пока он локально доступен",
+   "source": "REAL"
+  },
+  {
+   "area": "Измеримость задержки",
+   "status": "INCONCLUSIVE",
+   "detail": "зонд не запускался или не нашёл рынков",
+   "note": "",
+   "source": "—"
+  },
+  {
+   "area": "60-минутные окна",
+   "status": "NOT OBSERVED",
+   "detail": "наблюдение ещё не запускалось",
+   "note": "",
+   "source": "—"
+  },
+  {
+   "area": "Объём торгов Polymarket",
+   "status": "UNAVAILABLE",
+   "detail": "поле отсутствует в ответе Gamma (проверено зондом 5A)",
+   "note": "подменять ликвидностью нельзя — это другая величина",
+   "source": "REAL"
+  },
+  {
+   "area": "Покрытие и полнота",
+   "status": "SUPPORTED",
+   "detail": "GOOD 12 · DEGRADED 20 · INCOMPLETE 16 · INVALID 0; активов 4, окон 2, рынков 0",
+   "note": "INVALID = не получена опорная цена; нулями не заменяется",
+   "source": "REAL"
+  },
+  {
+   "area": "Целостность хранения",
+   "status": "CONFIRMED",
+   "detail": "raw вне Git (артефакты 90 дней), агрегаты в Git, индекс id с fsync, агрегат защищён от уменьшения при неполном raw",
+   "note": "raw старше 90 дней исчезает — долгосрочный источник только агрегаты",
+   "source": "REAL"
+  }
+ ],
+ "coverage": {
+  "total_snapshots": 48,
+  "valid": 48,
+  "GOOD": 12,
+  "DEGRADED": 20,
+  "INCOMPLETE": 16,
+  "INVALID": 0,
+  "by_asset": {
+   "BTC": 12,
+   "ETH": 12,
+   "SOL": 12,
+   "XRP": 12
+  },
+  "by_window": {
+   "15m": 32,
+   "5m": 16
+  },
+  "unique_markets": 0,
+  "feature_availability_share": {
+   "acceleration": 0.25,
+   "book_ts_up": 1.0,
+   "depth_10_up": 0.6667,
+   "depth_1_up": 0.6667,
+   "imbalance_up": 0.6667,
+   "liquidity": 1.0,
+   "market_volume": 0.0,
+   "spread_up": 0.6667,
+   "volatility": 0.3333
+  },
+  "raw_present_days": 1,
+  "truncated_days": 0,
+  "incomplete_rebuild_days": 0,
+  "duplicate_ids": 0,
+  "missing_reference_prices": 0,
+  "missing_volume": "UNAVAILABLE (источник не отдаёт)"
+ },
+ "built_at": "2026-08-30T05:47:36Z"
+}

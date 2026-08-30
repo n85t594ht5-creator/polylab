@@ -1,0 +1,65 @@
+name: POLYLAB research probes
+
+on:
+  workflow_dispatch:
+    inputs:
+      probe_run_sec:
+        description: "Длительность latency-зонда, сек"
+        default: "120"
+      probe_interval:
+        description: "Интервал зонда, сек"
+        default: "0.5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: polylab-research
+  cancel-in-progress: false
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install requests
+
+      # 5D.3 — наблюдение окон, накапливается между прогонами
+      - name: Observe market windows
+        run: python polylab/data/observe_60m.py
+
+      # 5D.2 — независимый высокочастотный зонд, Market DNA не затрагивает
+      - name: High-frequency latency probe
+        env:
+          PROBE_RUN_SEC: ${{ github.event.inputs.probe_run_sec || '120' }}
+          PROBE_INTERVAL: ${{ github.event.inputs.probe_interval || '0.5' }}
+        run: python polylab/data/latency_probe.py
+
+      # 5D.1 — валидация длинной серии по реальным данным
+      - name: Validate long series
+        env: { DATA_SOURCE: REAL }
+        run: python polylab/data/validate.py
+
+      - name: Data quality report
+        run: python polylab/data/quality_report.py
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: latency-probe-raw
+          path: data/raw/latency_probe
+          retention-days: 90
+          overwrite: true
+
+      - name: Commit research outputs
+        run: |
+          git config user.name "polylab"
+          git config user.email "polylab@users.noreply.github.com"
+          mkdir -p docs/data/research
+          cp -f research/*.json docs/data/research/ 2>/dev/null || true
+          cp -f research/DATA_QUALITY_REPORT.md docs/data/research/ 2>/dev/null || true
+          git add research docs/data
+          git commit -m "research probes $(date -u +'%Y-%m-%d %H:%M')" || echo "нет изменений"
+          git pull --rebase && git push
