@@ -22,6 +22,7 @@ const PAGES = ['home','health','coverage','dna','signals','arena','perf','latenc
 (async () => {
   const browser = await chromium.launch();
   const issues = [];
+  const checked = [];
   fs.mkdirSync('qa-screens', { recursive: true });
 
   for (const w of VIEWPORTS) {
@@ -32,8 +33,24 @@ const PAGES = ['home','health','coverage','dna','signals','arena','perf','latenc
     await page.waitForTimeout(1200);
 
     for (const p of PAGES) {
-      await page.evaluate(k => window.go && window.go(k), p);
+      await page.evaluate(k => { if (window.go) window.go(k); }, p);
       await page.waitForTimeout(350);
+
+      // Самопроверка: без неё "0 проблем" ничего не значит — можно 13 раз
+      // проверить одну и ту же страницу и не заметить этого.
+      const shown = await page.evaluate(() => {
+        const v = document.querySelector('.view:not([hidden])');
+        return v ? { id: v.id, cards: v.querySelectorAll('.card').length,
+                     text: (v.textContent || '').trim().length } : null;
+      });
+      if (!shown || shown.id !== 'v_' + p)
+        issues.push({ vw: w, page: p, kind: 'PAGE_NOT_SWITCHED',
+                      detail: `ожидалась v_${p}, показана ${shown ? shown.id : 'нет видимой'}` });
+      else if (shown.cards === 0)
+        issues.push({ vw: w, page: p, kind: 'NO_CARDS', detail: 'на странице нет карточек' });
+      else if (shown.text < 40)
+        issues.push({ vw: w, page: p, kind: 'PAGE_ALMOST_EMPTY', detail: `${shown.text} символов` });
+      checked.push(`${p}@${w}:${shown ? shown.id : '-'}:${shown ? shown.cards : 0}`);
 
       const found = await page.evaluate((ctxInfo) => {
         const out = [];
@@ -155,9 +172,11 @@ const PAGES = ['home','health','coverage','dna','signals','arena','perf','latenc
   issues.forEach(i => { byKind[i.kind] = (byKind[i.kind] || 0) + 1; });
   fs.writeFileSync('research/VISUAL_QA.json', JSON.stringify(
     { url: URL, checked_at: new Date().toISOString(), viewports: VIEWPORTS, pages: PAGES,
+      checks_performed: checked.length, sample_checks: checked.slice(0, 15),
       total_issues: issues.length, by_kind: byKind, issues: issues.slice(0, 200) }, null, 1));
 
-  console.log(`вьюпортов: ${VIEWPORTS.length}, страниц: ${PAGES.length}, проблем: ${issues.length}`);
+  console.log(`вьюпортов: ${VIEWPORTS.length}, страниц: ${PAGES.length}, проверок: ${checked.length}, проблем: ${issues.length}`);
+  console.log('образцы проверок:', checked.slice(0, 8).join(' | '));
   Object.entries(byKind).forEach(([k, v]) => console.log(`  ${k}: ${v}`));
   issues.slice(0, 40).forEach(i => console.log(`  ${i.vw}px ${i.page}: ${i.kind} — ${i.detail}`));
   process.exit(0);
