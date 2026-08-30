@@ -1,0 +1,50 @@
+{
+ "status": "OK",
+ "probe_version": "1",
+ "asset": "BTC",
+ "samples": 360,
+ "interval_target_ms": 500.0,
+ "interval_actual": {
+  "median": 500.1,
+  "p90": 500.2,
+  "max": 574.1,
+  "jitter_stdev": 3.9
+ },
+ "request_latency_ms": {
+  "median": 260.1,
+  "p90": 301.5,
+  "p95": 340.0,
+  "p99": 380.2,
+  "max": 573.7
+ },
+ "book_changes": 359,
+ "book_change_rate": 1.0,
+ "observed_diff_ms": {
+  "n": 360,
+  "median": 1332.6,
+  "p90": 1894.4,
+  "min": 310.9150390625,
+  "max": 3531.17919921875
+ },
+ "measurable_counts": {
+  "BORDERLINE": 148,
+  "MEASURABLE": 126,
+  "NOT_MEASURABLE": 86
+ },
+ "event_ordering_ok": true,
+ "min_measurable_latency_ms": 802,
+ "verdict": "SUPPORTED",
+ "venue": "polymarket",
+ "instrument": "BTC",
+ "relationship": "OBSERVED TIMING DIFFERENCE — CAUSALITY NOT ESTABLISHED",
+ "timestamp_quality": {
+  "source": "миллисекунды (Coinbase ticker.time)",
+  "market": "миллисекунды (CLOB book.timestamp)",
+  "clock_skew": "точнее 1 с не измеряется"
+ },
+ "limits": [
+  "задержка короче интервала опроса неизмерима принципиально",
+  "расхождение часов точнее 1 с не измеряется — абсолютные значения <1 с не факт",
+  "наблюдаемая разница времён ≠ причинная задержка"
+ ]
+}
