@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-08-30T15:18:59Z",
+ "checked_at": "2026-08-30T18:18:50Z",
  "days": 3,
  "issues": [
   {
@@ -35,54 +35,55 @@
    }
   },
   "2026-08-30": {
-   "snapshots": 64,
-   "valid": 64,
+   "snapshots": 220,
+   "valid": 220,
    "quality": {
-    "DEGRADED": 7,
-    "INCOMPLETE": 57
+    "DEGRADED": 67,
+    "GOOD": 56,
+    "INCOMPLETE": 97
    },
    "raw_present": true,
    "raw_truncated": false,
-   "raw_incomplete_on_rebuild": false,
+   "raw_incomplete_on_rebuild": true,
    "cut_gaps": {
-    "entry_bucket": 57
+    "entry_bucket": 75
    }
   }
  },
  "totals": {
-  "snapshots": 112,
-  "valid": 112,
+  "snapshots": 268,
+  "valid": 268,
   "valid_share": 1.0,
   "quality": {
-   "DEGRADED": 27,
-   "GOOD": 12,
-   "INCOMPLETE": 73
+   "DEGRADED": 87,
+   "GOOD": 68,
+   "INCOMPLETE": 113
   },
   "windows": {
-   "15m": 64,
-   "5m": 48
+   "15m": 118,
+   "5m": 150
   },
   "assets": {
-   "BTC": 28,
-   "ETH": 28,
-   "SOL": 28,
-   "XRP": 28
+   "BTC": 67,
+   "ETH": 64,
+   "SOL": 65,
+   "XRP": 72
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
   "raw_present_days": 2,
   "truncated_days": 0,
-  "incomplete_rebuild_days": 1,
+  "incomplete_rebuild_days": 2,
   "feature_availability_share": {
-   "acceleration": 0.2679,
+   "acceleration": 0.5597,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.2857,
-   "depth_1_up": 0.3482,
-   "imbalance_up": 0.3482,
+   "depth_10_up": 0.5709,
+   "depth_1_up": 0.6604,
+   "imbalance_up": 0.5784,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.3482,
-   "volatility": 0.4286
+   "spread_up": 0.5784,
+   "volatility": 0.6418
   }
  },
  "verdict": "OK",
@@ -102,7 +103,7 @@
   {
    "day": "2026-08-30",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 64,
+   "stored_snapshots": 220,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
