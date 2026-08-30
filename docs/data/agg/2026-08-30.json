@@ -1,0 +1,197 @@
+{
+ "agg_version": "1",
+ "built_at": "2026-08-30T10:46:12Z",
+ "cuts": {
+  "asset": {
+   "BTC": {
+    "n": 16,
+    "quality": {
+     "DEGRADED": 2,
+     "INCOMPLETE": 14
+    },
+    "valid": 16
+   },
+   "ETH": {
+    "n": 16,
+    "quality": {
+     "DEGRADED": 1,
+     "INCOMPLETE": 15
+    },
+    "valid": 16
+   },
+   "SOL": {
+    "n": 16,
+    "quality": {
+     "DEGRADED": 3,
+     "INCOMPLETE": 13
+    },
+    "valid": 16
+   },
+   "XRP": {
+    "n": 16,
+    "quality": {
+     "DEGRADED": 1,
+     "INCOMPLETE": 15
+    },
+    "valid": 16
+   }
+  },
+  "elapsed_bucket": {
+   "60–75%": {
+    "n": 12,
+    "quality": {
+     "DEGRADED": 7,
+     "INCOMPLETE": 5
+    },
+    "valid": 12
+   },
+   "75–85%": {
+    "n": 8,
+    "quality": {
+     "INCOMPLETE": 8
+    },
+    "valid": 8
+   },
+   "85–95%": {
+    "n": 28,
+    "quality": {
+     "INCOMPLETE": 28
+    },
+    "valid": 28
+   },
+   "95%+": {
+    "n": 16,
+    "quality": {
+     "INCOMPLETE": 16
+    },
+    "valid": 16
+   }
+  },
+  "entry_bucket": {
+   ">0.62": {
+    "n": 7,
+    "quality": {
+     "DEGRADED": 7
+    },
+    "valid": 7
+   }
+  },
+  "move_bucket": {
+   "0.00–0.05%": {
+    "n": 7,
+    "quality": {
+     "DEGRADED": 1,
+     "INCOMPLETE": 6
+    },
+    "valid": 7
+   },
+   "0.05–0.10%": {
+    "n": 20,
+    "quality": {
+     "DEGRADED": 2,
+     "INCOMPLETE": 18
+    },
+    "valid": 20
+   },
+   "0.10–0.12%": {
+    "n": 5,
+    "quality": {
+     "INCOMPLETE": 5
+    },
+    "valid": 5
+   },
+   "0.12–0.15%": {
+    "n": 14,
+    "quality": {
+     "DEGRADED": 2,
+     "INCOMPLETE": 12
+    },
+    "valid": 14
+   },
+   "0.15–0.20%": {
+    "n": 18,
+    "quality": {
+     "DEGRADED": 2,
+     "INCOMPLETE": 16
+    },
+    "valid": 18
+   }
+  },
+  "quality": {
+   "DEGRADED": {
+    "n": 7,
+    "quality": {
+     "DEGRADED": 7
+    },
+    "valid": 7
+   },
+   "INCOMPLETE": {
+    "n": 57,
+    "quality": {
+     "INCOMPLETE": 57
+    },
+    "valid": 57
+   }
+  },
+  "window": {
+   "15m": {
+    "n": 32,
+    "quality": {
+     "INCOMPLETE": 32
+    },
+    "valid": 32
+   },
+   "5m": {
+    "n": 32,
+    "quality": {
+     "DEGRADED": 7,
+     "INCOMPLETE": 25
+    },
+    "valid": 32
+   }
+  }
+ },
+ "day": "2026-08-30",
+ "feature_availability": {
+  "acceleration": 18,
+  "book_ts_up": 64,
+  "depth_10_up": 0,
+  "depth_1_up": 7,
+  "imbalance_up": 7,
+  "liquidity": 64,
+  "market_volume": 0,
+  "spread_up": 7,
+  "volatility": 32
+ },
+ "latency": {
+  "n": 64,
+  "quality": {
+   "LOW": 58,
+   "MEDIUM": 6
+  }
+ },
+ "missing_fields": {
+  "acceleration": 46,
+  "depth_1_up": 57,
+  "imbalance_up": 57,
+  "spread_up": 57,
+  "up_ask": 57,
+  "volatility": 32
+ },
+ "moves": {
+  "avg_time_to_reversal_sec": null,
+  "by_window": {},
+  "continued": 0,
+  "n": 0,
+  "reversed": 0,
+  "with_outcome": 0
+ },
+ "quality": {
+  "DEGRADED": 7,
+  "INCOMPLETE": 57
+ },
+ "raw_present": true,
+ "raw_truncated": false,
+ "snapshots": 64,
+ "valid": 64
+}

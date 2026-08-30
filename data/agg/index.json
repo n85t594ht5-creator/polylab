@@ -13,6 +13,13 @@
    "valid": 48,
    "moves": 0,
    "raw_present": true
+  },
+  {
+   "day": "2026-08-30",
+   "snapshots": 64,
+   "valid": 64,
+   "moves": 0,
+   "raw_present": true
   }
  ],
  "agg_version": "1"
