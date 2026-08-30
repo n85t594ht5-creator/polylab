@@ -16,9 +16,9 @@
   },
   {
    "day": "2026-08-30",
-   "snapshots": 64,
-   "valid": 64,
-   "moves": 0,
+   "snapshots": 220,
+   "valid": 220,
+   "moves": 12,
    "raw_present": true
   }
  ],
