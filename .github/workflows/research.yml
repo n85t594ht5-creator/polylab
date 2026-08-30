@@ -1,6 +1,10 @@
 name: POLYLAB research probes
 
 on:
+  # Наблюдение за окнами должно накапливаться во времени: за один прогон
+  # статус 60m всегда INCONCLUSIVE (span = 0 ч).
+  schedule:
+    - cron: "17 */3 * * *"
   workflow_dispatch:
     inputs:
       probe_run_sec:
@@ -33,6 +37,7 @@ jobs:
 
       # 5D.2 — независимый высокочастотный зонд, Market DNA не затрагивает
       - name: High-frequency latency probe
+        if: github.event_name == 'workflow_dispatch'
         env:
           PROBE_RUN_SEC: ${{ github.event.inputs.probe_run_sec || '120' }}
           PROBE_INTERVAL: ${{ github.event.inputs.probe_interval || '0.5' }}
@@ -47,6 +52,7 @@ jobs:
         run: python polylab/data/quality_report.py
 
       - uses: actions/upload-artifact@v4
+        if: github.event_name == 'workflow_dispatch'
         with:
           name: latency-probe-raw
           path: data/raw/latency_probe
