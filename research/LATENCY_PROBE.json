@@ -2,37 +2,37 @@
  "status": "OK",
  "probe_version": "1",
  "asset": "BTC",
- "samples": 360,
+ "samples": 120,
  "interval_target_ms": 500.0,
  "interval_actual": {
   "median": 500.1,
   "p90": 500.2,
-  "max": 574.1,
-  "jitter_stdev": 3.9
+  "max": 871.8,
+  "jitter_stdev": 33.9
  },
  "request_latency_ms": {
-  "median": 260.1,
-  "p90": 301.5,
-  "p95": 340.0,
-  "p99": 380.2,
-  "max": 573.7
+  "median": 227.6,
+  "p90": 310.6,
+  "p95": 325.8,
+  "p99": 475.8,
+  "max": 871.5
  },
- "book_changes": 359,
+ "book_changes": 119,
  "book_change_rate": 1.0,
  "observed_diff_ms": {
-  "n": 360,
-  "median": 1332.6,
-  "p90": 1894.4,
-  "min": 310.9150390625,
-  "max": 3531.17919921875
+  "n": 120,
+  "median": 1341.8,
+  "p90": 1945.6,
+  "min": 459.7490234375,
+  "max": 2540.39013671875
  },
  "measurable_counts": {
-  "BORDERLINE": 148,
-  "MEASURABLE": 126,
-  "NOT_MEASURABLE": 86
+  "NOT_MEASURABLE": 34,
+  "BORDERLINE": 46,
+  "MEASURABLE": 40
  },
  "event_ordering_ok": true,
- "min_measurable_latency_ms": 802,
+ "min_measurable_latency_ms": 811,
  "verdict": "SUPPORTED",
  "venue": "polymarket",
  "instrument": "BTC",
