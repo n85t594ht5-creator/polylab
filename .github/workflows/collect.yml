@@ -1,6 +1,10 @@
 name: POLYLAB collector
 
 on:
+  # Накопление выборки: строгий baseline даёт ~1 сигнал на 200+ снимков,
+  # поэтому статистика набирается только временем, а не длиной одного прогона.
+  schedule:
+    - cron: "8 */2 * * *"
   workflow_dispatch:
     inputs:
       run_sec:
@@ -54,7 +58,7 @@ jobs:
 
       - name: Collect
         env:
-          RUN_SEC: ${{ github.event.inputs.run_sec || '300' }}
+          RUN_SEC: ${{ github.event.inputs.run_sec || '1500' }}
           SAMPLE_SEC: ${{ github.event.inputs.sample_sec || '15' }}
           ASSETS: BTC,ETH,SOL,XRP
           WINDOWS: "5,15,60"

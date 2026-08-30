@@ -421,12 +421,16 @@ drawers.arena=()=>{
    const hyp=v.reduce((a,r)=>a+(parseFloat(r.hypothetical_pnl)||0),0);
    const real=v.reduce((a,r)=>a+(parseFloat(r.realized_pnl)||0),0);
    const st=res.length<100?'INSUFFICIENT':'OK';
+   const need=Math.max(0,100-res.length);
    return `<tr><td>${esc(k)}</td><td>${esc(v[0].strategy_version||'—')}</td><td>${v.length}</td>
    <td>${v.filter(r=>r.execution_state==='FILLED').length}</td>
    <td>${v.filter(r=>r.decision==='REJECT'||r.decision==='CONFLICT').length}</td>
    <td>${res.length?(wins/res.length*100).toFixed(0)+'%':'—'}</td>
-   <td class="warn">${sgn(hyp)}</td><td class="${cls(real)}">${sgn(real)}</td><td>${badge(st)}</td></tr>`}).join('')
-  +'</tbody></table></div>';
+   <td class="warn">${sgn(hyp)}</td><td class="${cls(real)}">${sgn(real)}</td>
+   <td>${badge(st)}${need?`<div class="hint">до оценки ещё ${need}</div>`:''}</td></tr>`}).join('')
+  +'</tbody></table></div>'
+  +`<div class="warnbox" style="margin-top:10px">Результат SHADOW — это <b>hypothetical</b>: сигналы записаны,
+   но ордера не выставлялись никогда. Столбец realized пуст по определению режима.</div>`;
 };
 
 drawers.perf=()=>{
