@@ -1,0 +1,45 @@
+name: POLYLAB visual QA
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["POLYLAB pages"]
+    types: [completed]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: polylab-qa
+  cancel-in-progress: true
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - run: npm i -D playwright@1.47.0 && npx playwright install --with-deps chromium
+      - name: Visual QA on published site
+        run: |
+          mkdir -p research
+          node tools/visual_qa.js | tee qa.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: visual-qa
+          path: |
+            qa-screens
+            research/VISUAL_QA.json
+          retention-days: 30
+          overwrite: true
+      - name: Commit QA result
+        run: |
+          git config user.name "polylab"
+          git config user.email "polylab@users.noreply.github.com"
+          mkdir -p docs/data/research && cp -f research/VISUAL_QA.json docs/data/research/ 2>/dev/null || true
+          git add research/VISUAL_QA.json docs/data/research/VISUAL_QA.json
+          git commit -m "visual QA $(date -u +'%Y-%m-%d %H:%M')" || echo "нет изменений"
+          git pull --rebase && git push
