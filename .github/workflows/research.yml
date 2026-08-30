@@ -64,6 +64,6 @@ jobs:
           git config user.name "polylab"
           git config user.email "polylab@users.noreply.github.com"
           python polylab/data/publish.py
-          git add research docs/data
+          git add -A research docs/data
           git commit -m "research probes $(date -u +'%Y-%m-%d %H:%M')" || echo "нет изменений"
           git pull --rebase && git push
