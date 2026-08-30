@@ -81,11 +81,60 @@ const PAGES = ['home','health','coverage','dna','signals','arena','perf','latenc
           const body = c.textContent.replace(h ? h.textContent : '', '').trim();
           if (!body) out.push({ kind: 'EMPTY_CARD', detail: h ? h.textContent : '?' });
         });
+
+        // блок нулевой/схлопнутой высоты — выглядит как сломанная страница
+        view.querySelectorAll('.card, .kpi, .blank, svg').forEach(el => {
+          const r = el.getBoundingClientRect();
+          if (r.width > 0 && r.height < 8)
+            out.push({ kind: 'COLLAPSED_BLOCK', detail: `${el.className || el.tagName} h=${r.height.toFixed(0)}` });
+        });
+
+        // график без данных, но и без объяснения
+        view.querySelectorAll('svg').forEach(s => {
+          if (!s.querySelector('polyline, rect, circle, text'))
+            out.push({ kind: 'EMPTY_CHART', detail: 'svg без содержимого' });
+        });
+
+        // налезание соседних карточек друг на друга
+        const cards = [...view.querySelectorAll('.card')].filter(c => !c.hasAttribute('hidden'));
+        for (let i = 0; i < cards.length; i++)
+          for (let j = i + 1; j < cards.length; j++) {
+            const a = cards[i].getBoundingClientRect(), b = cards[j].getBoundingClientRect();
+            const ov = Math.min(a.right, b.right) - Math.max(a.left, b.left);
+            const oy = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+            if (ov > 4 && oy > 4)
+              out.push({ kind: 'CARDS_OVERLAP', detail: `${i}/${j} пересечение ${ov.toFixed(0)}×${oy.toFixed(0)}` });
+          }
+
+        // элементы, вышедшие за пределы окна
+        view.querySelectorAll('.card, table, .kpi>div, .row').forEach(el => {
+          const r = el.getBoundingClientRect();
+          if (r.left < -2 || r.right > window.innerWidth + 2) {
+            if (!el.closest('.tw'))
+              out.push({ kind: 'OUT_OF_VIEWPORT', detail: `${el.className || el.tagName} ${r.left.toFixed(0)}..${r.right.toFixed(0)}` });
+          }
+        });
+
+        // текст, залезающий на соседнюю колонку в .row (частый дефект)
+        view.querySelectorAll('.row').forEach(r => {
+          const kids = [...r.children];
+          for (let i = 0; i + 1 < kids.length; i++) {
+            const a = kids[i].getBoundingClientRect(), b = kids[i + 1].getBoundingClientRect();
+            if (a.right > b.left + 2)
+              out.push({ kind: 'ROW_COLUMN_OVERLAP', detail: (kids[i].textContent || '').slice(0, 20) });
+          }
+        });
+
+        // пустое состояние обязано объяснять причину
+        view.querySelectorAll('.blank').forEach(b => {
+          if ((b.textContent || '').trim().length < 25)
+            out.push({ kind: 'BLANK_WITHOUT_REASON', detail: (b.textContent || '').slice(0, 30) });
+        });
         return out;
       }, `${p}@${w}`);
 
       found.forEach(f => issues.push({ vw: w, page: p, ...f }));
-      if (w === 375 || w === 1000)
+      if (w === 320 || w === 375 || w === 1000)
         await page.screenshot({ path: `qa-screens/${p}-${w}.png`, fullPage: true });
     }
 
