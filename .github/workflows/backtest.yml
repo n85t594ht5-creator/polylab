@@ -56,6 +56,9 @@ jobs:
         run: |
           echo "файлы raw:"; ls -la data/raw/dna 2>/dev/null || echo "  raw не восстановлен"
 
+      - name: Parity diagnosis (why replay differs from SHADOW)
+        run: python polylab/backtest/parity.py
+
       - name: Run backtest
         env:
           OOS_FRACTION: ${{ github.event.inputs.oos_fraction || '0.30' }}
