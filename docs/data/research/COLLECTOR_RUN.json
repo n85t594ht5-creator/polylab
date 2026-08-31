@@ -8,42 +8,42 @@
   "5m": 240
  },
  "quality": {
-  "DEGRADED": 46,
-  "INVALID": 60,
-  "STALE": 277,
-  "GOOD": 65
+  "DEGRADED": 98,
+  "STALE": 176,
+  "INVALID": 55,
+  "GOOD": 119
  },
  "latency_events": 448,
- "moves": 26,
- "ref_missing": 60,
+ "moves": 30,
+ "ref_missing": 55,
  "latency_quality": {
-  "MEDIUM": 47,
-  "LOW": 74,
-  "HIGH": 327
+  "MEDIUM": 69,
+  "HIGH": 203,
+  "LOW": 176
  },
- "stale": 277,
+ "stale": 176,
  "incomplete": 0,
  "api": {
-  "requests": 1569,
+  "requests": 1554,
   "failures": 0,
   "retries": 0,
-  "latency_median_ms": 101.4,
-  "latency_max_ms": 679.5
+  "latency_median_ms": 123.6,
+  "latency_max_ms": 336.3
  },
  "shadow": {
-  "snapshots": 1644,
-  "signals": 54,
-  "accepted": 6,
+  "snapshots": 2037,
+  "signals": 57,
+  "accepted": 7,
   "reduced": 0,
-  "rejected": 48,
+  "rejected": 50,
   "conflicts": 0,
-  "resolved": 51,
+  "resolved": 57,
   "by_strategy": {
    "momentum_late_window": {
-    "signals": 54,
-    "accepted": 6,
-    "rejected": 48,
-    "resolved": 51
+    "signals": 57,
+    "accepted": 7,
+    "rejected": 50,
+    "resolved": 57
    }
   },
   "errors": {}
@@ -51,27 +51,27 @@
  "storage": {
   "raw/dna": {
    "files": 1,
-   "bytes": 61966
+   "bytes": 61145
   },
   "raw/latency": {
    "files": 1,
-   "bytes": 86985
+   "bytes": 86697
   },
   "moves": {
    "files": 2,
-   "bytes": 18467
+   "bytes": 23199
   },
   "agg": {
    "files": 5,
-   "bytes": 13539
+   "bytes": 12836
   },
   "state": {
    "files": 3,
-   "bytes": 21635
+   "bytes": 17466
   },
-  "total_bytes": 202592,
-  "git_tracked_bytes": 53641,
-  "artifact_bytes": 148951
+  "total_bytes": 201343,
+  "git_tracked_bytes": 53501,
+  "artifact_bytes": 147842
  },
  "ids_pruned": 448,
  "ids_kept": 896,
@@ -79,5 +79,5 @@
  "restored_ids": 896,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-08-31T08:39:37.183997+00:00"
+ "finished_at": "2026-08-31T10:39:44.962605+00:00"
 }
