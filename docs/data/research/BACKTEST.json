@@ -1,5 +1,5 @@
 {
- "built_at": "2026-08-31T14:08:47Z",
+ "built_at": "2026-08-31T14:12:36Z",
  "engine_version": "1",
  "dataset": {
   "source": "REAL",
@@ -39,6 +39,9 @@
    "snapshots": 279,
    "snapshot_errors": 0,
    "no_price": 0,
+   "ask_up_present": 223,
+   "ask_dn_present": 233,
+   "late_window": 133,
    "no_signal": 279,
    "with_signal": 0,
    "blocked_by_risk": 0,
@@ -65,6 +68,9 @@
    "snapshots": 153,
    "snapshot_errors": 0,
    "no_price": 0,
+   "ask_up_present": 148,
+   "ask_dn_present": 122,
+   "late_window": 62,
    "no_signal": 153,
    "with_signal": 0,
    "blocked_by_risk": 0,
