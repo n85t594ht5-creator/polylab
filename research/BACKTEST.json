@@ -1,0 +1,95 @@
+{
+ "built_at": "2026-08-31T08:57:28Z",
+ "engine_version": "1",
+ "dataset": {
+  "source": "REAL",
+  "dataset_version": "1",
+  "rows_total": 0,
+  "rows_usable": 0,
+  "days": 0,
+  "day_list": [],
+  "unique_markets": 0,
+  "by_window": {},
+  "span_hours": null,
+  "issues": []
+ },
+ "split": {
+  "border_market_start": null,
+  "is_windows": 0,
+  "oos_windows": 0,
+  "oos_fraction": 0.3,
+  "rule": "разделение по времени, граница между окнами; подбор только на in-sample"
+ },
+ "in_sample": {
+  "mode": "BACKTEST",
+  "source": "REAL",
+  "engine_version": "1",
+  "windows_seen": 0,
+  "windows_outcome_unknown": 0,
+  "metrics": {
+   "signals": 0,
+   "closed": 0,
+   "blocked": 0,
+   "status": "NO_DATA",
+   "note": "закрытых сделок нет"
+  },
+  "arena_errors": {}
+ },
+ "out_of_sample": {
+  "mode": "OOS",
+  "source": "REAL",
+  "engine_version": "1",
+  "windows_seen": 0,
+  "windows_outcome_unknown": 0,
+  "metrics": {
+   "signals": 0,
+   "closed": 0,
+   "blocked": 0,
+   "status": "NO_DATA",
+   "note": "закрытых сделок нет"
+  },
+  "arena_errors": {}
+ },
+ "forward_shadow": {
+  "signals": 51,
+  "closed": 51,
+  "blocked": 0,
+  "status": "INSUFFICIENT_SAMPLE",
+  "winrate": 0.8824,
+  "pnl": 1907.85,
+  "profit_factor": 7.36,
+  "max_drawdown": 100.0,
+  "days": 2,
+  "best_day": "2026-08-31",
+  "best_day_pnl": 1874.52,
+  "best_day_share_pct": 98.3,
+  "pnl_without_best_day": 33.33,
+  "top3_days_pnl": 1907.85,
+  "by_window": {
+   "5m": {
+    "n": 10,
+    "winrate": 1.0,
+    "pnl": 475.49
+   },
+   "15m": {
+    "n": 41,
+    "winrate": 0.8537,
+    "pnl": 1432.36
+   }
+  },
+  "sample_note": "нужно ≥100 закрытых сделок и ≥50 на окно",
+  "concentration_note": "результат держится на одном дне — это событие, а не edge"
+ },
+ "verdict": {
+  "verdict": "INCONCLUSIVE",
+  "reasons": [
+   "нет закрытых сделок в одной из выборок"
+  ]
+ },
+ "guarantees": [
+  "бэктест использует те же Arena/Portfolio, что и SHADOW",
+  "исход окна берётся из последнего снимка; неизвестный исход исключается",
+  "forward не участвует в подборе параметров",
+  "результаты режимов не смешиваются"
+ ]
+}

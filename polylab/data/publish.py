@@ -124,6 +124,11 @@ def build() -> dict:
 
     parts = {"dna": dna_sample(), "moves": moves(), "signals": signals(),
              "latency": latency_sample()}
+    # бэктест публикуется как есть: режимы и источники внутри уже разделены
+    bt = "research/BACKTEST.json"
+    if os.path.exists(bt):
+        with open(bt, encoding="utf-8") as a, open(f"{OUT}/backtest.json", "w", encoding="utf-8") as b:
+            b.write(a.read())
     for name, obj in parts.items():
         # не затираем прежнюю выгрузку пустой: raw уезжает в артефакт
         p = f"{OUT}/{name}.json"
