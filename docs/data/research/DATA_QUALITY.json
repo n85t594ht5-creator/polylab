@@ -46,8 +46,8 @@
   {
    "area": "60-минутные окна",
    "status": "NOT OBSERVED",
-   "detail": "наблюдений 15, окна за всё время: {'5m': 387, '15m': 101}",
-   "note": "за 36.5 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения",
+   "detail": "наблюдений 16, окна за всё время: {'5m': 428, '15m': 111}",
+   "note": "за 39.5 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения",
    "source": "REAL"
   },
   {
@@ -60,7 +60,7 @@
   {
    "area": "Покрытие и полнота",
    "status": "SUPPORTED",
-   "detail": "GOOD 259 · DEGRADED 203 · INCOMPLETE 194 · INVALID 60; активов 4, окон 2, рынков 0",
+   "detail": "GOOD 233 · DEGRADED 202 · INCOMPLETE 221 · INVALID 60; активов 4, окон 2, рынков 0",
    "note": "INVALID = не получена опорная цена; нулями не заменяется",
    "source": "REAL"
   },
@@ -75,9 +75,9 @@
  "coverage": {
   "total_snapshots": 716,
   "valid": 656,
-  "GOOD": 259,
-  "DEGRADED": 203,
-  "INCOMPLETE": 194,
+  "GOOD": 233,
+  "DEGRADED": 202,
+  "INCOMPLETE": 221,
   "INVALID": 60,
   "by_asset": {
    "BTC": 179,
@@ -91,22 +91,22 @@
   },
   "unique_markets": 0,
   "feature_availability_share": {
-   "acceleration": 0.6355,
+   "acceleration": 0.6215,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6425,
-   "depth_1_up": 0.757,
-   "imbalance_up": 0.6941,
+   "depth_10_up": 0.6802,
+   "depth_1_up": 0.8059,
+   "imbalance_up": 0.655,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.6941,
-   "volatility": 0.7095
+   "spread_up": 0.655,
+   "volatility": 0.6983
   },
   "raw_present_days": 3,
   "truncated_days": 0,
-  "incomplete_rebuild_days": 3,
+  "incomplete_rebuild_days": 2,
   "duplicate_ids": 0,
   "missing_reference_prices": 60,
   "missing_volume": "UNAVAILABLE (источник не отдаёт)"
  },
- "built_at": "2026-08-31T18:19:01Z"
+ "built_at": "2026-08-31T21:19:06Z"
 }
