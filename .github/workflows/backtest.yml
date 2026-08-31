@@ -27,36 +27,30 @@ jobs:
         with: { python-version: "3.12" }
       - run: pip install requests
 
-      # raw живёт в артефактах (решение 5C), но download-artifact видит только
-      # артефакты СВОЕГО прогона. Поэтому качаем через API все raw-* из репозитория.
+      # raw живёт в артефактах (5C), а download-artifact видит только свой прогон.
+      # Берём последний артефакт raw-<день> для каждого дня через gh CLI.
       - name: Restore all raw artifacts
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p data/raw
-          python - <<'PY'
-          import json, os, subprocess, zipfile, io, urllib.request
-          tok = os.environ["GH_TOKEN"]; repo = os.environ["GITHUB_REPOSITORY"]
-          def api(url):
-              r = urllib.request.Request(url, headers={"Authorization": f"Bearer {tok}",
-                                                       "Accept": "application/vnd.github+json"})
-              return json.load(urllib.request.urlopen(r))
-          arts = api(f"https://api.github.com/repos/{repo}/actions/artifacts?per_page=100")["artifacts"]
-          raw = [a for a in arts if a["name"].startswith("raw-") and not a["expired"]]
-          print(f"найдено артефактов raw: {len(raw)}")
-          got = 0
-          for a in raw:
-              req = urllib.request.Request(a["archive_download_url"],
-                                           headers={"Authorization": f"Bearer {tok}"})
-              try:
-                  data = urllib.request.urlopen(req).read()
-                  zipfile.ZipFile(io.BytesIO(data)).extractall("data/raw")
-                  got += 1
-                  print(f"  {a['name']}: {a['size_in_bytes']} Б")
-              except Exception as e:
-                  print(f"  {a['name']}: ошибка — {e}")
-          print(f"восстановлено артефактов: {got}")
-          PY
+          gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts?per_page=100" \
+            --jq '.artifacts[] | select(.name|startswith("raw-")) | select(.expired==false) | [.name, .workflow_run.id, .created_at] | @tsv' \
+            | sort -k1,1 -k3,3r | awk '!seen[$1]++' > /tmp/arts.tsv
+          echo "дней с артефактами: $(wc -l < /tmp/arts.tsv)"
+          cat /tmp/arts.tsv
+          while IFS=$'\t' read -r NAME RUN_ID CREATED; do
+            echo "качаю $NAME (прогон $RUN_ID)"
+            gh run download "$RUN_ID" -n "$NAME" -D data/raw --repo "$GITHUB_REPOSITORY" \
+              || echo "  не удалось: $NAME"
+          done < /tmp/arts.tsv
+          echo "содержимое data/raw:"; find data/raw -type f | head -20
+          COUNT=$(find data/raw/dna -name '*.csv.gz' 2>/dev/null | wc -l)
+          echo "восстановлено файлов DNA: $COUNT"
+          if [ "$COUNT" -eq 0 ]; then
+            echo "::error::raw не восстановлен — бэктест не на чем запускать"
+            exit 1
+          fi
 
       - name: Report dataset
         run: |
