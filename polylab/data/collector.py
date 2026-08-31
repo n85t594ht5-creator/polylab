@@ -136,9 +136,13 @@ class Collector:
             # SHADOW-арена: сбой стратегии не должен ронять сбор данных
             if self.shadow is not None:
                 try:
-                    self.shadow.on_market(m, row, book_up, book_dn, now)
+                    sigs = self.shadow.on_market(m, row, book_up, book_dn, now)
                 except Exception as e:
                     log.warning("shadow on_market %s: %s", m["market_id"], e)
+                    sigs = []
+                # Паритет: то, что видит SHADOW сейчас, и то, что попадёт в DNA,
+                # обязано совпадать. Иначе бэктест по записи не воспроизведёт решение.
+                self._parity(row, book_up, book_dn, bool(sigs))
 
         self._close_moves(now)
         if self.shadow is not None:
@@ -149,6 +153,28 @@ class Collector:
                 self.shadow.save()
             except Exception as e:
                 log.warning("shadow resolve: %s", e)
+
+    def _parity(self, row, book_up, book_dn, had_signal):
+        """Сверяет живые цены с тем, что записано в снимок."""
+        p = self.stats.setdefault("parity", {"checked": 0, "up_mismatch": 0, "dn_mismatch": 0,
+                                             "up_missing_live": 0, "up_missing_row": 0,
+                                             "dn_missing_live": 0, "dn_missing_row": 0,
+                                             "signal_snapshots": 0, "signal_row_incomplete": 0})
+        p["checked"] += 1
+        for side, book, key in (("up", book_up, "up_ask"), ("dn", book_dn, "down_ask")):
+            live, stored = book.get("best_ask"), row.get(key)
+            if live is None and stored is None:
+                continue
+            if live is None:
+                p[f"{side}_missing_live"] += 1
+            elif stored is None:
+                p[f"{side}_missing_row"] += 1
+            elif abs(float(live) - float(stored)) > 1e-9:
+                p[f"{side}_mismatch"] += 1
+        if had_signal:
+            p["signal_snapshots"] += 1
+            if row.get("up_ask") is None or row.get("down_ask") is None:
+                p["signal_row_incomplete"] += 1
 
     # ── latency: только наблюдаемая разница времён, без утверждений о причинности ──
     def _latency(self, m: dict, tk: dict, book: dict, now: datetime) -> None:
