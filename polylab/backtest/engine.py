@@ -74,24 +74,48 @@ def run(strategies_factory, by_market: dict, mode: str, source: str,
     pf = PortfolioManager(bankroll)
     trades: list[dict] = []
     skipped_unknown = 0
+    # Диагностика отсева: без неё «0 сделок» неотличимо от поломки движка.
+    stage = {"windows": 0, "outcome_unknown": 0, "snapshots": 0, "snapshot_errors": 0,
+             "no_signal": 0, "with_signal": 0, "blocked_by_risk": 0, "entered": 0,
+             "elapsed_ok": 0, "price_in_zone": 0, "move_ok": 0}
 
     order = sorted(by_market.items(), key=lambda kv: kv[1][0].get("ts") or "")
     for mid, snaps in order:
+        stage["windows"] += 1
         res = outcome_of(snaps)
         if res is None:
             skipped_unknown += 1
+            stage["outcome_unknown"] += 1
             continue
         entered = False
         for r in snaps:
             if entered:
                 break
+            stage["snapshots"] += 1
             try:
                 snap = _snap(r, pf.bankroll)
             except Exception:
+                stage["snapshot_errors"] += 1
                 continue
-            for sig in arena.collect(snap):
+            # почему стратегия молчит — по стадиям её собственных условий
+            p = arena.strategies[0].params if arena.strategies else {}
+            if snap.elapsed >= p.get("min_elapsed", 1) and snap.remaining_sec >= p.get("min_remaining_sec", 0):
+                stage["elapsed_ok"] += 1
+                ask = snap.ask_for("UP" if snap.move > 0 else "DOWN")
+                if ask is not None and p.get("min_entry", 0) <= ask <= p.get("max_entry", 1):
+                    stage["price_in_zone"] += 1
+                    need = p.get("min_move_high", 0) if ask > p.get("tier_entry", 1) else p.get("min_move", 0)
+                    if abs(snap.move) >= need:
+                        stage["move_ok"] += 1
+            sigs = arena.collect(snap)
+            if not sigs:
+                stage["no_signal"] += 1
+            else:
+                stage["with_signal"] += 1
+            for sig in sigs:
                 dec = pf.decide(sig, snap.start.isoformat())
                 if not dec.accepted:
+                    stage["blocked_by_risk"] += 1
                     trades.append({"ts": r["ts"], "day": r["ts"][:10], "strategy": sig.strategy,
                                    "strategy_version": sig.strategy_version,
                                    "asset": sig.asset, "window": f"{sig.window_minutes}m",
@@ -113,11 +137,12 @@ def run(strategies_factory, by_market: dict, mode: str, source: str,
                                "size": round(size, 2), "pnl": round(pnl, 2),
                                "mode": mode, "source": source})
                 pf.release(f"{sig.strategy}:{sig.market_id}", pnl)
+                stage["entered"] += 1
                 entered = True
                 break
     return {"mode": mode, "source": source, "engine_version": ENGINE_VERSION,
             "trades": trades, "windows_seen": len(by_market),
-            "windows_outcome_unknown": skipped_unknown,
+            "windows_outcome_unknown": skipped_unknown, "funnel": stage,
             "metrics": metrics(trades), "arena_errors": dict(arena.errors)}
 
 
