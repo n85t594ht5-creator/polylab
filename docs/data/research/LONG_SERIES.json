@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-08-31T03:18:57Z",
+ "checked_at": "2026-08-31T06:19:00Z",
  "days": 4,
  "issues": [
   {
@@ -51,28 +51,31 @@
   },
   "2026-08-31": {
    "snapshots": 448,
-   "valid": 448,
+   "valid": 388,
    "quality": {
-    "DEGRADED": 141,
-    "GOOD": 208,
-    "INCOMPLETE": 99
+    "DEGRADED": 115,
+    "GOOD": 190,
+    "INCOMPLETE": 83,
+    "INVALID": 60
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 27
+    "entry_bucket": 25,
+    "move_bucket": 60
    }
   }
  },
  "totals": {
   "snapshots": 716,
-  "valid": 716,
-  "valid_share": 1.0,
+  "valid": 656,
+  "valid_share": 0.9162,
   "quality": {
-   "DEGRADED": 228,
-   "GOOD": 276,
-   "INCOMPLETE": 212
+   "DEGRADED": 202,
+   "GOOD": 258,
+   "INCOMPLETE": 196,
+   "INVALID": 60
   },
   "windows": {
    "15m": 326,
@@ -92,12 +95,12 @@
   "feature_availability_share": {
    "acceleration": 0.6159,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.7891,
-   "depth_1_up": 0.8352,
-   "imbalance_up": 0.7039,
+   "depth_10_up": 0.7542,
+   "depth_1_up": 0.838,
+   "imbalance_up": 0.6997,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7039,
+   "spread_up": 0.6997,
    "volatility": 0.6872
   }
  },
