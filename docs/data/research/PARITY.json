@@ -1,0 +1,84 @@
+{
+ "built_at": "2026-08-31T14:41:52Z",
+ "dataset": {
+  "source": "REAL",
+  "dataset_version": "1",
+  "rows_total": 696,
+  "rows_usable": 636,
+  "days": 3,
+  "day_list": [
+   "2026-08-29",
+   "2026-08-30",
+   "2026-08-31"
+  ],
+  "unique_markets": 47,
+  "by_window": {
+   "5m": 292,
+   "15m": 344
+  },
+  "span_hours": 41.51,
+  "issues": []
+ },
+ "replay": {
+  "snapshots": 696,
+  "late": 164,
+  "signals": 1,
+  "ask_side_present": 92,
+  "ask_side_missing": 72,
+  "ask_dist_late": {
+   ">=0.75": 61,
+   "<0.62": 3,
+   "<0.75": 4,
+   "<0.3": 19,
+   "<0.5": 5
+  },
+  "move_dist_late": {
+   "<0.001": 21,
+   "<0.002": 39,
+   "<0.0005": 51,
+   ">=0.002": 48,
+   "<0.0012": 5
+  },
+  "elapsed_dist": {
+   "<0.85": 104,
+   "<0.75": 204,
+   "<0.95": 88,
+   ">=0.95": 44,
+   "<0.6": 128,
+   "<0.5": 128
+  },
+  "quality_late": {
+   "INCOMPLETE": 69,
+   "GOOD": 79,
+   "INVALID": 15,
+   "DEGRADED": 1
+  },
+  "both_asks_present": 527,
+  "one_ask_present": 169,
+  "no_ask": 0
+ },
+ "shadow": {
+  "signals": 58,
+  "entry_dist": {
+   "<0.62": 2,
+   "<0.55": 56
+  },
+  "elapsed_dist": {
+   "<0.85": 36,
+   "<0.95": 20,
+   ">=0.95": 2
+  }
+ },
+ "strategy_params": {
+  "min_elapsed": 0.75,
+  "min_entry": 0.5,
+  "max_entry": 0.62,
+  "tier_entry": 0.55,
+  "min_move": 0.001,
+  "min_move_high": 0.0012,
+  "min_conf": 0.7,
+  "min_remaining_sec": 30,
+  "stake_pct": 0.05
+ },
+ "diagnosis": "реплей воспроизводит сигналы: 1"
+}
