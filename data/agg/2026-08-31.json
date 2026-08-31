@@ -267,8 +267,8 @@
   "volatility": 336
  },
  "last_rebuild_attempt": {
-  "at": "2026-08-31T15:01:59Z",
-  "snapshots_seen": 242
+  "at": "2026-08-31T16:40:03Z",
+  "snapshots_seen": 350
  },
  "latency": {
   "n": 448,
