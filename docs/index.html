@@ -155,6 +155,27 @@ padding:5px 11px;font:600 11px var(--mono);cursor:pointer}.filters button.on{bor
  </div>
 </div>
 
+<div id="v_backtest" class="view" hidden>
+ <div class="grid">
+  <div class="card c12"><h2>Вердикт</h2><div id="bt_verdict"></div>
+   <div class="hint">По умолчанию вывод отрицательный. SUPPORTED появляется только когда выборки хватает,
+   результат не держится на одном дне и out-of-sample не разваливается.</div></div>
+  <div class="card c12"><h2>Датасет и разделение</h2><div class="kpi" id="bt_ds"></div>
+   <div class="hint" id="bt_split"></div></div>
+  <div class="card c12"><h2>IN-SAMPLE · OUT-OF-SAMPLE · FORWARD</h2>
+   <div class="hint" style="margin-bottom:10px">Три разных режима. Их метрики никогда не складываются
+   и не усредняются между собой.</div>
+   <div class="tw"><table><thead><tr><th>Режим</th><th>Сигналов</th><th>Закрытых</th><th>Winrate</th>
+   <th>PF</th><th>P&amp;L</th><th>Просадка</th><th>Дней</th><th>Статус</th></tr></thead>
+   <tbody id="bt_modes"></tbody></table></div></div>
+  <div class="card c6"><h2>Концентрация результата</h2><div id="bt_conc"></div>
+   <div class="hint">Если один день даёт большую часть результата — это событие, а не устойчивое преимущество.</div></div>
+  <div class="card c6"><h2>Разбивка по окнам</h2><div id="bt_win"></div>
+   <div class="hint">5m и 15m считаются раздельно: это две разные задачи.</div></div>
+  <div class="card c12"><h2>Что гарантирует движок</h2><div id="bt_guar"></div></div>
+ </div>
+</div>
+
 <div id="v_forward" class="view" hidden>
  <div class="grid">
   <div class="card c12"><h2>Разделение режимов</h2><div id="fw_body"></div></div>
@@ -221,7 +242,7 @@ const badge=k=>{const s=ST[k]||['no',k];return `<span class="st ${s[0]}">${s[1]}
 const blank=(k,txt,extra='')=>`<div class="blank"><b>${(ST[k]||['','—'])[1]}</b>${esc(txt)}${extra?'<div class="hint">'+extra+'</div>':''}</div>`;
 
 const PAGES=[['home','Обзор'],['health','Качество данных'],['coverage','Покрытие'],['dna','Market DNA'],
- ['signals','Сигналы'],['arena','Арена стратегий'],['perf','Результативность'],['latency','Задержки'],
+ ['signals','Сигналы'],['arena','Арена стратегий'],['perf','Результативность'],['backtest','Бэктест'],['latency','Задержки'],
  ['moves','Движения'],['book','Стакан'],['corr','Корреляция'],['forward','Режимы'],['storage','Хранение']];
 let cur='home', D={};
 
@@ -244,6 +265,7 @@ async function load(){
  D.moves=await J('./data/moves.json');
  D.signals=await J('./data/signals.json');
  D.latRaw=await J('./data/latency.json');
+ D.bt=await J('./data/backtest.json');
  $('ver').textContent='v0.3.0 · research dashboard';
  $('updated').textContent='обновлено '+new Date().toLocaleString('ru');
  nav();draw(cur);
@@ -451,6 +473,54 @@ drawers.perf=()=>{
  +(share>50?`<div class="warnbox" style="margin-top:10px">CONCENTRATED: ${share.toFixed(0)}% результата даёт один день. Это событие, а не устойчивый edge.</div>`:'')
  +`<div id="perf_eq" style="margin-top:12px"></div>`;
  line('perf_eq',[{v:eq,n:'накопленный hypothetical P&L',c:'var(--warn)'}],{d:2});
+};
+
+drawers.backtest=()=>{
+ const B=D.bt;
+ if(!B){$('bt_verdict').innerHTML=blank('NO_DATA','бэктест ещё не запускался',
+   'Отчёт появится после прогона: движок использует те же Arena и Portfolio, что и SHADOW.');
+  ['bt_ds','bt_modes','bt_conc','bt_win','bt_guar'].forEach(id=>$(id).innerHTML='');return}
+ const v=B.verdict||{},cl=v.verdict==='SUPPORTED'?'ok':v.verdict==='NOT SUPPORTED'?'bad':'inc';
+ $('bt_verdict').innerHTML=`<div class="warnbox" style="border-color:var(--${cl==='ok'?'ok':cl==='bad'?'bad':'warn'})">
+  <span class="st ${cl}">${esc(v.verdict||'—')}</span>
+  <div class="hint" style="color:var(--txt);margin-top:8px">${(v.reasons||[]).map(esc).join(' · ')}</div></div>`;
+ const ds=B.dataset||{},sp=B.split||{};
+ $('bt_ds').innerHTML=[['Снимков',ds.rows_usable],['Окон',ds.unique_markets],['Дней',ds.days],
+  ['Период, ч',ds.span_hours],['Источник',ds.source],['5m / 15m',
+   `${(ds.by_window||{})['5m']||0} / ${(ds.by_window||{})['15m']||0}`]]
+  .map(([l,n])=>`<div><div class="l">${l}</div><div class="n">${n==null?'—':n}</div></div>`).join('');
+ $('bt_split').textContent=`${sp.is_windows||0} окон in-sample / ${sp.oos_windows||0} out-of-sample · ${sp.rule||''}`;
+
+ const rows=[['IN-SAMPLE',(B.in_sample||{}).metrics,'подбор'],
+             ['OUT-OF-SAMPLE',(B.out_of_sample||{}).metrics,'проверка'],
+             ['FORWARD (SHADOW)',B.forward_shadow,'реальные сигналы']];
+ $('bt_modes').innerHTML=rows.map(([k,m,note])=>{
+  m=m||{};const st=m.status||'NO_DATA';
+  const ok=st==='SUPPORTED';
+  return `<tr><td><b>${k}</b><div class="hint">${note}</div></td><td>${m.signals??'—'}</td><td>${m.closed??'—'}</td>
+  <td class="${ok?'ok':''}">${m.winrate==null?'—':(m.winrate*100).toFixed(0)+'%'}</td>
+  <td>${m.profit_factor==null?'—':fmt(m.profit_factor,2)}</td>
+  <td class="${cls(m.pnl)}">${m.pnl==null?'—':sgn(m.pnl)}</td>
+  <td>${m.max_drawdown==null?'—':fmt(m.max_drawdown,2)}</td><td>${m.days??'—'}</td>
+  <td>${badge(st==='INSUFFICIENT_SAMPLE'?'INSUFFICIENT':st)}</td></tr>`}).join('');
+
+ const conc=rows.filter(([,m])=>m&&m.closed);
+ $('bt_conc').innerHTML=conc.length?conc.map(([k,m])=>{
+  const s=m.best_day_share_pct;
+  const c=s==null?'var(--mut)':s>60?'var(--bad)':s>35?'var(--warn)':'var(--ok)';
+  return `<div class="row"><span class="k">${k.split(' ')[0]}</span>
+   <span class="bar"><i style="width:${Math.min(100,s||0).toFixed(0)}%;background:${c}"></i></span>
+   <span class="v">${s==null?'—':s+'%'}</span></div>
+   <div class="hint" style="margin:-2px 0 6px">лучший день ${esc(m.best_day||'—')}: ${sgn(m.best_day_pnl)} · без него ${sgn(m.pnl_without_best_day)}</div>`}).join('')
+  :blank('NO_DATA','закрытых сделок нет');
+ const wr=rows.filter(([,m])=>m&&m.by_window);
+ $('bt_win').innerHTML=wr.length?wr.map(([k,m])=>
+  `<div class="hint" style="margin-top:6px">${k}</div>`+Object.entries(m.by_window).sort().map(([w,v])=>
+   `<div class="row"><span class="k">${w}</span><span class="bar"><i style="width:${(v.winrate*100).toFixed(0)}%;background:${v.pnl>=0?'var(--ok)':'var(--bad)'}"></i></span>
+    <span class="v">${(v.winrate*100).toFixed(0)}% · ${v.n} · ${sgn(v.pnl)}</span></div>`).join('')).join('')
+  :blank('NO_DATA','разбивки нет');
+ $('bt_guar').innerHTML=(B.guarantees||[]).map(g=>`<div class="row"><span class="k">✓</span><span>${esc(g)}</span><span class="v"></span></div>`).join('')
+  +`<div class="hint">Собрано ${esc((B.built_at||'').slice(0,16).replace('T',' '))} UTC, движок v${esc(B.engine_version||'?')}.</div>`;
 };
 
 drawers.latency=()=>{

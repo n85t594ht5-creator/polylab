@@ -65,6 +65,21 @@ ck("есть предупреждение о концентрации", "CONCENT
 ck("причинность задержки отрицается", "CAUSALITY NOT ESTABLISHED" in JS or "не доказывает" in JS)
 ck("нет утверждений о спуфинге", "SPOOFING" not in H.upper())
 
+# ── страница бэктеста ──
+print("\nстраница бэктеста")
+ck("страница есть в разметке", 'id="v_backtest"' in H)
+ck("страница есть в меню", "['backtest','Бэктест']" in JS.replace('"', "'"))
+ck("есть отрисовщик", "drawers.backtest" in JS)
+bt = JS[JS.find("drawers.backtest"):JS.find("drawers.latency")]
+ck("три режима разделены", "IN-SAMPLE" in bt and "OUT-OF-SAMPLE" in bt and "FORWARD" in bt)
+ck("метрики режимов не суммируются", "+m.pnl" not in bt.replace(" ", ""))
+ck("показывает концентрацию", "best_day_share_pct" in bt and "pnl_without_best_day" in bt)
+ck("показывает разбивку по окнам", "by_window" in bt)
+ck("вердикт выводится", "verdict" in bt)
+ck("пустое состояние есть", "blank(" in bt)
+ck("гарантии движка показаны", "guarantees" in bt)
+ck("данные подгружаются", "backtest.json" in JS)
+
 # ── контракт с данными ──
 print("\nконтракт с публикацией данных")
 sys.path.insert(0, ROOT)

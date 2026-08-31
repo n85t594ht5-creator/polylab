@@ -17,7 +17,7 @@ const fs = require('fs');
 
 const URL = process.env.QA_URL || 'https://n85t594ht5-creator.github.io/polylab/';
 const VIEWPORTS = [320, 375, 390, 430, 600, 1000, 1440];
-const PAGES = ['home','health','coverage','dna','signals','arena','perf','latency','moves','book','corr','forward','storage'];
+const PAGES = ['home','health','coverage','dna','signals','arena','perf','backtest','latency','moves','book','corr','forward','storage'];
 
 (async () => {
   const browser = await chromium.launch();
