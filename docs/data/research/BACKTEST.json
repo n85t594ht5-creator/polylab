@@ -1,22 +1,29 @@
 {
- "built_at": "2026-08-31T09:03:05Z",
+ "built_at": "2026-08-31T09:07:52Z",
  "engine_version": "1",
  "dataset": {
   "source": "REAL",
   "dataset_version": "1",
-  "rows_total": 0,
-  "rows_usable": 0,
-  "days": 0,
-  "day_list": [],
-  "unique_markets": 0,
-  "by_window": {},
-  "span_hours": null,
+  "rows_total": 696,
+  "rows_usable": 636,
+  "days": 3,
+  "day_list": [
+   "2026-08-29",
+   "2026-08-30",
+   "2026-08-31"
+  ],
+  "unique_markets": 54,
+  "by_window": {
+   "5m": 292,
+   "15m": 344
+  },
+  "span_hours": 35.5,
   "issues": []
  },
  "split": {
-  "border_market_start": null,
-  "is_windows": 0,
-  "oos_windows": 0,
+  "border_market_start": "2026-08-31T08:15:00+00:00",
+  "is_windows": 37,
+  "oos_windows": 17,
   "oos_fraction": 0.3,
   "rule": "разделение по времени, граница между окнами; подбор только на in-sample"
  },
@@ -24,14 +31,37 @@
   "mode": "BACKTEST",
   "source": "REAL",
   "engine_version": "1",
-  "windows_seen": 0,
-  "windows_outcome_unknown": 0,
+  "windows_seen": 37,
+  "windows_outcome_unknown": 12,
   "metrics": {
-   "signals": 0,
-   "closed": 0,
+   "signals": 6,
+   "closed": 6,
    "blocked": 0,
-   "status": "NO_DATA",
-   "note": "закрытых сделок нет"
+   "status": "INSUFFICIENT_SAMPLE",
+   "winrate": 1.0,
+   "pnl": 328.15,
+   "profit_factor": 99.0,
+   "max_drawdown": 0.0,
+   "days": 1,
+   "best_day": "2026-08-31",
+   "best_day_pnl": 328.15,
+   "best_day_share_pct": 100.0,
+   "pnl_without_best_day": 0.0,
+   "top3_days_pnl": 328.15,
+   "by_window": {
+    "5m": {
+     "n": 2,
+     "winrate": 1.0,
+     "pnl": 102.5
+    },
+    "15m": {
+     "n": 4,
+     "winrate": 1.0,
+     "pnl": 225.65
+    }
+   },
+   "sample_note": "нужно ≥100 закрытых сделок и ≥50 на окно",
+   "concentration_note": "результат держится на одном дне — это событие, а не edge"
   },
   "arena_errors": {}
  },
@@ -39,14 +69,32 @@
   "mode": "OOS",
   "source": "REAL",
   "engine_version": "1",
-  "windows_seen": 0,
-  "windows_outcome_unknown": 0,
+  "windows_seen": 17,
+  "windows_outcome_unknown": 4,
   "metrics": {
-   "signals": 0,
-   "closed": 0,
+   "signals": 3,
+   "closed": 3,
    "blocked": 0,
-   "status": "NO_DATA",
-   "note": "закрытых сделок нет"
+   "status": "INSUFFICIENT_SAMPLE",
+   "winrate": 1.0,
+   "pnl": 153.31,
+   "profit_factor": 99.0,
+   "max_drawdown": 0.0,
+   "days": 1,
+   "best_day": "2026-08-31",
+   "best_day_pnl": 153.31,
+   "best_day_share_pct": 100.0,
+   "pnl_without_best_day": 0.0,
+   "top3_days_pnl": 153.31,
+   "by_window": {
+    "5m": {
+     "n": 3,
+     "winrate": 1.0,
+     "pnl": 153.31
+    }
+   },
+   "sample_note": "нужно ≥100 закрытых сделок и ≥50 на окно",
+   "concentration_note": "результат держится на одном дне — это событие, а не edge"
   },
   "arena_errors": {}
  },
@@ -83,7 +131,7 @@
  "verdict": {
   "verdict": "INCONCLUSIVE",
   "reasons": [
-   "нет закрытых сделок в одной из выборок"
+   "выборка меньше порога — вывод невозможен"
   ]
  },
  "guarantees": [
