@@ -1,5 +1,5 @@
 {
- "built_at": "2026-08-31T14:03:27Z",
+ "built_at": "2026-08-31T14:07:49Z",
  "engine_version": "1",
  "dataset": {
   "source": "REAL",
@@ -33,6 +33,19 @@
   "engine_version": "1",
   "windows_seen": 37,
   "windows_outcome_unknown": 12,
+  "funnel": {
+   "windows": 37,
+   "outcome_unknown": 12,
+   "snapshots": 279,
+   "snapshot_errors": 0,
+   "no_signal": 279,
+   "with_signal": 0,
+   "blocked_by_risk": 0,
+   "entered": 0,
+   "elapsed_ok": 90,
+   "price_in_zone": 4,
+   "move_ok": 0
+  },
   "metrics": {
    "signals": 0,
    "closed": 0,
@@ -48,6 +61,19 @@
   "engine_version": "1",
   "windows_seen": 17,
   "windows_outcome_unknown": 4,
+  "funnel": {
+   "windows": 17,
+   "outcome_unknown": 4,
+   "snapshots": 153,
+   "snapshot_errors": 0,
+   "no_signal": 153,
+   "with_signal": 0,
+   "blocked_by_risk": 0,
+   "entered": 0,
+   "elapsed_ok": 39,
+   "price_in_zone": 2,
+   "move_ok": 0
+  },
   "metrics": {
    "signals": 0,
    "closed": 0,
