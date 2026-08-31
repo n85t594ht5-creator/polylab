@@ -1,5 +1,5 @@
 {
- "built_at": "2026-08-31T14:08:24Z",
+ "built_at": "2026-08-31T14:08:47Z",
  "engine_version": "1",
  "dataset": {
   "source": "REAL",
@@ -38,13 +38,11 @@
    "outcome_unknown": 12,
    "snapshots": 279,
    "snapshot_errors": 0,
+   "no_price": 0,
    "no_signal": 279,
    "with_signal": 0,
    "blocked_by_risk": 0,
-   "entered": 0,
-   "elapsed_ok": 90,
-   "price_in_zone": 4,
-   "move_ok": 0
+   "entered": 0
   },
   "metrics": {
    "signals": 0,
@@ -66,13 +64,11 @@
    "outcome_unknown": 4,
    "snapshots": 153,
    "snapshot_errors": 0,
+   "no_price": 0,
    "no_signal": 153,
    "with_signal": 0,
    "blocked_by_risk": 0,
-   "entered": 0,
-   "elapsed_ok": 39,
-   "price_in_zone": 2,
-   "move_ok": 0
+   "entered": 0
   },
   "metrics": {
    "signals": 0,
