@@ -76,8 +76,7 @@ def run(strategies_factory, by_market: dict, mode: str, source: str,
     skipped_unknown = 0
     # Диагностика отсева: без неё «0 сделок» неотличимо от поломки движка.
     stage = {"windows": 0, "outcome_unknown": 0, "snapshots": 0, "snapshot_errors": 0,
-             "no_signal": 0, "with_signal": 0, "blocked_by_risk": 0, "entered": 0,
-             "elapsed_ok": 0, "price_in_zone": 0, "move_ok": 0}
+             "no_price": 0, "no_signal": 0, "with_signal": 0, "blocked_by_risk": 0, "entered": 0}
 
     order = sorted(by_market.items(), key=lambda kv: kv[1][0].get("ts") or "")
     for mid, snaps in order:
@@ -97,16 +96,11 @@ def run(strategies_factory, by_market: dict, mode: str, source: str,
             except Exception:
                 stage["snapshot_errors"] += 1
                 continue
-            # почему стратегия молчит — по стадиям её собственных условий
-            p = arena.strategies[0].params if arena.strategies else {}
-            if snap.elapsed >= p.get("min_elapsed", 1) and snap.remaining_sec >= p.get("min_remaining_sec", 0):
-                stage["elapsed_ok"] += 1
-                ask = snap.ask_for("UP" if snap.move > 0 else "DOWN")
-                if ask is not None and p.get("min_entry", 0) <= ask <= p.get("max_entry", 1):
-                    stage["price_in_zone"] += 1
-                    need = p.get("min_move_high", 0) if ask > p.get("tier_entry", 1) else p.get("min_move", 0)
-                    if abs(snap.move) >= need:
-                        stage["move_ok"] += 1
+            # Условия входа принадлежат стратегии и здесь НЕ повторяются:
+            # дублирование разошлось бы с ней при первом же изменении.
+            # Считаем только независимые от стратегии стадии.
+            if snap.up_ask is None and snap.down_ask is None:
+                stage["no_price"] += 1
             sigs = arena.collect(snap)
             if not sigs:
                 stage["no_signal"] += 1
