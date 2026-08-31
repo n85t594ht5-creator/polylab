@@ -76,7 +76,8 @@ def run(strategies_factory, by_market: dict, mode: str, source: str,
     skipped_unknown = 0
     # Диагностика отсева: без неё «0 сделок» неотличимо от поломки движка.
     stage = {"windows": 0, "outcome_unknown": 0, "snapshots": 0, "snapshot_errors": 0,
-             "no_price": 0, "no_signal": 0, "with_signal": 0, "blocked_by_risk": 0, "entered": 0}
+             "no_price": 0, "ask_up_present": 0, "ask_dn_present": 0, "late_window": 0,
+             "no_signal": 0, "with_signal": 0, "blocked_by_risk": 0, "entered": 0}
 
     order = sorted(by_market.items(), key=lambda kv: kv[1][0].get("ts") or "")
     for mid, snaps in order:
@@ -99,8 +100,15 @@ def run(strategies_factory, by_market: dict, mode: str, source: str,
             # Условия входа принадлежат стратегии и здесь НЕ повторяются:
             # дублирование разошлось бы с ней при первом же изменении.
             # Считаем только независимые от стратегии стадии.
+            # чистая доступность данных, без условий входа стратегии
             if snap.up_ask is None and snap.down_ask is None:
                 stage["no_price"] += 1
+            if snap.up_ask is not None:
+                stage["ask_up_present"] += 1
+            if snap.down_ask is not None:
+                stage["ask_dn_present"] += 1
+            if snap.elapsed >= 0.75:
+                stage["late_window"] += 1
             sigs = arena.collect(snap)
             if not sigs:
                 stage["no_signal"] += 1
