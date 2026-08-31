@@ -1,5 +1,5 @@
 {
- "built_at": "2026-08-31T09:07:52Z",
+ "built_at": "2026-08-31T14:03:27Z",
  "engine_version": "1",
  "dataset": {
   "source": "REAL",
@@ -17,11 +17,11 @@
    "5m": 292,
    "15m": 344
   },
-  "span_hours": 35.5,
+  "span_hours": 39.51,
   "issues": []
  },
  "split": {
-  "border_market_start": "2026-08-31T08:15:00+00:00",
+  "border_market_start": "2026-08-31T12:15:00+00:00",
   "is_windows": 37,
   "oos_windows": 17,
   "oos_fraction": 0.3,
@@ -34,34 +34,11 @@
   "windows_seen": 37,
   "windows_outcome_unknown": 12,
   "metrics": {
-   "signals": 6,
-   "closed": 6,
+   "signals": 0,
+   "closed": 0,
    "blocked": 0,
-   "status": "INSUFFICIENT_SAMPLE",
-   "winrate": 1.0,
-   "pnl": 328.15,
-   "profit_factor": 99.0,
-   "max_drawdown": 0.0,
-   "days": 1,
-   "best_day": "2026-08-31",
-   "best_day_pnl": 328.15,
-   "best_day_share_pct": 100.0,
-   "pnl_without_best_day": 0.0,
-   "top3_days_pnl": 328.15,
-   "by_window": {
-    "5m": {
-     "n": 2,
-     "winrate": 1.0,
-     "pnl": 102.5
-    },
-    "15m": {
-     "n": 4,
-     "winrate": 1.0,
-     "pnl": 225.65
-    }
-   },
-   "sample_note": "нужно ≥100 закрытых сделок и ≥50 на окно",
-   "concentration_note": "результат держится на одном дне — это событие, а не edge"
+   "status": "NO_DATA",
+   "note": "закрытых сделок нет"
   },
   "arena_errors": {}
  },
@@ -72,41 +49,23 @@
   "windows_seen": 17,
   "windows_outcome_unknown": 4,
   "metrics": {
-   "signals": 3,
-   "closed": 3,
+   "signals": 0,
+   "closed": 0,
    "blocked": 0,
-   "status": "INSUFFICIENT_SAMPLE",
-   "winrate": 1.0,
-   "pnl": 153.31,
-   "profit_factor": 99.0,
-   "max_drawdown": 0.0,
-   "days": 1,
-   "best_day": "2026-08-31",
-   "best_day_pnl": 153.31,
-   "best_day_share_pct": 100.0,
-   "pnl_without_best_day": 0.0,
-   "top3_days_pnl": 153.31,
-   "by_window": {
-    "5m": {
-     "n": 3,
-     "winrate": 1.0,
-     "pnl": 153.31
-    }
-   },
-   "sample_note": "нужно ≥100 закрытых сделок и ≥50 на окно",
-   "concentration_note": "результат держится на одном дне — это событие, а не edge"
+   "status": "NO_DATA",
+   "note": "закрытых сделок нет"
   },
   "arena_errors": {}
  },
  "forward_shadow": {
-  "signals": 51,
-  "closed": 51,
+  "signals": 57,
+  "closed": 57,
   "blocked": 0,
   "status": "INSUFFICIENT_SAMPLE",
-  "winrate": 0.8824,
+  "winrate": 0.8421,
   "pnl": 1907.85,
-  "profit_factor": 7.36,
-  "max_drawdown": 100.0,
+  "profit_factor": 5.24,
+  "max_drawdown": 150.0,
   "days": 2,
   "best_day": "2026-08-31",
   "best_day_pnl": 1874.52,
@@ -115,8 +74,8 @@
   "top3_days_pnl": 1907.85,
   "by_window": {
    "5m": {
-    "n": 10,
-    "winrate": 1.0,
+    "n": 16,
+    "winrate": 0.8125,
     "pnl": 475.49
    },
    "15m": {
@@ -131,7 +90,7 @@
  "verdict": {
   "verdict": "INCONCLUSIVE",
   "reasons": [
-   "выборка меньше порога — вывод невозможен"
+   "нет закрытых сделок в одной из выборок"
   ]
  },
  "guarantees": [
