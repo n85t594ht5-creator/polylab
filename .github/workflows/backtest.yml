@@ -27,14 +27,36 @@ jobs:
         with: { python-version: "3.12" }
       - run: pip install requests
 
-      # raw живёт в артефактах (решение 5C). Для бэктеста собираем все доступные дни.
+      # raw живёт в артефактах (решение 5C), но download-artifact видит только
+      # артефакты СВОЕГО прогона. Поэтому качаем через API все raw-* из репозитория.
       - name: Restore all raw artifacts
-        uses: actions/download-artifact@v4
-        continue-on-error: true
-        with:
-          pattern: raw-*
-          merge-multiple: true
-          path: data/raw
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p data/raw
+          python - <<'PY'
+          import json, os, subprocess, zipfile, io, urllib.request
+          tok = os.environ["GH_TOKEN"]; repo = os.environ["GITHUB_REPOSITORY"]
+          def api(url):
+              r = urllib.request.Request(url, headers={"Authorization": f"Bearer {tok}",
+                                                       "Accept": "application/vnd.github+json"})
+              return json.load(urllib.request.urlopen(r))
+          arts = api(f"https://api.github.com/repos/{repo}/actions/artifacts?per_page=100")["artifacts"]
+          raw = [a for a in arts if a["name"].startswith("raw-") and not a["expired"]]
+          print(f"найдено артефактов raw: {len(raw)}")
+          got = 0
+          for a in raw:
+              req = urllib.request.Request(a["archive_download_url"],
+                                           headers={"Authorization": f"Bearer {tok}"})
+              try:
+                  data = urllib.request.urlopen(req).read()
+                  zipfile.ZipFile(io.BytesIO(data)).extractall("data/raw")
+                  got += 1
+                  print(f"  {a['name']}: {a['size_in_bytes']} Б")
+              except Exception as e:
+                  print(f"  {a['name']}: ошибка — {e}")
+          print(f"восстановлено артефактов: {got}")
+          PY
 
       - name: Report dataset
         run: |
