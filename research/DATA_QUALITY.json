@@ -4,7 +4,7 @@
   {
    "area": "Целостность длинной серии",
    "status": "CONFIRMED",
-   "detail": "4 дней, 716 снимков, валидных 656 (92%), дублей id 0",
+   "detail": "4 дней, 716 снимков, валидных 661 (92%), дублей id 0",
    "note": "",
    "source": "REAL"
   },
@@ -46,8 +46,8 @@
   {
    "area": "60-минутные окна",
    "status": "NOT OBSERVED",
-   "detail": "наблюдений 12, окна за всё время: {'5m': 304, '15m': 76}",
-   "note": "за 27.5 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения",
+   "detail": "наблюдений 13, окна за всё время: {'5m': 346, '15m': 89}",
+   "note": "за 30.5 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения",
    "source": "REAL"
   },
   {
@@ -60,7 +60,7 @@
   {
    "area": "Покрытие и полнота",
    "status": "SUPPORTED",
-   "detail": "GOOD 133 · DEGRADED 133 · INCOMPLETE 113 · INVALID 60; активов 4, окон 2, рынков 0",
+   "detail": "GOOD 187 · DEGRADED 185 · INCOMPLETE 113 · INVALID 55; активов 4, окон 2, рынков 0",
    "note": "INVALID = не получена опорная цена; нулями не заменяется",
    "source": "REAL"
   },
@@ -74,11 +74,11 @@
  ],
  "coverage": {
   "total_snapshots": 716,
-  "valid": 656,
-  "GOOD": 133,
-  "DEGRADED": 133,
+  "valid": 661,
+  "GOOD": 187,
+  "DEGRADED": 185,
   "INCOMPLETE": 113,
-  "INVALID": 60,
+  "INVALID": 55,
   "by_asset": {
    "BTC": 179,
    "ETH": 176,
@@ -91,9 +91,9 @@
   },
   "unique_markets": 0,
   "feature_availability_share": {
-   "acceleration": 0.6117,
+   "acceleration": 0.5964,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.5936,
+   "depth_10_up": 0.3296,
    "depth_1_up": 0.8729,
    "imbalance_up": 0.8422,
    "liquidity": 1.0,
@@ -105,8 +105,8 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 2,
   "duplicate_ids": 0,
-  "missing_reference_prices": 60,
+  "missing_reference_prices": 55,
   "missing_volume": "UNAVAILABLE (источник не отдаёт)"
  },
- "built_at": "2026-08-31T09:19:05Z"
+ "built_at": "2026-08-31T12:19:06Z"
 }

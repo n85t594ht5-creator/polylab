@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-08-31T09:19:05Z",
+ "checked_at": "2026-08-31T12:19:06Z",
  "days": 4,
  "issues": [
   {
@@ -51,31 +51,31 @@
   },
   "2026-08-31": {
    "snapshots": 448,
-   "valid": 388,
+   "valid": 393,
    "quality": {
-    "DEGRADED": 46,
-    "GOOD": 65,
-    "INVALID": 60,
-    "STALE": 277
+    "DEGRADED": 98,
+    "GOOD": 119,
+    "INVALID": 55,
+    "STALE": 176
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "move_bucket": 60
+    "move_bucket": 55
    }
   }
  },
  "totals": {
   "snapshots": 716,
-  "valid": 656,
-  "valid_share": 0.9162,
+  "valid": 661,
+  "valid_share": 0.9232,
   "quality": {
-   "DEGRADED": 133,
-   "GOOD": 133,
+   "DEGRADED": 185,
+   "GOOD": 187,
    "INCOMPLETE": 113,
-   "INVALID": 60,
-   "STALE": 277
+   "INVALID": 55,
+   "STALE": 176
   },
   "windows": {
    "15m": 326,
@@ -93,9 +93,9 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 2,
   "feature_availability_share": {
-   "acceleration": 0.6117,
+   "acceleration": 0.5964,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.5936,
+   "depth_10_up": 0.3296,
    "depth_1_up": 0.8729,
    "imbalance_up": 0.8422,
    "liquidity": 1.0,
