@@ -1,6 +1,6 @@
 {
  "publish_version": "1",
- "built_at": "2026-09-01T06:51:00Z",
+ "built_at": "2026-09-01T08:49:01Z",
  "mode": "SHADOW",
  "live": false,
  "venues": [
@@ -9,19 +9,19 @@
  "sources": {
   "dna": {
    "status": "OK",
-   "count": 800,
+   "count": 480,
    "note": "",
    "stale": false
   },
   "moves": {
    "status": "OK",
-   "count": 229,
+   "count": 251,
    "note": "",
    "stale": false
   },
   "signals": {
    "status": "OK",
-   "count": 64,
+   "count": 65,
    "note": "",
    "stale": false
   },
