@@ -1,0 +1,86 @@
+{
+ "checked_at": "2026-09-01T12:36:49Z",
+ "phase": "after",
+ "days": {
+  "2026-08-28": {
+   "raw_rows": 0,
+   "raw_present": false,
+   "raw_truncated": false,
+   "aggregate_snapshots": 0,
+   "status": "LEGACY_MISSING",
+   "note": "артефакт истёк или потерян до исправления",
+   "previous_raw_rows": null
+  },
+  "2026-08-29": {
+   "raw_rows": 0,
+   "raw_present": false,
+   "raw_truncated": false,
+   "aggregate_snapshots": 48,
+   "status": "LEGACY_MISSING",
+   "note": "артефакт истёк или потерян до исправления",
+   "previous_raw_rows": null
+  },
+  "2026-08-30": {
+   "raw_rows": 0,
+   "raw_present": false,
+   "raw_truncated": false,
+   "aggregate_snapshots": 220,
+   "status": "LEGACY_MISSING",
+   "note": "артефакт истёк или потерян до исправления",
+   "previous_raw_rows": null
+  },
+  "2026-08-31": {
+   "raw_rows": 0,
+   "raw_present": false,
+   "raw_truncated": false,
+   "aggregate_snapshots": 448,
+   "status": "LEGACY_MISSING",
+   "note": "артефакт истёк или потерян до исправления",
+   "previous_raw_rows": null
+  },
+  "2026-09-01": {
+   "raw_rows": 104,
+   "raw_present": true,
+   "raw_truncated": false,
+   "aggregate_snapshots": 528,
+   "lost": 424,
+   "completeness": 0.197,
+   "status": "RAW_INCOMPLETE",
+   "previous_raw_rows": null
+  }
+ },
+ "total_raw_rows": 104,
+ "total_aggregate_snapshots": 1244,
+ "completeness": 0.0836,
+ "issues": [
+  "2026-09-01: в raw 104 из 528 снимков — потеряно 424"
+ ],
+ "legacy": [
+  "2026-08-28: raw отсутствует (0 в агрегате)",
+  "2026-08-29: raw отсутствует (48 в агрегате)",
+  "2026-08-30: raw отсутствует (220 в агрегате)",
+  "2026-08-31: raw отсутствует (448 в агрегате)"
+ ],
+ "today": "2026-09-01",
+ "shrunk": [],
+ "verdict": "RAW_INCOMPLETE",
+ "legacy_verdict": "LEGACY_INCOMPLETE",
+ "history": [
+  {
+   "at": "2026-09-01T12:32:49Z",
+   "phase": "before",
+   "completeness": 0.045,
+   "verdict": "RAW_INCOMPLETE",
+   "total_raw": 56,
+   "total_agg": 1244
+  },
+  {
+   "at": "2026-09-01T12:36:49Z",
+   "phase": "after",
+   "completeness": 0.0836,
+   "verdict": "RAW_INCOMPLETE",
+   "total_raw": 104,
+   "total_agg": 1244
+  }
+ ]
+}
