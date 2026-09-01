@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-01T12:36:49Z",
+ "checked_at": "2026-09-01T12:41:52Z",
  "phase": "after",
  "days": {
   "2026-08-28": {
@@ -39,21 +39,21 @@
    "previous_raw_rows": null
   },
   "2026-09-01": {
-   "raw_rows": 104,
+   "raw_rows": 204,
    "raw_present": true,
    "raw_truncated": false,
    "aggregate_snapshots": 528,
-   "lost": 424,
-   "completeness": 0.197,
+   "lost": 324,
+   "completeness": 0.3864,
    "status": "RAW_INCOMPLETE",
    "previous_raw_rows": null
   }
  },
- "total_raw_rows": 104,
+ "total_raw_rows": 204,
  "total_aggregate_snapshots": 1244,
- "completeness": 0.0836,
+ "completeness": 0.164,
  "issues": [
-  "2026-09-01: в raw 104 из 528 снимков — потеряно 424"
+  "2026-09-01: в raw 204 из 528 снимков — потеряно 324"
  ],
  "legacy": [
   "2026-08-28: raw отсутствует (0 в агрегате)",
@@ -67,19 +67,19 @@
  "legacy_verdict": "LEGACY_INCOMPLETE",
  "history": [
   {
-   "at": "2026-09-01T12:32:49Z",
+   "at": "2026-09-01T12:37:52Z",
    "phase": "before",
-   "completeness": 0.045,
-   "verdict": "RAW_INCOMPLETE",
-   "total_raw": 56,
-   "total_agg": 1244
-  },
-  {
-   "at": "2026-09-01T12:36:49Z",
-   "phase": "after",
    "completeness": 0.0836,
    "verdict": "RAW_INCOMPLETE",
    "total_raw": 104,
+   "total_agg": 1244
+  },
+  {
+   "at": "2026-09-01T12:41:52Z",
+   "phase": "after",
+   "completeness": 0.164,
+   "verdict": "RAW_INCOMPLETE",
+   "total_raw": 204,
    "total_agg": 1244
   }
  ]
