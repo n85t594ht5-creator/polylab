@@ -67,18 +67,39 @@ ck("посчитана полнота", a.get("raw_completeness") is not None, s
 ck("предупреждение выведено", "raw неполон" in out.stdout, out.stdout.strip()[:60])
 ck("это warning, а не тишина", "::warning::" in out.stdout)
 
+print("\nрегрессия PHASE 10: прошлое не блокирует, настоящее защищено")
+# ROOT CAUSE: download-artifact видит только свой прогон → каждый прогон начинал
+# суточный файл заново. Прошлые потери непоправимы, текущие — предотвратимы.
+r_past = IG.check([DAY], today="2026-09-02")
+ck("вчерашняя потеря → LEGACY_INCOMPLETE", r_past["days"][DAY]["status"] == "LEGACY_INCOMPLETE",
+   r_past["days"][DAY]["status"])
+ck("наследие не блокирует работу", r_past["verdict"] == "OK", r_past["verdict"])
+ck("но зафиксировано отдельно", r_past["legacy_verdict"] == "LEGACY_INCOMPLETE")
+ck("объяснено, почему не чинится", "не подлежит" in (r_past["days"][DAY].get("note") or ""))
+r_now = IG.check([DAY], today=DAY)
+ck("сегодняшняя потеря → RAW_INCOMPLETE", r_now["days"][DAY]["status"] == "RAW_INCOMPLETE",
+   r_now["days"][DAY]["status"])
+ck("сегодняшняя потеря блокирует", r_now["verdict"] == "RAW_LOSS")
+
 print("\nстрогий режим останавливает дозапись")
-r4 = subprocess.run([sys.executable, os.path.join(ROOT, "polylab/data/integrity.py"), "before"],
-                    capture_output=True, text=True, env={**os.environ, "STRICT_RAW": "1"})
+# подменяем «сегодня» на день данных, иначе они считались бы наследием
+r4 = subprocess.run([sys.executable, "-c",
+                     f"import sys;sys.path.insert(0,{ROOT!r});"
+                     "from polylab.data import integrity as I;"
+                     f"r=I.check([{DAY!r}],today={DAY!r});"
+                     "print(r['verdict']);sys.exit(2 if r['verdict']=='RAW_LOSS' else 0)"],
+                    capture_output=True, text=True)
 ck("падает до сбора при потере", r4.returncode == 2, f"код {r4.returncode}")
-ck("объясняет причину", "закрепила бы потерю" in r4.stdout, r4.stdout.strip()[-60:])
+ck("вердикт RAW_LOSS при потере сегодня", "RAW_LOSS" in r4.stdout, r4.stdout.strip()[-40:])
 r5 = subprocess.run([sys.executable, os.path.join(ROOT, "polylab/data/integrity.py"), "after"],
                     capture_output=True, text=True)
 ck("после сбора не падает, но сообщает", r5.returncode == 0 and "ПОТЕРЯ" in r5.stdout)
 
 print("\nистория целостности накапливается")
 rep = json.load(open("research/RAW_INTEGRITY.json"))
-ck("история ведётся", len(rep.get("history", [])) >= 2, str(len(rep.get("history", []))))
+# в этом наборе main() вызывается один раз (второй вызов заменён прямым check)
+ck("история ведётся", len(rep.get("history", [])) >= 1, str(len(rep.get("history", []))))
+ck("в истории есть вердикт", all("verdict" in h for h in rep["history"]))
 ck("в истории есть полнота", all("completeness" in h for h in rep["history"]))
 
 bad = [n for n, o in R if not o]

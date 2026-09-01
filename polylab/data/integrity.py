@@ -37,8 +37,17 @@ def agg_snapshots(day: str, root: str = "data") -> int | None:
         return None
 
 
-def check(days: list[str], root: str = "data", phase: str = "after") -> dict:
-    per_day, issues = {}, []
+def check(days: list[str], root: str = "data", phase: str = "after",
+          today: str | None = None) -> dict:
+    """Разделяет непоправимое прошлое и защищаемое настоящее.
+
+    Причина исторической потери устранена (см. ROOT CAUSE в PHASE 10), но уже
+    потерянные снимки не восстановить: артефакты прошлых суток содержат лишь
+    последний прогон. Такие дни помечаются LEGACY_INCOMPLETE и не блокируют
+    работу. Блокирует только потеря ТЕКУЩИХ суток — её ещё можно предотвратить.
+    """
+    today = today or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    per_day, issues, legacy = {}, [], []
     for day in days:
         n_raw, truncated, present = raw_rows(day, root)
         n_agg = agg_snapshots(day, root)
@@ -47,13 +56,23 @@ def check(days: list[str], root: str = "data", phase: str = "after") -> dict:
         if n_agg is None:
             d["status"] = "NO_AGGREGATE"
         elif not present:
-            d["status"] = "RAW_MISSING"
-            issues.append(f"{day}: raw отсутствует, агрегат знает о {n_agg} снимках")
+            if day < today:
+                d["status"] = "LEGACY_MISSING"
+                d["note"] = "артефакт истёк или потерян до исправления"
+                legacy.append(f"{day}: raw отсутствует ({n_agg} в агрегате)")
+            else:
+                d["status"] = "RAW_MISSING"
+                issues.append(f"{day}: raw отсутствует, агрегат знает о {n_agg} снимках")
         elif n_raw < n_agg:
-            d["status"] = "RAW_INCOMPLETE"
             d["lost"] = n_agg - n_raw
             d["completeness"] = round(n_raw / n_agg, 4) if n_agg else None
-            issues.append(f"{day}: в raw {n_raw} из {n_agg} снимков — потеряно {n_agg - n_raw}")
+            if day < today:
+                d["status"] = "LEGACY_INCOMPLETE"
+                d["note"] = "потеря до исправления restore; восстановлению не подлежит"
+                legacy.append(f"{day}: {n_raw} из {n_agg}")
+            else:
+                d["status"] = "RAW_INCOMPLETE"
+                issues.append(f"{day}: в raw {n_raw} из {n_agg} снимков — потеряно {n_agg - n_raw}")
         else:
             d["status"] = "OK"
             d["completeness"] = 1.0
@@ -64,8 +83,9 @@ def check(days: list[str], root: str = "data", phase: str = "after") -> dict:
             "phase": phase, "days": per_day,
             "total_raw_rows": tot_raw, "total_aggregate_snapshots": tot_agg,
             "completeness": round(tot_raw / tot_agg, 4) if tot_agg else None,
-            "issues": issues,
-            "verdict": "OK" if not issues else "RAW_LOSS"}
+            "issues": issues, "legacy": legacy, "today": today,
+            "verdict": "OK" if not issues else "RAW_LOSS",
+            "legacy_verdict": "LEGACY_INCOMPLETE" if legacy else "OK"}
 
 
 def main() -> None:
@@ -94,7 +114,9 @@ def main() -> None:
     print(f"[{phase}] полнота raw: {rep['completeness']} · raw {rep['total_raw_rows']} / "
           f"агрегат {rep['total_aggregate_snapshots']} · {rep['verdict']}")
     for i in rep["issues"]:
-        print("  ПОТЕРЯ:", i)
+        print("  ПОТЕРЯ СЕГОДНЯ:", i)
+    for l in rep.get("legacy", []):
+        print("  НАСЛЕДИЕ (не чинится):", l)
     # Перед сбором потеря — повод остановиться: дописывать в обрубленный файл
     # значит закрепить утрату навсегда.
     if phase == "before" and rep["verdict"] == "RAW_LOSS" and os.getenv("STRICT_RAW", "1") == "1":

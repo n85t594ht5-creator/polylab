@@ -67,6 +67,20 @@ jobs:
           fi
 
       # Проверка ДО сбора: raw не должен быть беднее агрегата
+      - name: Measure raw AFTER RESTORE
+        run: |
+          python - <<'PY'
+          import sys; sys.path.insert(0,'.')
+          from polylab.data.integrity import raw_rows
+          import os
+          day = os.environ["DAY"]
+          n, tr, present = raw_rows(day)
+          print(f"::notice::RAW ПОСЛЕ ВОССТАНОВЛЕНИЯ: {n} строк (файл есть: {present}, обрыв: {tr})")
+          open("/tmp/raw_after_restore.txt","w").write(str(n))
+          PY
+        env:
+          DAY: ${{ steps.day.outputs.d }}
+
       - name: Verify raw integrity before collect
         run: python polylab/data/integrity.py before
 
@@ -79,6 +93,23 @@ jobs:
           SHADOW_ARENA: "1"
           SHADOW_BANKROLL: "1000"
         run: python polylab/data/collector.py
+
+      - name: Measure raw AFTER APPEND
+        run: |
+          python - <<'PY'
+          import sys, os; sys.path.insert(0,'.')
+          from polylab.data.integrity import raw_rows
+          day = os.environ["DAY"]
+          before = int(open("/tmp/raw_after_restore.txt").read() or 0)
+          n, tr, _ = raw_rows(day)
+          print(f"::notice::RAW ПОСЛЕ ДОЗАПИСИ: {n} строк (было {before}, прирост {n-before})")
+          open("/tmp/raw_before_upload.txt","w").write(str(n))
+          if n < before:
+              print("::error::raw уменьшился в течение прогона")
+              raise SystemExit(1)
+          PY
+        env:
+          DAY: ${{ steps.day.outputs.d }}
 
       - name: Verify raw integrity after collect
         run: python polylab/data/integrity.py after
@@ -101,6 +132,22 @@ jobs:
           PY
 
       # raw НЕ коммитится: замер показал рост .git на 3.2 МБ/сутки без возможности вернуть
+      - name: Measure raw BEFORE UPLOAD
+        run: |
+          python - <<'PY'
+          import sys, os; sys.path.insert(0,'.')
+          from polylab.data.integrity import raw_rows
+          day = os.environ["DAY"]
+          n, _, _ = raw_rows(day)
+          expect = int(open("/tmp/raw_before_upload.txt").read() or 0)
+          print(f"::notice::RAW ПЕРЕД ВЫГРУЗКОЙ: {n} строк (ожидалось {expect})")
+          if n != expect:
+              print("::error::raw изменился между дозаписью и выгрузкой")
+              raise SystemExit(1)
+          PY
+        env:
+          DAY: ${{ steps.day.outputs.d }}
+
       - name: Upload raw of the day
         uses: actions/upload-artifact@v4
         with:
