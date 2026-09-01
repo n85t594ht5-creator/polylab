@@ -1,46 +1,47 @@
 {
- "snapshots": 480,
+ "snapshots": 460,
  "duplicates": 0,
- "markets": 32,
+ "markets": 28,
  "assets": 4,
  "by_window": {
-  "5m": 240,
-  "15m": 240
+  "15m": 220,
+  "5m": 240
  },
  "quality": {
-  "DEGRADED": 117,
-  "INVALID": 60,
-  "INCOMPLETE": 133,
-  "GOOD": 170
+  "INCOMPLETE": 203,
+  "DEGRADED": 96,
+  "GOOD": 101,
+  "INVALID": 60
  },
- "latency_events": 480,
- "moves": 26,
+ "latency_events": 460,
+ "moves": 23,
  "ref_missing": 60,
  "latency_quality": {
-  "LOW": 480
+  "LOW": 455,
+  "MEDIUM": 5
  },
  "stale": 0,
- "incomplete": 133,
+ "incomplete": 203,
  "parity": {
-  "checked": 480,
+  "checked": 460,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
   "up_missing_row": 0,
   "dn_missing_live": 0,
   "dn_missing_row": 0,
-  "signal_snapshots": 1,
+  "signal_snapshots": 0,
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 1593,
+  "requests": 1551,
   "failures": 0,
   "retries": 0,
-  "latency_median_ms": 96.2,
-  "latency_max_ms": 500.2
+  "latency_median_ms": 105.7,
+  "latency_max_ms": 512.1
  },
  "shadow": {
-  "snapshots": 5149,
+  "snapshots": 5549,
   "signals": 65,
   "accepted": 10,
   "reduced": 0,
@@ -60,15 +61,15 @@
  "storage": {
   "raw/dna": {
    "files": 1,
-   "bytes": 73467
+   "bytes": 67953
   },
   "raw/latency": {
    "files": 1,
-   "bytes": 91594
+   "bytes": 87807
   },
   "moves": {
    "files": 3,
-   "bytes": 53083
+   "bytes": 57152
   },
   "agg": {
    "files": 6,
@@ -76,17 +77,17 @@
   },
   "state": {
    "files": 3,
-   "bytes": 19520
+   "bytes": 18304
   },
-  "total_bytes": 256044,
-  "git_tracked_bytes": 90983,
-  "artifact_bytes": 165061
+  "total_bytes": 249596,
+  "git_tracked_bytes": 93836,
+  "artifact_bytes": 155760
  },
- "ids_pruned": 528,
- "ids_kept": 1004,
+ "ids_pruned": 524,
+ "ids_kept": 940,
  "duplicates_store": 0,
- "restored_ids": 1052,
+ "restored_ids": 1004,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-09-01T08:49:01.165529+00:00"
+ "finished_at": "2026-09-01T10:50:26.520053+00:00"
 }
