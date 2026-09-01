@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-01T03:25:34Z",
+ "checked_at": "2026-09-01T06:31:17Z",
  "days": 5,
  "issues": [
   {
@@ -77,7 +77,7 @@
    },
    "raw_present": true,
    "raw_truncated": false,
-   "raw_incomplete_on_rebuild": false,
+   "raw_incomplete_on_rebuild": true,
    "cut_gaps": {
     "entry_bucket": 96,
     "move_bucket": 60
@@ -108,7 +108,7 @@
   "duplicate_ids": 0,
   "raw_present_days": 4,
   "truncated_days": 0,
-  "incomplete_rebuild_days": 3,
+  "incomplete_rebuild_days": 4,
   "feature_availability_share": {
    "acceleration": 0.6624,
    "book_ts_up": 1.0,
