@@ -17,6 +17,25 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 from polylab.data.store import read_gz_rows  # noqa: E402
 
 OUT = "research/RAW_INTEGRITY.json"
+BASELINE = "data/state/raw_baseline.json"
+
+
+def load_baseline() -> dict:
+    if os.path.exists(BASELINE):
+        try:
+            return json.load(open(BASELINE, encoding="utf-8"))
+        except Exception:
+            pass
+    return {}
+
+
+def save_baseline(b: dict) -> None:
+    os.makedirs(os.path.dirname(BASELINE), exist_ok=True)
+    tmp = BASELINE + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(b, f, ensure_ascii=False, indent=1)
+        f.flush(); os.fsync(f.fileno())
+    os.replace(tmp, BASELINE)
 
 
 def raw_rows(day: str, root: str = "data") -> tuple:
@@ -48,6 +67,11 @@ def check(days: list[str], root: str = "data", phase: str = "after",
     """
     today = today or datetime.now(timezone.utc).strftime("%Y-%m-%d")
     per_day, issues, legacy = {}, [], []
+    # Настоящий инвариант непрерывности: raw не уменьшается МЕЖДУ прогонами.
+    # Сравнение с агрегатом остаётся информационным — агрегат монотонен и мог
+    # зафиксировать снимки, потерянные ещё до исправления restore.
+    base = load_baseline()
+    shrunk = []
     for day in days:
         n_raw, truncated, present = raw_rows(day, root)
         n_agg = agg_snapshots(day, root)
@@ -76,6 +100,11 @@ def check(days: list[str], root: str = "data", phase: str = "after",
         else:
             d["status"] = "OK"
             d["completeness"] = 1.0
+        prev = base.get(day, {}).get("raw_rows")
+        d["previous_raw_rows"] = prev
+        if prev is not None and n_raw < prev:
+            d["shrunk_by"] = prev - n_raw
+            shrunk.append(f"{day}: было {prev}, стало {n_raw} — потеряно {prev - n_raw}")
         per_day[day] = d
     tot_raw = sum(v["raw_rows"] for v in per_day.values())
     tot_agg = sum(v["aggregate_snapshots"] or 0 for v in per_day.values())
@@ -83,8 +112,8 @@ def check(days: list[str], root: str = "data", phase: str = "after",
             "phase": phase, "days": per_day,
             "total_raw_rows": tot_raw, "total_aggregate_snapshots": tot_agg,
             "completeness": round(tot_raw / tot_agg, 4) if tot_agg else None,
-            "issues": issues, "legacy": legacy, "today": today,
-            "verdict": "OK" if not issues else "RAW_LOSS",
+            "issues": issues, "legacy": legacy, "today": today, "shrunk": shrunk,
+            "verdict": "RAW_SHRUNK" if shrunk else ("OK" if not issues else "RAW_INCOMPLETE"),
             "legacy_verdict": "LEGACY_INCOMPLETE" if legacy else "OK"}
 
 
@@ -113,8 +142,10 @@ def main() -> None:
 
     print(f"[{phase}] полнота raw: {rep['completeness']} · raw {rep['total_raw_rows']} / "
           f"агрегат {rep['total_aggregate_snapshots']} · {rep['verdict']}")
+    for sh in rep.get("shrunk", []):
+        print("  RAW УМЕНЬШИЛСЯ:", sh)
     for i in rep["issues"]:
-        print("  ПОТЕРЯ СЕГОДНЯ:", i)
+        print("  НЕПОЛНОТА (информационно):", i)
     for l in rep.get("legacy", []):
         print("  НАСЛЕДИЕ (не чинится):", l)
     # Перед сбором потеря — повод остановиться: дописывать в обрубленный файл

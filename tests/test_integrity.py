@@ -46,14 +46,14 @@ d = r2["days"][DAY]
 ck("статус RAW_INCOMPLETE", d["status"] == "RAW_INCOMPLETE", d["status"])
 ck("посчитано потерянное", d["lost"] == 22, str(d.get("lost")))
 ck("полнота меньше 1", d["completeness"] < 1, str(d["completeness"]))
-ck("вердикт RAW_LOSS", r2["verdict"] == "RAW_LOSS")
+ck("вердикт отражает неполноту", r2["verdict"] in ("RAW_INCOMPLETE", "RAW_SHRUNK"), r2["verdict"])
 ck("причина названа человеку", any("потеряно" in i for i in r2["issues"]), str(r2["issues"][:1]))
 
 print("\nraw отсутствует полностью")
 os.remove(f"data/raw/dna/{DAY}.csv.gz")
 r3 = IG.check([DAY])
 ck("статус RAW_MISSING", r3["days"][DAY]["status"] == "RAW_MISSING")
-ck("это тоже потеря", r3["verdict"] == "RAW_LOSS")
+ck("это тоже потеря", r3["verdict"] in ("RAW_INCOMPLETE", "RAW_SHRUNK"), r3["verdict"])
 
 print("\nзащита агрегата не маскирует потерю")
 write_raw(8)
@@ -79,21 +79,36 @@ ck("объяснено, почему не чинится", "не подлежи�
 r_now = IG.check([DAY], today=DAY)
 ck("сегодняшняя потеря → RAW_INCOMPLETE", r_now["days"][DAY]["status"] == "RAW_INCOMPLETE",
    r_now["days"][DAY]["status"])
-ck("сегодняшняя потеря блокирует", r_now["verdict"] == "RAW_LOSS")
+ck("сегодняшняя неполнота видна", r_now["verdict"] == "RAW_INCOMPLETE", r_now["verdict"])
+
+print("\nинвариант непрерывности: raw не уменьшается между прогонами")
+IG.save_baseline({DAY: {"raw_rows": 30, "at": "x"}})
+r_sh = IG.check([DAY], today=DAY)
+ck("уменьшение обнаружено", r_sh["days"][DAY].get("shrunk_by") == 22, str(r_sh["days"][DAY].get("shrunk_by")))
+ck("вердикт RAW_SHRUNK", r_sh["verdict"] == "RAW_SHRUNK", r_sh["verdict"])
+ck("прошлый размер записан", r_sh["days"][DAY]["previous_raw_rows"] == 30)
+IG.save_baseline({DAY: {"raw_rows": 5, "at": "x"}})
+r_gr = IG.check([DAY], today=DAY)
+ck("рост не считается потерей", not r_gr["shrunk"], str(r_gr["shrunk"]))
+ck("но неполнота видна информационно", r_gr["verdict"] == "RAW_INCOMPLETE", r_gr["verdict"])
+IG.save_baseline({})
 
 print("\nстрогий режим останавливает дозапись")
 # подменяем «сегодня» на день данных, иначе они считались бы наследием
 r4 = subprocess.run([sys.executable, "-c",
                      f"import sys;sys.path.insert(0,{ROOT!r});"
                      "from polylab.data import integrity as I;"
+                     f"I.save_baseline({{{DAY!r}:{{'raw_rows':30,'at':'x'}}}});"
                      f"r=I.check([{DAY!r}],today={DAY!r});"
-                     "print(r['verdict']);sys.exit(2 if r['verdict']=='RAW_LOSS' else 0)"],
+                     "print(r['verdict']);sys.exit(2 if r['shrunk'] else 0)"],
                     capture_output=True, text=True)
 ck("падает до сбора при потере", r4.returncode == 2, f"код {r4.returncode}")
-ck("вердикт RAW_LOSS при потере сегодня", "RAW_LOSS" in r4.stdout, r4.stdout.strip()[-40:])
+ck("вердикт RAW_SHRUNK при уменьшении", "RAW_SHRUNK" in r4.stdout, r4.stdout.strip()[-40:])
 r5 = subprocess.run([sys.executable, os.path.join(ROOT, "polylab/data/integrity.py"), "after"],
                     capture_output=True, text=True)
-ck("после сбора не падает, но сообщает", r5.returncode == 0 and "ПОТЕРЯ" in r5.stdout)
+ck("после сбора не падает, но сообщает",
+   r5.returncode == 0 and ("НЕПОЛНОТА" in r5.stdout or "УМЕНЬШИЛСЯ" in r5.stdout),
+   r5.stdout.strip()[-70:])
 
 print("\nистория целостности накапливается")
 rep = json.load(open("research/RAW_INTEGRITY.json"))
