@@ -167,9 +167,14 @@ def main() -> None:
         except Exception:
             old = None
         if old and old.get("snapshots", 0) > agg.get("snapshots", 0):
-            print(f"ВНИМАНИЕ: пересчёт дал {agg['snapshots']} снимков против {old['snapshots']} "
-                  f"сохранённых — raw неполон. Оставляю прежний агрегат.")
+            # Защита долгосрочных данных остаётся, но факт потери raw теперь
+            # виден отдельно — раньше он маскировался этой же защитой.
+            print(f"::warning::raw неполон: пересчёт дал {agg['snapshots']} снимков против "
+                  f"{old['snapshots']} сохранённых. Агрегат сохранён, потеря зафиксирована.")
             old["raw_incomplete_on_rebuild"] = True
+            old["raw_rows_seen"] = agg.get("snapshots", 0)
+            old["raw_completeness"] = (round(agg.get("snapshots", 0) / old["snapshots"], 4)
+                                       if old.get("snapshots") else None)
             old["last_rebuild_attempt"] = {
                 "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 "snapshots_seen": agg.get("snapshots", 0)}

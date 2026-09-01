@@ -125,6 +125,12 @@ def build() -> dict:
     parts = {"dna": dna_sample(), "moves": moves(), "signals": signals(),
              "latency": latency_sample()}
     # бэктест публикуется как есть: режимы и источники внутри уже разделены
+    for extra in ("RAW_INTEGRITY.json", "PARITY.json"):
+        src = os.path.join("research", extra)
+        if os.path.exists(src):
+            with open(src, encoding="utf-8") as a, \
+                 open(f"{OUT}/research/{extra}", "w", encoding="utf-8") as b:
+                b.write(a.read())
     bt = "research/BACKTEST.json"
     if os.path.exists(bt):
         with open(bt, encoding="utf-8") as a, open(f"{OUT}/backtest.json", "w", encoding="utf-8") as b:

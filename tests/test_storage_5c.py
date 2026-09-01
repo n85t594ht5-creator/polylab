@@ -202,7 +202,10 @@ ck("агрегат НЕ уменьшился", a_after["snapshots"] == 30, f"{a_
 ck("факт неполноты помечен", a_after.get("raw_incomplete_on_rebuild") is True)
 ck("зафиксировано, сколько увидели", (a_after.get("last_rebuild_attempt") or {}).get("snapshots_seen") == 5,
    str(a_after.get("last_rebuild_attempt")))
-ck("предупреждение выведено", "ВНИМАНИЕ" in r2.stdout, r2.stdout.strip()[:60])
+# формулировка стала GitHub-аннотацией (PHASE 10) — проверяем смысл, а не слово
+ck("предупреждение выведено", ("::warning::" in r2.stdout or "ВНИМАНИЕ" in r2.stdout)
+   and "raw неполон" in r2.stdout, r2.stdout.strip()[:70])
+ck("видно, сколько реально в raw", json.load(open(f"data/agg/{day4}.json")).get("raw_rows_seen") is not None)
 
 # рост по-прежнему возможен
 s11 = Store(); s11.load_seen()

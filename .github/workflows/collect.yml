@@ -43,18 +43,32 @@ jobs:
       # Суточный raw обязан накапливаться между прогонами. Артефакт именуется по
       # дню: иначе прогон следующих суток затирает предыдущие (это уже случилось —
       # 50 снимков превратились в 45).
-      - name: Restore raw of the day
-        id: restore
-        uses: actions/download-artifact@v4
-        continue-on-error: true
-        with:
-          name: raw-${{ steps.day.outputs.d }}
-          path: data/raw
-
-      - name: Report restore result
+      # Восстановление суточного raw обязательно: дозапись в обрубленный файл
+      # закрепила бы потерю навсегда. Если артефакт дня есть, а восстановить
+      # не удалось — падаем громко, а не продолжаем молча.
+      - name: Restore raw of the day (mandatory)
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          echo "восстановление: ${{ steps.restore.outcome }}"
-          ls -la data/raw/dna 2>/dev/null || echo "raw пуст — это первый прогон суток"
+          DAY="${{ steps.day.outputs.d }}"
+          mkdir -p data/raw/dna
+          ART=$(gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts?per_page=100" \
+            --jq "[.artifacts[] | select(.name==\"raw-${DAY}\") | select(.expired==false)] | sort_by(.created_at) | last | .workflow_run.id // empty")
+          if [ -z "$ART" ]; then
+            echo "артефакта raw-${DAY} нет — это первый прогон суток"
+          else
+            echo "восстанавливаю raw-${DAY} из прогона $ART"
+            gh run download "$ART" -n "raw-${DAY}" -D data/raw --repo "$GITHUB_REPOSITORY" || true
+            if [ ! -f "data/raw/dna/${DAY}.csv.gz" ]; then
+              echo "::error::артефакт raw-${DAY} существует, но не восстановлен — дозапись потеряла бы данные"
+              exit 1
+            fi
+            echo "восстановлено: $(ls -la data/raw/dna/${DAY}.csv.gz)"
+          fi
+
+      # Проверка ДО сбора: raw не должен быть беднее агрегата
+      - name: Verify raw integrity before collect
+        run: python polylab/data/integrity.py before
 
       - name: Collect
         env:
@@ -65,6 +79,9 @@ jobs:
           SHADOW_ARENA: "1"
           SHADOW_BANKROLL: "1000"
         run: python polylab/data/collector.py
+
+      - name: Verify raw integrity after collect
+        run: python polylab/data/integrity.py after
 
       - name: Build daily aggregate
         run: |
