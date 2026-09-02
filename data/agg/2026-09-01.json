@@ -268,6 +268,10 @@
   "spread_up": 1585,
   "volatility": 1532
  },
+ "last_rebuild_attempt": {
+  "at": "2026-09-02T02:59:38Z",
+  "snapshots_seen": 0
+ },
  "latency": {
   "n": 2192,
   "quality": {
@@ -309,7 +313,10 @@
   "INCOMPLETE": 594,
   "INVALID": 69
  },
+ "raw_completeness": 0.0,
+ "raw_incomplete_on_rebuild": true,
  "raw_present": true,
+ "raw_rows_seen": 0,
  "raw_truncated": false,
  "snapshots": 2192,
  "valid": 2123
