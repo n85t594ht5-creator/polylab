@@ -1,6 +1,6 @@
 {
  "url": "https://n85t594ht5-creator.github.io/polylab/",
- "checked_at": "2026-09-02T04:50:21.930Z",
+ "checked_at": "2026-09-02T06:58:13.050Z",
  "viewports": [
   320,
   375,
@@ -44,7 +44,16 @@
   "storage@320:v_storage:5",
   "home@375:v_home:6"
  ],
- "total_issues": 0,
- "by_kind": {},
- "issues": []
+ "total_issues": 1,
+ "by_kind": {
+  "TEXT_CLIPPED": 1
+ },
+ "issues": [
+  {
+   "vw": 320,
+   "page": "backtest",
+   "kind": "TEXT_CLIPPED",
+   "detail": "90% · 101 · +3740.21"
+  }
+ ]
 }
