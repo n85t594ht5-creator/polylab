@@ -1,126 +1,126 @@
 {
  "agg_version": "1",
- "built_at": "2026-09-02T02:59:38Z",
+ "built_at": "2026-09-02T04:48:10Z",
  "cuts": {
   "asset": {
    "BTC": {
-    "n": 242,
-    "quality": {
-     "DEGRADED": 43,
-     "GOOD": 57,
-     "INCOMPLETE": 26,
-     "INVALID": 60,
-     "STALE": 56
-    },
-    "valid": 182
-   },
-   "ETH": {
-    "n": 242,
-    "quality": {
-     "DEGRADED": 45,
-     "GOOD": 75,
-     "INCOMPLETE": 26,
-     "STALE": 96
-    },
-    "valid": 242
-   },
-   "SOL": {
-    "n": 242,
-    "quality": {
-     "DEGRADED": 49,
-     "GOOD": 74,
-     "INCOMPLETE": 18,
-     "STALE": 101
-    },
-    "valid": 242
-   },
-   "XRP": {
-    "n": 242,
+    "n": 366,
     "quality": {
      "DEGRADED": 47,
-     "GOOD": 70,
-     "INCOMPLETE": 24,
-     "STALE": 101
+     "GOOD": 73,
+     "INCOMPLETE": 26,
+     "INVALID": 120,
+     "STALE": 100
     },
-    "valid": 242
+    "valid": 246
+   },
+   "ETH": {
+    "n": 366,
+    "quality": {
+     "DEGRADED": 57,
+     "GOOD": 112,
+     "INCOMPLETE": 26,
+     "STALE": 171
+    },
+    "valid": 366
+   },
+   "SOL": {
+    "n": 366,
+    "quality": {
+     "DEGRADED": 72,
+     "GOOD": 101,
+     "INCOMPLETE": 18,
+     "STALE": 175
+    },
+    "valid": 366
+   },
+   "XRP": {
+    "n": 366,
+    "quality": {
+     "DEGRADED": 66,
+     "GOOD": 93,
+     "INCOMPLETE": 24,
+     "STALE": 183
+    },
+    "valid": 366
    }
   },
   "elapsed_bucket": {
    "50–60%": {
-    "n": 176,
+    "n": 256,
     "quality": {
-     "DEGRADED": 41,
-     "GOOD": 47,
-     "INVALID": 10,
-     "STALE": 78
+     "DEGRADED": 52,
+     "GOOD": 51,
+     "INVALID": 20,
+     "STALE": 133
     },
-    "valid": 166
+    "valid": 236
    },
    "60–75%": {
-    "n": 244,
+    "n": 376,
     "quality": {
-     "DEGRADED": 23,
-     "GOOD": 84,
+     "DEGRADED": 25,
+     "GOOD": 101,
      "INCOMPLETE": 5,
-     "INVALID": 15,
-     "STALE": 117
+     "INVALID": 30,
+     "STALE": 215
     },
-    "valid": 229
+    "valid": 346
    },
    "75–85%": {
-    "n": 152,
+    "n": 240,
     "quality": {
-     "DEGRADED": 1,
-     "GOOD": 55,
+     "DEGRADED": 8,
+     "GOOD": 78,
      "INCOMPLETE": 23,
-     "INVALID": 10,
-     "STALE": 63
+     "INVALID": 20,
+     "STALE": 111
     },
-    "valid": 142
+    "valid": 220
    },
    "85–95%": {
-    "n": 152,
+    "n": 240,
     "quality": {
-     "DEGRADED": 4,
-     "GOOD": 57,
+     "DEGRADED": 7,
+     "GOOD": 88,
      "INCOMPLETE": 37,
-     "INVALID": 10,
-     "STALE": 44
+     "INVALID": 20,
+     "STALE": 88
     },
-    "valid": 142
+    "valid": 220
    },
    "95%+": {
-    "n": 68,
+    "n": 112,
     "quality": {
-     "DEGRADED": 3,
-     "GOOD": 25,
+     "DEGRADED": 6,
+     "GOOD": 53,
      "INCOMPLETE": 29,
-     "INVALID": 5,
-     "STALE": 6
+     "INVALID": 10,
+     "STALE": 14
     },
-    "valid": 63
+    "valid": 102
    },
    "<50%": {
-    "n": 176,
+    "n": 240,
     "quality": {
-     "DEGRADED": 112,
+     "DEGRADED": 144,
      "GOOD": 8,
-     "INVALID": 10,
-     "STALE": 46
+     "INVALID": 20,
+     "STALE": 68
     },
-    "valid": 166
+    "valid": 220
    }
   },
   "entry_bucket": {
    "0.50–0.55": {
-    "n": 406,
+    "n": 526,
     "quality": {
-     "DEGRADED": 39,
-     "GOOD": 33,
-     "INVALID": 60,
-     "STALE": 274
+     "DEGRADED": 41,
+     "GOOD": 49,
+     "INVALID": 104,
+     "STALE": 332
     },
-    "valid": 346
+    "valid": 422
    },
    "0.55–0.60": {
     "n": 8,
@@ -148,91 +148,92 @@
     "valid": 335
    },
    ">0.62": {
-    "n": 187,
+    "n": 563,
     "quality": {
-     "DEGRADED": 35,
-     "GOOD": 72,
-     "STALE": 80
+     "DEGRADED": 91,
+     "GOOD": 159,
+     "INVALID": 16,
+     "STALE": 297
     },
-    "valid": 187
+    "valid": 547
    }
   },
   "move_bucket": {
    "0.00–0.05%": {
-    "n": 444,
+    "n": 621,
     "quality": {
-     "DEGRADED": 123,
-     "GOOD": 126,
+     "DEGRADED": 153,
+     "GOOD": 169,
      "INCOMPLETE": 31,
-     "STALE": 164
+     "STALE": 268
     },
-    "valid": 444
+    "valid": 621
    },
    "0.05–0.10%": {
-    "n": 244,
+    "n": 381,
     "quality": {
-     "DEGRADED": 32,
-     "GOOD": 76,
+     "DEGRADED": 48,
+     "GOOD": 106,
      "INCOMPLETE": 18,
-     "STALE": 118
+     "STALE": 209
     },
-    "valid": 244
+    "valid": 381
    },
    "0.10–0.12%": {
-    "n": 82,
+    "n": 122,
     "quality": {
-     "DEGRADED": 6,
-     "GOOD": 35,
+     "DEGRADED": 15,
+     "GOOD": 45,
      "INCOMPLETE": 18,
-     "STALE": 23
+     "STALE": 44
     },
-    "valid": 82
+    "valid": 122
    },
    "0.12–0.15%": {
-    "n": 59,
+    "n": 98,
     "quality": {
-     "DEGRADED": 6,
-     "GOOD": 24,
+     "DEGRADED": 9,
+     "GOOD": 34,
      "INCOMPLETE": 11,
-     "STALE": 18
+     "STALE": 44
     },
-    "valid": 59
+    "valid": 98
    },
    "0.15–0.20%": {
-    "n": 44,
+    "n": 72,
     "quality": {
      "DEGRADED": 11,
-     "GOOD": 6,
+     "GOOD": 15,
      "INCOMPLETE": 15,
-     "STALE": 12
+     "STALE": 31
     },
-    "valid": 44
+    "valid": 72
    },
    "0.20%+": {
-    "n": 35,
+    "n": 50,
     "quality": {
      "DEGRADED": 6,
-     "GOOD": 9,
+     "GOOD": 10,
      "INCOMPLETE": 1,
-     "STALE": 19
+     "STALE": 33
     },
-    "valid": 35
+    "valid": 50
    }
   },
   "quality": {
    "DEGRADED": {
-    "n": 184,
+    "n": 242,
     "quality": {
-     "DEGRADED": 184
+     "DEGRADED": 242
     },
-    "valid": 184
+    "valid": 242
    },
    "GOOD": {
-    "n": 276,
+    "n": 379,
     "quality": {
-     "GOOD": 276
+     "GOOD": 379
     },
-    "valid": 276
+    "valid": 379
    },
    "INCOMPLETE": {
     "n": 94,
@@ -242,102 +243,102 @@
     "valid": 94
    },
    "INVALID": {
-    "n": 60,
+    "n": 120,
     "quality": {
-     "INVALID": 60
+     "INVALID": 120
     },
     "valid": 0
    },
    "STALE": {
-    "n": 354,
+    "n": 629,
     "quality": {
-     "STALE": 354
+     "STALE": 629
     },
-    "valid": 354
+    "valid": 629
    }
   },
   "window": {
    "15m": {
-    "n": 488,
+    "n": 744,
     "quality": {
-     "DEGRADED": 74,
-     "GOOD": 157,
+     "DEGRADED": 90,
+     "GOOD": 193,
      "INCOMPLETE": 23,
-     "STALE": 234
+     "STALE": 438
     },
-    "valid": 488
+    "valid": 744
    },
    "5m": {
-    "n": 480,
+    "n": 720,
     "quality": {
-     "DEGRADED": 110,
-     "GOOD": 119,
+     "DEGRADED": 152,
+     "GOOD": 186,
      "INCOMPLETE": 71,
-     "INVALID": 60,
-     "STALE": 120
+     "INVALID": 120,
+     "STALE": 191
     },
-    "valid": 420
+    "valid": 600
    }
   }
  },
  "day": "2026-09-02",
  "feature_availability": {
-  "acceleration": 664,
-  "book_ts_up": 968,
-  "depth_10_up": 570,
-  "depth_1_up": 941,
-  "imbalance_up": 875,
-  "liquidity": 968,
+  "acceleration": 989,
+  "book_ts_up": 1464,
+  "depth_10_up": 624,
+  "depth_1_up": 1437,
+  "imbalance_up": 1371,
+  "liquidity": 1464,
   "market_volume": 0,
-  "spread_up": 875,
-  "volatility": 736
+  "spread_up": 1371,
+  "volatility": 1104
  },
  "latency": {
-  "n": 968,
+  "n": 1464,
   "quality": {
-   "HIGH": 401,
-   "LOW": 526,
-   "MEDIUM": 41
+   "HIGH": 707,
+   "LOW": 658,
+   "MEDIUM": 99
   }
  },
  "missing_fields": {
-  "acceleration": 304,
+  "acceleration": 475,
   "depth_1_up": 27,
   "down_ask": 67,
   "imbalance_up": 93,
-  "reference_price": 60,
+  "reference_price": 120,
   "spread_up": 93,
   "up_ask": 27,
-  "volatility": 232
+  "volatility": 360
  },
  "moves": {
-  "avg_time_to_reversal_sec": 111.0,
+  "avg_time_to_reversal_sec": 110.6,
   "by_window": {
    "15m": {
-    "continued": 3,
-    "n": 4,
-    "reversed": 1
+    "continued": 9,
+    "n": 11,
+    "reversed": 2
    },
    "5m": {
-    "continued": 6,
-    "n": 11,
-    "reversed": 5
+    "continued": 15,
+    "n": 21,
+    "reversed": 6
    }
   },
-  "continued": 9,
-  "n": 15,
-  "reversed": 6,
-  "with_outcome": 15
+  "continued": 24,
+  "n": 32,
+  "reversed": 8,
+  "with_outcome": 32
  },
  "quality": {
-  "DEGRADED": 184,
-  "GOOD": 276,
+  "DEGRADED": 242,
+  "GOOD": 379,
   "INCOMPLETE": 94,
-  "INVALID": 60,
-  "STALE": 354
+  "INVALID": 120,
+  "STALE": 629
  },
  "raw_present": true,
  "raw_truncated": false,
- "snapshots": 968,
- "valid": 908
+ "snapshots": 1464,
+ "valid": 1344
 }
