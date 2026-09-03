@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-02T21:23:18Z",
+ "checked_at": "2026-09-03T00:35:16Z",
  "days": 6,
  "issues": [
   {
@@ -84,12 +84,12 @@
    }
   },
   "2026-09-02": {
-   "snapshots": 4743,
-   "valid": 4359,
+   "snapshots": 5191,
+   "valid": 4807,
    "quality": {
-    "DEGRADED": 1110,
-    "GOOD": 1505,
-    "INCOMPLETE": 1115,
+    "DEGRADED": 1241,
+    "GOOD": 1636,
+    "INCOMPLETE": 1301,
     "INVALID": 384,
     "STALE": 629
    },
@@ -97,31 +97,31 @@
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 348,
+    "entry_bucket": 455,
     "move_bucket": 384
    }
   }
  },
  "totals": {
-  "snapshots": 7651,
-  "valid": 7138,
-  "valid_share": 0.9329,
+  "snapshots": 8099,
+  "valid": 7586,
+  "valid_share": 0.9367,
   "quality": {
-   "DEGRADED": 2008,
-   "GOOD": 2571,
-   "INCOMPLETE": 1930,
+   "DEGRADED": 2139,
+   "GOOD": 2702,
+   "INCOMPLETE": 2116,
    "INVALID": 513,
    "STALE": 629
   },
   "windows": {
-   "15m": 3607,
-   "5m": 4044
+   "15m": 3815,
+   "5m": 4284
   },
   "assets": {
-   "BTC": 1920,
-   "ETH": 1936,
-   "SOL": 1886,
-   "XRP": 1909
+   "BTC": 2036,
+   "ETH": 2052,
+   "SOL": 1986,
+   "XRP": 2025
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -129,15 +129,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 4,
   "feature_availability_share": {
-   "acceleration": 0.6508,
+   "acceleration": 0.6523,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.7365,
-   "depth_1_up": 0.9157,
-   "imbalance_up": 0.7292,
+   "depth_10_up": 0.7274,
+   "depth_1_up": 0.9071,
+   "imbalance_up": 0.7212,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7292,
-   "volatility": 0.7271
+   "spread_up": 0.7212,
+   "volatility": 0.7284
   }
  },
  "verdict": "OK",
@@ -157,7 +157,7 @@
   {
    "day": "2026-09-02",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 4743,
+   "stored_snapshots": 5191,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
