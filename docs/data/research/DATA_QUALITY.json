@@ -4,7 +4,7 @@
   {
    "area": "Целостность длинной серии",
    "status": "CONFIRMED",
-   "detail": "7 дней, 13500 снимков, валидных 12711 (94%), дублей id 0",
+   "detail": "8 дней, 14432 снимков, валидных 13583 (94%), дублей id 0",
    "note": "",
    "source": "REAL"
   },
@@ -46,8 +46,8 @@
   {
    "area": "60-минутные окна",
    "status": "NOT OBSERVED",
-   "detail": "наблюдений 41, окна за всё время: {'5m': 983, '15m': 296, '240m': 3}",
-   "note": "за 114.7 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения",
+   "detail": "наблюдений 42, окна за всё время: {'5m': 1018, '15m': 306, '240m': 3}",
+   "note": "за 117.6 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения",
    "source": "REAL"
   },
   {
@@ -60,7 +60,7 @@
   {
    "area": "Покрытие и полнота",
    "status": "SUPPORTED",
-   "detail": "GOOD 4781 · DEGRADED 3533 · INCOMPLETE 3585 · INVALID 789; активов 4, окон 2, рынков 0",
+   "detail": "GOOD 5133 · DEGRADED 3761 · INCOMPLETE 3877 · INVALID 849; активов 4, окон 2, рынков 0",
    "note": "INVALID = не получена опорная цена; нулями не заменяется",
    "source": "REAL"
   },
@@ -73,40 +73,40 @@
   }
  ],
  "coverage": {
-  "total_snapshots": 13500,
-  "valid": 12711,
-  "GOOD": 4781,
-  "DEGRADED": 3533,
-  "INCOMPLETE": 3585,
-  "INVALID": 789,
+  "total_snapshots": 14432,
+  "valid": 13583,
+  "GOOD": 5133,
+  "DEGRADED": 3761,
+  "INCOMPLETE": 3877,
+  "INVALID": 849,
   "by_asset": {
-   "BTC": 3392,
-   "ETH": 3408,
-   "SOL": 3342,
-   "XRP": 3358
+   "BTC": 3625,
+   "ETH": 3641,
+   "SOL": 3575,
+   "XRP": 3591
   },
   "by_window": {
-   "15m": 6444,
-   "5m": 7056
+   "15m": 6896,
+   "5m": 7536
   },
   "unique_markets": 0,
   "feature_availability_share": {
-   "acceleration": 0.6639,
+   "acceleration": 0.6646,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6693,
-   "depth_1_up": 0.8745,
-   "imbalance_up": 0.7176,
+   "depth_10_up": 0.6635,
+   "depth_1_up": 0.8705,
+   "imbalance_up": 0.7138,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7176,
-   "volatility": 0.7363
+   "spread_up": 0.7138,
+   "volatility": 0.7367
   },
-  "raw_present_days": 6,
+  "raw_present_days": 7,
   "truncated_days": 0,
-  "incomplete_rebuild_days": 5,
+  "incomplete_rebuild_days": 6,
   "duplicate_ids": 0,
-  "missing_reference_prices": 789,
+  "missing_reference_prices": 849,
   "missing_volume": "UNAVAILABLE (источник не отдаёт)"
  },
- "built_at": "2026-09-04T00:32:13Z"
+ "built_at": "2026-09-04T03:24:20Z"
 }
