@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-04T21:23:10Z",
+ "checked_at": "2026-09-05T00:33:59Z",
  "days": 8,
  "issues": [
   {
@@ -120,43 +120,43 @@
    }
   },
   "2026-09-04": {
-   "snapshots": 4700,
-   "valid": 4357,
+   "snapshots": 4968,
+   "valid": 4625,
    "quality": {
-    "DEGRADED": 1211,
-    "GOOD": 1722,
-    "INCOMPLETE": 1424,
+    "DEGRADED": 1315,
+    "GOOD": 1841,
+    "INCOMPLETE": 1469,
     "INVALID": 343
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 809,
+    "entry_bucket": 825,
     "move_bucket": 343
    }
   }
  },
  "totals": {
-  "snapshots": 18200,
-  "valid": 17068,
-  "valid_share": 0.9378,
+  "snapshots": 18468,
+  "valid": 17336,
+  "valid_share": 0.9387,
   "quality": {
-   "DEGRADED": 4744,
-   "GOOD": 6503,
-   "INCOMPLETE": 5009,
+   "DEGRADED": 4848,
+   "GOOD": 6622,
+   "INCOMPLETE": 5054,
    "INVALID": 1132,
    "STALE": 812
   },
   "windows": {
-   "15m": 8696,
-   "5m": 9504
+   "15m": 8772,
+   "5m": 9696
   },
   "assets": {
-   "BTC": 4567,
-   "ETH": 4583,
-   "SOL": 4517,
-   "XRP": 4533
+   "BTC": 4634,
+   "ETH": 4650,
+   "SOL": 4584,
+   "XRP": 4600
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -164,15 +164,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 6,
   "feature_availability_share": {
-   "acceleration": 0.6691,
+   "acceleration": 0.6681,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6625,
-   "depth_1_up": 0.8625,
-   "imbalance_up": 0.7046,
+   "depth_10_up": 0.664,
+   "depth_1_up": 0.8636,
+   "imbalance_up": 0.7064,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7046,
-   "volatility": 0.7418
+   "spread_up": 0.7064,
+   "volatility": 0.7412
   }
  },
  "verdict": "OK",
@@ -192,7 +192,7 @@
   {
    "day": "2026-09-04",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 4700,
+   "stored_snapshots": 4968,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
