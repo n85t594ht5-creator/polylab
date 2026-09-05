@@ -1,29 +1,29 @@
 {
- "built_at": "2026-09-04T06:51:11Z",
+ "built_at": "2026-09-05T06:47:45Z",
  "engine_version": "1",
  "dataset": {
   "source": "REAL",
   "dataset_version": "1",
-  "rows_total": 12492,
-  "rows_usable": 11652,
+  "rows_total": 11745,
+  "rows_usable": 11006,
   "days": 3,
   "day_list": [
-   "2026-09-02",
    "2026-09-03",
-   "2026-09-04"
+   "2026-09-04",
+   "2026-09-05"
   ],
-  "unique_markets": 727,
+  "unique_markets": 680,
   "by_window": {
-   "5m": 5604,
-   "15m": 6048
+   "5m": 5393,
+   "15m": 5613
   },
-  "span_hours": 54.29,
+  "span_hours": 52.21,
   "issues": []
  },
  "split": {
-  "border_market_start": "2026-09-03T14:30:00+00:00",
-  "is_windows": 508,
-  "oos_windows": 219,
+  "border_market_start": "2026-09-04T10:40:00+00:00",
+  "is_windows": 475,
+  "oos_windows": 205,
   "oos_fraction": 0.3,
   "rule": "разделение по времени, граница между окнами; подбор только на in-sample"
  },
@@ -31,65 +31,18 @@
   "mode": "BACKTEST",
   "source": "REAL",
   "engine_version": "1",
-  "windows_seen": 508,
-  "windows_outcome_unknown": 48,
+  "windows_seen": 475,
+  "windows_outcome_unknown": 36,
   "funnel": {
-   "windows": 508,
-   "outcome_unknown": 48,
-   "snapshots": 7568,
+   "windows": 475,
+   "outcome_unknown": 36,
+   "snapshots": 7400,
    "snapshot_errors": 0,
    "no_price": 0,
-   "ask_up_present": 6462,
-   "ask_dn_present": 6409,
-   "late_window": 3389,
-   "no_signal": 7562,
-   "with_signal": 6,
-   "blocked_by_risk": 0,
-   "entered": 6
-  },
-  "metrics": {
-   "signals": 6,
-   "closed": 6,
-   "blocked": 0,
-   "status": "INSUFFICIENT_SAMPLE",
-   "winrate": 1.0,
-   "pnl": 302.34,
-   "profit_factor": 99.0,
-   "max_drawdown": 0.0,
-   "days": 1,
-   "best_day": "2026-09-02",
-   "best_day_pnl": 302.34,
-   "best_day_share_pct": 100.0,
-   "pnl_without_best_day": 0.0,
-   "top3_days_pnl": 302.34,
-   "by_window": {
-    "15m": {
-     "n": 6,
-     "winrate": 1.0,
-     "pnl": 302.34
-    }
-   },
-   "sample_note": "нужно ≥100 закрытых сделок и ≥50 на окно",
-   "concentration_note": "результат держится на одном дне — это событие, а не edge"
-  },
-  "arena_errors": {}
- },
- "out_of_sample": {
-  "mode": "OOS",
-  "source": "REAL",
-  "engine_version": "1",
-  "windows_seen": 219,
-  "windows_outcome_unknown": 11,
-  "funnel": {
-   "windows": 219,
-   "outcome_unknown": 11,
-   "snapshots": 3601,
-   "snapshot_errors": 0,
-   "no_price": 0,
-   "ask_up_present": 3055,
-   "ask_dn_present": 3015,
-   "late_window": 1554,
-   "no_signal": 3597,
+   "ask_up_present": 6015,
+   "ask_dn_present": 6489,
+   "late_window": 3270,
+   "no_signal": 7396,
    "with_signal": 4,
    "blocked_by_risk": 0,
    "entered": 4
@@ -126,26 +79,73 @@
   },
   "arena_errors": {}
  },
+ "out_of_sample": {
+  "mode": "OOS",
+  "source": "REAL",
+  "engine_version": "1",
+  "windows_seen": 205,
+  "windows_outcome_unknown": 4,
+  "funnel": {
+   "windows": 205,
+   "outcome_unknown": 4,
+   "snapshots": 3370,
+   "snapshot_errors": 0,
+   "no_price": 0,
+   "ask_up_present": 2915,
+   "ask_dn_present": 2943,
+   "late_window": 1506,
+   "no_signal": 3368,
+   "with_signal": 2,
+   "blocked_by_risk": 0,
+   "entered": 2
+  },
+  "metrics": {
+   "signals": 2,
+   "closed": 2,
+   "blocked": 0,
+   "status": "INSUFFICIENT_SAMPLE",
+   "winrate": 1.0,
+   "pnl": 94.72,
+   "profit_factor": 99.0,
+   "max_drawdown": 0.0,
+   "days": 1,
+   "best_day": "2026-09-04",
+   "best_day_pnl": 94.72,
+   "best_day_share_pct": 100.0,
+   "pnl_without_best_day": 0.0,
+   "top3_days_pnl": 94.72,
+   "by_window": {
+    "5m": {
+     "n": 2,
+     "winrate": 1.0,
+     "pnl": 94.72
+    }
+   },
+   "sample_note": "нужно ≥100 закрытых сделок и ≥50 на окно",
+   "concentration_note": "результат держится на одном дне — это событие, а не edge"
+  },
+  "arena_errors": {}
+ },
  "forward_shadow": {
-  "signals": 126,
-  "closed": 126,
+  "signals": 127,
+  "closed": 127,
   "blocked": 0,
   "status": "INSUFFICIENT_SAMPLE",
-  "winrate": 0.881,
-  "pnl": 4416.07,
-  "profit_factor": 6.89,
+  "winrate": 0.8819,
+  "pnl": 4466.07,
+  "profit_factor": 6.95,
   "max_drawdown": 150.0,
-  "days": 5,
+  "days": 6,
   "best_day": "2026-08-31",
   "best_day_pnl": 2138.9,
-  "best_day_share_pct": 48.4,
-  "pnl_without_best_day": 2277.17,
+  "best_day_share_pct": 47.9,
+  "pnl_without_best_day": 2327.17,
   "top3_days_pnl": 4399.41,
   "by_window": {
    "5m": {
-    "n": 21,
-    "winrate": 0.8571,
-    "pnl": 697.28
+    "n": 22,
+    "winrate": 0.8636,
+    "pnl": 747.28
    },
    "15m": {
     "n": 105,
