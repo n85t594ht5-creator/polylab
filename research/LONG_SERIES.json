@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-06T15:23:40Z",
+ "checked_at": "2026-09-06T18:25:15Z",
  "days": 10,
  "issues": [
   {
@@ -154,43 +154,43 @@
    }
   },
   "2026-09-06": {
-   "snapshots": 3172,
-   "valid": 2949,
+   "snapshots": 3508,
+   "valid": 3285,
    "quality": {
-    "DEGRADED": 848,
-    "GOOD": 1392,
-    "INCOMPLETE": 709,
+    "DEGRADED": 952,
+    "GOOD": 1543,
+    "INCOMPLETE": 790,
     "INVALID": 223
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 284,
+    "entry_bucket": 332,
     "move_bucket": 223
    }
   }
  },
  "totals": {
-  "snapshots": 26372,
-  "valid": 24741,
-  "valid_share": 0.9382,
+  "snapshots": 26708,
+  "valid": 25077,
+  "valid_share": 0.9389,
   "quality": {
-   "DEGRADED": 7059,
-   "GOOD": 10117,
-   "INCOMPLETE": 6753,
+   "DEGRADED": 7163,
+   "GOOD": 10268,
+   "INCOMPLETE": 6834,
    "INVALID": 1631,
    "STALE": 812
   },
   "windows": {
-   "15m": 12424,
-   "5m": 13948
+   "15m": 12568,
+   "5m": 14140
   },
   "assets": {
-   "BTC": 6631,
-   "ETH": 6607,
-   "SOL": 6565,
-   "XRP": 6569
+   "BTC": 6715,
+   "ETH": 6691,
+   "SOL": 6649,
+   "XRP": 6653
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -198,15 +198,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 8,
   "feature_availability_share": {
-   "acceleration": 0.671,
+   "acceleration": 0.6711,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6787,
-   "depth_1_up": 0.8687,
-   "imbalance_up": 0.7255,
+   "depth_10_up": 0.6786,
+   "depth_1_up": 0.8685,
+   "imbalance_up": 0.7259,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7255,
-   "volatility": 0.7453
+   "spread_up": 0.7259,
+   "volatility": 0.7455
   }
  },
  "verdict": "OK",
@@ -226,7 +226,7 @@
   {
    "day": "2026-09-06",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 3172,
+   "stored_snapshots": 3508,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
