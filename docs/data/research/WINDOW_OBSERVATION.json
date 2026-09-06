@@ -468,10 +468,17 @@
    "at": "2026-09-06T12:28:16Z",
    "markets": 0,
    "windows": {}
+  },
+  {
+   "at": "2026-09-06T15:23:40Z",
+   "markets": 5,
+   "windows": {
+    "5m": 5
+   }
   }
  ],
  "windows_ever_seen": {
-  "5m": 1396,
+  "5m": 1401,
   "15m": 430,
   "240m": 3
  },
@@ -482,16 +489,67 @@
   "SOL",
   "XRP"
  ],
- "last_seen_examples": {},
- "last_detail": [],
+ "last_seen_examples": {
+  "5m": "xrp-updown-5m-1788708000"
+ },
+ "last_detail": [
+  {
+   "asset": "ETH",
+   "window": "5m",
+   "market_id": "4250245",
+   "slug": "eth-updown-5m-1788708000",
+   "start": "2026-09-06T15:20:00+00:00",
+   "end": "2026-09-06T15:25:00+00:00"
+  },
+  {
+   "asset": "SOL",
+   "window": "5m",
+   "market_id": "4250249",
+   "slug": "sol-updown-5m-1788708000",
+   "start": "2026-09-06T15:20:00+00:00",
+   "end": "2026-09-06T15:25:00+00:00"
+  },
+  {
+   "asset": "DOGE",
+   "window": "5m",
+   "market_id": "4250250",
+   "slug": "doge-updown-5m-1788708000",
+   "start": "2026-09-06T15:20:00+00:00",
+   "end": "2026-09-06T15:25:00+00:00"
+  },
+  {
+   "asset": "BTC",
+   "window": "5m",
+   "market_id": "4250251",
+   "slug": "btc-updown-5m-1788708000",
+   "start": "2026-09-06T15:20:00+00:00",
+   "end": "2026-09-06T15:25:00+00:00"
+  },
+  {
+   "asset": "XRP",
+   "window": "5m",
+   "market_id": "4250252",
+   "slug": "xrp-updown-5m-1788708000",
+   "start": "2026-09-06T15:20:00+00:00",
+   "end": "2026-09-06T15:25:00+00:00"
+  }
+ ],
  "observation_window": {
   "first": "2026-08-30T05:47:55Z",
-  "last": "2026-09-06T12:28:16Z",
-  "count": 61
+  "last": "2026-09-06T15:23:40Z",
+  "count": 62
  },
- "observation_span_hours": 174.67,
- "assets_by_window": {},
- "total_observations": 61,
+ "observation_span_hours": 177.6,
+ "assets_by_window": {
+  "5m": [
+   "BTC",
+   "DOGE",
+   "ETH",
+   "SOL",
+   "XRP"
+  ]
+ },
+ "total_observations": 62,
  "status_60m": "NOT OBSERVED",
- "note_60m": "за 174.7 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения"
+ "note_60m": "за 177.6 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения"
 }
