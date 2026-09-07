@@ -8,16 +8,15 @@
   "15m": 264
  },
  "quality": {
-  "DEGRADED": 155,
-  "GOOD": 254,
-  "INCOMPLETE": 95
+  "DEGRADED": 153,
+  "INCOMPLETE": 95,
+  "GOOD": 256
  },
  "latency_events": 504,
- "moves": 15,
+ "moves": 28,
  "ref_missing": 0,
  "latency_quality": {
-  "LOW": 485,
-  "MEDIUM": 19
+  "LOW": 504
  },
  "stale": 0,
  "incomplete": 95,
@@ -33,14 +32,14 @@
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 1554,
+  "requests": 1566,
   "failures": 0,
   "retries": 0,
-  "latency_median_ms": 149.5,
-  "latency_max_ms": 560.2
+  "latency_median_ms": 147.2,
+  "latency_max_ms": 453.8
  },
  "shadow": {
-  "snapshots": 26127,
+  "snapshots": 26631,
   "signals": 129,
   "accepted": 20,
   "reduced": 0,
@@ -60,33 +59,33 @@
  "storage": {
   "raw/dna": {
    "files": 1,
-   "bytes": 425074
+   "bytes": 565984
   },
   "raw/latency": {
    "files": 1,
-   "bytes": 536063
+   "bytes": 710551
   },
   "moves": {
    "files": 9,
-   "bytes": 227977
+   "bytes": 233473
   },
   "agg": {
    "files": 12,
-   "bytes": 51074
+   "bytes": 51084
   },
   "state": {
    "files": 3,
-   "bytes": 27431
+   "bytes": 28039
   },
-  "total_bytes": 1267619,
-  "git_tracked_bytes": 306482,
-  "artifact_bytes": 961137
+  "total_bytes": 1589131,
+  "git_tracked_bytes": 312596,
+  "artifact_bytes": 1276535
  },
- "ids_pruned": 1392,
- "ids_kept": 1420,
+ "ids_pruned": 2276,
+ "ids_kept": 1452,
  "duplicates_store": 0,
- "restored_ids": 2308,
+ "restored_ids": 3224,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-09-07T10:47:36.212389+00:00"
+ "finished_at": "2026-09-07T14:47:41.883239+00:00"
 }
