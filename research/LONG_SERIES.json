@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-09T12:32:03Z",
+ "checked_at": "2026-09-09T15:26:25Z",
  "days": 13,
  "issues": [
   {
@@ -205,43 +205,43 @@
    }
   },
   "2026-09-09": {
-   "snapshots": 2776,
-   "valid": 2491,
+   "snapshots": 3700,
+   "valid": 3415,
    "quality": {
-    "DEGRADED": 745,
-    "GOOD": 1203,
-    "INCOMPLETE": 543,
+    "DEGRADED": 1035,
+    "GOOD": 1594,
+    "INCOMPLETE": 786,
     "INVALID": 285
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 393,
+    "entry_bucket": 572,
     "move_bucket": 285
    }
   }
  },
  "totals": {
-  "snapshots": 40900,
-  "valid": 38367,
-  "valid_share": 0.9381,
+  "snapshots": 41824,
+  "valid": 39291,
+  "valid_share": 0.9394,
   "quality": {
-   "DEGRADED": 11106,
-   "GOOD": 16203,
-   "INCOMPLETE": 10246,
+   "DEGRADED": 11396,
+   "GOOD": 16594,
+   "INCOMPLETE": 10489,
    "INVALID": 2533,
    "STALE": 812
   },
   "windows": {
-   "15m": 19388,
-   "5m": 21512
+   "15m": 19832,
+   "5m": 21992
   },
   "assets": {
-   "BTC": 10263,
-   "ETH": 10239,
-   "SOL": 10197,
-   "XRP": 10201
+   "BTC": 10494,
+   "ETH": 10470,
+   "SOL": 10428,
+   "XRP": 10432
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -249,15 +249,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 11,
   "feature_availability_share": {
-   "acceleration": 0.6727,
+   "acceleration": 0.6725,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6791,
-   "depth_1_up": 0.8622,
-   "imbalance_up": 0.7306,
+   "depth_10_up": 0.6783,
+   "depth_1_up": 0.8609,
+   "imbalance_up": 0.7307,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7306,
-   "volatility": 0.7465
+   "spread_up": 0.7307,
+   "volatility": 0.7464
   }
  },
  "verdict": "OK",
@@ -277,7 +277,7 @@
   {
    "day": "2026-09-09",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 2776,
+   "stored_snapshots": 3700,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
