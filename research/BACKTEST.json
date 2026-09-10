@@ -1,29 +1,29 @@
 {
- "built_at": "2026-09-09T06:51:59Z",
+ "built_at": "2026-09-10T06:52:04Z",
  "engine_version": "1",
  "dataset": {
   "source": "REAL",
   "dataset_version": "1",
-  "rows_total": 11912,
-  "rows_usable": 11178,
+  "rows_total": 11588,
+  "rows_usable": 10875,
   "days": 3,
   "day_list": [
-   "2026-09-07",
    "2026-09-08",
-   "2026-09-09"
+   "2026-09-09",
+   "2026-09-10"
   ],
-  "unique_markets": 709,
+  "unique_markets": 706,
   "by_window": {
-   "5m": 5390,
-   "15m": 5788
+   "5m": 5343,
+   "15m": 5532
   },
-  "span_hours": 52.23,
+  "span_hours": 52.24,
   "issues": []
  },
  "split": {
-  "border_market_start": "2026-09-08T12:40:00+00:00",
-  "is_windows": 496,
-  "oos_windows": 213,
+  "border_market_start": "2026-09-09T12:30:00+00:00",
+  "is_windows": 494,
+  "oos_windows": 212,
   "oos_fraction": 0.3,
   "rule": "разделение по времени, граница между окнами; подбор только на in-sample"
  },
@@ -31,47 +31,18 @@
   "mode": "BACKTEST",
   "source": "REAL",
   "engine_version": "1",
-  "windows_seen": 496,
-  "windows_outcome_unknown": 33,
+  "windows_seen": 494,
+  "windows_outcome_unknown": 53,
   "funnel": {
-   "windows": 496,
-   "outcome_unknown": 33,
-   "snapshots": 7649,
+   "windows": 494,
+   "outcome_unknown": 53,
+   "snapshots": 7149,
    "snapshot_errors": 0,
    "no_price": 0,
-   "ask_up_present": 6526,
-   "ask_dn_present": 6719,
-   "late_window": 3387,
-   "no_signal": 7649,
-   "with_signal": 0,
-   "blocked_by_risk": 0,
-   "entered": 0
-  },
-  "metrics": {
-   "signals": 0,
-   "closed": 0,
-   "blocked": 0,
-   "status": "NO_DATA",
-   "note": "закрытых сделок нет"
-  },
-  "arena_errors": {}
- },
- "out_of_sample": {
-  "mode": "OOS",
-  "source": "REAL",
-  "engine_version": "1",
-  "windows_seen": 213,
-  "windows_outcome_unknown": 21,
-  "funnel": {
-   "windows": 213,
-   "outcome_unknown": 21,
-   "snapshots": 3121,
-   "snapshot_errors": 0,
-   "no_price": 0,
-   "ask_up_present": 2645,
-   "ask_dn_present": 2790,
-   "late_window": 1432,
-   "no_signal": 3120,
+   "ask_up_present": 6088,
+   "ask_dn_present": 6278,
+   "late_window": 3295,
+   "no_signal": 7148,
    "with_signal": 1,
    "blocked_by_risk": 0,
    "entered": 1
@@ -103,26 +74,73 @@
   },
   "arena_errors": {}
  },
+ "out_of_sample": {
+  "mode": "OOS",
+  "source": "REAL",
+  "engine_version": "1",
+  "windows_seen": 212,
+  "windows_outcome_unknown": 18,
+  "funnel": {
+   "windows": 212,
+   "outcome_unknown": 18,
+   "snapshots": 3263,
+   "snapshot_errors": 0,
+   "no_price": 0,
+   "ask_up_present": 2641,
+   "ask_dn_present": 2871,
+   "late_window": 1468,
+   "no_signal": 3262,
+   "with_signal": 1,
+   "blocked_by_risk": 0,
+   "entered": 1
+  },
+  "metrics": {
+   "signals": 1,
+   "closed": 1,
+   "blocked": 0,
+   "status": "INSUFFICIENT_SAMPLE",
+   "winrate": 1.0,
+   "pnl": 50.0,
+   "profit_factor": 99.0,
+   "max_drawdown": 0.0,
+   "days": 1,
+   "best_day": "2026-09-09",
+   "best_day_pnl": 50.0,
+   "best_day_share_pct": 100.0,
+   "pnl_without_best_day": 0.0,
+   "top3_days_pnl": 50.0,
+   "by_window": {
+    "5m": {
+     "n": 1,
+     "winrate": 1.0,
+     "pnl": 50.0
+    }
+   },
+   "sample_note": "нужно ≥100 закрытых сделок и ≥50 на окно",
+   "concentration_note": "результат держится на одном дне — это событие, а не edge"
+  },
+  "arena_errors": {}
+ },
  "forward_shadow": {
-  "signals": 132,
-  "closed": 132,
+  "signals": 133,
+  "closed": 133,
   "blocked": 0,
   "status": "INSUFFICIENT_SAMPLE",
-  "winrate": 0.8864,
-  "pnl": 4672.52,
-  "profit_factor": 7.23,
+  "winrate": 0.8797,
+  "pnl": 4622.52,
+  "profit_factor": 6.78,
   "max_drawdown": 150.0,
-  "days": 8,
+  "days": 9,
   "best_day": "2026-08-31",
   "best_day_pnl": 2138.9,
-  "best_day_share_pct": 45.8,
-  "pnl_without_best_day": 2533.62,
+  "best_day_share_pct": 46.3,
+  "pnl_without_best_day": 2483.62,
   "top3_days_pnl": 4399.41,
   "by_window": {
    "5m": {
-    "n": 25,
-    "winrate": 0.88,
-    "pnl": 880.49
+    "n": 26,
+    "winrate": 0.8462,
+    "pnl": 830.49
    },
    "15m": {
     "n": 107,
@@ -136,7 +154,7 @@
  "verdict": {
   "verdict": "INCONCLUSIVE",
   "reasons": [
-   "нет закрытых сделок в одной из выборок"
+   "выборка меньше порога — вывод невозможен"
   ]
  },
  "guarantees": [
