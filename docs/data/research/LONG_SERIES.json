@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-09T21:23:24Z",
+ "checked_at": "2026-09-10T00:31:32Z",
  "days": 13,
  "issues": [
   {
@@ -205,43 +205,43 @@
    }
   },
   "2026-09-09": {
-   "snapshots": 4768,
-   "valid": 4435,
+   "snapshots": 5232,
+   "valid": 4839,
    "quality": {
-    "DEGRADED": 1358,
-    "GOOD": 1973,
-    "INCOMPLETE": 1104,
-    "INVALID": 333
+    "DEGRADED": 1480,
+    "GOOD": 2140,
+    "INCOMPLETE": 1219,
+    "INVALID": 393
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 777,
-    "move_bucket": 333
+    "entry_bucket": 861,
+    "move_bucket": 393
    }
   }
  },
  "totals": {
-  "snapshots": 42892,
-  "valid": 40311,
-  "valid_share": 0.9398,
+  "snapshots": 43356,
+  "valid": 40715,
+  "valid_share": 0.9391,
   "quality": {
-   "DEGRADED": 11719,
-   "GOOD": 16973,
-   "INCOMPLETE": 10807,
-   "INVALID": 2581,
+   "DEGRADED": 11841,
+   "GOOD": 17140,
+   "INCOMPLETE": 10922,
+   "INVALID": 2641,
    "STALE": 812
   },
   "windows": {
-   "15m": 20276,
-   "5m": 22616
+   "15m": 20500,
+   "5m": 22856
   },
   "assets": {
-   "BTC": 10761,
-   "ETH": 10737,
-   "SOL": 10695,
-   "XRP": 10699
+   "BTC": 10877,
+   "ETH": 10853,
+   "SOL": 10811,
+   "XRP": 10815
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -251,13 +251,13 @@
   "feature_availability_share": {
    "acceleration": 0.6721,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6761,
-   "depth_1_up": 0.8596,
-   "imbalance_up": 0.7296,
+   "depth_10_up": 0.6747,
+   "depth_1_up": 0.8592,
+   "imbalance_up": 0.7294,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7296,
-   "volatility": 0.746
+   "spread_up": 0.7294,
+   "volatility": 0.7461
   }
  },
  "verdict": "OK",
@@ -277,7 +277,7 @@
   {
    "day": "2026-09-09",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 4768,
+   "stored_snapshots": 5232,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
