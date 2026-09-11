@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-11T18:28:12Z",
+ "checked_at": "2026-09-11T21:23:02Z",
  "days": 15,
  "issues": [
   {
@@ -239,44 +239,44 @@
    }
   },
   "2026-09-11": {
-   "snapshots": 3997,
-   "valid": 3710,
+   "snapshots": 4661,
+   "valid": 4338,
    "quality": {
-    "DEGRADED": 984,
-    "GOOD": 1458,
-    "INCOMPLETE": 1029,
-    "INVALID": 287,
+    "DEGRADED": 1167,
+    "GOOD": 1758,
+    "INCOMPLETE": 1174,
+    "INVALID": 323,
     "STALE": 239
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 531,
-    "move_bucket": 287
+    "entry_bucket": 580,
+    "move_bucket": 323
    }
   }
  },
  "totals": {
-  "snapshots": 52717,
-  "valid": 49576,
-  "valid_share": 0.9404,
+  "snapshots": 53381,
+  "valid": 50204,
+  "valid_share": 0.9405,
   "quality": {
-   "DEGRADED": 14308,
-   "GOOD": 20785,
-   "INCOMPLETE": 13432,
-   "INVALID": 3141,
+   "DEGRADED": 14491,
+   "GOOD": 21085,
+   "INCOMPLETE": 13577,
+   "INVALID": 3177,
    "STALE": 1051
   },
   "windows": {
-   "15m": 25161,
-   "5m": 27556
+   "15m": 25441,
+   "5m": 27940
   },
   "assets": {
-   "BTC": 13226,
-   "ETH": 13174,
-   "SOL": 13160,
-   "XRP": 13157
+   "BTC": 13392,
+   "ETH": 13340,
+   "SOL": 13326,
+   "XRP": 13323
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -286,13 +286,13 @@
   "feature_availability_share": {
    "acceleration": 0.6739,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6838,
-   "depth_1_up": 0.8608,
-   "imbalance_up": 0.7271,
+   "depth_10_up": 0.6857,
+   "depth_1_up": 0.8616,
+   "imbalance_up": 0.7277,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7271,
-   "volatility": 0.7474
+   "spread_up": 0.7277,
+   "volatility": 0.7473
   }
  },
  "verdict": "OK",
@@ -312,7 +312,7 @@
   {
    "day": "2026-09-11",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 3997,
+   "stored_snapshots": 4661,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
