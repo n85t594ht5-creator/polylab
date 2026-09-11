@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-11T15:25:06Z",
+ "checked_at": "2026-09-11T18:28:12Z",
  "days": 15,
  "issues": [
   {
@@ -239,43 +239,44 @@
    }
   },
   "2026-09-11": {
-   "snapshots": 3661,
-   "valid": 3422,
+   "snapshots": 3997,
+   "valid": 3710,
    "quality": {
-    "DEGRADED": 960,
-    "GOOD": 1438,
-    "INCOMPLETE": 1024,
-    "INVALID": 239
+    "DEGRADED": 984,
+    "GOOD": 1458,
+    "INCOMPLETE": 1029,
+    "INVALID": 287,
+    "STALE": 239
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
     "entry_bucket": 531,
-    "move_bucket": 239
+    "move_bucket": 287
    }
   }
  },
  "totals": {
-  "snapshots": 52381,
-  "valid": 49288,
-  "valid_share": 0.941,
+  "snapshots": 52717,
+  "valid": 49576,
+  "valid_share": 0.9404,
   "quality": {
-   "DEGRADED": 14284,
-   "GOOD": 20765,
-   "INCOMPLETE": 13427,
-   "INVALID": 3093,
-   "STALE": 812
+   "DEGRADED": 14308,
+   "GOOD": 20785,
+   "INCOMPLETE": 13432,
+   "INVALID": 3141,
+   "STALE": 1051
   },
   "windows": {
-   "15m": 25017,
-   "5m": 27364
+   "15m": 25161,
+   "5m": 27556
   },
   "assets": {
-   "BTC": 13142,
-   "ETH": 13090,
-   "SOL": 13076,
-   "XRP": 13073
+   "BTC": 13226,
+   "ETH": 13174,
+   "SOL": 13160,
+   "XRP": 13157
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -285,13 +286,13 @@
   "feature_availability_share": {
    "acceleration": 0.6739,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.682,
-   "depth_1_up": 0.8599,
-   "imbalance_up": 0.7255,
+   "depth_10_up": 0.6838,
+   "depth_1_up": 0.8608,
+   "imbalance_up": 0.7271,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7255,
-   "volatility": 0.7475
+   "spread_up": 0.7271,
+   "volatility": 0.7474
   }
  },
  "verdict": "OK",
@@ -311,7 +312,7 @@
   {
    "day": "2026-09-11",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 3661,
+   "stored_snapshots": 3997,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
