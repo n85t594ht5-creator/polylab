@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-11T03:25:18Z",
+ "checked_at": "2026-09-11T06:30:40Z",
  "days": 15,
  "issues": [
   {
@@ -239,43 +239,43 @@
    }
   },
   "2026-09-11": {
-   "snapshots": 892,
-   "valid": 832,
+   "snapshots": 1392,
+   "valid": 1332,
    "quality": {
-    "DEGRADED": 233,
-    "GOOD": 374,
-    "INCOMPLETE": 225,
+    "DEGRADED": 365,
+    "GOOD": 538,
+    "INCOMPLETE": 429,
     "INVALID": 60
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 88,
+    "entry_bucket": 210,
     "move_bucket": 60
    }
   }
  },
  "totals": {
-  "snapshots": 49612,
-  "valid": 46698,
-  "valid_share": 0.9413,
+  "snapshots": 50112,
+  "valid": 47198,
+  "valid_share": 0.9419,
   "quality": {
-   "DEGRADED": 13557,
-   "GOOD": 19701,
-   "INCOMPLETE": 12628,
+   "DEGRADED": 13689,
+   "GOOD": 19865,
+   "INCOMPLETE": 12832,
    "INVALID": 2914,
    "STALE": 812
   },
   "windows": {
-   "15m": 23628,
-   "5m": 25984
+   "15m": 23888,
+   "5m": 26224
   },
   "assets": {
-   "BTC": 12445,
-   "ETH": 12405,
-   "SOL": 12379,
-   "XRP": 12383
+   "BTC": 12570,
+   "ETH": 12530,
+   "SOL": 12504,
+   "XRP": 12508
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -283,15 +283,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 13,
   "feature_availability_share": {
-   "acceleration": 0.6736,
+   "acceleration": 0.6738,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6819,
-   "depth_1_up": 0.861,
-   "imbalance_up": 0.7272,
+   "depth_10_up": 0.6816,
+   "depth_1_up": 0.86,
+   "imbalance_up": 0.7259,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7272,
-   "volatility": 0.7473
+   "spread_up": 0.7259,
+   "volatility": 0.7474
   }
  },
  "verdict": "OK",
@@ -311,7 +311,7 @@
   {
    "day": "2026-09-11",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 892,
+   "stored_snapshots": 1392,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
