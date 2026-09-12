@@ -1,172 +1,172 @@
 {
  "agg_version": "1",
- "built_at": "2026-09-12T14:45:06Z",
+ "built_at": "2026-09-12T16:45:55Z",
  "cuts": {
   "asset": {
    "BTC": {
-    "n": 892,
+    "n": 928,
     "quality": {
-     "DEGRADED": 196,
-     "GOOD": 411,
-     "INCOMPLETE": 117,
+     "DEGRADED": 211,
+     "GOOD": 421,
+     "INCOMPLETE": 128,
      "INVALID": 168
     },
-    "valid": 724
+    "valid": 760
    },
    "ETH": {
-    "n": 902,
+    "n": 938,
     "quality": {
-     "DEGRADED": 270,
-     "GOOD": 452,
-     "INCOMPLETE": 180
+     "DEGRADED": 285,
+     "GOOD": 464,
+     "INCOMPLETE": 189
     },
-    "valid": 902
+    "valid": 938
    },
    "SOL": {
-    "n": 902,
+    "n": 938,
     "quality": {
-     "DEGRADED": 300,
-     "GOOD": 414,
-     "INCOMPLETE": 188
+     "DEGRADED": 317,
+     "GOOD": 423,
+     "INCOMPLETE": 198
     },
-    "valid": 902
+    "valid": 938
    },
    "XRP": {
-    "n": 886,
+    "n": 922,
     "quality": {
-     "DEGRADED": 293,
-     "GOOD": 427,
-     "INCOMPLETE": 166
+     "DEGRADED": 311,
+     "GOOD": 436,
+     "INCOMPLETE": 175
     },
-    "valid": 886
+    "valid": 922
    }
   },
   "elapsed_bucket": {
    "50–60%": {
-    "n": 560,
+    "n": 584,
     "quality": {
-     "DEGRADED": 285,
+     "DEGRADED": 309,
      "GOOD": 247,
      "INVALID": 28
     },
-    "valid": 532
+    "valid": 556
    },
    "60–75%": {
-    "n": 893,
+    "n": 929,
     "quality": {
-     "DEGRADED": 222,
-     "GOOD": 606,
-     "INCOMPLETE": 23,
+     "DEGRADED": 238,
+     "GOOD": 625,
+     "INCOMPLETE": 24,
      "INVALID": 42
     },
-    "valid": 851
+    "valid": 887
    },
    "75–85%": {
-    "n": 618,
+    "n": 642,
     "quality": {
-     "DEGRADED": 27,
-     "GOOD": 490,
-     "INCOMPLETE": 73,
+     "DEGRADED": 28,
+     "GOOD": 509,
+     "INCOMPLETE": 77,
      "INVALID": 28
     },
-    "valid": 590
+    "valid": 614
    },
    "85–95%": {
-    "n": 638,
+    "n": 662,
     "quality": {
      "DEGRADED": 33,
-     "GOOD": 296,
-     "INCOMPLETE": 281,
+     "GOOD": 298,
+     "INCOMPLETE": 303,
      "INVALID": 28
     },
-    "valid": 610
+    "valid": 634
    },
    "95%+": {
-    "n": 319,
+    "n": 331,
     "quality": {
      "DEGRADED": 3,
      "GOOD": 28,
-     "INCOMPLETE": 274,
+     "INCOMPLETE": 286,
      "INVALID": 14
     },
-    "valid": 305
+    "valid": 317
    },
    "<50%": {
-    "n": 554,
+    "n": 578,
     "quality": {
-     "DEGRADED": 489,
+     "DEGRADED": 513,
      "GOOD": 37,
      "INVALID": 28
     },
-    "valid": 526
+    "valid": 550
    }
   },
   "entry_bucket": {
    "0.50–0.55": {
-    "n": 97,
+    "n": 98,
     "quality": {
      "DEGRADED": 38,
-     "GOOD": 57,
+     "GOOD": 58,
      "INVALID": 2
     },
-    "valid": 95
+    "valid": 96
    },
    "0.55–0.60": {
-    "n": 112,
+    "n": 115,
     "quality": {
-     "DEGRADED": 49,
+     "DEGRADED": 52,
      "GOOD": 57,
      "INVALID": 6
     },
-    "valid": 106
+    "valid": 109
    },
    "0.60–0.62": {
-    "n": 45,
+    "n": 46,
     "quality": {
      "DEGRADED": 19,
-     "GOOD": 23,
+     "GOOD": 24,
      "INVALID": 3
     },
-    "valid": 42
+    "valid": 43
    },
    "<0.50": {
-    "n": 1480,
+    "n": 1588,
     "quality": {
-     "DEGRADED": 457,
-     "GOOD": 702,
-     "INCOMPLETE": 254,
+     "DEGRADED": 507,
+     "GOOD": 728,
+     "INCOMPLETE": 286,
      "INVALID": 67
     },
-    "valid": 1413
+    "valid": 1521
    },
    ">0.62": {
-    "n": 1429,
+    "n": 1453,
     "quality": {
-     "DEGRADED": 496,
-     "GOOD": 865,
+     "DEGRADED": 508,
+     "GOOD": 877,
      "INVALID": 68
     },
-    "valid": 1361
+    "valid": 1385
    }
   },
   "move_bucket": {
    "0.00–0.05%": {
-    "n": 2280,
+    "n": 2408,
     "quality": {
-     "DEGRADED": 825,
-     "GOOD": 1140,
-     "INCOMPLETE": 315
+     "DEGRADED": 884,
+     "GOOD": 1176,
+     "INCOMPLETE": 348
     },
-    "valid": 2280
+    "valid": 2408
    },
    "0.05–0.10%": {
-    "n": 964,
+    "n": 980,
     "quality": {
-     "DEGRADED": 204,
-     "GOOD": 513,
-     "INCOMPLETE": 247
+     "DEGRADED": 210,
+     "GOOD": 517,
+     "INCOMPLETE": 253
     },
-    "valid": 964
+    "valid": 980
    },
    "0.10–0.12%": {
     "n": 61,
@@ -207,25 +207,25 @@
   },
   "quality": {
    "DEGRADED": {
-    "n": 1059,
+    "n": 1124,
     "quality": {
-     "DEGRADED": 1059
+     "DEGRADED": 1124
     },
-    "valid": 1059
+    "valid": 1124
    },
    "GOOD": {
-    "n": 1704,
+    "n": 1744,
     "quality": {
-     "GOOD": 1704
+     "GOOD": 1744
     },
-    "valid": 1704
+    "valid": 1744
    },
    "INCOMPLETE": {
-    "n": 651,
+    "n": 690,
     "quality": {
-     "INCOMPLETE": 651
+     "INCOMPLETE": 690
     },
-    "valid": 651
+    "valid": 690
    },
    "INVALID": {
     "n": 168,
@@ -246,45 +246,45 @@
     "valid": 1768
    },
    "5m": {
-    "n": 1814,
+    "n": 1958,
     "quality": {
-     "DEGRADED": 747,
-     "GOOD": 474,
-     "INCOMPLETE": 425,
+     "DEGRADED": 812,
+     "GOOD": 514,
+     "INCOMPLETE": 464,
      "INVALID": 168
     },
-    "valid": 1646
+    "valid": 1790
    }
   }
  },
  "day": "2026-09-12",
  "feature_availability": {
-  "acceleration": 2420,
-  "book_ts_up": 3582,
-  "depth_10_up": 2470,
-  "depth_1_up": 3163,
-  "imbalance_up": 2896,
-  "liquidity": 3582,
+  "acceleration": 2495,
+  "book_ts_up": 3726,
+  "depth_10_up": 2599,
+  "depth_1_up": 3300,
+  "imbalance_up": 3001,
+  "liquidity": 3726,
   "market_volume": 0,
-  "spread_up": 2896,
-  "volatility": 2738
+  "spread_up": 3001,
+  "volatility": 2834
  },
  "latency": {
-  "n": 3582,
+  "n": 3726,
   "quality": {
-   "LOW": 3503,
-   "MEDIUM": 79
+   "LOW": 3641,
+   "MEDIUM": 85
   }
  },
  "missing_fields": {
-  "acceleration": 1162,
-  "depth_1_up": 419,
-  "down_ask": 269,
-  "imbalance_up": 686,
+  "acceleration": 1231,
+  "depth_1_up": 426,
+  "down_ask": 301,
+  "imbalance_up": 725,
   "reference_price": 168,
-  "spread_up": 686,
-  "up_ask": 419,
-  "volatility": 844
+  "spread_up": 725,
+  "up_ask": 426,
+  "volatility": 892
  },
  "moves": {
   "avg_time_to_reversal_sec": 124.5,
@@ -295,24 +295,24 @@
     "reversed": 3
    },
    "5m": {
-    "continued": 34,
-    "n": 37,
+    "continued": 39,
+    "n": 42,
     "reversed": 3
    }
   },
-  "continued": 41,
-  "n": 47,
+  "continued": 46,
+  "n": 52,
   "reversed": 6,
-  "with_outcome": 47
+  "with_outcome": 52
  },
  "quality": {
-  "DEGRADED": 1059,
-  "GOOD": 1704,
-  "INCOMPLETE": 651,
+  "DEGRADED": 1124,
+  "GOOD": 1744,
+  "INCOMPLETE": 690,
   "INVALID": 168
  },
  "raw_present": true,
  "raw_truncated": false,
- "snapshots": 3582,
- "valid": 3414
+ "snapshots": 3726,
+ "valid": 3558
 }
