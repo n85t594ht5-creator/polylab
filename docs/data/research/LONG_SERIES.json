@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-12T15:23:04Z",
+ "checked_at": "2026-09-12T18:25:14Z",
  "days": 16,
  "issues": [
   {
@@ -257,43 +257,43 @@
    }
   },
   "2026-09-12": {
-   "snapshots": 3582,
-   "valid": 3414,
+   "snapshots": 3726,
+   "valid": 3558,
    "quality": {
-    "DEGRADED": 1059,
-    "GOOD": 1704,
-    "INCOMPLETE": 651,
+    "DEGRADED": 1124,
+    "GOOD": 1744,
+    "INCOMPLETE": 690,
     "INVALID": 168
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 419,
+    "entry_bucket": 426,
     "move_bucket": 168
    }
   }
  },
  "totals": {
-  "snapshots": 57415,
-  "valid": 54070,
-  "valid_share": 0.9417,
+  "snapshots": 57559,
+  "valid": 54214,
+  "valid_share": 0.9419,
   "quality": {
-   "DEGRADED": 15685,
-   "GOOD": 22984,
-   "INCOMPLETE": 14350,
+   "DEGRADED": 15750,
+   "GOOD": 23024,
+   "INCOMPLETE": 14389,
    "INVALID": 3345,
    "STALE": 1051
   },
   "windows": {
    "15m": 27433,
-   "5m": 29982
+   "5m": 30126
   },
   "assets": {
-   "BTC": 14388,
-   "ETH": 14358,
-   "SOL": 14344,
-   "XRP": 14325
+   "BTC": 14424,
+   "ETH": 14394,
+   "SOL": 14380,
+   "XRP": 14361
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -301,15 +301,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 14,
   "feature_availability_share": {
-   "acceleration": 0.6742,
+   "acceleration": 0.6738,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6861,
-   "depth_1_up": 0.8629,
+   "depth_10_up": 0.6866,
+   "depth_1_up": 0.8631,
    "imbalance_up": 0.7328,
    "liquidity": 1.0,
    "market_volume": 0.0,
    "spread_up": 0.7328,
-   "volatility": 0.7485
+   "volatility": 0.7483
   }
  },
  "verdict": "OK",
@@ -329,7 +329,7 @@
   {
    "day": "2026-09-12",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 3582,
+   "stored_snapshots": 3726,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
