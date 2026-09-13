@@ -1,62 +1,62 @@
 {
- "built_at": "2026-09-12T06:49:54Z",
+ "built_at": "2026-09-13T06:50:51Z",
  "dataset": {
   "source": "REAL",
   "dataset_version": "1",
-  "rows_total": 11939,
-  "rows_usable": 11283,
+  "rows_total": 10871,
+  "rows_usable": 10224,
   "days": 3,
   "day_list": [
-   "2026-09-10",
    "2026-09-11",
-   "2026-09-12"
+   "2026-09-12",
+   "2026-09-13"
   ],
-  "unique_markets": 696,
+  "unique_markets": 622,
   "by_window": {
-   "5m": 5366,
-   "15m": 5917
+   "15m": 5133,
+   "5m": 5091
   },
-  "span_hours": 52.21,
+  "span_hours": 52.15,
   "issues": []
  },
  "replay": {
-  "snapshots": 11939,
-  "late": 3787,
+  "snapshots": 10871,
+  "late": 3427,
   "signals": 64,
-  "ask_side_present": 2290,
-  "ask_side_missing": 1497,
+  "ask_side_present": 2310,
+  "ask_side_missing": 1117,
   "ask_dist_late": {
-   ">=0.75": 1552,
-   "<0.3": 266,
-   "<0.5": 134,
-   "<0.62": 62,
-   "<0.75": 152,
+   "<0.3": 229,
+   ">=0.75": 1569,
+   "<0.75": 174,
+   "<0.5": 143,
+   "<0.62": 71,
    "<0.55": 124
   },
   "move_dist_late": {
-   "<0.0005": 1219,
-   "<0.001": 889,
-   "<0.0012": 254,
-   "<0.002": 615,
-   ">=0.002": 810
+   "<0.0005": 1581,
+   "<0.001": 852,
+   ">=0.002": 461,
+   "<0.002": 387,
+   "<0.0012": 146
   },
   "elapsed_dist": {
-   "<0.5": 1862,
-   "<0.6": 1953,
-   "<0.75": 2983,
-   "<0.85": 2030,
-   "<0.95": 2074,
-   ">=0.95": 1037
+   "<0.5": 1694,
+   "<0.6": 1773,
+   "<0.75": 2723,
+   "<0.85": 1862,
+   "<0.95": 1882,
+   ">=0.95": 937
   },
   "quality_late": {
-   "GOOD": 1956,
-   "INCOMPLETE": 1497,
-   "INVALID": 165,
-   "DEGRADED": 93,
+   "GOOD": 1985,
+   "INCOMPLETE": 1103,
+   "INVALID": 162,
+   "DEGRADED": 101,
    "STALE": 76
   },
-  "both_asks_present": 8742,
-  "one_ask_present": 3197,
+  "both_asks_present": 8403,
+  "one_ask_present": 2468,
   "no_ask": 0
  },
  "shadow": {
