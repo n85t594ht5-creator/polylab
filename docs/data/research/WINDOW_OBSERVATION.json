@@ -858,10 +858,17 @@
    "at": "2026-09-12T21:28:49Z",
    "markets": 0,
    "windows": {}
+  },
+  {
+   "at": "2026-09-13T00:32:27Z",
+   "markets": 10,
+   "windows": {
+    "5m": 10
+   }
   }
  ],
  "windows_ever_seen": {
-  "5m": 2484,
+  "5m": 2494,
   "15m": 808,
   "240m": 23
  },
@@ -872,16 +879,107 @@
   "SOL",
   "XRP"
  ],
- "last_seen_examples": {},
- "last_detail": [],
+ "last_seen_examples": {
+  "5m": "doge-updown-5m-1789259700"
+ },
+ "last_detail": [
+  {
+   "asset": "ETH",
+   "window": "5m",
+   "market_id": "4488182",
+   "slug": "eth-updown-5m-1789259400",
+   "start": "2026-09-13T00:30:00+00:00",
+   "end": "2026-09-13T00:35:00+00:00"
+  },
+  {
+   "asset": "XRP",
+   "window": "5m",
+   "market_id": "4488183",
+   "slug": "xrp-updown-5m-1789259400",
+   "start": "2026-09-13T00:30:00+00:00",
+   "end": "2026-09-13T00:35:00+00:00"
+  },
+  {
+   "asset": "SOL",
+   "window": "5m",
+   "market_id": "4488189",
+   "slug": "sol-updown-5m-1789259400",
+   "start": "2026-09-13T00:30:00+00:00",
+   "end": "2026-09-13T00:35:00+00:00"
+  },
+  {
+   "asset": "BTC",
+   "window": "5m",
+   "market_id": "4488190",
+   "slug": "btc-updown-5m-1789259400",
+   "start": "2026-09-13T00:30:00+00:00",
+   "end": "2026-09-13T00:35:00+00:00"
+  },
+  {
+   "asset": "DOGE",
+   "window": "5m",
+   "market_id": "4488191",
+   "slug": "doge-updown-5m-1789259400",
+   "start": "2026-09-13T00:30:00+00:00",
+   "end": "2026-09-13T00:35:00+00:00"
+  },
+  {
+   "asset": "BTC",
+   "window": "5m",
+   "market_id": "4488314",
+   "slug": "btc-updown-5m-1789259700",
+   "start": "2026-09-13T00:35:00+00:00",
+   "end": "2026-09-13T00:40:00+00:00"
+  },
+  {
+   "asset": "XRP",
+   "window": "5m",
+   "market_id": "4488315",
+   "slug": "xrp-updown-5m-1789259700",
+   "start": "2026-09-13T00:35:00+00:00",
+   "end": "2026-09-13T00:40:00+00:00"
+  },
+  {
+   "asset": "SOL",
+   "window": "5m",
+   "market_id": "4488318",
+   "slug": "sol-updown-5m-1789259700",
+   "start": "2026-09-13T00:35:00+00:00",
+   "end": "2026-09-13T00:40:00+00:00"
+  },
+  {
+   "asset": "ETH",
+   "window": "5m",
+   "market_id": "4488320",
+   "slug": "eth-updown-5m-1789259700",
+   "start": "2026-09-13T00:35:00+00:00",
+   "end": "2026-09-13T00:40:00+00:00"
+  },
+  {
+   "asset": "DOGE",
+   "window": "5m",
+   "market_id": "4488321",
+   "slug": "doge-updown-5m-1789259700",
+   "start": "2026-09-13T00:35:00+00:00",
+   "end": "2026-09-13T00:40:00+00:00"
+  }
+ ],
  "observation_window": {
   "first": "2026-08-30T05:47:55Z",
-  "last": "2026-09-12T21:28:49Z",
-  "count": 112
+  "last": "2026-09-13T00:32:27Z",
+  "count": 113
  },
- "observation_span_hours": 327.68,
- "assets_by_window": {},
- "total_observations": 112,
+ "observation_span_hours": 330.74,
+ "assets_by_window": {
+  "5m": [
+   "BTC",
+   "DOGE",
+   "ETH",
+   "SOL",
+   "XRP"
+  ]
+ },
+ "total_observations": 113,
  "status_60m": "NOT OBSERVED",
- "note_60m": "за 327.7 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения"
+ "note_60m": "за 330.7 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения"
 }
