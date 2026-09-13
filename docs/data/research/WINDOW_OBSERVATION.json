@@ -898,6 +898,11 @@
    "windows": {
     "5m": 5
    }
+  },
+  {
+   "at": "2026-09-13T18:27:04Z",
+   "markets": 0,
+   "windows": {}
   }
  ],
  "windows_ever_seen": {
@@ -912,67 +917,16 @@
   "SOL",
   "XRP"
  ],
- "last_seen_examples": {
-  "5m": "doge-updown-5m-1789312800"
- },
- "last_detail": [
-  {
-   "asset": "ETH",
-   "window": "5m",
-   "market_id": "4497754",
-   "slug": "eth-updown-5m-1789312800",
-   "start": "2026-09-13T15:20:00+00:00",
-   "end": "2026-09-13T15:25:00+00:00"
-  },
-  {
-   "asset": "BTC",
-   "window": "5m",
-   "market_id": "4497755",
-   "slug": "btc-updown-5m-1789312800",
-   "start": "2026-09-13T15:20:00+00:00",
-   "end": "2026-09-13T15:25:00+00:00"
-  },
-  {
-   "asset": "XRP",
-   "window": "5m",
-   "market_id": "4497756",
-   "slug": "xrp-updown-5m-1789312800",
-   "start": "2026-09-13T15:20:00+00:00",
-   "end": "2026-09-13T15:25:00+00:00"
-  },
-  {
-   "asset": "SOL",
-   "window": "5m",
-   "market_id": "4497757",
-   "slug": "sol-updown-5m-1789312800",
-   "start": "2026-09-13T15:20:00+00:00",
-   "end": "2026-09-13T15:25:00+00:00"
-  },
-  {
-   "asset": "DOGE",
-   "window": "5m",
-   "market_id": "4497761",
-   "slug": "doge-updown-5m-1789312800",
-   "start": "2026-09-13T15:20:00+00:00",
-   "end": "2026-09-13T15:25:00+00:00"
-  }
- ],
+ "last_seen_examples": {},
+ "last_detail": [],
  "observation_window": {
   "first": "2026-08-30T05:47:55Z",
-  "last": "2026-09-13T15:23:49Z",
-  "count": 118
+  "last": "2026-09-13T18:27:04Z",
+  "count": 119
  },
- "observation_span_hours": 345.6,
- "assets_by_window": {
-  "5m": [
-   "BTC",
-   "DOGE",
-   "ETH",
-   "SOL",
-   "XRP"
-  ]
- },
- "total_observations": 118,
+ "observation_span_hours": 348.65,
+ "assets_by_window": {},
+ "total_observations": 119,
  "status_60m": "NOT OBSERVED",
- "note_60m": "за 345.6 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения"
+ "note_60m": "за 348.6 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения"
 }
