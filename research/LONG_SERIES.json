@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-15T12:30:30Z",
+ "checked_at": "2026-09-15T15:25:27Z",
  "days": 19,
  "issues": [
   {
@@ -308,43 +308,43 @@
    }
   },
   "2026-09-15": {
-   "snapshots": 2704,
-   "valid": 2464,
+   "snapshots": 3648,
+   "valid": 3348,
    "quality": {
-    "DEGRADED": 777,
-    "GOOD": 1101,
-    "INCOMPLETE": 586,
-    "INVALID": 240
+    "DEGRADED": 1051,
+    "GOOD": 1484,
+    "INCOMPLETE": 813,
+    "INVALID": 300
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 260,
-    "move_bucket": 240
+    "entry_bucket": 293,
+    "move_bucket": 300
    }
   }
  },
  "totals": {
-  "snapshots": 70289,
-  "valid": 65808,
-  "valid_share": 0.9362,
+  "snapshots": 71233,
+  "valid": 66692,
+  "valid_share": 0.9363,
   "quality": {
-   "DEGRADED": 19294,
-   "GOOD": 28101,
-   "INCOMPLETE": 17362,
-   "INVALID": 4481,
+   "DEGRADED": 19568,
+   "GOOD": 28484,
+   "INCOMPLETE": 17589,
+   "INVALID": 4541,
    "STALE": 1051
   },
   "windows": {
-   "15m": 33141,
-   "5m": 37148
+   "15m": 33605,
+   "5m": 37628
   },
   "assets": {
-   "BTC": 17614,
-   "ETH": 17570,
-   "SOL": 17554,
-   "XRP": 17551
+   "BTC": 17850,
+   "ETH": 17806,
+   "SOL": 17790,
+   "XRP": 17787
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -354,13 +354,13 @@
   "feature_availability_share": {
    "acceleration": 0.6708,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6958,
-   "depth_1_up": 0.8661,
-   "imbalance_up": 0.7336,
+   "depth_10_up": 0.6987,
+   "depth_1_up": 0.8674,
+   "imbalance_up": 0.7337,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7336,
-   "volatility": 0.7464
+   "spread_up": 0.7337,
+   "volatility": 0.7463
   }
  },
  "verdict": "OK",
@@ -380,7 +380,7 @@
   {
    "day": "2026-09-15",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 2704,
+   "stored_snapshots": 3648,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
