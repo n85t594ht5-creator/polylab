@@ -1,29 +1,28 @@
 {
- "snapshots": 460,
+ "snapshots": 508,
  "duplicates": 0,
- "markets": 28,
+ "markets": 32,
  "assets": 4,
  "by_window": {
-  "15m": 220,
-  "5m": 240
+  "5m": 240,
+  "15m": 268
  },
  "quality": {
-  "DEGRADED": 128,
-  "GOOD": 172,
-  "INVALID": 60,
-  "INCOMPLETE": 100
+  "DEGRADED": 149,
+  "GOOD": 249,
+  "INCOMPLETE": 110
  },
- "latency_events": 460,
- "moves": 18,
- "ref_missing": 60,
+ "latency_events": 508,
+ "moves": 27,
+ "ref_missing": 0,
  "latency_quality": {
-  "LOW": 455,
-  "MEDIUM": 5
+  "LOW": 505,
+  "MEDIUM": 3
  },
  "stale": 0,
- "incomplete": 100,
+ "incomplete": 110,
  "parity": {
-  "checked": 460,
+  "checked": 508,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
@@ -34,14 +33,14 @@
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 1532,
+  "requests": 1575,
   "failures": 0,
   "retries": 0,
-  "latency_median_ms": 102.9,
-  "latency_max_ms": 1732.5
+  "latency_median_ms": 151.7,
+  "latency_max_ms": 435.9
  },
  "shadow": {
-  "snapshots": 51549,
+  "snapshots": 52057,
   "signals": 197,
   "accepted": 27,
   "reduced": 0,
@@ -61,33 +60,33 @@
  "storage": {
   "raw/dna": {
    "files": 1,
-   "bytes": 344566
+   "bytes": 420022
   },
   "raw/latency": {
    "files": 1,
-   "bytes": 418438
+   "bytes": 515242
   },
   "moves": {
    "files": 17,
-   "bytes": 449915
+   "bytes": 455542
   },
   "agg": {
    "files": 20,
-   "bytes": 93402
+   "bytes": 93485
   },
   "state": {
    "files": 3,
-   "bytes": 26899
+   "bytes": 27735
   },
-  "total_bytes": 1333220,
-  "git_tracked_bytes": 570216,
-  "artifact_bytes": 763004
+  "total_bytes": 1512026,
+  "git_tracked_bytes": 576762,
+  "artifact_bytes": 935264
  },
- "ids_pruned": 804,
- "ids_kept": 1392,
+ "ids_pruned": 1268,
+ "ids_kept": 1436,
  "duplicates_store": 0,
- "restored_ids": 1736,
+ "restored_ids": 2196,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-09-15T08:50:24.224465+00:00"
+ "finished_at": "2026-09-15T10:47:18.234172+00:00"
 }
