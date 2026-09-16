@@ -1,56 +1,57 @@
 {
- "snapshots": 144,
+ "snapshots": 512,
  "duplicates": 0,
- "markets": 12,
+ "markets": 28,
  "assets": 4,
  "by_window": {
-  "5m": 144
+  "5m": 240,
+  "15m": 272
  },
  "quality": {
-  "DEGRADED": 62,
-  "GOOD": 44,
-  "INCOMPLETE": 38
+  "DEGRADED": 133,
+  "INCOMPLETE": 121,
+  "GOOD": 258
  },
- "latency_events": 144,
- "moves": 11,
+ "latency_events": 512,
+ "moves": 28,
  "ref_missing": 0,
  "latency_quality": {
-  "LOW": 144
+  "LOW": 512
  },
  "stale": 0,
- "incomplete": 38,
+ "incomplete": 121,
  "parity": {
-  "checked": 144,
+  "checked": 512,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
   "up_missing_row": 0,
   "dn_missing_live": 0,
   "dn_missing_row": 0,
-  "signal_snapshots": 0,
+  "signal_snapshots": 3,
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 651,
+  "requests": 1583,
   "failures": 0,
   "retries": 0,
-  "latency_median_ms": 153.3,
-  "latency_max_ms": 636.9
+  "latency_median_ms": 150.9,
+  "latency_max_ms": 640.0
  },
  "shadow": {
-  "snapshots": 56187,
-  "signals": 201,
-  "accepted": 28,
+  "snapshots": 56699,
+  "signals": 204,
+  "accepted": 29,
   "reduced": 0,
-  "rejected": 173,
+  "rejected": 175,
   "conflicts": 0,
-  "resolved": 201,
+  "resolved": 204,
   "by_strategy": {
    "momentum_late_window": {
-    "signals": 201,
-    "accepted": 28,
-    "rejected": 173,
-    "resolved": 201
+    "signals": 204,
+    "accepted": 29,
+    "rejected": 175,
+    "resolved": 204
    }
   },
   "errors": {}
@@ -58,33 +59,33 @@
  "storage": {
   "raw/dna": {
    "files": 1,
-   "bytes": 583977
+   "bytes": 707302
   },
   "raw/latency": {
    "files": 1,
-   "bytes": 730193
+   "bytes": 882542
   },
   "moves": {
    "files": 18,
-   "bytes": 497826
+   "bytes": 503702
   },
   "agg": {
    "files": 21,
-   "bytes": 98805
+   "bytes": 98808
   },
   "state": {
    "files": 3,
-   "bytes": 20534
+   "bytes": 18539
   },
-  "total_bytes": 1931335,
-  "git_tracked_bytes": 617165,
-  "artifact_bytes": 1314170
+  "total_bytes": 2210893,
+  "git_tracked_bytes": 621049,
+  "artifact_bytes": 1589844
  },
- "ids_pruned": 2775,
- "ids_kept": 1057,
+ "ids_pruned": 3680,
+ "ids_kept": 952,
  "duplicates_store": 0,
- "restored_ids": 3688,
+ "restored_ids": 4120,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-09-16T16:47:13.972560+00:00"
+ "finished_at": "2026-09-16T20:47:14.634372+00:00"
 }
