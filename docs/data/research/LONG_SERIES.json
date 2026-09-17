@@ -1,8 +1,8 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-17T00:31:56Z",
- "days": 20,
+ "checked_at": "2026-09-17T03:25:53Z",
+ "days": 21,
  "issues": [
   {
    "kind": "WINDOW_NOT_OBSERVED",
@@ -335,59 +335,70 @@
    },
    "raw_present": true,
    "raw_truncated": false,
-   "raw_incomplete_on_rebuild": false,
+   "raw_incomplete_on_rebuild": true,
    "cut_gaps": {
     "entry_bucket": 685,
     "move_bucket": 373
    }
+  },
+  "2026-09-17": {
+   "snapshots": 828,
+   "valid": 777,
+   "quality": {
+    "DEGRADED": 232,
+    "GOOD": 323,
+    "INCOMPLETE": 222,
+    "INVALID": 51
+   },
+   "raw_present": true,
+   "raw_truncated": false,
+   "raw_incomplete_on_rebuild": false,
+   "cut_gaps": {
+    "entry_bucket": 184,
+    "move_bucket": 51
+   }
   }
  },
  "totals": {
-  "snapshots": 77573,
-  "valid": 72623,
+  "snapshots": 78401,
+  "valid": 73400,
   "valid_share": 0.9362,
   "quality": {
-   "DEGRADED": 21356,
-   "GOOD": 31030,
-   "INCOMPLETE": 19186,
-   "INVALID": 4950,
+   "DEGRADED": 21588,
+   "GOOD": 31353,
+   "INCOMPLETE": 19408,
+   "INVALID": 5001,
    "STALE": 1051
   },
   "windows": {
-   "15m": 36571,
-   "5m": 41002
+   "15m": 36955,
+   "5m": 41446
   },
   "assets": {
-   "BTC": 19438,
-   "ETH": 19376,
-   "SOL": 19389,
-   "XRP": 19370
+   "BTC": 19645,
+   "ETH": 19583,
+   "SOL": 19596,
+   "XRP": 19577
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
-  "raw_present_days": 19,
+  "raw_present_days": 20,
   "truncated_days": 0,
-  "incomplete_rebuild_days": 18,
+  "incomplete_rebuild_days": 19,
   "feature_availability_share": {
    "acceleration": 0.6705,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6974,
-   "depth_1_up": 0.8673,
-   "imbalance_up": 0.7331,
+   "depth_10_up": 0.6955,
+   "depth_1_up": 0.8664,
+   "imbalance_up": 0.7329,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7331,
-   "volatility": 0.7456
+   "spread_up": 0.7329,
+   "volatility": 0.7455
   }
  },
  "verdict": "OK",
  "rebuild": [
-  {
-   "day": "2026-09-14",
-   "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 5174,
-   "note": "raw в артефакте; сохранённый агрегат — источник истины"
-  },
   {
    "day": "2026-09-15",
    "status": "RAW_NOT_LOCAL",
@@ -398,6 +409,12 @@
    "day": "2026-09-16",
    "status": "RAW_NOT_LOCAL",
    "stored_snapshots": 4936,
+   "note": "raw в артефакте; сохранённый агрегат — источник истины"
+  },
+  {
+   "day": "2026-09-17",
+   "status": "RAW_NOT_LOCAL",
+   "stored_snapshots": 828,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
