@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-17T06:31:52Z",
+ "checked_at": "2026-09-17T09:26:01Z",
  "days": 21,
  "issues": [
   {
@@ -342,43 +342,43 @@
    }
   },
   "2026-09-17": {
-   "snapshots": 1336,
-   "valid": 1227,
+   "snapshots": 2260,
+   "valid": 2091,
    "quality": {
-    "DEGRADED": 339,
-    "GOOD": 534,
-    "INCOMPLETE": 354,
-    "INVALID": 109
+    "DEGRADED": 621,
+    "GOOD": 887,
+    "INCOMPLETE": 583,
+    "INVALID": 169
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 280,
-    "move_bucket": 109
+    "entry_bucket": 475,
+    "move_bucket": 169
    }
   }
  },
  "totals": {
-  "snapshots": 78909,
-  "valid": 73850,
+  "snapshots": 79833,
+  "valid": 74714,
   "valid_share": 0.9359,
   "quality": {
-   "DEGRADED": 21695,
-   "GOOD": 31564,
-   "INCOMPLETE": 19540,
-   "INVALID": 5059,
+   "DEGRADED": 21977,
+   "GOOD": 31917,
+   "INCOMPLETE": 19769,
+   "INVALID": 5119,
    "STALE": 1051
   },
   "windows": {
-   "15m": 37223,
-   "5m": 41686
+   "15m": 37667,
+   "5m": 42166
   },
   "assets": {
-   "BTC": 19772,
-   "ETH": 19710,
-   "SOL": 19723,
-   "XRP": 19704
+   "BTC": 20003,
+   "ETH": 19941,
+   "SOL": 19954,
+   "XRP": 19935
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -386,15 +386,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 19,
   "feature_availability_share": {
-   "acceleration": 0.6708,
+   "acceleration": 0.6704,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.695,
-   "depth_1_up": 0.866,
-   "imbalance_up": 0.7325,
+   "depth_10_up": 0.6921,
+   "depth_1_up": 0.8651,
+   "imbalance_up": 0.7324,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7325,
-   "volatility": 0.7457
+   "spread_up": 0.7324,
+   "volatility": 0.7453
   }
  },
  "verdict": "OK",
@@ -414,7 +414,7 @@
   {
    "day": "2026-09-17",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 1336,
+   "stored_snapshots": 2260,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
