@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-19T09:23:51Z",
+ "checked_at": "2026-09-19T12:28:14Z",
  "days": 23,
  "issues": [
   {
@@ -376,43 +376,43 @@
    }
   },
   "2026-09-19": {
-   "snapshots": 2276,
-   "valid": 2168,
+   "snapshots": 2792,
+   "valid": 2684,
    "quality": {
-    "DEGRADED": 592,
-    "GOOD": 935,
-    "INCOMPLETE": 641,
+    "DEGRADED": 731,
+    "GOOD": 1206,
+    "INCOMPLETE": 747,
     "INVALID": 108
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 390,
+    "entry_bucket": 457,
     "move_bucket": 108
    }
   }
  },
  "totals": {
-  "snapshots": 90065,
-  "valid": 84157,
-  "valid_share": 0.9344,
+  "snapshots": 90581,
+  "valid": 84673,
+  "valid_share": 0.9348,
   "quality": {
-   "DEGRADED": 24633,
-   "GOOD": 36239,
-   "INCOMPLETE": 22234,
+   "DEGRADED": 24772,
+   "GOOD": 36510,
+   "INCOMPLETE": 22340,
    "INVALID": 5908,
    "STALE": 1051
   },
   "windows": {
-   "15m": 42627,
-   "5m": 47438
+   "15m": 42915,
+   "5m": 47666
   },
   "assets": {
-   "BTC": 22568,
-   "ETH": 22490,
-   "SOL": 22519,
-   "XRP": 22488
+   "BTC": 22700,
+   "ETH": 22622,
+   "SOL": 22651,
+   "XRP": 22608
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -420,15 +420,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 21,
   "feature_availability_share": {
-   "acceleration": 0.6724,
+   "acceleration": 0.6727,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6898,
+   "depth_10_up": 0.6897,
    "depth_1_up": 0.8646,
-   "imbalance_up": 0.7323,
+   "imbalance_up": 0.7326,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7323,
-   "volatility": 0.7469
+   "spread_up": 0.7326,
+   "volatility": 0.7471
   }
  },
  "verdict": "OK",
@@ -448,7 +448,7 @@
   {
    "day": "2026-09-19",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 2276,
+   "stored_snapshots": 2792,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]

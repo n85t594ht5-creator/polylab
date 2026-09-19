@@ -1242,6 +1242,11 @@
    "windows": {
     "5m": 5
    }
+  },
+  {
+   "at": "2026-09-19T12:28:14Z",
+   "markets": 0,
+   "windows": {}
   }
  ],
  "windows_ever_seen": {
@@ -1256,67 +1261,16 @@
   "SOL",
   "XRP"
  ],
- "last_seen_examples": {
-  "5m": "sol-updown-5m-1789809600"
- },
- "last_detail": [
-  {
-   "asset": "DOGE",
-   "window": "5m",
-   "market_id": "4677659",
-   "slug": "doge-updown-5m-1789809600",
-   "start": "2026-09-19T09:20:00+00:00",
-   "end": "2026-09-19T09:25:00+00:00"
-  },
-  {
-   "asset": "ETH",
-   "window": "5m",
-   "market_id": "4677661",
-   "slug": "eth-updown-5m-1789809600",
-   "start": "2026-09-19T09:20:00+00:00",
-   "end": "2026-09-19T09:25:00+00:00"
-  },
-  {
-   "asset": "XRP",
-   "window": "5m",
-   "market_id": "4677662",
-   "slug": "xrp-updown-5m-1789809600",
-   "start": "2026-09-19T09:20:00+00:00",
-   "end": "2026-09-19T09:25:00+00:00"
-  },
-  {
-   "asset": "BTC",
-   "window": "5m",
-   "market_id": "4677664",
-   "slug": "btc-updown-5m-1789809600",
-   "start": "2026-09-19T09:20:00+00:00",
-   "end": "2026-09-19T09:25:00+00:00"
-  },
-  {
-   "asset": "SOL",
-   "window": "5m",
-   "market_id": "4677665",
-   "slug": "sol-updown-5m-1789809600",
-   "start": "2026-09-19T09:20:00+00:00",
-   "end": "2026-09-19T09:25:00+00:00"
-  }
- ],
+ "last_seen_examples": {},
+ "last_detail": [],
  "observation_window": {
   "first": "2026-08-30T05:47:55Z",
-  "last": "2026-09-19T09:23:51Z",
-  "count": 164
+  "last": "2026-09-19T12:28:14Z",
+  "count": 165
  },
- "observation_span_hours": 483.6,
- "assets_by_window": {
-  "5m": [
-   "BTC",
-   "DOGE",
-   "ETH",
-   "SOL",
-   "XRP"
-  ]
- },
- "total_observations": 164,
+ "observation_span_hours": 486.67,
+ "assets_by_window": {},
+ "total_observations": 165,
  "status_60m": "NOT OBSERVED",
- "note_60m": "за 483.6 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения"
+ "note_60m": "за 486.7 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения"
 }
