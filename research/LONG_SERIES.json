@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-19T03:24:03Z",
+ "checked_at": "2026-09-19T06:28:57Z",
  "days": 23,
  "issues": [
   {
@@ -376,43 +376,43 @@
    }
   },
   "2026-09-19": {
-   "snapshots": 948,
-   "valid": 888,
+   "snapshots": 1476,
+   "valid": 1416,
    "quality": {
-    "DEGRADED": 247,
-    "GOOD": 373,
-    "INCOMPLETE": 268,
+    "DEGRADED": 368,
+    "GOOD": 601,
+    "INCOMPLETE": 447,
     "INVALID": 60
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 208,
+    "entry_bucket": 241,
     "move_bucket": 60
    }
   }
  },
  "totals": {
-  "snapshots": 88737,
-  "valid": 82877,
-  "valid_share": 0.934,
+  "snapshots": 89265,
+  "valid": 83405,
+  "valid_share": 0.9344,
   "quality": {
-   "DEGRADED": 24288,
-   "GOOD": 35677,
-   "INCOMPLETE": 21861,
+   "DEGRADED": 24409,
+   "GOOD": 35905,
+   "INCOMPLETE": 22040,
    "INVALID": 5860,
    "STALE": 1051
   },
   "windows": {
-   "15m": 41971,
-   "5m": 46766
+   "15m": 42259,
+   "5m": 47006
   },
   "assets": {
-   "BTC": 22236,
-   "ETH": 22158,
-   "SOL": 22187,
-   "XRP": 22156
+   "BTC": 22368,
+   "ETH": 22290,
+   "SOL": 22319,
+   "XRP": 22288
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -420,15 +420,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 21,
   "feature_availability_share": {
-   "acceleration": 0.6721,
+   "acceleration": 0.6724,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6905,
-   "depth_1_up": 0.8646,
-   "imbalance_up": 0.7326,
+   "depth_10_up": 0.6918,
+   "depth_1_up": 0.8651,
+   "imbalance_up": 0.7322,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7326,
-   "volatility": 0.7465
+   "spread_up": 0.7322,
+   "volatility": 0.7468
   }
  },
  "verdict": "OK",
@@ -448,7 +448,7 @@
   {
    "day": "2026-09-19",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 948,
+   "stored_snapshots": 1476,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
