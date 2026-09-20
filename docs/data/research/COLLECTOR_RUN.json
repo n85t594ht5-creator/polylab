@@ -1,29 +1,29 @@
 {
- "snapshots": 336,
+ "snapshots": 524,
  "duplicates": 0,
- "markets": 20,
+ "markets": 28,
  "assets": 4,
  "by_window": {
-  "5m": 192,
-  "15m": 144
+  "15m": 284,
+  "5m": 240
  },
  "quality": {
-  "DEGRADED": 77,
-  "INVALID": 48,
-  "INCOMPLETE": 103,
-  "GOOD": 108
+  "DEGRADED": 115,
+  "INVALID": 58,
+  "GOOD": 263,
+  "INCOMPLETE": 88
  },
- "latency_events": 336,
- "moves": 16,
- "ref_missing": 48,
+ "latency_events": 524,
+ "moves": 21,
+ "ref_missing": 58,
  "latency_quality": {
-  "LOW": 333,
-  "MEDIUM": 3
+  "LOW": 510,
+  "MEDIUM": 14
  },
  "stale": 0,
- "incomplete": 103,
+ "incomplete": 88,
  "parity": {
-  "checked": 336,
+  "checked": 524,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
@@ -34,14 +34,14 @@
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 1165,
+  "requests": 1657,
   "failures": 0,
-  "retries": 1,
-  "latency_median_ms": 101.2,
-  "latency_max_ms": 382.5
+  "retries": 0,
+  "latency_median_ms": 93.0,
+  "latency_max_ms": 194.6
  },
  "shadow": {
-  "snapshots": 66880,
+  "snapshots": 67346,
   "signals": 216,
   "accepted": 35,
   "reduced": 0,
@@ -61,33 +61,33 @@
  "storage": {
   "raw/dna": {
    "files": 1,
-   "bytes": 84127
+   "bytes": 164498
   },
   "raw/latency": {
    "files": 1,
-   "bytes": 98345
+   "bytes": 198278
   },
   "moves": {
    "files": 22,
-   "bytes": 590167
+   "bytes": 592878
   },
   "agg": {
-   "files": 24,
-   "bytes": 114944
+   "files": 25,
+   "bytes": 119663
   },
   "state": {
    "files": 3,
-   "bytes": 14359
+   "bytes": 20211
   },
-  "total_bytes": 901942,
-  "git_tracked_bytes": 719470,
-  "artifact_bytes": 182472
+  "total_bytes": 1095528,
+  "git_tracked_bytes": 732752,
+  "artifact_bytes": 362776
  },
- "ids_pruned": 480,
- "ids_kept": 732,
+ "ids_pruned": 216,
+ "ids_kept": 1040,
  "duplicates_store": 0,
- "restored_ids": 876,
+ "restored_ids": 732,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-09-20T02:46:09.577296+00:00"
+ "finished_at": "2026-09-20T04:46:29.571677+00:00"
 }
