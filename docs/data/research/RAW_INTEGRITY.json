@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-21T02:46:41Z",
+ "checked_at": "2026-09-21T04:47:25Z",
  "phase": "after",
  "days": {
   "2026-08-28": {
@@ -219,17 +219,18 @@
    "previous_raw_rows": null
   },
   "2026-09-21": {
-   "raw_rows": 880,
+   "raw_rows": 1388,
    "raw_present": true,
    "raw_truncated": false,
-   "aggregate_snapshots": null,
-   "status": "NO_AGGREGATE",
+   "aggregate_snapshots": 880,
+   "status": "OK",
+   "completeness": 1.0,
    "previous_raw_rows": null
   }
  },
- "total_raw_rows": 880,
- "total_aggregate_snapshots": 95708,
- "completeness": 0.0092,
+ "total_raw_rows": 1388,
+ "total_aggregate_snapshots": 96588,
+ "completeness": 0.0144,
  "issues": [],
  "legacy": [
   "2026-08-28: raw отсутствует (0 в агрегате)",
@@ -263,20 +264,20 @@
  "legacy_verdict": "LEGACY_INCOMPLETE",
  "history": [
   {
-   "at": "2026-09-21T02:21:41Z",
+   "at": "2026-09-21T04:22:25Z",
    "phase": "before",
-   "completeness": 0.0038,
-   "verdict": "OK",
-   "total_raw": 360,
-   "total_agg": 95708
-  },
-  {
-   "at": "2026-09-21T02:46:41Z",
-   "phase": "after",
-   "completeness": 0.0092,
+   "completeness": 0.0091,
    "verdict": "OK",
    "total_raw": 880,
-   "total_agg": 95708
+   "total_agg": 96588
+  },
+  {
+   "at": "2026-09-21T04:47:25Z",
+   "phase": "after",
+   "completeness": 0.0144,
+   "verdict": "OK",
+   "total_raw": 1388,
+   "total_agg": 96588
   }
  ]
 }
