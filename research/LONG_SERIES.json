@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-21T15:23:32Z",
+ "checked_at": "2026-09-21T18:27:47Z",
  "days": 25,
  "issues": [
   {
@@ -411,43 +411,43 @@
    }
   },
   "2026-09-21": {
-   "snapshots": 3804,
-   "valid": 3631,
+   "snapshots": 4312,
+   "valid": 4139,
    "quality": {
-    "DEGRADED": 993,
-    "GOOD": 1598,
-    "INCOMPLETE": 1040,
+    "DEGRADED": 1136,
+    "GOOD": 1822,
+    "INCOMPLETE": 1181,
     "INVALID": 173
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 659,
+    "entry_bucket": 722,
     "move_bucket": 173
    }
   }
  },
  "totals": {
-  "snapshots": 99512,
-  "valid": 92836,
-  "valid_share": 0.9329,
+  "snapshots": 100020,
+  "valid": 93344,
+  "valid_share": 0.9333,
   "quality": {
-   "DEGRADED": 27143,
-   "GOOD": 40025,
-   "INCOMPLETE": 24575,
+   "DEGRADED": 27286,
+   "GOOD": 40249,
+   "INCOMPLETE": 24716,
    "INVALID": 6676,
    "STALE": 1093
   },
   "windows": {
-   "15m": 46714,
-   "5m": 52798
+   "15m": 46982,
+   "5m": 53038
   },
   "assets": {
-   "BTC": 24935,
-   "ETH": 24858,
-   "SOL": 24887,
-   "XRP": 24832
+   "BTC": 25062,
+   "ETH": 24985,
+   "SOL": 25014,
+   "XRP": 24959
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -455,15 +455,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 23,
   "feature_availability_share": {
-   "acceleration": 0.6727,
+   "acceleration": 0.6729,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6871,
+   "depth_10_up": 0.6876,
    "depth_1_up": 0.8635,
-   "imbalance_up": 0.7318,
+   "imbalance_up": 0.7317,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7318,
-   "volatility": 0.7467
+   "spread_up": 0.7317,
+   "volatility": 0.7469
   }
  },
  "verdict": "OK",
@@ -483,7 +483,7 @@
   {
    "day": "2026-09-21",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 3804,
+   "stored_snapshots": 4312,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
