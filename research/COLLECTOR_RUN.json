@@ -8,19 +8,19 @@
   "15m": 264
  },
  "quality": {
-  "DEGRADED": 120,
   "INVALID": 60,
-  "INCOMPLETE": 106,
-  "GOOD": 218
+  "DEGRADED": 118,
+  "GOOD": 221,
+  "INCOMPLETE": 105
  },
  "latency_events": 504,
- "moves": 24,
+ "moves": 26,
  "ref_missing": 60,
  "latency_quality": {
   "LOW": 504
  },
  "stale": 0,
- "incomplete": 106,
+ "incomplete": 105,
  "parity": {
   "checked": 504,
   "up_mismatch": 0,
@@ -29,30 +29,30 @@
   "up_missing_row": 0,
   "dn_missing_live": 0,
   "dn_missing_row": 0,
-  "signal_snapshots": 1,
+  "signal_snapshots": 2,
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 1634,
+  "requests": 1636,
   "failures": 0,
   "retries": 0,
-  "latency_median_ms": 97.4,
-  "latency_max_ms": 480.3
+  "latency_median_ms": 129.1,
+  "latency_max_ms": 5146.3
  },
  "shadow": {
-  "snapshots": 74584,
-  "signals": 223,
-  "accepted": 40,
+  "snapshots": 75028,
+  "signals": 225,
+  "accepted": 42,
   "reduced": 0,
   "rejected": 183,
   "conflicts": 0,
-  "resolved": 223,
+  "resolved": 225,
   "by_strategy": {
    "momentum_late_window": {
-    "signals": 223,
-    "accepted": 40,
+    "signals": 225,
+    "accepted": 42,
     "rejected": 183,
-    "resolved": 223
+    "resolved": 225
    }
   },
   "errors": {}
@@ -60,33 +60,33 @@
  "storage": {
   "raw/dna": {
    "files": 1,
-   "bytes": 429374
+   "bytes": 575476
   },
   "raw/latency": {
    "files": 1,
-   "bytes": 543403
+   "bytes": 724700
   },
   "moves": {
    "files": 24,
-   "bytes": 660037
+   "bytes": 664641
   },
   "agg": {
    "files": 27,
-   "bytes": 130558
+   "bytes": 130586
   },
   "state": {
    "files": 3,
-   "bytes": 27887
+   "bytes": 28267
   },
-  "total_bytes": 1791259,
-  "git_tracked_bytes": 818482,
-  "artifact_bytes": 972777
+  "total_bytes": 2123670,
+  "git_tracked_bytes": 823494,
+  "artifact_bytes": 1300176
  },
- "ids_pruned": 1408,
- "ids_kept": 1444,
+ "ids_pruned": 2340,
+ "ids_kept": 1464,
  "duplicates_store": 0,
- "restored_ids": 2348,
+ "restored_ids": 3300,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-09-22T10:47:37.739676+00:00"
+ "finished_at": "2026-09-22T14:47:32.936462+00:00"
 }
