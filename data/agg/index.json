@@ -188,6 +188,13 @@
    "valid": 4798,
    "moves": 156,
    "raw_present": true
+  },
+  {
+   "day": "2026-09-24",
+   "snapshots": 879,
+   "valid": 879,
+   "moves": 28,
+   "raw_present": true
   }
  ],
  "agg_version": "1"
