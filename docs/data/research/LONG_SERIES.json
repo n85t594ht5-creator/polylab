@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-25T06:31:09Z",
+ "checked_at": "2026-09-25T09:26:34Z",
  "days": 29,
  "issues": [
   {
@@ -479,43 +479,43 @@
    }
   },
   "2026-09-25": {
-   "snapshots": 1474,
-   "valid": 1300,
+   "snapshots": 2410,
+   "valid": 2236,
    "quality": {
-    "DEGRADED": 347,
-    "GOOD": 617,
-    "INCOMPLETE": 336,
+    "DEGRADED": 643,
+    "GOOD": 967,
+    "INCOMPLETE": 626,
     "INVALID": 174
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 176,
+    "entry_bucket": 286,
     "move_bucket": 174
    }
   }
  },
  "totals": {
-  "snapshots": 118629,
-  "valid": 110319,
-  "valid_share": 0.9299,
+  "snapshots": 119565,
+  "valid": 111255,
+  "valid_share": 0.9305,
   "quality": {
-   "DEGRADED": 32230,
-   "GOOD": 47989,
-   "INCOMPLETE": 29007,
+   "DEGRADED": 32526,
+   "GOOD": 48339,
+   "INCOMPLETE": 29297,
    "INVALID": 8310,
    "STALE": 1093
   },
   "windows": {
-   "15m": 56046,
-   "5m": 62583
+   "15m": 56502,
+   "5m": 63063
   },
   "assets": {
-   "BTC": 29717,
-   "ETH": 29647,
-   "SOL": 29653,
-   "XRP": 29612
+   "BTC": 29951,
+   "ETH": 29881,
+   "SOL": 29887,
+   "XRP": 29846
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -523,15 +523,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 27,
   "feature_availability_share": {
-   "acceleration": 0.6742,
+   "acceleration": 0.6741,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6873,
-   "depth_1_up": 0.8633,
-   "imbalance_up": 0.7331,
+   "depth_10_up": 0.6878,
+   "depth_1_up": 0.8635,
+   "imbalance_up": 0.7327,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7331,
-   "volatility": 0.7472
+   "spread_up": 0.7327,
+   "volatility": 0.747
   }
  },
  "verdict": "OK",
@@ -551,7 +551,7 @@
   {
    "day": "2026-09-25",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 1474,
+   "stored_snapshots": 2410,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
