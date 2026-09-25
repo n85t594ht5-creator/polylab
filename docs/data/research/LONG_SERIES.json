@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-24T21:24:21Z",
+ "checked_at": "2026-09-25T00:33:16Z",
  "days": 28,
  "issues": [
   {
@@ -462,43 +462,43 @@
    }
   },
   "2026-09-24": {
-   "snapshots": 4875,
-   "valid": 4360,
+   "snapshots": 5395,
+   "valid": 4880,
    "quality": {
-    "DEGRADED": 1315,
-    "GOOD": 1919,
-    "INCOMPLETE": 1126,
+    "DEGRADED": 1456,
+    "GOOD": 2180,
+    "INCOMPLETE": 1244,
     "INVALID": 515
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 716,
+    "entry_bucket": 777,
     "move_bucket": 515
    }
   }
  },
  "totals": {
-  "snapshots": 116635,
-  "valid": 108499,
-  "valid_share": 0.9302,
+  "snapshots": 117155,
+  "valid": 109019,
+  "valid_share": 0.9306,
   "quality": {
-   "DEGRADED": 31742,
-   "GOOD": 47111,
-   "INCOMPLETE": 28553,
+   "DEGRADED": 31883,
+   "GOOD": 47372,
+   "INCOMPLETE": 28671,
    "INVALID": 8136,
    "STALE": 1093
   },
   "windows": {
-   "15m": 55006,
-   "5m": 61629
+   "15m": 55286,
+   "5m": 61869
   },
   "assets": {
-   "BTC": 29219,
-   "ETH": 29149,
-   "SOL": 29155,
-   "XRP": 29112
+   "BTC": 29349,
+   "ETH": 29279,
+   "SOL": 29285,
+   "XRP": 29242
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -506,15 +506,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 26,
   "feature_availability_share": {
-   "acceleration": 0.6737,
+   "acceleration": 0.674,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6864,
-   "depth_1_up": 0.863,
-   "imbalance_up": 0.7328,
+   "depth_10_up": 0.6867,
+   "depth_1_up": 0.8631,
+   "imbalance_up": 0.733,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7328,
-   "volatility": 0.7469
+   "spread_up": 0.733,
+   "volatility": 0.7471
   }
  },
  "verdict": "OK",
@@ -534,7 +534,7 @@
   {
    "day": "2026-09-24",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 4875,
+   "stored_snapshots": 5395,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
