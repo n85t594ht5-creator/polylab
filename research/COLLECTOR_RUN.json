@@ -1,46 +1,46 @@
 {
- "snapshots": 504,
+ "snapshots": 488,
  "duplicates": 0,
  "markets": 32,
  "assets": 4,
  "by_window": {
   "5m": 240,
-  "15m": 264
+  "15m": 248
  },
  "quality": {
-  "DEGRADED": 119,
-  "INVALID": 60,
-  "GOOD": 206,
-  "INCOMPLETE": 119
+  "INCOMPLETE": 150,
+  "DEGRADED": 145,
+  "GOOD": 193
  },
- "latency_events": 504,
- "moves": 21,
- "ref_missing": 60,
+ "latency_events": 488,
+ "moves": 28,
+ "ref_missing": 0,
  "latency_quality": {
-  "LOW": 504
+  "LOW": 487,
+  "MEDIUM": 1
  },
  "stale": 0,
- "incomplete": 119,
+ "incomplete": 150,
  "parity": {
-  "checked": 504,
+  "checked": 488,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
   "up_missing_row": 0,
   "dn_missing_live": 0,
   "dn_missing_row": 0,
-  "signal_snapshots": 2,
+  "signal_snapshots": 0,
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 1635,
+  "requests": 1534,
   "failures": 0,
   "retries": 0,
-  "latency_median_ms": 92.3,
-  "latency_max_ms": 1251.4
+  "latency_median_ms": 160.8,
+  "latency_max_ms": 640.1
  },
  "shadow": {
-  "snapshots": 83931,
+  "snapshots": 84419,
   "signals": 238,
   "accepted": 49,
   "reduced": 0,
@@ -60,33 +60,33 @@
  "storage": {
   "raw/dna": {
    "files": 1,
-   "bytes": 225416
+   "bytes": 364919
   },
   "raw/latency": {
    "files": 1,
-   "bytes": 280926
+   "bytes": 459201
   },
   "moves": {
    "files": 27,
-   "bytes": 749300
+   "bytes": 754671
   },
   "agg": {
    "files": 30,
-   "bytes": 146237
+   "bytes": 146280
   },
   "state": {
    "files": 3,
-   "bytes": 28457
+   "bytes": 27811
   },
-  "total_bytes": 1430336,
-  "git_tracked_bytes": 923994,
-  "artifact_bytes": 506342
+  "total_bytes": 1752882,
+  "git_tracked_bytes": 928762,
+  "artifact_bytes": 824120
  },
- "ids_pruned": 540,
- "ids_kept": 1474,
+ "ids_pruned": 970,
+ "ids_kept": 1440,
  "duplicates_store": 0,
- "restored_ids": 1510,
+ "restored_ids": 1922,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-09-25T04:47:39.426889+00:00"
+ "finished_at": "2026-09-25T08:48:42.413446+00:00"
 }
