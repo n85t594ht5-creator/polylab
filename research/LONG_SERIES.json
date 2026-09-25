@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-25T03:24:10Z",
+ "checked_at": "2026-09-25T06:31:09Z",
  "days": 29,
  "issues": [
   {
@@ -479,43 +479,43 @@
    }
   },
   "2026-09-25": {
-   "snapshots": 970,
-   "valid": 856,
+   "snapshots": 1474,
+   "valid": 1300,
    "quality": {
-    "DEGRADED": 228,
-    "GOOD": 411,
-    "INCOMPLETE": 217,
-    "INVALID": 114
+    "DEGRADED": 347,
+    "GOOD": 617,
+    "INCOMPLETE": 336,
+    "INVALID": 174
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 47,
-    "move_bucket": 114
+    "entry_bucket": 176,
+    "move_bucket": 174
    }
   }
  },
  "totals": {
-  "snapshots": 118125,
-  "valid": 109875,
-  "valid_share": 0.9302,
+  "snapshots": 118629,
+  "valid": 110319,
+  "valid_share": 0.9299,
   "quality": {
-   "DEGRADED": 32111,
-   "GOOD": 47783,
-   "INCOMPLETE": 28888,
-   "INVALID": 8250,
+   "DEGRADED": 32230,
+   "GOOD": 47989,
+   "INCOMPLETE": 29007,
+   "INVALID": 8310,
    "STALE": 1093
   },
   "windows": {
-   "15m": 55782,
-   "5m": 62343
+   "15m": 56046,
+   "5m": 62583
   },
   "assets": {
-   "BTC": 29591,
-   "ETH": 29521,
-   "SOL": 29527,
-   "XRP": 29486
+   "BTC": 29717,
+   "ETH": 29647,
+   "SOL": 29653,
+   "XRP": 29612
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -523,15 +523,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 27,
   "feature_availability_share": {
-   "acceleration": 0.6741,
+   "acceleration": 0.6742,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6884,
-   "depth_1_up": 0.8638,
+   "depth_10_up": 0.6873,
+   "depth_1_up": 0.8633,
    "imbalance_up": 0.7331,
    "liquidity": 1.0,
    "market_volume": 0.0,
    "spread_up": 0.7331,
-   "volatility": 0.7471
+   "volatility": 0.7472
   }
  },
  "verdict": "OK",
@@ -551,7 +551,7 @@
   {
    "day": "2026-09-25",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 970,
+   "stored_snapshots": 1474,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
