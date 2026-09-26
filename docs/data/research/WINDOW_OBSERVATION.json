@@ -1,14 +1,6 @@
 {
  "observations": [
   {
-   "at": "2026-09-01T12:30:39Z",
-   "markets": 33,
-   "windows": {
-    "5m": 25,
-    "15m": 8
-   }
-  },
-  {
    "at": "2026-09-01T15:44:09Z",
    "markets": 24,
    "windows": {
@@ -1524,10 +1516,17 @@
    "at": "2026-09-26T12:28:36Z",
    "markets": 0,
    "windows": {}
+  },
+  {
+   "at": "2026-09-26T15:24:23Z",
+   "markets": 5,
+   "windows": {
+    "5m": 5
+   }
   }
  ],
  "windows_ever_seen": {
-  "5m": 4973,
+  "5m": 4978,
   "15m": 1615,
   "240m": 54
  },
@@ -1538,16 +1537,67 @@
   "SOL",
   "XRP"
  ],
- "last_seen_examples": {},
- "last_detail": [],
+ "last_seen_examples": {
+  "5m": "sol-updown-5m-1790436000"
+ },
+ "last_detail": [
+  {
+   "asset": "ETH",
+   "window": "5m",
+   "market_id": "4950221",
+   "slug": "eth-updown-5m-1790436000",
+   "start": "2026-09-26T15:20:00+00:00",
+   "end": "2026-09-26T15:25:00+00:00"
+  },
+  {
+   "asset": "BTC",
+   "window": "5m",
+   "market_id": "4950222",
+   "slug": "btc-updown-5m-1790436000",
+   "start": "2026-09-26T15:20:00+00:00",
+   "end": "2026-09-26T15:25:00+00:00"
+  },
+  {
+   "asset": "DOGE",
+   "window": "5m",
+   "market_id": "4950223",
+   "slug": "doge-updown-5m-1790436000",
+   "start": "2026-09-26T15:20:00+00:00",
+   "end": "2026-09-26T15:25:00+00:00"
+  },
+  {
+   "asset": "XRP",
+   "window": "5m",
+   "market_id": "4950224",
+   "slug": "xrp-updown-5m-1790436000",
+   "start": "2026-09-26T15:20:00+00:00",
+   "end": "2026-09-26T15:25:00+00:00"
+  },
+  {
+   "asset": "SOL",
+   "window": "5m",
+   "market_id": "4950227",
+   "slug": "sol-updown-5m-1790436000",
+   "start": "2026-09-26T15:20:00+00:00",
+   "end": "2026-09-26T15:25:00+00:00"
+  }
+ ],
  "observation_window": {
-  "first": "2026-09-01T12:30:39Z",
-  "last": "2026-09-26T12:28:36Z",
+  "first": "2026-09-01T15:44:09Z",
+  "last": "2026-09-26T15:24:23Z",
   "count": 201
  },
- "observation_span_hours": 599.97,
- "assets_by_window": {},
+ "observation_span_hours": 599.67,
+ "assets_by_window": {
+  "5m": [
+   "BTC",
+   "DOGE",
+   "ETH",
+   "SOL",
+   "XRP"
+  ]
+ },
  "total_observations": 201,
  "status_60m": "NOT OBSERVED",
- "note_60m": "за 600.0 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения"
+ "note_60m": "за 599.7 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения"
 }
