@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-25T21:24:55Z",
+ "checked_at": "2026-09-26T00:31:19Z",
  "days": 29,
  "issues": [
   {
@@ -479,43 +479,43 @@
    }
   },
   "2026-09-25": {
-   "snapshots": 4870,
-   "valid": 4492,
+   "snapshots": 5094,
+   "valid": 4716,
    "quality": {
-    "DEGRADED": 1309,
-    "GOOD": 2011,
-    "INCOMPLETE": 1172,
+    "DEGRADED": 1387,
+    "GOOD": 2085,
+    "INCOMPLETE": 1244,
     "INVALID": 378
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 720,
+    "entry_bucket": 787,
     "move_bucket": 378
    }
   }
  },
  "totals": {
-  "snapshots": 122025,
-  "valid": 113511,
-  "valid_share": 0.9302,
+  "snapshots": 122249,
+  "valid": 113735,
+  "valid_share": 0.9304,
   "quality": {
-   "DEGRADED": 33192,
-   "GOOD": 49383,
-   "INCOMPLETE": 29843,
+   "DEGRADED": 33270,
+   "GOOD": 49457,
+   "INCOMPLETE": 29915,
    "INVALID": 8514,
    "STALE": 1093
   },
   "windows": {
-   "15m": 57666,
-   "5m": 64359
+   "15m": 57746,
+   "5m": 64503
   },
   "assets": {
-   "BTC": 30566,
-   "ETH": 30496,
-   "SOL": 30502,
-   "XRP": 30461
+   "BTC": 30622,
+   "ETH": 30552,
+   "SOL": 30558,
+   "XRP": 30517
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -523,15 +523,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 27,
   "feature_availability_share": {
-   "acceleration": 0.674,
+   "acceleration": 0.6739,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6865,
-   "depth_1_up": 0.8627,
-   "imbalance_up": 0.733,
+   "depth_10_up": 0.6858,
+   "depth_1_up": 0.8624,
+   "imbalance_up": 0.7329,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.733,
-   "volatility": 0.7469
+   "spread_up": 0.7329,
+   "volatility": 0.7468
   }
  },
  "verdict": "OK",
@@ -551,7 +551,7 @@
   {
    "day": "2026-09-25",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 4870,
+   "stored_snapshots": 5094,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
