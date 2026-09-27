@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-27T14:41:50Z",
+ "checked_at": "2026-09-27T18:58:24Z",
  "days": 31,
  "issues": [
   {
@@ -513,43 +513,43 @@
    }
   },
   "2026-09-27": {
-   "snapshots": 832,
-   "valid": 772,
+   "snapshots": 1000,
+   "valid": 940,
    "quality": {
-    "DEGRADED": 282,
-    "GOOD": 290,
-    "INCOMPLETE": 200,
+    "DEGRADED": 342,
+    "GOOD": 341,
+    "INCOMPLETE": 257,
     "INVALID": 60
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 102,
+    "entry_bucket": 142,
     "move_bucket": 60
    }
   }
  },
  "totals": {
-  "snapshots": 127337,
-  "valid": 118428,
-  "valid_share": 0.93,
+  "snapshots": 127505,
+  "valid": 118596,
+  "valid_share": 0.9301,
   "quality": {
-   "DEGRADED": 34646,
-   "GOOD": 51480,
-   "INCOMPLETE": 31209,
+   "DEGRADED": 34706,
+   "GOOD": 51531,
+   "INCOMPLETE": 31266,
    "INVALID": 8909,
    "STALE": 1093
   },
   "windows": {
    "15m": 59990,
-   "5m": 67347
+   "5m": 67515
   },
   "assets": {
-   "BTC": 31915,
-   "ETH": 31817,
-   "SOL": 31823,
-   "XRP": 31782
+   "BTC": 31957,
+   "ETH": 31859,
+   "SOL": 31865,
+   "XRP": 31824
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -557,15 +557,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 29,
   "feature_availability_share": {
-   "acceleration": 0.6739,
+   "acceleration": 0.6737,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6867,
-   "depth_1_up": 0.8626,
-   "imbalance_up": 0.7325,
+   "depth_10_up": 0.6866,
+   "depth_1_up": 0.8625,
+   "imbalance_up": 0.7324,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7325,
-   "volatility": 0.7469
+   "spread_up": 0.7324,
+   "volatility": 0.7467
   }
  },
  "verdict": "OK",
@@ -585,7 +585,7 @@
   {
    "day": "2026-09-27",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 832,
+   "stored_snapshots": 1000,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
