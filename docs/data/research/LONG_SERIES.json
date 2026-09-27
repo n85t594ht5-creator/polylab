@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-09-27T18:58:24Z",
+ "checked_at": "2026-09-27T23:47:43Z",
  "days": 31,
  "issues": [
   {
@@ -513,43 +513,43 @@
    }
   },
   "2026-09-27": {
-   "snapshots": 1000,
-   "valid": 940,
+   "snapshots": 1408,
+   "valid": 1293,
    "quality": {
-    "DEGRADED": 342,
-    "GOOD": 341,
-    "INCOMPLETE": 257,
-    "INVALID": 60
+    "DEGRADED": 447,
+    "GOOD": 477,
+    "INCOMPLETE": 369,
+    "INVALID": 115
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 142,
-    "move_bucket": 60
+    "entry_bucket": 245,
+    "move_bucket": 115
    }
   }
  },
  "totals": {
-  "snapshots": 127505,
-  "valid": 118596,
-  "valid_share": 0.9301,
+  "snapshots": 127913,
+  "valid": 118949,
+  "valid_share": 0.9299,
   "quality": {
-   "DEGRADED": 34706,
-   "GOOD": 51531,
-   "INCOMPLETE": 31266,
-   "INVALID": 8909,
+   "DEGRADED": 34811,
+   "GOOD": 51667,
+   "INCOMPLETE": 31378,
+   "INVALID": 8964,
    "STALE": 1093
   },
   "windows": {
-   "15m": 59990,
-   "5m": 67515
+   "15m": 60178,
+   "5m": 67735
   },
   "assets": {
-   "BTC": 31957,
-   "ETH": 31859,
-   "SOL": 31865,
-   "XRP": 31824
+   "BTC": 32059,
+   "ETH": 31961,
+   "SOL": 31967,
+   "XRP": 31926
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -557,14 +557,14 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 29,
   "feature_availability_share": {
-   "acceleration": 0.6737,
+   "acceleration": 0.6736,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6866,
-   "depth_1_up": 0.8625,
-   "imbalance_up": 0.7324,
+   "depth_10_up": 0.6861,
+   "depth_1_up": 0.8621,
+   "imbalance_up": 0.7322,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7324,
+   "spread_up": 0.7322,
    "volatility": 0.7467
   }
  },
@@ -585,7 +585,7 @@
   {
    "day": "2026-09-27",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 1000,
+   "stored_snapshots": 1408,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
