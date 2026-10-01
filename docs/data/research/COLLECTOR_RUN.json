@@ -1,46 +1,45 @@
 {
- "snapshots": 520,
+ "snapshots": 392,
  "duplicates": 0,
  "markets": 32,
  "assets": 4,
  "by_window": {
-  "5m": 240,
-  "15m": 280
+  "15m": 152,
+  "5m": 240
  },
  "quality": {
-  "INVALID": 60,
-  "INCOMPLETE": 76,
-  "DEGRADED": 122,
-  "GOOD": 262
+  "INCOMPLETE": 127,
+  "DEGRADED": 112,
+  "GOOD": 153
  },
- "latency_events": 520,
- "moves": 26,
- "ref_missing": 60,
+ "latency_events": 392,
+ "moves": 31,
+ "ref_missing": 0,
  "latency_quality": {
-  "LOW": 520
+  "LOW": 392
  },
  "stale": 0,
- "incomplete": 76,
+ "incomplete": 127,
  "parity": {
-  "checked": 520,
+  "checked": 392,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
   "up_missing_row": 0,
   "dn_missing_live": 0,
   "dn_missing_row": 0,
-  "signal_snapshots": 1,
+  "signal_snapshots": 0,
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 1660,
+  "requests": 1343,
   "failures": 0,
   "retries": 0,
-  "latency_median_ms": 100.3,
-  "latency_max_ms": 391.7
+  "latency_median_ms": 149.6,
+  "latency_max_ms": 1203.1
  },
  "shadow": {
-  "snapshots": 93112,
+  "snapshots": 93504,
   "signals": 243,
   "accepted": 51,
   "reduced": 0,
@@ -60,33 +59,33 @@
  "storage": {
   "raw/dna": {
    "files": 1,
-   "bytes": 151565
+   "bytes": 211980
   },
   "raw/latency": {
    "files": 1,
-   "bytes": 184544
+   "bytes": 259157
   },
   "moves": {
    "files": 33,
-   "bytes": 832523
+   "bytes": 838076
   },
   "agg": {
    "files": 36,
-   "bytes": 177048
+   "bytes": 177236
   },
   "state": {
    "files": 3,
-   "bytes": 10331
+   "bytes": 7899
   },
-  "total_bytes": 1356011,
-  "git_tracked_bytes": 1019902,
-  "artifact_bytes": 336109
+  "total_bytes": 1494348,
+  "git_tracked_bytes": 1023211,
+  "artifact_bytes": 471137
  },
- "ids_pruned": 448,
- "ids_kept": 520,
+ "ids_pruned": 968,
+ "ids_kept": 392,
  "duplicates_store": 0,
- "restored_ids": 448,
+ "restored_ids": 968,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-10-01T13:29:30.069442+00:00"
+ "finished_at": "2026-10-01T19:54:33.880006+00:00"
 }
