@@ -1,28 +1,28 @@
 {
- "snapshots": 448,
+ "snapshots": 256,
  "duplicates": 0,
- "markets": 32,
+ "markets": 28,
  "assets": 4,
  "by_window": {
-  "15m": 208,
-  "5m": 240
+  "15m": 64,
+  "5m": 192
  },
  "quality": {
-  "DEGRADED": 116,
-  "INCOMPLETE": 131,
-  "INVALID": 60,
-  "GOOD": 141
+  "DEGRADED": 136,
+  "INCOMPLETE": 73,
+  "GOOD": 47
  },
- "latency_events": 448,
- "moves": 27,
- "ref_missing": 60,
+ "latency_events": 256,
+ "moves": 20,
+ "ref_missing": 0,
  "latency_quality": {
-  "LOW": 448
+  "LOW": 252,
+  "MEDIUM": 4
  },
  "stale": 0,
- "incomplete": 131,
+ "incomplete": 73,
  "parity": {
-  "checked": 448,
+  "checked": 256,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
@@ -33,14 +33,14 @@
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 1534,
+  "requests": 974,
   "failures": 0,
-  "retries": 0,
-  "latency_median_ms": 100.4,
-  "latency_max_ms": 485.1
+  "retries": 2,
+  "latency_median_ms": 150.3,
+  "latency_max_ms": 529.2
  },
  "shadow": {
-  "snapshots": 92008,
+  "snapshots": 92264,
   "signals": 242,
   "accepted": 50,
   "reduced": 0,
@@ -59,34 +59,34 @@
  },
  "storage": {
   "raw/dna": {
-   "files": 1,
-   "bytes": 201590
+   "files": 2,
+   "bytes": 243439
   },
   "raw/latency": {
-   "files": 1,
-   "bytes": 254560
+   "files": 2,
+   "bytes": 303423
   },
   "moves": {
-   "files": 32,
-   "bytes": 821250
+   "files": 33,
+   "bytes": 824475
   },
   "agg": {
-   "files": 34,
-   "bytes": 167017
+   "files": 35,
+   "bytes": 172155
   },
   "state": {
    "files": 3,
-   "bytes": 8963
+   "bytes": 13827
   },
-  "total_bytes": 1453380,
-  "git_tracked_bytes": 997230,
-  "artifact_bytes": 456150
+  "total_bytes": 1557319,
+  "git_tracked_bytes": 1010457,
+  "artifact_bytes": 546862
  },
- "ids_pruned": 1300,
- "ids_kept": 448,
+ "ids_pruned": 888,
+ "ids_kept": 704,
  "duplicates_store": 0,
- "restored_ids": 1300,
+ "restored_ids": 1336,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-09-30T19:37:09.663789+00:00"
+ "finished_at": "2026-10-01T00:08:04.875925+00:00"
 }
