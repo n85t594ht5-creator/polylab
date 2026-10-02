@@ -1,14 +1,6 @@
 {
  "observations": [
   {
-   "at": "2026-09-04T12:30:59Z",
-   "markets": 30,
-   "windows": {
-    "5m": 25,
-    "15m": 5
-   }
-  },
-  {
    "at": "2026-09-04T15:25:47Z",
    "markets": 39,
    "windows": {
@@ -1515,6 +1507,11 @@
    "windows": {
     "5m": 5
    }
+  },
+  {
+   "at": "2026-10-02T22:11:51Z",
+   "markets": 0,
+   "windows": {}
   }
  ],
  "windows_ever_seen": {
@@ -1529,67 +1526,16 @@
   "SOL",
   "XRP"
  ],
- "last_seen_examples": {
-  "5m": "xrp-updown-5m-1790963400"
- },
- "last_detail": [
-  {
-   "asset": "ETH",
-   "window": "5m",
-   "market_id": "5183992",
-   "slug": "eth-updown-5m-1790963400",
-   "start": "2026-10-02T17:50:00+00:00",
-   "end": "2026-10-02T17:55:00+00:00"
-  },
-  {
-   "asset": "BTC",
-   "window": "5m",
-   "market_id": "5183993",
-   "slug": "btc-updown-5m-1790963400",
-   "start": "2026-10-02T17:50:00+00:00",
-   "end": "2026-10-02T17:55:00+00:00"
-  },
-  {
-   "asset": "DOGE",
-   "window": "5m",
-   "market_id": "5183995",
-   "slug": "doge-updown-5m-1790963400",
-   "start": "2026-10-02T17:50:00+00:00",
-   "end": "2026-10-02T17:55:00+00:00"
-  },
-  {
-   "asset": "SOL",
-   "window": "5m",
-   "market_id": "5183997",
-   "slug": "sol-updown-5m-1790963400",
-   "start": "2026-10-02T17:50:00+00:00",
-   "end": "2026-10-02T17:55:00+00:00"
-  },
-  {
-   "asset": "XRP",
-   "window": "5m",
-   "market_id": "5183998",
-   "slug": "xrp-updown-5m-1790963400",
-   "start": "2026-10-02T17:50:00+00:00",
-   "end": "2026-10-02T17:55:00+00:00"
-  }
- ],
+ "last_seen_examples": {},
+ "last_detail": [],
  "observation_window": {
-  "first": "2026-09-04T12:30:59Z",
-  "last": "2026-10-02T17:51:33Z",
+  "first": "2026-09-04T15:25:47Z",
+  "last": "2026-10-02T22:11:51Z",
   "count": 201
  },
- "observation_span_hours": 677.34,
- "assets_by_window": {
-  "5m": [
-   "BTC",
-   "DOGE",
-   "ETH",
-   "SOL",
-   "XRP"
-  ]
- },
+ "observation_span_hours": 678.77,
+ "assets_by_window": {},
  "total_observations": 201,
  "status_60m": "NOT OBSERVED",
- "note_60m": "за 677.3 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения"
+ "note_60m": "за 678.8 ч наблюдения 60-минутные окна ни разу не встретились; вывода об их отсутствии не делаем — только фиксируем факт наблюдения"
 }
