@@ -1,28 +1,27 @@
 {
- "snapshots": 144,
+ "snapshots": 448,
  "duplicates": 0,
- "markets": 12,
+ "markets": 36,
  "assets": 4,
  "by_window": {
-  "5m": 144
+  "15m": 208,
+  "5m": 240
  },
  "quality": {
-  "DEGRADED": 45,
-  "INVALID": 36,
-  "GOOD": 24,
-  "INCOMPLETE": 39
+  "DEGRADED": 140,
+  "INCOMPLETE": 193,
+  "GOOD": 115
  },
- "latency_events": 144,
- "moves": 7,
- "ref_missing": 36,
+ "latency_events": 448,
+ "moves": 32,
+ "ref_missing": 0,
  "latency_quality": {
-  "LOW": 143,
-  "MEDIUM": 1
+  "LOW": 448
  },
  "stale": 0,
- "incomplete": 39,
+ "incomplete": 193,
  "parity": {
-  "checked": 144,
+  "checked": 448,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
@@ -33,14 +32,14 @@
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 680,
+  "requests": 1460,
   "failures": 0,
-  "retries": 2,
-  "latency_median_ms": 94.7,
-  "latency_max_ms": 257.4
+  "retries": 0,
+  "latency_median_ms": 155.2,
+  "latency_max_ms": 3836.5
  },
  "shadow": {
-  "snapshots": 93612,
+  "snapshots": 94060,
   "signals": 243,
   "accepted": 51,
   "reduced": 0,
@@ -59,34 +58,34 @@
  },
  "storage": {
   "raw/dna": {
-   "files": 2,
-   "bytes": 237243
+   "files": 1,
+   "bytes": 67692
   },
   "raw/latency": {
-   "files": 2,
-   "bytes": 286676
+   "files": 1,
+   "bytes": 85468
   },
   "moves": {
    "files": 34,
-   "bytes": 839890
+   "bytes": 845690
   },
   "agg": {
-   "files": 36,
-   "bytes": 177312
+   "files": 37,
+   "bytes": 181092
   },
   "state": {
    "files": 3,
-   "bytes": 10635
+   "bytes": 11471
   },
-  "total_bytes": 1551756,
-  "git_tracked_bytes": 1027837,
-  "artifact_bytes": 523919
+  "total_bytes": 1191413,
+  "git_tracked_bytes": 1038253,
+  "artifact_bytes": 153160
  },
- "ids_pruned": 968,
- "ids_kept": 536,
+ "ids_pruned": 404,
+ "ids_kept": 580,
  "duplicates_store": 0,
- "restored_ids": 1360,
+ "restored_ids": 536,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-10-02T00:16:42.522896+00:00"
+ "finished_at": "2026-10-02T05:52:39.767399+00:00"
 }
