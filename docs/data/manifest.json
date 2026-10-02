@@ -1,6 +1,6 @@
 {
  "publish_version": "1",
- "built_at": "2026-10-01T19:54:34Z",
+ "built_at": "2026-10-02T00:16:43Z",
  "mode": "SHADOW",
  "live": false,
  "venues": [
@@ -15,7 +15,7 @@
   },
   "moves": {
    "status": "OK",
-   "count": 3628,
+   "count": 3474,
    "note": "",
    "stale": false
   },
