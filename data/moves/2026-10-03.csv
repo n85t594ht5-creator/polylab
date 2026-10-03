@@ -1,0 +1,2 @@
+move_id,detected_at,market_id,asset,window,move_start,initial_move,duration_so_far_sec,acceleration_so_far,elapsed_at_detect,direction,entry_ask_at_detect,volatility_at_detect,outcome_ready,move_end,move_duration_sec,max_continuation,max_reversal,time_to_reversal_sec,final_direction,resolution,schema_version,collector_version
+5195133@1790985878,2026-10-03T00:04:38.596218+00:00,5195133,ETH,5m,2026-10-03T00:00:00+00:00,-0.000684,278.6,0.7501,0.9287,DOWN,,8.435e-05,1,2026-10-03T00:05:00+00:00,21.4,-0.000729,-0.000684,,DOWN,CONTINUED,2,0.1.0
