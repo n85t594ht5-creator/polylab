@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-10-03T00:09:08Z",
+ "checked_at": "2026-10-04T00:57:49Z",
  "phase": "after",
  "days": {
   "2026-08-28": {
@@ -318,16 +318,25 @@
    "previous_raw_rows": null
   },
   "2026-10-02": {
-   "raw_rows": 1492,
-   "raw_present": true,
+   "raw_rows": 0,
+   "raw_present": false,
    "raw_truncated": false,
-   "aggregate_snapshots": 1372,
-   "status": "OK",
-   "completeness": 1.0,
+   "aggregate_snapshots": 1492,
+   "status": "LEGACY_MISSING",
+   "note": "артефакт истёк или потерян до исправления",
    "previous_raw_rows": null
   },
   "2026-10-03": {
-   "raw_rows": 128,
+   "raw_rows": 0,
+   "raw_present": false,
+   "raw_truncated": false,
+   "aggregate_snapshots": 128,
+   "status": "LEGACY_MISSING",
+   "note": "артефакт истёк или потерян до исправления",
+   "previous_raw_rows": null
+  },
+  "2026-10-04": {
+   "raw_rows": 180,
    "raw_present": true,
    "raw_truncated": false,
    "aggregate_snapshots": null,
@@ -335,9 +344,9 @@
    "previous_raw_rows": null
   }
  },
- "total_raw_rows": 1620,
- "total_aggregate_snapshots": 134537,
- "completeness": 0.012,
+ "total_raw_rows": 180,
+ "total_aggregate_snapshots": 134785,
+ "completeness": 0.0013,
  "issues": [],
  "legacy": [
   "2026-08-28: raw отсутствует (0 в агрегате)",
@@ -374,28 +383,30 @@
   "2026-09-28: raw отсутствует (1100 в агрегате)",
   "2026-09-29: raw отсутствует (1248 в агрегате)",
   "2026-09-30: raw отсутствует (1496 в агрегате)",
-  "2026-10-01: raw отсутствует (1408 в агрегате)"
+  "2026-10-01: raw отсутствует (1408 в агрегате)",
+  "2026-10-02: raw отсутствует (1492 в агрегате)",
+  "2026-10-03: raw отсутствует (128 в агрегате)"
  ],
- "today": "2026-10-03",
+ "today": "2026-10-04",
  "shrunk": [],
  "verdict": "OK",
  "legacy_verdict": "LEGACY_INCOMPLETE",
  "history": [
   {
-   "at": "2026-10-02T23:44:08Z",
+   "at": "2026-10-04T00:32:48Z",
    "phase": "before",
-   "completeness": 0.0102,
+   "completeness": 0.0,
    "verdict": "OK",
-   "total_raw": 1372,
-   "total_agg": 134537
+   "total_raw": 0,
+   "total_agg": 134785
   },
   {
-   "at": "2026-10-03T00:09:08Z",
+   "at": "2026-10-04T00:57:49Z",
    "phase": "after",
-   "completeness": 0.012,
+   "completeness": 0.0013,
    "verdict": "OK",
-   "total_raw": 1620,
-   "total_agg": 134537
+   "total_raw": 180,
+   "total_agg": 134785
   }
  ]
 }

@@ -1,28 +1,27 @@
 {
- "snapshots": 248,
+ "snapshots": 180,
  "duplicates": 0,
- "markets": 26,
+ "markets": 16,
  "assets": 4,
  "by_window": {
-  "15m": 64,
-  "5m": 184
+  "5m": 180
  },
  "quality": {
-  "DEGRADED": 89,
-  "INCOMPLETE": 52,
-  "INVALID": 44,
-  "GOOD": 63
+  "DEGRADED": 87,
+  "GOOD": 47,
+  "INCOMPLETE": 46
  },
- "latency_events": 248,
- "moves": 12,
- "ref_missing": 44,
+ "latency_events": 180,
+ "moves": 6,
+ "ref_missing": 0,
  "latency_quality": {
-  "LOW": 248
+  "LOW": 176,
+  "MEDIUM": 4
  },
  "stale": 0,
- "incomplete": 52,
+ "incomplete": 46,
  "parity": {
-  "checked": 248,
+  "checked": 180,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
@@ -33,14 +32,14 @@
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 988,
+  "requests": 756,
   "failures": 0,
-  "retries": 0,
-  "latency_median_ms": 114.5,
-  "latency_max_ms": 373.3
+  "retries": 1,
+  "latency_median_ms": 143.2,
+  "latency_max_ms": 527.5
  },
  "shadow": {
-  "snapshots": 95128,
+  "snapshots": 95308,
   "signals": 247,
   "accepted": 52,
   "reduced": 0,
@@ -59,34 +58,34 @@
  },
  "storage": {
   "raw/dna": {
-   "files": 2,
-   "bytes": 250274
+   "files": 1,
+   "bytes": 31526
   },
   "raw/latency": {
-   "files": 2,
-   "bytes": 308777
+   "files": 1,
+   "bytes": 34377
   },
   "moves": {
-   "files": 35,
-   "bytes": 857646
+   "files": 36,
+   "bytes": 858810
   },
   "agg": {
-   "files": 37,
-   "bytes": 182438
+   "files": 38,
+   "bytes": 186500
   },
   "state": {
    "files": 3,
-   "bytes": 13675
+   "bytes": 3871
   },
-  "total_bytes": 1612810,
-  "git_tracked_bytes": 1053759,
-  "artifact_bytes": 559051
+  "total_bytes": 1115084,
+  "git_tracked_bytes": 1049181,
+  "artifact_bytes": 65903
  },
- "ids_pruned": 924,
- "ids_kept": 696,
+ "ids_pruned": 696,
+ "ids_kept": 180,
  "duplicates_store": 0,
- "restored_ids": 1372,
+ "restored_ids": 696,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-10-03T00:09:08.603438+00:00"
+ "finished_at": "2026-10-04T00:57:49.506879+00:00"
 }
