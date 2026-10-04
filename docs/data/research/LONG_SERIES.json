@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-10-04T12:18:37Z",
+ "checked_at": "2026-10-04T18:37:58Z",
  "days": 38,
  "issues": [
   {
@@ -632,43 +632,43 @@
    }
   },
   "2026-10-04": {
-   "snapshots": 516,
-   "valid": 468,
+   "snapshots": 832,
+   "valid": 784,
    "quality": {
-    "DEGRADED": 174,
-    "GOOD": 170,
-    "INCOMPLETE": 124,
+    "DEGRADED": 283,
+    "GOOD": 323,
+    "INCOMPLETE": 178,
     "INVALID": 48
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 51,
+    "entry_bucket": 68,
     "move_bucket": 48
    }
   }
  },
  "totals": {
-  "snapshots": 135301,
-  "valid": 125709,
-  "valid_share": 0.9291,
+  "snapshots": 135617,
+  "valid": 126025,
+  "valid_share": 0.9293,
   "quality": {
-   "DEGRADED": 36921,
-   "GOOD": 54321,
-   "INCOMPLETE": 33374,
+   "DEGRADED": 37030,
+   "GOOD": 54474,
+   "INCOMPLETE": 33428,
    "INVALID": 9592,
    "STALE": 1093
   },
   "windows": {
-   "15m": 63354,
-   "5m": 71947
+   "15m": 63478,
+   "5m": 72139
   },
   "assets": {
-   "BTC": 33901,
-   "ETH": 33813,
-   "SOL": 33819,
-   "XRP": 33768
+   "BTC": 33980,
+   "ETH": 33892,
+   "SOL": 33898,
+   "XRP": 33847
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -676,15 +676,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 35,
   "feature_availability_share": {
-   "acceleration": 0.6719,
+   "acceleration": 0.6717,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6887,
-   "depth_1_up": 0.8624,
-   "imbalance_up": 0.7303,
+   "depth_10_up": 0.6892,
+   "depth_1_up": 0.8626,
+   "imbalance_up": 0.7305,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7303,
-   "volatility": 0.7451
+   "spread_up": 0.7305,
+   "volatility": 0.745
   }
  },
  "verdict": "OK",
@@ -704,7 +704,7 @@
   {
    "day": "2026-10-04",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 516,
+   "stored_snapshots": 832,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
