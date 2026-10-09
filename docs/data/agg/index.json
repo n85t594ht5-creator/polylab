@@ -296,9 +296,9 @@
   },
   {
    "day": "2026-10-09",
-   "snapshots": 292,
-   "valid": 292,
-   "moves": 16,
+   "snapshots": 744,
+   "valid": 688,
+   "moves": 36,
    "raw_present": true
   }
  ],
