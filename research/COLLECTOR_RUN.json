@@ -1,29 +1,29 @@
 {
- "snapshots": 352,
+ "snapshots": 256,
  "duplicates": 0,
- "markets": 24,
+ "markets": 28,
  "assets": 4,
  "by_window": {
-  "5m": 208,
-  "15m": 144
+  "15m": 64,
+  "5m": 192
  },
  "quality": {
-  "INCOMPLETE": 83,
-  "INVALID": 52,
-  "DEGRADED": 87,
-  "GOOD": 130
+  "INCOMPLETE": 77,
+  "DEGRADED": 89,
+  "INVALID": 48,
+  "GOOD": 42
  },
- "latency_events": 352,
- "moves": 12,
- "ref_missing": 52,
+ "latency_events": 256,
+ "moves": 15,
+ "ref_missing": 48,
  "latency_quality": {
-  "LOW": 351,
-  "MEDIUM": 1
+  "LOW": 250,
+  "MEDIUM": 6
  },
  "stale": 0,
- "incomplete": 83,
+ "incomplete": 77,
  "parity": {
-  "checked": 352,
+  "checked": 256,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
@@ -34,14 +34,14 @@
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 1236,
+  "requests": 1026,
   "failures": 0,
-  "retries": 0,
-  "latency_median_ms": 126.3,
-  "latency_max_ms": 3074.6
+  "retries": 1,
+  "latency_median_ms": 125.1,
+  "latency_max_ms": 480.2
  },
  "shadow": {
-  "snapshots": 101990,
+  "snapshots": 102198,
   "signals": 247,
   "accepted": 52,
   "reduced": 0,
@@ -61,33 +61,33 @@
  "storage": {
   "raw/dna": {
    "files": 1,
-   "bytes": 225847
+   "bytes": 41858
   },
   "raw/latency": {
    "files": 1,
-   "bytes": 275160
+   "bytes": 48893
   },
   "moves": {
-   "files": 41,
-   "bytes": 923748
+   "files": 42,
+   "bytes": 925885
   },
   "agg": {
    "files": 44,
-   "bytes": 217130
+   "bytes": 217220
   },
   "state": {
    "files": 3,
-   "bytes": 13752
+   "bytes": 5316
   },
-  "total_bytes": 1655637,
-  "git_tracked_bytes": 1154630,
-  "artifact_bytes": 501007
+  "total_bytes": 1239172,
+  "git_tracked_bytes": 1148421,
+  "artifact_bytes": 90751
  },
- "ids_pruned": 744,
- "ids_kept": 700,
+ "ids_pruned": 700,
+ "ids_kept": 256,
  "duplicates_store": 0,
- "restored_ids": 1092,
+ "restored_ids": 700,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-10-09T22:59:08.505590+00:00"
+ "finished_at": "2026-10-10T06:08:41.601411+00:00"
 }
