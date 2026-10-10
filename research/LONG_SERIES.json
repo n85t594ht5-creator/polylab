@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-10-10T09:47:30Z",
+ "checked_at": "2026-10-10T17:19:58Z",
  "days": 44,
  "issues": [
   {
@@ -734,43 +734,43 @@
    }
   },
   "2026-10-10": {
-   "snapshots": 256,
-   "valid": 208,
+   "snapshots": 548,
+   "valid": 452,
    "quality": {
-    "DEGRADED": 89,
-    "GOOD": 42,
-    "INCOMPLETE": 77,
-    "INVALID": 48
+    "DEGRADED": 178,
+    "GOOD": 136,
+    "INCOMPLETE": 138,
+    "INVALID": 96
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 32,
-    "move_bucket": 48
+    "entry_bucket": 63,
+    "move_bucket": 96
    }
   }
  },
  "totals": {
-  "snapshots": 143717,
-  "valid": 133524,
-  "valid_share": 0.9291,
+  "snapshots": 144009,
+  "valid": 133768,
+  "valid_share": 0.9289,
   "quality": {
-   "DEGRADED": 39259,
-   "GOOD": 57491,
-   "INCOMPLETE": 35681,
-   "INVALID": 10193,
+   "DEGRADED": 39348,
+   "GOOD": 57585,
+   "INCOMPLETE": 35742,
+   "INVALID": 10241,
    "STALE": 1093
   },
   "windows": {
-   "15m": 67130,
-   "5m": 76587
+   "15m": 67230,
+   "5m": 76779
   },
   "assets": {
-   "BTC": 36013,
-   "ETH": 35909,
-   "SOL": 35915,
-   "XRP": 35880
+   "BTC": 36086,
+   "ETH": 35982,
+   "SOL": 35988,
+   "XRP": 35953
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -778,15 +778,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 41,
   "feature_availability_share": {
-   "acceleration": 0.6708,
+   "acceleration": 0.6705,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6921,
+   "depth_10_up": 0.6922,
    "depth_1_up": 0.8633,
    "imbalance_up": 0.7284,
    "liquidity": 1.0,
    "market_volume": 0.0,
    "spread_up": 0.7284,
-   "volatility": 0.7443
+   "volatility": 0.7442
   }
  },
  "verdict": "OK",
@@ -806,7 +806,7 @@
   {
    "day": "2026-10-10",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 256,
+   "stored_snapshots": 548,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
