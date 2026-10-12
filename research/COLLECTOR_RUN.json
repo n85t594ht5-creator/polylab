@@ -1,28 +1,28 @@
 {
- "snapshots": 168,
+ "snapshots": 316,
  "duplicates": 0,
- "markets": 16,
+ "markets": 24,
  "assets": 4,
  "by_window": {
-  "5m": 168
+  "5m": 192,
+  "15m": 124
  },
  "quality": {
-  "INVALID": 42,
-  "INCOMPLETE": 64,
-  "DEGRADED": 43,
-  "GOOD": 19
+  "DEGRADED": 117,
+  "GOOD": 133,
+  "INCOMPLETE": 66
  },
- "latency_events": 168,
- "moves": 12,
- "ref_missing": 42,
+ "latency_events": 316,
+ "moves": 6,
+ "ref_missing": 0,
  "latency_quality": {
-  "LOW": 167,
+  "LOW": 315,
   "MEDIUM": 1
  },
  "stale": 0,
- "incomplete": 64,
+ "incomplete": 66,
  "parity": {
-  "checked": 168,
+  "checked": 316,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
@@ -33,14 +33,14 @@
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 763,
+  "requests": 1082,
   "failures": 0,
-  "retries": 1,
-  "latency_median_ms": 100.0,
-  "latency_max_ms": 545.5
+  "retries": 0,
+  "latency_median_ms": 159.1,
+  "latency_max_ms": 501.8
  },
  "shadow": {
-  "snapshots": 103081,
+  "snapshots": 103397,
   "signals": 247,
   "accepted": 52,
   "reduced": 0,
@@ -59,34 +59,34 @@
  },
  "storage": {
   "raw/dna": {
-   "files": 1,
-   "bytes": 101699
+   "files": 2,
+   "bytes": 151275
   },
   "raw/latency": {
-   "files": 1,
-   "bytes": 116569
+   "files": 2,
+   "bytes": 176897
   },
   "moves": {
-   "files": 43,
-   "bytes": 931398
+   "files": 44,
+   "bytes": 932998
   },
   "agg": {
-   "files": 45,
-   "bytes": 222333
+   "files": 46,
+   "bytes": 227215
   },
   "state": {
    "files": 3,
-   "bytes": 3644
+   "bytes": 9648
   },
-  "total_bytes": 1375643,
-  "git_tracked_bytes": 1157375,
-  "artifact_bytes": 218268
+  "total_bytes": 1498033,
+  "git_tracked_bytes": 1169861,
+  "artifact_bytes": 328172
  },
- "ids_pruned": 1016,
- "ids_kept": 168,
+ "ids_pruned": 444,
+ "ids_kept": 484,
  "duplicates_store": 0,
- "restored_ids": 1016,
+ "restored_ids": 612,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-10-11T19:13:43.132570+00:00"
+ "finished_at": "2026-10-12T00:02:28.738197+00:00"
 }

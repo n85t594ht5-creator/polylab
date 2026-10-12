@@ -1,0 +1,131 @@
+{
+ "agg_version": "1",
+ "built_at": "2026-10-12T00:02:28Z",
+ "cuts": {
+  "asset": {
+   "BTC": {
+    "n": 1,
+    "quality": {
+     "DEGRADED": 1
+    },
+    "valid": 1
+   },
+   "ETH": {
+    "n": 1,
+    "quality": {
+     "DEGRADED": 1
+    },
+    "valid": 1
+   },
+   "SOL": {
+    "n": 1,
+    "quality": {
+     "DEGRADED": 1
+    },
+    "valid": 1
+   },
+   "XRP": {
+    "n": 1,
+    "quality": {
+     "DEGRADED": 1
+    },
+    "valid": 1
+   }
+  },
+  "elapsed_bucket": {
+   "<50%": {
+    "n": 4,
+    "quality": {
+     "DEGRADED": 4
+    },
+    "valid": 4
+   }
+  },
+  "entry_bucket": {
+   "0.55–0.60": {
+    "n": 2,
+    "quality": {
+     "DEGRADED": 2
+    },
+    "valid": 2
+   },
+   ">0.62": {
+    "n": 2,
+    "quality": {
+     "DEGRADED": 2
+    },
+    "valid": 2
+   }
+  },
+  "move_bucket": {
+   "0.00–0.05%": {
+    "n": 4,
+    "quality": {
+     "DEGRADED": 4
+    },
+    "valid": 4
+   }
+  },
+  "quality": {
+   "DEGRADED": {
+    "n": 4,
+    "quality": {
+     "DEGRADED": 4
+    },
+    "valid": 4
+   }
+  },
+  "window": {
+   "5m": {
+    "n": 4,
+    "quality": {
+     "DEGRADED": 4
+    },
+    "valid": 4
+   }
+  }
+ },
+ "day": "2026-10-12",
+ "feature_availability": {
+  "acceleration": 0,
+  "book_ts_up": 4,
+  "depth_10_up": 4,
+  "depth_1_up": 4,
+  "imbalance_up": 4,
+  "liquidity": 4,
+  "market_volume": 0,
+  "spread_up": 4,
+  "volatility": 0
+ },
+ "latency": {
+  "n": 4,
+  "quality": {
+   "LOW": 4
+  }
+ },
+ "missing_fields": {
+  "acceleration": 4,
+  "volatility": 4
+ },
+ "moves": {
+  "avg_time_to_reversal_sec": null,
+  "by_window": {
+   "5m": {
+    "continued": 2,
+    "n": 2,
+    "reversed": 0
+   }
+  },
+  "continued": 2,
+  "n": 2,
+  "reversed": 0,
+  "with_outcome": 2
+ },
+ "quality": {
+  "DEGRADED": 4
+ },
+ "raw_present": true,
+ "raw_truncated": false,
+ "snapshots": 4,
+ "valid": 4
+}

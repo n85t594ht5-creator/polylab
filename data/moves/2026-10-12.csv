@@ -1,0 +1,3 @@
+move_id,detected_at,market_id,asset,window,move_start,initial_move,duration_so_far_sec,acceleration_so_far,elapsed_at_detect,direction,entry_ask_at_detect,volatility_at_detect,outcome_ready,move_end,move_duration_sec,max_continuation,max_reversal,time_to_reversal_sec,final_direction,resolution,schema_version,collector_version
+5531124@1791762793,2026-10-11T23:53:13.729816+00:00,5531124,SOL,5m,2026-10-11T23:50:00+00:00,0.000674,193.7,,0.6458,UP,0.99,0.00044681,1,2026-10-11T23:55:00+00:00,106.3,0.000764,0.000135,,UP,CONTINUED,2,0.1.0
+5531126@1791762793,2026-10-11T23:53:13.729816+00:00,5531126,BTC,5m,2026-10-11T23:50:00+00:00,0.00056,193.7,,0.6458,UP,0.99,0.00016241,1,2026-10-11T23:55:00+00:00,106.3,0.000632,0.000406,,UP,CONTINUED,2,0.1.0

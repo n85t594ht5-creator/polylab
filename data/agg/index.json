@@ -310,9 +310,16 @@
   },
   {
    "day": "2026-10-11",
-   "snapshots": 612,
-   "valid": 536,
-   "moves": 9,
+   "snapshots": 924,
+   "valid": 848,
+   "moves": 13,
+   "raw_present": true
+  },
+  {
+   "day": "2026-10-12",
+   "snapshots": 4,
+   "valid": 4,
+   "moves": 2,
    "raw_present": true
   }
  ],
