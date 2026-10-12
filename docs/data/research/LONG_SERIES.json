@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-10-12T10:44:52Z",
+ "checked_at": "2026-10-12T21:15:21Z",
  "days": 46,
  "issues": [
   {
@@ -768,41 +768,43 @@
    }
   },
   "2026-10-12": {
-   "snapshots": 500,
-   "valid": 500,
+   "snapshots": 880,
+   "valid": 820,
    "quality": {
-    "DEGRADED": 153,
-    "GOOD": 211,
-    "INCOMPLETE": 136
+    "DEGRADED": 270,
+    "GOOD": 335,
+    "INCOMPLETE": 215,
+    "INVALID": 60
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 60
+    "entry_bucket": 125,
+    "move_bucket": 60
    }
   }
  },
  "totals": {
-  "snapshots": 146005,
-  "valid": 135629,
-  "valid_share": 0.9289,
+  "snapshots": 146385,
+  "valid": 135949,
+  "valid_share": 0.9287,
   "quality": {
-   "DEGRADED": 40010,
-   "GOOD": 58294,
-   "INCOMPLETE": 36232,
-   "INVALID": 10376,
+   "DEGRADED": 40127,
+   "GOOD": 58418,
+   "INCOMPLETE": 36311,
+   "INVALID": 10436,
    "STALE": 1093
   },
   "windows": {
-   "15m": 67866,
-   "5m": 78139
+   "15m": 68042,
+   "5m": 78343
   },
   "assets": {
-   "BTC": 36585,
-   "ETH": 36481,
-   "SOL": 36487,
-   "XRP": 36452
+   "BTC": 36697,
+   "ETH": 36581,
+   "SOL": 36571,
+   "XRP": 36536
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -810,15 +812,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 43,
   "feature_availability_share": {
-   "acceleration": 0.6697,
+   "acceleration": 0.6694,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6931,
-   "depth_1_up": 0.8637,
+   "depth_10_up": 0.6932,
+   "depth_1_up": 0.8636,
    "imbalance_up": 0.7285,
    "liquidity": 1.0,
    "market_volume": 0.0,
    "spread_up": 0.7285,
-   "volatility": 0.7437
+   "volatility": 0.7435
   }
  },
  "verdict": "OK",
@@ -838,7 +840,7 @@
   {
    "day": "2026-10-12",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 500,
+   "stored_snapshots": 880,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
