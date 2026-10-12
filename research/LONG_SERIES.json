@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-10-12T00:31:11Z",
+ "checked_at": "2026-10-12T10:44:52Z",
  "days": 46,
  "issues": [
   {
@@ -761,54 +761,59 @@
    },
    "raw_present": true,
    "raw_truncated": false,
-   "raw_incomplete_on_rebuild": false,
+   "raw_incomplete_on_rebuild": true,
    "cut_gaps": {
     "entry_bucket": 84,
     "move_bucket": 76
    }
   },
   "2026-10-12": {
-   "snapshots": 4,
-   "valid": 4,
+   "snapshots": 500,
+   "valid": 500,
    "quality": {
-    "DEGRADED": 4
+    "DEGRADED": 153,
+    "GOOD": 211,
+    "INCOMPLETE": 136
    },
    "raw_present": true,
    "raw_truncated": false,
-   "raw_incomplete_on_rebuild": false
+   "raw_incomplete_on_rebuild": false,
+   "cut_gaps": {
+    "entry_bucket": 60
+   }
   }
  },
  "totals": {
-  "snapshots": 145509,
-  "valid": 135133,
-  "valid_share": 0.9287,
+  "snapshots": 146005,
+  "valid": 135629,
+  "valid_share": 0.9289,
   "quality": {
-   "DEGRADED": 39861,
-   "GOOD": 58083,
-   "INCOMPLETE": 36096,
+   "DEGRADED": 40010,
+   "GOOD": 58294,
+   "INCOMPLETE": 36232,
    "INVALID": 10376,
    "STALE": 1093
   },
   "windows": {
-   "15m": 67606,
-   "5m": 77903
+   "15m": 67866,
+   "5m": 78139
   },
   "assets": {
-   "BTC": 36461,
-   "ETH": 36357,
-   "SOL": 36363,
-   "XRP": 36328
+   "BTC": 36585,
+   "ETH": 36481,
+   "SOL": 36487,
+   "XRP": 36452
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
   "raw_present_days": 45,
   "truncated_days": 0,
-  "incomplete_rebuild_days": 42,
+  "incomplete_rebuild_days": 43,
   "feature_availability_share": {
    "acceleration": 0.6697,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6933,
-   "depth_1_up": 0.8636,
+   "depth_10_up": 0.6931,
+   "depth_1_up": 0.8637,
    "imbalance_up": 0.7285,
    "liquidity": 1.0,
    "market_volume": 0.0,
@@ -833,7 +838,7 @@
   {
    "day": "2026-10-12",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 4,
+   "stored_snapshots": 500,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
