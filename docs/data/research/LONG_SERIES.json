@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-10-13T10:31:47Z",
+ "checked_at": "2026-10-13T19:14:46Z",
  "days": 47,
  "issues": [
   {
@@ -785,41 +785,43 @@
    }
   },
   "2026-10-13": {
-   "snapshots": 448,
-   "valid": 448,
+   "snapshots": 784,
+   "valid": 736,
    "quality": {
-    "DEGRADED": 168,
-    "GOOD": 190,
-    "INCOMPLETE": 90
+    "DEGRADED": 246,
+    "GOOD": 308,
+    "INCOMPLETE": 182,
+    "INVALID": 48
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 43
+    "entry_bucket": 135,
+    "move_bucket": 48
    }
   }
  },
  "totals": {
-  "snapshots": 147309,
-  "valid": 136813,
-  "valid_share": 0.9287,
+  "snapshots": 147645,
+  "valid": 137101,
+  "valid_share": 0.9286,
   "quality": {
-   "DEGRADED": 40401,
-   "GOOD": 58759,
-   "INCOMPLETE": 36560,
-   "INVALID": 10496,
+   "DEGRADED": 40479,
+   "GOOD": 58877,
+   "INCOMPLETE": 36652,
+   "INVALID": 10544,
    "STALE": 1093
   },
   "windows": {
-   "15m": 68486,
-   "5m": 78823
+   "15m": 68630,
+   "5m": 79015
   },
   "assets": {
-   "BTC": 36928,
-   "ETH": 36812,
-   "SOL": 36802,
-   "XRP": 36767
+   "BTC": 37012,
+   "ETH": 36896,
+   "SOL": 36886,
+   "XRP": 36851
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -827,14 +829,14 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 44,
   "feature_availability_share": {
-   "acceleration": 0.6692,
+   "acceleration": 0.6691,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.694,
-   "depth_1_up": 0.864,
-   "imbalance_up": 0.7284,
+   "depth_10_up": 0.6934,
+   "depth_1_up": 0.8637,
+   "imbalance_up": 0.7282,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7284,
+   "spread_up": 0.7282,
    "volatility": 0.7433
   }
  },
@@ -855,7 +857,7 @@
   {
    "day": "2026-10-13",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 448,
+   "stored_snapshots": 784,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
