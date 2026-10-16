@@ -1,29 +1,28 @@
 {
- "snapshots": 336,
+ "snapshots": 520,
  "duplicates": 0,
- "markets": 20,
+ "markets": 32,
  "assets": 4,
  "by_window": {
-  "5m": 192,
-  "15m": 144
+  "5m": 240,
+  "15m": 280
  },
  "quality": {
-  "DEGRADED": 61,
-  "INVALID": 46,
-  "INCOMPLETE": 109,
-  "GOOD": 120
+  "INVALID": 60,
+  "INCOMPLETE": 103,
+  "DEGRADED": 115,
+  "GOOD": 242
  },
- "latency_events": 336,
- "moves": 17,
- "ref_missing": 46,
+ "latency_events": 520,
+ "moves": 25,
+ "ref_missing": 60,
  "latency_quality": {
-  "LOW": 334,
-  "MEDIUM": 2
+  "LOW": 520
  },
  "stale": 0,
- "incomplete": 109,
+ "incomplete": 103,
  "parity": {
-  "checked": 336,
+  "checked": 520,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
@@ -34,14 +33,14 @@
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 1179,
+  "requests": 1658,
   "failures": 0,
-  "retries": 2,
-  "latency_median_ms": 102.9,
-  "latency_max_ms": 380.4
+  "retries": 0,
+  "latency_median_ms": 96.6,
+  "latency_max_ms": 310.2
  },
  "shadow": {
-  "snapshots": 107575,
+  "snapshots": 108035,
   "signals": 248,
   "accepted": 53,
   "reduced": 0,
@@ -61,33 +60,33 @@
  "storage": {
   "raw/dna": {
    "files": 1,
-   "bytes": 51930
+   "bytes": 131621
   },
   "raw/latency": {
    "files": 1,
-   "bytes": 64149
+   "bytes": 163222
   },
   "moves": {
    "files": 47,
-   "bytes": 977802
+   "bytes": 981472
   },
   "agg": {
-   "files": 49,
-   "bytes": 242751
+   "files": 51,
+   "bytes": 248237
   },
   "state": {
    "files": 3,
-   "bytes": 6836
+   "bytes": 10332
   },
-  "total_bytes": 1343468,
-  "git_tracked_bytes": 1227389,
-  "artifact_bytes": 116079
+  "total_bytes": 1534884,
+  "git_tracked_bytes": 1240041,
+  "artifact_bytes": 294843
  },
- "ids_pruned": 464,
- "ids_kept": 336,
+ "ids_pruned": 336,
+ "ids_kept": 520,
  "duplicates_store": 0,
- "restored_ids": 464,
+ "restored_ids": 336,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-10-16T00:45:13.827942+00:00"
+ "finished_at": "2026-10-16T07:29:43.507000+00:00"
 }

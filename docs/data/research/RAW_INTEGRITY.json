@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-10-16T00:45:13Z",
+ "checked_at": "2026-10-16T07:29:43Z",
  "phase": "after",
  "days": {
   "2026-08-28": {
@@ -434,18 +434,28 @@
    "note": "артефакт истёк или потерян до исправления",
    "previous_raw_rows": null
   },
+  "2026-10-15": {
+   "raw_rows": 0,
+   "raw_present": false,
+   "raw_truncated": false,
+   "aggregate_snapshots": 0,
+   "status": "LEGACY_MISSING",
+   "note": "артефакт истёк или потерян до исправления",
+   "previous_raw_rows": null
+  },
   "2026-10-16": {
-   "raw_rows": 336,
+   "raw_rows": 856,
    "raw_present": true,
    "raw_truncated": false,
-   "aggregate_snapshots": null,
-   "status": "NO_AGGREGATE",
+   "aggregate_snapshots": 336,
+   "status": "OK",
+   "completeness": 1.0,
    "previous_raw_rows": null
   }
  },
- "total_raw_rows": 336,
- "total_aggregate_snapshots": 149761,
- "completeness": 0.0022,
+ "total_raw_rows": 856,
+ "total_aggregate_snapshots": 150097,
+ "completeness": 0.0057,
  "issues": [],
  "legacy": [
   "2026-08-28: raw отсутствует (0 в агрегате)",
@@ -495,7 +505,8 @@
   "2026-10-11: raw отсутствует (924 в агрегате)",
   "2026-10-12: raw отсутствует (1356 в агрегате)",
   "2026-10-13: raw отсутствует (1232 в агрегате)",
-  "2026-10-14: raw отсутствует (1668 в агрегате)"
+  "2026-10-14: raw отсутствует (1668 в агрегате)",
+  "2026-10-15: raw отсутствует (0 в агрегате)"
  ],
  "today": "2026-10-16",
  "shrunk": [],
@@ -503,20 +514,20 @@
  "legacy_verdict": "LEGACY_INCOMPLETE",
  "history": [
   {
-   "at": "2026-10-16T00:20:13Z",
+   "at": "2026-10-16T07:04:43Z",
    "phase": "before",
-   "completeness": 0.0,
-   "verdict": "OK",
-   "total_raw": 0,
-   "total_agg": 149761
-  },
-  {
-   "at": "2026-10-16T00:45:13Z",
-   "phase": "after",
    "completeness": 0.0022,
    "verdict": "OK",
    "total_raw": 336,
-   "total_agg": 149761
+   "total_agg": 150097
+  },
+  {
+   "at": "2026-10-16T07:29:43Z",
+   "phase": "after",
+   "completeness": 0.0057,
+   "verdict": "OK",
+   "total_raw": 856,
+   "total_agg": 150097
   }
  ]
 }
