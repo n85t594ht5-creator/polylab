@@ -1,28 +1,28 @@
 {
- "snapshots": 372,
+ "snapshots": 144,
  "duplicates": 0,
- "markets": 24,
+ "markets": 12,
  "assets": 4,
  "by_window": {
-  "5m": 228,
-  "15m": 144
+  "5m": 144
  },
  "quality": {
-  "DEGRADED": 119,
-  "INCOMPLETE": 84,
-  "GOOD": 169
+  "DEGRADED": 42,
+  "INVALID": 36,
+  "GOOD": 28,
+  "INCOMPLETE": 38
  },
- "latency_events": 372,
- "moves": 22,
- "ref_missing": 0,
+ "latency_events": 144,
+ "moves": 7,
+ "ref_missing": 36,
  "latency_quality": {
-  "LOW": 368,
-  "MEDIUM": 4
+  "LOW": 143,
+  "MEDIUM": 1
  },
  "stale": 0,
- "incomplete": 84,
+ "incomplete": 38,
  "parity": {
-  "checked": 372,
+  "checked": 144,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
@@ -33,14 +33,14 @@
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 1274,
+  "requests": 677,
   "failures": 0,
-  "retries": 0,
-  "latency_median_ms": 152.0,
-  "latency_max_ms": 363.5
+  "retries": 1,
+  "latency_median_ms": 135.1,
+  "latency_max_ms": 10944.4
  },
  "shadow": {
-  "snapshots": 110331,
+  "snapshots": 110439,
   "signals": 248,
   "accepted": 53,
   "reduced": 0,
@@ -59,34 +59,34 @@
  },
  "storage": {
   "raw/dna": {
-   "files": 2,
-   "bytes": 326179
+   "files": 1,
+   "bytes": 189740
   },
   "raw/latency": {
-   "files": 2,
-   "bytes": 391926
+   "files": 1,
+   "bytes": 225726
   },
   "moves": {
    "files": 49,
-   "bytes": 1005610
+   "bytes": 1007087
   },
   "agg": {
-   "files": 52,
-   "bytes": 253673
+   "files": 53,
+   "bytes": 257969
   },
   "state": {
    "files": 3,
-   "bytes": 14816
+   "bytes": 6684
   },
-  "total_bytes": 1992204,
-  "git_tracked_bytes": 1274099,
-  "artifact_bytes": 718105
+  "total_bytes": 1687206,
+  "git_tracked_bytes": 1271740,
+  "artifact_bytes": 415466
  },
- "ids_pruned": 1300,
- "ids_kept": 756,
+ "ids_pruned": 1612,
+ "ids_kept": 328,
  "duplicates_store": 0,
- "restored_ids": 1684,
+ "restored_ids": 1796,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-10-18T00:24:21.343355+00:00"
+ "finished_at": "2026-10-18T19:00:37.060002+00:00"
 }
