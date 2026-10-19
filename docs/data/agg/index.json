@@ -363,6 +363,13 @@
    "valid": 1342,
    "moves": 40,
    "raw_present": true
+  },
+  {
+   "day": "2026-10-19",
+   "snapshots": 1260,
+   "valid": 1092,
+   "moves": 9,
+   "raw_present": true
   }
  ],
  "agg_version": "1"
