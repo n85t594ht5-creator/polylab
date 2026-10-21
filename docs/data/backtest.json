@@ -1,34 +1,34 @@
 {
- "built_at": "2026-10-20T12:05:57Z",
+ "built_at": "2026-10-21T12:20:03Z",
  "engine_version": "1",
  "dataset": {
   "source": "REAL",
   "dataset_version": "1",
-  "rows_total": 11124,
-  "rows_usable": 10214,
+  "rows_total": 11520,
+  "rows_usable": 10490,
   "days": 8,
   "day_list": [
-   "2026-10-13",
    "2026-10-14",
    "2026-10-15",
    "2026-10-16",
    "2026-10-17",
    "2026-10-18",
    "2026-10-19",
-   "2026-10-20"
+   "2026-10-20",
+   "2026-10-21"
   ],
-  "unique_markets": 682,
+  "unique_markets": 687,
   "by_window": {
-   "15m": 4832,
-   "5m": 5382
+   "15m": 5028,
+   "5m": 5462
   },
-  "span_hours": 173.12,
+  "span_hours": 174.74,
   "issues": []
  },
  "split": {
-  "border_market_start": "2026-10-17T12:30:00+00:00",
-  "is_windows": 477,
-  "oos_windows": 205,
+  "border_market_start": "2026-10-19T12:55:00+00:00",
+  "is_windows": 480,
+  "oos_windows": 207,
   "oos_fraction": 0.3,
   "rule": "разделение по времени, граница между окнами; подбор только на in-sample"
  },
@@ -36,18 +36,18 @@
   "mode": "BACKTEST",
   "source": "REAL",
   "engine_version": "1",
-  "windows_seen": 477,
-  "windows_outcome_unknown": 61,
+  "windows_seen": 480,
+  "windows_outcome_unknown": 52,
   "funnel": {
-   "windows": 477,
-   "outcome_unknown": 61,
-   "snapshots": 6604,
+   "windows": 480,
+   "outcome_unknown": 52,
+   "snapshots": 6791,
    "snapshot_errors": 0,
    "no_price": 0,
-   "ask_up_present": 5547,
-   "ask_dn_present": 5794,
-   "late_window": 2973,
-   "no_signal": 6604,
+   "ask_up_present": 5650,
+   "ask_dn_present": 5995,
+   "late_window": 2981,
+   "no_signal": 6791,
    "with_signal": 0,
    "blocked_by_risk": 0,
    "entered": 0
@@ -65,42 +65,47 @@
   "mode": "OOS",
   "source": "REAL",
   "engine_version": "1",
-  "windows_seen": 205,
-  "windows_outcome_unknown": 10,
+  "windows_seen": 207,
+  "windows_outcome_unknown": 15,
   "funnel": {
-   "windows": 205,
-   "outcome_unknown": 10,
-   "snapshots": 2940,
+   "windows": 207,
+   "outcome_unknown": 15,
+   "snapshots": 2870,
    "snapshot_errors": 0,
    "no_price": 0,
-   "ask_up_present": 2389,
-   "ask_dn_present": 2588,
-   "late_window": 1305,
-   "no_signal": 2939,
-   "with_signal": 1,
+   "ask_up_present": 2414,
+   "ask_dn_present": 2465,
+   "late_window": 1275,
+   "no_signal": 2867,
+   "with_signal": 3,
    "blocked_by_risk": 0,
-   "entered": 1
+   "entered": 3
   },
   "metrics": {
-   "signals": 1,
-   "closed": 1,
+   "signals": 3,
+   "closed": 3,
    "blocked": 0,
    "status": "INSUFFICIENT_SAMPLE",
    "winrate": 1.0,
-   "pnl": 36.21,
+   "pnl": 119.28,
    "profit_factor": 99.0,
    "max_drawdown": 0.0,
-   "days": 1,
-   "best_day": "2026-10-20",
-   "best_day_pnl": 36.21,
-   "best_day_share_pct": 100.0,
-   "pnl_without_best_day": 0.0,
-   "top3_days_pnl": 36.21,
+   "days": 2,
+   "best_day": "2026-10-21",
+   "best_day_pnl": 83.07,
+   "best_day_share_pct": 69.6,
+   "pnl_without_best_day": 36.21,
+   "top3_days_pnl": 119.28,
    "by_window": {
     "5m": {
      "n": 1,
      "winrate": 1.0,
      "pnl": 36.21
+    },
+    "15m": {
+     "n": 2,
+     "winrate": 1.0,
+     "pnl": 83.07
     }
    },
    "sample_note": "нужно ≥100 закрытых сделок и ≥50 на окно",
@@ -109,19 +114,19 @@
   "arena_errors": {}
  },
  "forward_shadow": {
-  "signals": 249,
-  "closed": 249,
+  "signals": 256,
+  "closed": 256,
   "blocked": 0,
   "status": "SUPPORTED",
-  "winrate": 0.8594,
-  "pnl": 7954.74,
-  "profit_factor": 5.55,
+  "winrate": 0.8633,
+  "pnl": 8225.53,
+  "profit_factor": 5.7,
   "max_drawdown": 150.0,
-  "days": 24,
+  "days": 25,
   "best_day": "2026-08-31",
   "best_day_pnl": 2138.9,
-  "best_day_share_pct": 26.9,
-  "pnl_without_best_day": 5815.84,
+  "best_day_share_pct": 26.0,
+  "pnl_without_best_day": 6086.63,
   "top3_days_pnl": 6035.34,
   "by_window": {
    "5m": {
@@ -130,9 +135,9 @@
     "pnl": 2106.77
    },
    "15m": {
-    "n": 185,
-    "winrate": 0.8595,
-    "pnl": 5847.97
+    "n": 192,
+    "winrate": 0.8646,
+    "pnl": 6118.76
    }
   },
   "sample_note": "",
