@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-10-21T21:40:35Z",
+ "checked_at": "2026-10-22T04:40:20Z",
  "days": 55,
  "issues": [
   {
@@ -912,43 +912,43 @@
    }
   },
   "2026-10-21": {
-   "snapshots": 1408,
-   "valid": 1247,
+   "snapshots": 1664,
+   "valid": 1455,
    "quality": {
-    "DEGRADED": 382,
-    "GOOD": 541,
-    "INCOMPLETE": 324,
-    "INVALID": 161
+    "DEGRADED": 464,
+    "GOOD": 604,
+    "INCOMPLETE": 387,
+    "INVALID": 209
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 169,
-    "move_bucket": 161
+    "entry_bucket": 198,
+    "move_bucket": 209
    }
   }
  },
  "totals": {
-  "snapshots": 159113,
-  "valid": 147440,
-  "valid_share": 0.9266,
+  "snapshots": 159369,
+  "valid": 147648,
+  "valid_share": 0.9265,
   "quality": {
-   "DEGRADED": 43606,
-   "GOOD": 63214,
-   "INCOMPLETE": 39527,
-   "INVALID": 11673,
+   "DEGRADED": 43688,
+   "GOOD": 63277,
+   "INCOMPLETE": 39590,
+   "INVALID": 11721,
    "STALE": 1093
   },
   "windows": {
-   "15m": 73390,
-   "5m": 85723
+   "15m": 73454,
+   "5m": 85915
   },
   "assets": {
-   "BTC": 39879,
-   "ETH": 39763,
-   "SOL": 39753,
-   "XRP": 39718
+   "BTC": 39943,
+   "ETH": 39827,
+   "SOL": 39817,
+   "XRP": 39782
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -956,15 +956,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 50,
   "feature_availability_share": {
-   "acceleration": 0.6679,
+   "acceleration": 0.6676,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6953,
+   "depth_10_up": 0.6955,
    "depth_1_up": 0.863,
    "imbalance_up": 0.727,
    "liquidity": 1.0,
    "market_volume": 0.0,
    "spread_up": 0.727,
-   "volatility": 0.7424
+   "volatility": 0.7421
   }
  },
  "verdict": "OK",
@@ -984,7 +984,7 @@
   {
    "day": "2026-10-21",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 1408,
+   "stored_snapshots": 1664,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
