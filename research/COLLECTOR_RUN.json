@@ -1,29 +1,29 @@
 {
- "snapshots": 336,
+ "snapshots": 440,
  "duplicates": 0,
- "markets": 20,
+ "markets": 28,
  "assets": 4,
  "by_window": {
-  "5m": 192,
-  "15m": 144
+  "5m": 236,
+  "15m": 204
  },
  "quality": {
-  "DEGRADED": 90,
-  "INVALID": 48,
-  "GOOD": 141,
-  "INCOMPLETE": 57
+  "DEGRADED": 103,
+  "INVALID": 59,
+  "GOOD": 181,
+  "INCOMPLETE": 97
  },
- "latency_events": 336,
- "moves": 11,
- "ref_missing": 48,
+ "latency_events": 440,
+ "moves": 22,
+ "ref_missing": 59,
  "latency_quality": {
-  "LOW": 335,
-  "MEDIUM": 1
+  "LOW": 435,
+  "MEDIUM": 5
  },
  "stale": 0,
- "incomplete": 57,
+ "incomplete": 97,
  "parity": {
-  "checked": 336,
+  "checked": 440,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
@@ -34,14 +34,14 @@
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 1189,
+  "requests": 1487,
   "failures": 0,
   "retries": 0,
-  "latency_median_ms": 119.4,
-  "latency_max_ms": 635.0
+  "latency_median_ms": 123.1,
+  "latency_max_ms": 638.7
  },
  "shadow": {
-  "snapshots": 116534,
+  "snapshots": 116915,
   "signals": 256,
   "accepted": 55,
   "reduced": 0,
@@ -61,33 +61,33 @@
  "storage": {
   "raw/dna": {
    "files": 1,
-   "bytes": 236460
+   "bytes": 200849
   },
   "raw/latency": {
    "files": 1,
-   "bytes": 282778
+   "bytes": 237822
   },
   "moves": {
-   "files": 54,
-   "bytes": 1066096
+   "files": 55,
+   "bytes": 1069542
   },
   "agg": {
    "files": 59,
-   "bytes": 285229
+   "bytes": 285323
   },
   "state": {
    "files": 3,
-   "bytes": 11700
+   "bytes": 11548
   },
-  "total_bytes": 1882263,
-  "git_tracked_bytes": 1363025,
-  "artifact_bytes": 519238
+  "total_bytes": 1805084,
+  "git_tracked_bytes": 1366413,
+  "artifact_bytes": 438671
  },
- "ids_pruned": 892,
- "ids_kept": 592,
+ "ids_pruned": 1256,
+ "ids_kept": 584,
  "duplicates_store": 0,
- "restored_ids": 1148,
+ "restored_ids": 1400,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-10-24T22:50:37.891134+00:00"
+ "finished_at": "2026-10-25T19:24:57.571086+00:00"
 }
