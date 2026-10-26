@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-10-25T22:55:23Z",
+ "checked_at": "2026-10-26T20:17:35Z",
  "phase": "after",
  "days": {
   "2026-08-28": {
@@ -525,18 +525,26 @@
    "previous_raw_rows": null
   },
   "2026-10-25": {
-   "raw_rows": 1632,
+   "raw_rows": 0,
+   "raw_present": false,
+   "raw_truncated": false,
+   "aggregate_snapshots": 1632,
+   "status": "LEGACY_MISSING",
+   "note": "артефакт истёк или потерян до исправления",
+   "previous_raw_rows": null
+  },
+  "2026-10-26": {
+   "raw_rows": 1376,
    "raw_present": true,
    "raw_truncated": false,
-   "aggregate_snapshots": 1248,
-   "status": "OK",
-   "completeness": 1.0,
+   "aggregate_snapshots": null,
+   "status": "NO_AGGREGATE",
    "previous_raw_rows": null
   }
  },
- "total_raw_rows": 1632,
- "total_aggregate_snapshots": 164045,
- "completeness": 0.0099,
+ "total_raw_rows": 1376,
+ "total_aggregate_snapshots": 164429,
+ "completeness": 0.0084,
  "issues": [],
  "legacy": [
   "2026-08-28: raw отсутствует (0 в агрегате)",
@@ -596,28 +604,29 @@
   "2026-10-21: raw отсутствует (1664 в агрегате)",
   "2026-10-22: raw отсутствует (0 в агрегате)",
   "2026-10-23: raw отсутствует (1944 в агрегате)",
-  "2026-10-24: raw отсутствует (1484 в агрегате)"
+  "2026-10-24: raw отсутствует (1484 в агрегате)",
+  "2026-10-25: raw отсутствует (1632 в агрегате)"
  ],
- "today": "2026-10-25",
+ "today": "2026-10-26",
  "shrunk": [],
  "verdict": "OK",
  "legacy_verdict": "LEGACY_INCOMPLETE",
  "history": [
   {
-   "at": "2026-10-25T22:30:22Z",
+   "at": "2026-10-26T19:52:35Z",
    "phase": "before",
-   "completeness": 0.0076,
+   "completeness": 0.0063,
    "verdict": "OK",
-   "total_raw": 1248,
-   "total_agg": 164045
+   "total_raw": 1040,
+   "total_agg": 164429
   },
   {
-   "at": "2026-10-25T22:55:23Z",
+   "at": "2026-10-26T20:17:35Z",
    "phase": "after",
-   "completeness": 0.0099,
+   "completeness": 0.0084,
    "verdict": "OK",
-   "total_raw": 1632,
-   "total_agg": 164045
+   "total_raw": 1376,
+   "total_agg": 164429
   }
  ]
 }
