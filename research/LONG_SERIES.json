@@ -1,8 +1,8 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-10-26T20:28:07Z",
- "days": 60,
+ "checked_at": "2026-10-27T00:24:35Z",
+ "days": 61,
  "issues": [
   {
    "kind": "WINDOW_NOT_OBSERVED",
@@ -988,69 +988,80 @@
    }
   },
   "2026-10-26": {
-   "snapshots": 1376,
-   "valid": 1256,
+   "snapshots": 1452,
+   "valid": 1313,
    "quality": {
-    "DEGRADED": 345,
-    "GOOD": 569,
-    "INCOMPLETE": 342,
-    "INVALID": 120
+    "DEGRADED": 372,
+    "GOOD": 581,
+    "INCOMPLETE": 360,
+    "INVALID": 139
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 154,
-    "move_bucket": 120
+    "entry_bucket": 160,
+    "move_bucket": 139
+   }
+  },
+  "2026-10-27": {
+   "snapshots": 96,
+   "valid": 72,
+   "quality": {
+    "DEGRADED": 30,
+    "GOOD": 22,
+    "INCOMPLETE": 20,
+    "INVALID": 24
+   },
+   "raw_present": true,
+   "raw_truncated": false,
+   "raw_incomplete_on_rebuild": false,
+   "cut_gaps": {
+    "entry_bucket": 28,
+    "move_bucket": 24
    }
   }
  },
  "totals": {
-  "snapshots": 165805,
-  "valid": 153461,
-  "valid_share": 0.9256,
+  "snapshots": 165977,
+  "valid": 153590,
+  "valid_share": 0.9254,
   "quality": {
-   "DEGRADED": 45461,
-   "GOOD": 65705,
-   "INCOMPLETE": 41202,
-   "INVALID": 12344,
+   "DEGRADED": 45518,
+   "GOOD": 65739,
+   "INCOMPLETE": 41240,
+   "INVALID": 12387,
    "STALE": 1093
   },
   "windows": {
    "15m": 76150,
-   "5m": 89655
+   "5m": 89827
   },
   "assets": {
-   "BTC": 41552,
-   "ETH": 41436,
-   "SOL": 41426,
-   "XRP": 41391
+   "BTC": 41595,
+   "ETH": 41479,
+   "SOL": 41469,
+   "XRP": 41434
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
-  "raw_present_days": 57,
+  "raw_present_days": 58,
   "truncated_days": 0,
   "incomplete_rebuild_days": 53,
   "feature_availability_share": {
-   "acceleration": 0.6675,
+   "acceleration": 0.6673,
    "book_ts_up": 1.0,
    "depth_10_up": 0.6934,
-   "depth_1_up": 0.8621,
+   "depth_1_up": 0.862,
    "imbalance_up": 0.7264,
    "liquidity": 1.0,
    "market_volume": 0.0,
    "spread_up": 0.7264,
-   "volatility": 0.7422
+   "volatility": 0.7421
   }
  },
  "verdict": "OK",
  "rebuild": [
-  {
-   "day": "2026-10-24",
-   "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 1484,
-   "note": "raw в артефакте; сохранённый агрегат — источник истины"
-  },
   {
    "day": "2026-10-25",
    "status": "RAW_NOT_LOCAL",
@@ -1060,7 +1071,13 @@
   {
    "day": "2026-10-26",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 1376,
+   "stored_snapshots": 1452,
+   "note": "raw в артефакте; сохранённый агрегат — источник истины"
+  },
+  {
+   "day": "2026-10-27",
+   "status": "RAW_NOT_LOCAL",
+   "stored_snapshots": 96,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
