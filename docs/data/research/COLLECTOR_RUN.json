@@ -1,28 +1,29 @@
 {
- "snapshots": 172,
+ "snapshots": 368,
  "duplicates": 0,
- "markets": 16,
+ "markets": 28,
  "assets": 4,
  "by_window": {
-  "5m": 172
+  "15m": 160,
+  "5m": 208
  },
  "quality": {
-  "DEGRADED": 57,
-  "INVALID": 43,
-  "INCOMPLETE": 38,
-  "GOOD": 34
+  "INCOMPLETE": 107,
+  "DEGRADED": 81,
+  "INVALID": 52,
+  "GOOD": 128
  },
- "latency_events": 172,
- "moves": 11,
- "ref_missing": 43,
+ "latency_events": 368,
+ "moves": 23,
+ "ref_missing": 52,
  "latency_quality": {
-  "LOW": 167,
-  "MEDIUM": 5
+  "LOW": 353,
+  "MEDIUM": 15
  },
  "stale": 0,
- "incomplete": 38,
+ "incomplete": 107,
  "parity": {
-  "checked": 172,
+  "checked": 368,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
@@ -33,14 +34,14 @@
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 775,
+  "requests": 1294,
   "failures": 0,
-  "retries": 2,
-  "latency_median_ms": 94.3,
-  "latency_max_ms": 343.8
+  "retries": 0,
+  "latency_median_ms": 97.4,
+  "latency_max_ms": 291.4
  },
  "shadow": {
-  "snapshots": 117764,
+  "snapshots": 118080,
   "signals": 256,
   "accepted": 55,
   "reduced": 0,
@@ -59,34 +60,34 @@
  },
  "storage": {
   "raw/dna": {
-   "files": 2,
-   "bytes": 241489
+   "files": 1,
+   "bytes": 55694
   },
   "raw/latency": {
-   "files": 2,
-   "bytes": 295198
+   "files": 1,
+   "bytes": 70316
   },
   "moves": {
    "files": 57,
-   "bytes": 1078928
+   "bytes": 1082770
   },
   "agg": {
-   "files": 61,
-   "bytes": 295619
+   "files": 62,
+   "bytes": 299653
   },
   "state": {
    "files": 3,
-   "bytes": 10104
+   "bytes": 10712
   },
-  "total_bytes": 1921338,
-  "git_tracked_bytes": 1384651,
-  "artifact_bytes": 536687
+  "total_bytes": 1519145,
+  "git_tracked_bytes": 1393135,
+  "artifact_bytes": 126010
  },
- "ids_pruned": 1040,
- "ids_kept": 508,
+ "ids_pruned": 336,
+ "ids_kept": 540,
  "duplicates_store": 0,
- "restored_ids": 1376,
+ "restored_ids": 508,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-10-27T00:13:27.922742+00:00"
+ "finished_at": "2026-10-27T05:20:05.294179+00:00"
 }
