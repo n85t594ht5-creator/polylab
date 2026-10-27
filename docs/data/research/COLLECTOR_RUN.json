@@ -1,28 +1,28 @@
 {
- "snapshots": 336,
+ "snapshots": 172,
  "duplicates": 0,
- "markets": 24,
+ "markets": 16,
  "assets": 4,
  "by_window": {
-  "5m": 192,
-  "15m": 144
+  "5m": 172
  },
  "quality": {
-  "DEGRADED": 116,
-  "GOOD": 118,
-  "INCOMPLETE": 102
+  "DEGRADED": 57,
+  "INVALID": 43,
+  "INCOMPLETE": 38,
+  "GOOD": 34
  },
- "latency_events": 336,
- "moves": 17,
- "ref_missing": 0,
+ "latency_events": 172,
+ "moves": 11,
+ "ref_missing": 43,
  "latency_quality": {
-  "LOW": 331,
+  "LOW": 167,
   "MEDIUM": 5
  },
  "stale": 0,
- "incomplete": 102,
+ "incomplete": 38,
  "parity": {
-  "checked": 336,
+  "checked": 172,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
@@ -33,14 +33,14 @@
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 1132,
+  "requests": 775,
   "failures": 0,
-  "retries": 0,
-  "latency_median_ms": 159.9,
-  "latency_max_ms": 534.5
+  "retries": 2,
+  "latency_median_ms": 94.3,
+  "latency_max_ms": 343.8
  },
  "shadow": {
-  "snapshots": 117635,
+  "snapshots": 117764,
   "signals": 256,
   "accepted": 55,
   "reduced": 0,
@@ -59,34 +59,34 @@
  },
  "storage": {
   "raw/dna": {
-   "files": 1,
-   "bytes": 210540
+   "files": 2,
+   "bytes": 241489
   },
   "raw/latency": {
-   "files": 1,
-   "bytes": 262344
+   "files": 2,
+   "bytes": 295198
   },
   "moves": {
-   "files": 56,
-   "bytes": 1076932
+   "files": 57,
+   "bytes": 1078928
   },
   "agg": {
-   "files": 60,
-   "bytes": 290463
+   "files": 61,
+   "bytes": 295619
   },
   "state": {
    "files": 3,
-   "bytes": 6836
+   "bytes": 10104
   },
-  "total_bytes": 1847115,
-  "git_tracked_bytes": 1374231,
-  "artifact_bytes": 472884
+  "total_bytes": 1921338,
+  "git_tracked_bytes": 1384651,
+  "artifact_bytes": 536687
  },
- "ids_pruned": 1864,
- "ids_kept": 336,
+ "ids_pruned": 1040,
+ "ids_kept": 508,
  "duplicates_store": 0,
- "restored_ids": 1864,
+ "restored_ids": 1376,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-10-26T20:17:35.395729+00:00"
+ "finished_at": "2026-10-27T00:13:27.922742+00:00"
 }
