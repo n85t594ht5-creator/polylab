@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-10-27T00:24:35Z",
+ "checked_at": "2026-10-27T08:56:10Z",
  "days": 61,
  "issues": [
   {
@@ -998,66 +998,66 @@
    },
    "raw_present": true,
    "raw_truncated": false,
-   "raw_incomplete_on_rebuild": false,
+   "raw_incomplete_on_rebuild": true,
    "cut_gaps": {
     "entry_bucket": 160,
     "move_bucket": 139
    }
   },
   "2026-10-27": {
-   "snapshots": 96,
-   "valid": 72,
+   "snapshots": 368,
+   "valid": 316,
    "quality": {
-    "DEGRADED": 30,
-    "GOOD": 22,
-    "INCOMPLETE": 20,
-    "INVALID": 24
+    "DEGRADED": 81,
+    "GOOD": 128,
+    "INCOMPLETE": 107,
+    "INVALID": 52
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 28,
-    "move_bucket": 24
+    "entry_bucket": 103,
+    "move_bucket": 52
    }
   }
  },
  "totals": {
-  "snapshots": 165977,
-  "valid": 153590,
-  "valid_share": 0.9254,
+  "snapshots": 166249,
+  "valid": 153834,
+  "valid_share": 0.9253,
   "quality": {
-   "DEGRADED": 45518,
-   "GOOD": 65739,
-   "INCOMPLETE": 41240,
-   "INVALID": 12387,
+   "DEGRADED": 45569,
+   "GOOD": 65845,
+   "INCOMPLETE": 41327,
+   "INVALID": 12415,
    "STALE": 1093
   },
   "windows": {
-   "15m": 76150,
-   "5m": 89827
+   "15m": 76310,
+   "5m": 89939
   },
   "assets": {
-   "BTC": 41595,
-   "ETH": 41479,
-   "SOL": 41469,
-   "XRP": 41434
+   "BTC": 41663,
+   "ETH": 41547,
+   "SOL": 41537,
+   "XRP": 41502
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
   "raw_present_days": 58,
   "truncated_days": 0,
-  "incomplete_rebuild_days": 53,
+  "incomplete_rebuild_days": 54,
   "feature_availability_share": {
    "acceleration": 0.6673,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6934,
-   "depth_1_up": 0.862,
-   "imbalance_up": 0.7264,
+   "depth_10_up": 0.6931,
+   "depth_1_up": 0.8618,
+   "imbalance_up": 0.7262,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7264,
-   "volatility": 0.7421
+   "spread_up": 0.7262,
+   "volatility": 0.742
   }
  },
  "verdict": "OK",
@@ -1077,7 +1077,7 @@
   {
    "day": "2026-10-27",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 96,
+   "stored_snapshots": 368,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
