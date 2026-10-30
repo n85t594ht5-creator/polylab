@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-10-30T00:19:30Z",
+ "checked_at": "2026-10-30T06:02:20Z",
  "phase": "after",
  "days": {
   "2026-08-28": {
@@ -561,26 +561,27 @@
    "previous_raw_rows": null
   },
   "2026-10-29": {
-   "raw_rows": 1164,
-   "raw_present": true,
+   "raw_rows": 0,
+   "raw_present": false,
    "raw_truncated": false,
-   "aggregate_snapshots": 1152,
-   "status": "OK",
-   "completeness": 1.0,
+   "aggregate_snapshots": 1164,
+   "status": "LEGACY_MISSING",
+   "note": "артефакт истёк или потерян до исправления",
    "previous_raw_rows": null
   },
   "2026-10-30": {
-   "raw_rows": 132,
+   "raw_rows": 508,
    "raw_present": true,
    "raw_truncated": false,
-   "aggregate_snapshots": null,
-   "status": "NO_AGGREGATE",
+   "aggregate_snapshots": 132,
+   "status": "OK",
+   "completeness": 1.0,
    "previous_raw_rows": null
   }
  },
- "total_raw_rows": 1296,
- "total_aggregate_snapshots": 169657,
- "completeness": 0.0076,
+ "total_raw_rows": 508,
+ "total_aggregate_snapshots": 169801,
+ "completeness": 0.003,
  "issues": [],
  "legacy": [
   "2026-08-28: raw отсутствует (0 в агрегате)",
@@ -644,7 +645,8 @@
   "2026-10-25: raw отсутствует (1632 в агрегате)",
   "2026-10-26: raw отсутствует (1452 в агрегате)",
   "2026-10-27: raw отсутствует (872 в агрегате)",
-  "2026-10-28: raw отсутствует (1752 в агрегате)"
+  "2026-10-28: raw отсутствует (1752 в агрегате)",
+  "2026-10-29: raw отсутствует (1164 в агрегате)"
  ],
  "today": "2026-10-30",
  "shrunk": [],
@@ -652,20 +654,20 @@
  "legacy_verdict": "LEGACY_INCOMPLETE",
  "history": [
   {
-   "at": "2026-10-29T23:54:29Z",
+   "at": "2026-10-30T05:37:19Z",
    "phase": "before",
-   "completeness": 0.0068,
-   "verdict": "OK",
-   "total_raw": 1152,
-   "total_agg": 169657
+   "completeness": 0.0,
+   "verdict": "RAW_INCOMPLETE",
+   "total_raw": 0,
+   "total_agg": 169801
   },
   {
-   "at": "2026-10-30T00:19:30Z",
+   "at": "2026-10-30T06:02:20Z",
    "phase": "after",
-   "completeness": 0.0076,
+   "completeness": 0.003,
    "verdict": "OK",
-   "total_raw": 1296,
-   "total_agg": 169657
+   "total_raw": 508,
+   "total_agg": 169801
   }
  ]
 }

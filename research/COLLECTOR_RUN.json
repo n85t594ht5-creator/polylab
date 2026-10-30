@@ -1,45 +1,46 @@
 {
- "snapshots": 144,
+ "snapshots": 508,
  "duplicates": 0,
- "markets": 16,
+ "markets": 32,
  "assets": 4,
  "by_window": {
-  "5m": 144
+  "5m": 240,
+  "15m": 268
  },
  "quality": {
-  "INCOMPLETE": 51,
-  "DEGRADED": 60,
-  "GOOD": 33
+  "DEGRADED": 141,
+  "GOOD": 209,
+  "INCOMPLETE": 158
  },
- "latency_events": 144,
- "moves": 16,
+ "latency_events": 508,
+ "moves": 27,
  "ref_missing": 0,
  "latency_quality": {
-  "LOW": 143,
-  "MEDIUM": 1
+  "LOW": 506,
+  "MEDIUM": 2
  },
  "stale": 0,
- "incomplete": 51,
+ "incomplete": 158,
  "parity": {
-  "checked": 144,
+  "checked": 508,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
   "up_missing_row": 0,
   "dn_missing_live": 0,
   "dn_missing_row": 0,
-  "signal_snapshots": 1,
+  "signal_snapshots": 0,
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 657,
+  "requests": 1574,
   "failures": 0,
-  "retries": 1,
-  "latency_median_ms": 148.3,
-  "latency_max_ms": 715.6
+  "retries": 0,
+  "latency_median_ms": 149.4,
+  "latency_max_ms": 433.5
  },
  "shadow": {
-  "snapshots": 121354,
+  "snapshots": 121862,
   "signals": 257,
   "accepted": 56,
   "reduced": 0,
@@ -58,34 +59,34 @@
  },
  "storage": {
   "raw/dna": {
-   "files": 2,
-   "bytes": 204691
+   "files": 1,
+   "bytes": 76272
   },
   "raw/latency": {
-   "files": 2,
-   "bytes": 247138
+   "files": 1,
+   "bytes": 96947
   },
   "moves": {
    "files": 60,
-   "bytes": 1115736
+   "bytes": 1121135
   },
   "agg": {
-   "files": 64,
-   "bytes": 310948
+   "files": 65,
+   "bytes": 315056
   },
   "state": {
    "files": 3,
-   "bytes": 6152
+   "bytes": 12460
   },
-  "total_bytes": 1884665,
-  "git_tracked_bytes": 1432836,
-  "artifact_bytes": 451829
+  "total_bytes": 1621870,
+  "git_tracked_bytes": 1448651,
+  "artifact_bytes": 173219
  },
- "ids_pruned": 996,
- "ids_kept": 300,
+ "ids_pruned": 176,
+ "ids_kept": 632,
  "duplicates_store": 0,
- "restored_ids": 1152,
+ "restored_ids": 300,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-10-30T00:19:30.023578+00:00"
+ "finished_at": "2026-10-30T06:02:20.162516+00:00"
 }
