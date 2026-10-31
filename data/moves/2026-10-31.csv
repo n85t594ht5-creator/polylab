@@ -1,0 +1,2 @@
+move_id,detected_at,market_id,asset,window,move_start,initial_move,duration_so_far_sec,acceleration_so_far,elapsed_at_detect,direction,entry_ask_at_detect,volatility_at_detect,outcome_ready,move_end,move_duration_sec,max_continuation,max_reversal,time_to_reversal_sec,final_direction,resolution,schema_version,collector_version
+6404041@1793404499,2026-10-30T23:54:59.331002+00:00,6404041,SOL,5m,2026-10-30T23:50:00+00:00,0.00052,299.3,1.5002,0.9978,UP,,0.00011578,1,2026-10-30T23:55:00+00:00,0.7,0.00052,0.00052,,UP,CONTINUED,2,0.1.0
