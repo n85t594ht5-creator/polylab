@@ -1,28 +1,28 @@
 {
- "snapshots": 264,
+ "snapshots": 208,
  "duplicates": 0,
- "markets": 20,
+ "markets": 18,
  "assets": 4,
  "by_window": {
-  "15m": 72,
-  "5m": 192
+  "5m": 168,
+  "15m": 40
  },
  "quality": {
-  "DEGRADED": 85,
-  "GOOD": 74,
-  "INVALID": 46,
-  "INCOMPLETE": 59
+  "DEGRADED": 73,
+  "INVALID": 42,
+  "GOOD": 57,
+  "INCOMPLETE": 36
  },
- "latency_events": 264,
- "moves": 11,
- "ref_missing": 46,
+ "latency_events": 208,
+ "moves": 8,
+ "ref_missing": 42,
  "latency_quality": {
-  "LOW": 264
+  "LOW": 208
  },
  "stale": 0,
- "incomplete": 59,
+ "incomplete": 36,
  "parity": {
-  "checked": 264,
+  "checked": 208,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
@@ -33,14 +33,14 @@
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 1047,
+  "requests": 915,
   "failures": 0,
-  "retries": 1,
-  "latency_median_ms": 94.3,
-  "latency_max_ms": 493.3
+  "retries": 0,
+  "latency_median_ms": 109.0,
+  "latency_max_ms": 535.4
  },
  "shadow": {
-  "snapshots": 122660,
+  "snapshots": 122826,
   "signals": 257,
   "accepted": 56,
   "reduced": 0,
@@ -59,34 +59,34 @@
  },
  "storage": {
   "raw/dna": {
-   "files": 2,
-   "bytes": 221092
+   "files": 1,
+   "bytes": 138724
   },
   "raw/latency": {
-   "files": 2,
-   "bytes": 269106
+   "files": 1,
+   "bytes": 157695
   },
   "moves": {
    "files": 61,
-   "bytes": 1130492
+   "bytes": 1131935
   },
   "agg": {
-   "files": 65,
-   "bytes": 316016
+   "files": 66,
+   "bytes": 319809
   },
   "state": {
    "files": 3,
-   "bytes": 9116
+   "bytes": 4404
   },
-  "total_bytes": 1945822,
-  "git_tracked_bytes": 1455624,
-  "artifact_bytes": 490198
+  "total_bytes": 1752567,
+  "git_tracked_bytes": 1456148,
+  "artifact_bytes": 296419
  },
- "ids_pruned": 956,
- "ids_kept": 456,
+ "ids_pruned": 1076,
+ "ids_kept": 208,
  "duplicates_store": 0,
- "restored_ids": 1148,
+ "restored_ids": 1076,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-10-31T00:05:44.340107+00:00"
+ "finished_at": "2026-10-31T18:53:42.100596+00:00"
 }
