@@ -454,6 +454,13 @@
    "valid": 795,
    "moves": 11,
    "raw_present": true
+  },
+  {
+   "day": "2026-11-01",
+   "snapshots": 592,
+   "valid": 496,
+   "moves": 15,
+   "raw_present": true
   }
  ],
  "agg_version": "1"
