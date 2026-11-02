@@ -1,34 +1,34 @@
 {
- "built_at": "2026-11-01T13:45:15Z",
+ "built_at": "2026-11-02T16:30:22Z",
  "engine_version": "1",
  "dataset": {
   "source": "REAL",
   "dataset_version": "1",
-  "rows_total": 7468,
-  "rows_usable": 6587,
+  "rows_total": 7224,
+  "rows_usable": 6402,
   "days": 8,
   "day_list": [
-   "2026-10-25",
    "2026-10-26",
    "2026-10-27",
    "2026-10-28",
    "2026-10-29",
    "2026-10-30",
    "2026-10-31",
-   "2026-11-01"
+   "2026-11-01",
+   "2026-11-02"
   ],
-  "unique_markets": 439,
+  "unique_markets": 434,
   "by_window": {
-   "5m": 3655,
-   "15m": 2932
+   "5m": 3478,
+   "15m": 2924
   },
-  "span_hours": 177.1,
+  "span_hours": 179.44,
   "issues": []
  },
  "split": {
-  "border_market_start": "2026-10-29T13:00:00+00:00",
-  "is_windows": 307,
-  "oos_windows": 132,
+  "border_market_start": "2026-10-31T18:30:00+00:00",
+  "is_windows": 303,
+  "oos_windows": 131,
   "oos_fraction": 0.3,
   "rule": "разделение по времени, граница между окнами; подбор только на in-sample"
  },
@@ -36,47 +36,18 @@
   "mode": "BACKTEST",
   "source": "REAL",
   "engine_version": "1",
-  "windows_seen": 307,
-  "windows_outcome_unknown": 23,
+  "windows_seen": 303,
+  "windows_outcome_unknown": 25,
   "funnel": {
-   "windows": 307,
-   "outcome_unknown": 23,
-   "snapshots": 4802,
+   "windows": 303,
+   "outcome_unknown": 25,
+   "snapshots": 4517,
    "snapshot_errors": 0,
    "no_price": 0,
-   "ask_up_present": 3970,
-   "ask_dn_present": 4133,
-   "late_window": 2063,
-   "no_signal": 4802,
-   "with_signal": 0,
-   "blocked_by_risk": 0,
-   "entered": 0
-  },
-  "metrics": {
-   "signals": 0,
-   "closed": 0,
-   "blocked": 0,
-   "status": "NO_DATA",
-   "note": "закрытых сделок нет"
-  },
-  "arena_errors": {}
- },
- "out_of_sample": {
-  "mode": "OOS",
-  "source": "REAL",
-  "engine_version": "1",
-  "windows_seen": 132,
-  "windows_outcome_unknown": 20,
-  "funnel": {
-   "windows": 132,
-   "outcome_unknown": 20,
-   "snapshots": 1361,
-   "snapshot_errors": 0,
-   "no_price": 0,
-   "ask_up_present": 1046,
-   "ask_dn_present": 1186,
-   "late_window": 640,
-   "no_signal": 1360,
+   "ask_up_present": 3700,
+   "ask_dn_present": 3899,
+   "late_window": 1990,
+   "no_signal": 4516,
    "with_signal": 1,
    "blocked_by_risk": 0,
    "entered": 1
@@ -105,6 +76,35 @@
    },
    "sample_note": "нужно ≥100 закрытых сделок и ≥50 на окно",
    "concentration_note": "результат держится на одном дне — это событие, а не edge"
+  },
+  "arena_errors": {}
+ },
+ "out_of_sample": {
+  "mode": "OOS",
+  "source": "REAL",
+  "engine_version": "1",
+  "windows_seen": 131,
+  "windows_outcome_unknown": 20,
+  "funnel": {
+   "windows": 131,
+   "outcome_unknown": 20,
+   "snapshots": 1557,
+   "snapshot_errors": 0,
+   "no_price": 0,
+   "ask_up_present": 1344,
+   "ask_dn_present": 1217,
+   "late_window": 761,
+   "no_signal": 1557,
+   "with_signal": 0,
+   "blocked_by_risk": 0,
+   "entered": 0
+  },
+  "metrics": {
+   "signals": 0,
+   "closed": 0,
+   "blocked": 0,
+   "status": "NO_DATA",
+   "note": "закрытых сделок нет"
   },
   "arena_errors": {}
  },
