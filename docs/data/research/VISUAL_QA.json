@@ -1,6 +1,6 @@
 {
  "url": "https://n85t594ht5-creator.github.io/polylab/",
- "checked_at": "2026-11-03T16:36:15.442Z",
+ "checked_at": "2026-11-03T23:41:41.802Z",
  "viewports": [
   320,
   375,
@@ -44,10 +44,9 @@
   "storage@320:v_storage:5",
   "home@375:v_home:6"
  ],
- "total_issues": 7,
+ "total_issues": 1,
  "by_kind": {
-  "TEXT_CLIPPED": 1,
-  "EMPTY_CARD": 6
+  "TEXT_CLIPPED": 1
  },
  "issues": [
   {
@@ -55,42 +54,6 @@
    "page": "backtest",
    "kind": "TEXT_CLIPPED",
    "detail": "86% · 192 · +6118.76"
-  },
-  {
-   "vw": 375,
-   "page": "dna",
-   "kind": "EMPTY_CARD",
-   "detail": "Движение относительно старта окна"
-  },
-  {
-   "vw": 375,
-   "page": "dna",
-   "kind": "EMPTY_CARD",
-   "detail": "Волатильность и ускорение"
-  },
-  {
-   "vw": 375,
-   "page": "dna",
-   "kind": "EMPTY_CARD",
-   "detail": "Спред и дисбаланс стакана"
-  },
-  {
-   "vw": 375,
-   "page": "dna",
-   "kind": "EMPTY_CARD",
-   "detail": "Распределение по фазе окна"
-  },
-  {
-   "vw": 375,
-   "page": "book",
-   "kind": "EMPTY_CARD",
-   "detail": "Спред"
-  },
-  {
-   "vw": 375,
-   "page": "book",
-   "kind": "EMPTY_CARD",
-   "detail": "Глубина и дисбаланс"
   }
  ]
 }
