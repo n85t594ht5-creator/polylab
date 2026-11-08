@@ -499,10 +499,17 @@
   },
   {
    "day": "2026-11-07",
-   "snapshots": 1252,
-   "valid": 1159,
-   "moves": 20,
+   "snapshots": 1576,
+   "valid": 1435,
+   "moves": 30,
    "raw_present": true
+  },
+  {
+   "day": "2026-11-08",
+   "snapshots": 0,
+   "valid": 0,
+   "moves": 0,
+   "raw_present": false
   }
  ],
  "agg_version": "1"
