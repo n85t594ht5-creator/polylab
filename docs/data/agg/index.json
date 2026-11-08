@@ -506,10 +506,10 @@
   },
   {
    "day": "2026-11-08",
-   "snapshots": 0,
-   "valid": 0,
-   "moves": 0,
-   "raw_present": false
+   "snapshots": 336,
+   "valid": 336,
+   "moves": 11,
+   "raw_present": true
   }
  ],
  "agg_version": "1"
