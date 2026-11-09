@@ -1,0 +1,4 @@
+move_id,detected_at,market_id,asset,window,move_start,initial_move,duration_so_far_sec,acceleration_so_far,elapsed_at_detect,direction,entry_ask_at_detect,volatility_at_detect,outcome_ready,move_end,move_duration_sec,max_continuation,max_reversal,time_to_reversal_sec,final_direction,resolution,schema_version,collector_version
+6827429@1794181933,2026-11-08T23:52:13.359451+00:00,6827429,ETH,5m,2026-11-08T23:50:00+00:00,-0.001965,133.4,,0.4445,DOWN,0.89,,1,2026-11-08T23:55:00+00:00,166.6,-0.004599,-0.001895,,DOWN,CONTINUED,2,0.1.0
+6827431@1794181933,2026-11-08T23:52:13.359451+00:00,6827431,XRP,5m,2026-11-08T23:50:00+00:00,-0.002063,133.4,,0.4445,DOWN,0.88,,1,2026-11-08T23:55:00+00:00,166.6,-0.004126,-0.002063,,DOWN,CONTINUED,2,0.1.0
+6827435@1794181933,2026-11-08T23:52:13.359451+00:00,6827435,SOL,5m,2026-11-08T23:50:00+00:00,-0.001558,133.4,,0.4445,DOWN,0.88,,1,2026-11-08T23:55:00+00:00,166.6,-0.003982,-0.001558,,DOWN,CONTINUED,2,0.1.0
