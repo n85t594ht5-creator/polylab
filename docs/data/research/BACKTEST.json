@@ -1,14 +1,13 @@
 {
- "built_at": "2026-11-12T15:33:55Z",
+ "built_at": "2026-11-13T14:53:14Z",
  "engine_version": "1",
  "dataset": {
   "source": "REAL",
   "dataset_version": "1",
-  "rows_total": 10450,
-  "rows_usable": 9784,
+  "rows_total": 10322,
+  "rows_usable": 9668,
   "days": 10,
   "day_list": [
-   "2026-11-03",
    "2026-11-04",
    "2026-11-05",
    "2026-11-06",
@@ -17,20 +16,21 @@
    "2026-11-09",
    "2026-11-10",
    "2026-11-11",
-   "2026-11-12"
+   "2026-11-12",
+   "2026-11-13"
   ],
-  "unique_markets": 671,
+  "unique_markets": 659,
   "by_window": {
-   "5m": 5364,
-   "15m": 4420
+   "15m": 4292,
+   "5m": 5376
   },
-  "span_hours": 219.49,
+  "span_hours": 219.73,
   "issues": []
  },
  "split": {
-  "border_market_start": "2026-11-08T19:00:00+00:00",
-  "is_windows": 469,
-  "oos_windows": 202,
+  "border_market_start": "2026-11-10T20:45:00+00:00",
+  "is_windows": 461,
+  "oos_windows": 198,
   "oos_fraction": 0.3,
   "rule": "разделение по времени, граница между окнами; подбор только на in-sample"
  },
@@ -38,18 +38,18 @@
   "mode": "BACKTEST",
   "source": "REAL",
   "engine_version": "1",
-  "windows_seen": 469,
-  "windows_outcome_unknown": 42,
+  "windows_seen": 461,
+  "windows_outcome_unknown": 39,
   "funnel": {
-   "windows": 469,
-   "outcome_unknown": 42,
-   "snapshots": 6426,
+   "windows": 461,
+   "outcome_unknown": 39,
+   "snapshots": 6334,
    "snapshot_errors": 0,
    "no_price": 0,
-   "ask_up_present": 5344,
-   "ask_dn_present": 5438,
-   "late_window": 2828,
-   "no_signal": 6425,
+   "ask_up_present": 5237,
+   "ask_dn_present": 5350,
+   "late_window": 2774,
+   "no_signal": 6333,
    "with_signal": 1,
    "blocked_by_risk": 0,
    "entered": 1
@@ -85,45 +85,63 @@
   "mode": "OOS",
   "source": "REAL",
   "engine_version": "1",
-  "windows_seen": 202,
-  "windows_outcome_unknown": 25,
+  "windows_seen": 198,
+  "windows_outcome_unknown": 26,
   "funnel": {
-   "windows": 202,
-   "outcome_unknown": 25,
-   "snapshots": 2627,
+   "windows": 198,
+   "outcome_unknown": 26,
+   "snapshots": 2593,
    "snapshot_errors": 0,
    "no_price": 0,
-   "ask_up_present": 2271,
-   "ask_dn_present": 2137,
-   "late_window": 1198,
-   "no_signal": 2627,
-   "with_signal": 0,
+   "ask_up_present": 2148,
+   "ask_dn_present": 2257,
+   "late_window": 1186,
+   "no_signal": 2592,
+   "with_signal": 1,
    "blocked_by_risk": 0,
-   "entered": 0
+   "entered": 1
   },
   "metrics": {
-   "signals": 0,
-   "closed": 0,
+   "signals": 1,
+   "closed": 1,
    "blocked": 0,
-   "status": "NO_DATA",
-   "note": "закрытых сделок нет"
+   "status": "INSUFFICIENT_SAMPLE",
+   "winrate": 1.0,
+   "pnl": 30.65,
+   "profit_factor": 99.0,
+   "max_drawdown": 0.0,
+   "days": 1,
+   "best_day": "2026-11-12",
+   "best_day_pnl": 30.65,
+   "best_day_share_pct": 100.0,
+   "pnl_without_best_day": 0.0,
+   "top3_days_pnl": 30.65,
+   "by_window": {
+    "15m": {
+     "n": 1,
+     "winrate": 1.0,
+     "pnl": 30.65
+    }
+   },
+   "sample_note": "нужно ≥100 закрытых сделок и ≥50 на окно",
+   "concentration_note": "результат держится на одном дне — это событие, а не edge"
   },
   "arena_errors": {}
  },
  "forward_shadow": {
-  "signals": 260,
-  "closed": 260,
+  "signals": 261,
+  "closed": 261,
   "blocked": 0,
   "status": "SUPPORTED",
-  "winrate": 0.8615,
-  "pnl": 8289.51,
-  "profit_factor": 5.61,
+  "winrate": 0.8621,
+  "pnl": 8320.16,
+  "profit_factor": 5.62,
   "max_drawdown": 150.0,
-  "days": 27,
+  "days": 28,
   "best_day": "2026-08-31",
   "best_day_pnl": 2138.9,
-  "best_day_share_pct": 25.8,
-  "pnl_without_best_day": 6150.61,
+  "best_day_share_pct": 25.7,
+  "pnl_without_best_day": 6181.26,
   "top3_days_pnl": 6035.34,
   "by_window": {
    "5m": {
@@ -132,9 +150,9 @@
     "pnl": 2056.77
    },
    "15m": {
-    "n": 195,
-    "winrate": 0.8667,
-    "pnl": 6232.74
+    "n": 196,
+    "winrate": 0.8673,
+    "pnl": 6263.39
    }
   },
   "sample_note": "",
@@ -143,7 +161,7 @@
  "verdict": {
   "verdict": "INCONCLUSIVE",
   "reasons": [
-   "нет закрытых сделок в одной из выборок"
+   "выборка меньше порога — вывод невозможен"
   ]
  },
  "guarantees": [
