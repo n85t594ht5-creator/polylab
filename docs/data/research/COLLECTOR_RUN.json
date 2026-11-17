@@ -1,46 +1,46 @@
 {
- "snapshots": 480,
+ "snapshots": 488,
  "duplicates": 0,
  "markets": 32,
  "assets": 4,
  "by_window": {
   "5m": 240,
-  "15m": 240
+  "15m": 248
  },
  "quality": {
-  "DEGRADED": 121,
-  "INCOMPLETE": 103,
+  "DEGRADED": 117,
   "INVALID": 60,
-  "GOOD": 196
+  "INCOMPLETE": 142,
+  "GOOD": 169
  },
- "latency_events": 480,
- "moves": 25,
+ "latency_events": 488,
+ "moves": 26,
  "ref_missing": 60,
  "latency_quality": {
-  "LOW": 480
+  "LOW": 488
  },
  "stale": 0,
- "incomplete": 103,
+ "incomplete": 142,
  "parity": {
-  "checked": 480,
+  "checked": 488,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
   "up_missing_row": 0,
   "dn_missing_live": 0,
   "dn_missing_row": 0,
-  "signal_snapshots": 2,
+  "signal_snapshots": 0,
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 1593,
+  "requests": 1606,
   "failures": 0,
   "retries": 0,
-  "latency_median_ms": 95.8,
-  "latency_max_ms": 460.4
+  "latency_median_ms": 93.2,
+  "latency_max_ms": 489.1
  },
  "shadow": {
-  "snapshots": 136366,
+  "snapshots": 136794,
   "signals": 264,
   "accepted": 60,
   "reduced": 0,
@@ -60,33 +60,33 @@
  "storage": {
   "raw/dna": {
    "files": 1,
-   "bytes": 146054
+   "bytes": 73916
   },
   "raw/latency": {
    "files": 1,
-   "bytes": 179176
+   "bytes": 93104
   },
   "moves": {
-   "files": 77,
-   "bytes": 1274554
+   "files": 78,
+   "bytes": 1279436
   },
   "agg": {
-   "files": 81,
-   "bytes": 396318
+   "files": 82,
+   "bytes": 401382
   },
   "state": {
    "files": 3,
-   "bytes": 9572
+   "bytes": 9724
   },
-  "total_bytes": 2005674,
-  "git_tracked_bytes": 1680444,
-  "artifact_bytes": 325230
+  "total_bytes": 1857562,
+  "git_tracked_bytes": 1690542,
+  "artifact_bytes": 167020
  },
- "ids_pruned": 844,
- "ids_kept": 480,
+ "ids_pruned": 480,
+ "ids_kept": 488,
  "duplicates_store": 0,
- "restored_ids": 844,
+ "restored_ids": 480,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-11-16T18:49:05.775078+00:00"
+ "finished_at": "2026-11-17T03:18:42.325265+00:00"
 }
