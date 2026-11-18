@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-11-18T11:36:26Z",
+ "checked_at": "2026-11-18T20:28:15Z",
  "days": 83,
  "issues": [],
  "per_day": {
@@ -1367,44 +1367,44 @@
    }
   },
   "2026-11-18": {
-   "snapshots": 712,
-   "valid": 652,
+   "snapshots": 1156,
+   "valid": 1036,
    "quality": {
-    "DEGRADED": 124,
-    "GOOD": 422,
-    "INCOMPLETE": 106,
-    "INVALID": 60
+    "DEGRADED": 212,
+    "GOOD": 529,
+    "INCOMPLETE": 295,
+    "INVALID": 120
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 15,
-    "move_bucket": 60
+    "entry_bucket": 196,
+    "move_bucket": 120
    }
   }
  },
  "totals": {
-  "snapshots": 192039,
-  "valid": 177572,
-  "valid_share": 0.9247,
+  "snapshots": 192483,
+  "valid": 177956,
+  "valid_share": 0.9245,
   "quality": {
-   "DEGRADED": 52851,
-   "GOOD": 75113,
-   "INCOMPLETE": 48515,
-   "INVALID": 14467,
+   "DEGRADED": 52939,
+   "GOOD": 75220,
+   "INCOMPLETE": 48704,
+   "INVALID": 14527,
    "STALE": 1093
   },
   "windows": {
-   "15m": 87074,
-   "5m": 104705,
+   "15m": 87278,
+   "5m": 104945,
    "60m": 260
   },
   "assets": {
-   "BTC": 48121,
-   "ETH": 47986,
-   "SOL": 47976,
-   "XRP": 47956
+   "BTC": 48232,
+   "ETH": 48097,
+   "SOL": 48087,
+   "XRP": 48067
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -1414,13 +1414,13 @@
   "feature_availability_share": {
    "acceleration": 0.6648,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6927,
-   "depth_1_up": 0.8586,
-   "imbalance_up": 0.7216,
+   "depth_10_up": 0.6918,
+   "depth_1_up": 0.858,
+   "imbalance_up": 0.7211,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7216,
-   "volatility": 0.7401
+   "spread_up": 0.7211,
+   "volatility": 0.7402
   }
  },
  "verdict": "OK",
@@ -1440,7 +1440,7 @@
   {
    "day": "2026-11-18",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 712,
+   "stored_snapshots": 1156,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
