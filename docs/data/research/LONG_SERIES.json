@@ -1,7 +1,7 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-11-20T20:11:48Z",
+ "checked_at": "2026-11-21T02:11:24Z",
  "days": 85,
  "issues": [],
  "per_day": {
@@ -1401,44 +1401,45 @@
    }
   },
   "2026-11-20": {
-   "snapshots": 776,
-   "valid": 728,
+   "snapshots": 1464,
+   "valid": 1356,
    "quality": {
-    "DEGRADED": 234,
-    "GOOD": 275,
-    "INCOMPLETE": 219,
-    "INVALID": 48
+    "DEGRADED": 370,
+    "GOOD": 594,
+    "INCOMPLETE": 376,
+    "INVALID": 108,
+    "STALE": 16
    },
    "raw_present": true,
    "raw_truncated": false,
    "raw_incomplete_on_rebuild": false,
    "cut_gaps": {
-    "entry_bucket": 85,
-    "move_bucket": 48
+    "entry_bucket": 212,
+    "move_bucket": 108
    }
   }
  },
  "totals": {
-  "snapshots": 194199,
-  "valid": 179564,
+  "snapshots": 194887,
+  "valid": 180192,
   "valid_share": 0.9246,
   "quality": {
-   "DEGRADED": 53432,
-   "GOOD": 75951,
-   "INCOMPLETE": 49088,
-   "INVALID": 14635,
-   "STALE": 1093
+   "DEGRADED": 53568,
+   "GOOD": 76270,
+   "INCOMPLETE": 49245,
+   "INVALID": 14695,
+   "STALE": 1109
   },
   "windows": {
-   "15m": 87922,
-   "5m": 105809,
-   "60m": 468
+   "15m": 88146,
+   "5m": 106049,
+   "60m": 692
   },
   "assets": {
-   "BTC": 48661,
-   "ETH": 48526,
-   "SOL": 48516,
-   "XRP": 48496
+   "BTC": 48833,
+   "ETH": 48698,
+   "SOL": 48688,
+   "XRP": 48668
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
@@ -1446,15 +1447,15 @@
   "truncated_days": 0,
   "incomplete_rebuild_days": 78,
   "feature_availability_share": {
-   "acceleration": 0.6649,
+   "acceleration": 0.6652,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6926,
-   "depth_1_up": 0.8585,
+   "depth_10_up": 0.6923,
+   "depth_1_up": 0.8583,
    "imbalance_up": 0.7214,
    "liquidity": 1.0,
    "market_volume": 0.0,
    "spread_up": 0.7214,
-   "volatility": 0.7402
+   "volatility": 0.7405
   }
  },
  "verdict": "OK",
@@ -1474,7 +1475,7 @@
   {
    "day": "2026-11-20",
    "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 776,
+   "stored_snapshots": 1464,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
