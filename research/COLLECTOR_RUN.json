@@ -1,50 +1,45 @@
 {
- "snapshots": 688,
+ "snapshots": 456,
  "duplicates": 0,
- "markets": 32,
+ "markets": 28,
  "assets": 4,
  "by_window": {
-  "60m": 224,
-  "5m": 240,
-  "15m": 224
+  "15m": 224,
+  "5m": 232
  },
  "quality": {
-  "DEGRADED": 136,
-  "INCOMPLETE": 157,
-  "INVALID": 60,
-  "GOOD": 319,
-  "STALE": 16
+  "DEGRADED": 106,
+  "INCOMPLETE": 202,
+  "GOOD": 148
  },
- "latency_events": 688,
- "moves": 27,
- "ref_missing": 60,
+ "latency_events": 456,
+ "moves": 28,
+ "ref_missing": 0,
  "latency_quality": {
-  "LOW": 646,
-  "MEDIUM": 21,
-  "HIGH": 21
+  "LOW": 456
  },
- "stale": 16,
- "incomplete": 157,
+ "stale": 0,
+ "incomplete": 202,
  "parity": {
-  "checked": 688,
+  "checked": 456,
   "up_mismatch": 0,
   "dn_mismatch": 0,
   "up_missing_live": 0,
   "up_missing_row": 0,
   "dn_missing_live": 0,
   "dn_missing_row": 0,
-  "signal_snapshots": 1,
+  "signal_snapshots": 0,
   "signal_row_incomplete": 0
  },
  "api": {
-  "requests": 2012,
+  "requests": 1456,
   "failures": 0,
   "retries": 0,
-  "latency_median_ms": 108.1,
-  "latency_max_ms": 309.1
+  "latency_median_ms": 153.9,
+  "latency_max_ms": 436.5
  },
  "shadow": {
-  "snapshots": 140962,
+  "snapshots": 141418,
   "signals": 268,
   "accepted": 63,
   "reduced": 0,
@@ -64,33 +59,33 @@
  "storage": {
   "raw/dna": {
    "files": 1,
-   "bytes": 221356
+   "bytes": 68297
   },
   "raw/latency": {
    "files": 1,
-   "bytes": 279254
+   "bytes": 86990
   },
   "moves": {
-   "files": 81,
-   "bytes": 1317387
+   "files": 82,
+   "bytes": 1322683
   },
   "agg": {
    "files": 86,
-   "bytes": 421921
+   "bytes": 422446
   },
   "state": {
    "files": 3,
-   "bytes": 13524
+   "bytes": 22188
   },
-  "total_bytes": 2253442,
-  "git_tracked_bytes": 1752832,
-  "artifact_bytes": 500610
+  "total_bytes": 1922604,
+  "git_tracked_bytes": 1767317,
+  "artifact_bytes": 155287
  },
- "ids_pruned": 776,
- "ids_kept": 688,
+ "ids_pruned": 0,
+ "ids_kept": 1144,
  "duplicates_store": 0,
- "restored_ids": 776,
+ "restored_ids": 688,
  "run_sec": 1500,
  "sample_sec": 15,
- "finished_at": "2026-11-20T22:11:03.319003+00:00"
+ "finished_at": "2026-11-21T03:34:44.944687+00:00"
 }
