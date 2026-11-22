@@ -604,9 +604,9 @@
   },
   {
    "day": "2026-11-22",
-   "snapshots": 492,
-   "valid": 432,
-   "moves": 22,
+   "snapshots": 864,
+   "valid": 747,
+   "moves": 38,
    "raw_present": true
   }
  ],
