@@ -1,8 +1,8 @@
 {
  "validator_version": "1",
  "source": "REAL",
- "checked_at": "2026-11-23T01:39:51Z",
- "days": 87,
+ "checked_at": "2026-11-23T12:30:23Z",
+ "days": 88,
  "issues": [],
  "per_day": {
   "2026-08-28": {
@@ -1446,60 +1446,69 @@
    },
    "raw_present": true,
    "raw_truncated": false,
-   "raw_incomplete_on_rebuild": false,
+   "raw_incomplete_on_rebuild": true,
    "cut_gaps": {
     "entry_bucket": 136,
     "move_bucket": 147
    }
+  },
+  "2026-11-23": {
+   "snapshots": 856,
+   "valid": 856,
+   "quality": {
+    "DEGRADED": 158,
+    "GOOD": 479,
+    "INCOMPLETE": 219
+   },
+   "raw_present": true,
+   "raw_truncated": false,
+   "raw_incomplete_on_rebuild": false,
+   "cut_gaps": {
+    "entry_bucket": 68
+   }
   }
  },
  "totals": {
-  "snapshots": 196975,
-  "valid": 182029,
-  "valid_share": 0.9241,
+  "snapshots": 197831,
+  "valid": 182885,
+  "valid_share": 0.9245,
   "quality": {
-   "DEGRADED": 54140,
-   "GOOD": 76953,
-   "INCOMPLETE": 49827,
+   "DEGRADED": 54298,
+   "GOOD": 77432,
+   "INCOMPLETE": 50046,
    "INVALID": 14946,
    "STALE": 1109
   },
   "windows": {
-   "15m": 88974,
-   "5m": 107309,
-   "60m": 692
+   "15m": 89234,
+   "5m": 107549,
+   "60m": 1048
   },
   "assets": {
-   "BTC": 49355,
-   "ETH": 49220,
-   "SOL": 49210,
-   "XRP": 49190
+   "BTC": 49569,
+   "ETH": 49434,
+   "SOL": 49424,
+   "XRP": 49404
   },
   "unique_markets": 0,
   "duplicate_ids": 0,
-  "raw_present_days": 84,
+  "raw_present_days": 85,
   "truncated_days": 0,
-  "incomplete_rebuild_days": 80,
+  "incomplete_rebuild_days": 81,
   "feature_availability_share": {
-   "acceleration": 0.6649,
+   "acceleration": 0.6655,
    "book_ts_up": 1.0,
-   "depth_10_up": 0.6932,
-   "depth_1_up": 0.8586,
-   "imbalance_up": 0.721,
+   "depth_10_up": 0.6939,
+   "depth_1_up": 0.8589,
+   "imbalance_up": 0.7211,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.721,
-   "volatility": 0.7403
+   "spread_up": 0.7211,
+   "volatility": 0.7408
   }
  },
  "verdict": "OK",
  "rebuild": [
-  {
-   "day": "2026-11-20",
-   "status": "RAW_NOT_LOCAL",
-   "stored_snapshots": 1464,
-   "note": "raw в артефакте; сохранённый агрегат — источник истины"
-  },
   {
    "day": "2026-11-21",
    "status": "RAW_NOT_LOCAL",
@@ -1510,6 +1519,12 @@
    "day": "2026-11-22",
    "status": "RAW_NOT_LOCAL",
    "stored_snapshots": 1072,
+   "note": "raw в артефакте; сохранённый агрегат — источник истины"
+  },
+  {
+   "day": "2026-11-23",
+   "status": "RAW_NOT_LOCAL",
+   "stored_snapshots": 856,
    "note": "raw в артефакте; сохранённый агрегат — источник истины"
   }
  ]
