@@ -1,6 +1,6 @@
 {
  "publish_version": "1",
- "built_at": "2026-11-24T23:52:39Z",
+ "built_at": "2026-11-25T01:00:20Z",
  "mode": "SHADOW",
  "live": false,
  "venues": [
@@ -8,14 +8,14 @@
  ],
  "sources": {
   "dna": {
-   "status": "NO_LOCAL_RAW",
-   "count": 0,
-   "note": "сырые снимки хранятся в артефактах Actions; график строится по последней выгрузке",
+   "status": "OK",
+   "count": 336,
+   "note": "",
    "stale": false
   },
   "moves": {
    "status": "OK",
-   "count": 1318,
+   "count": 1316,
    "note": "",
    "stale": false
   },
