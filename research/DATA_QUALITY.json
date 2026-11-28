@@ -4,7 +4,7 @@
   {
    "area": "Целостность длинной серии",
    "status": "CONFIRMED",
-   "detail": "93 дней, 202899 снимков, валидных 187533 (92%), дублей id 0",
+   "detail": "93 дней, 203235 снимков, валидных 187857 (92%), дублей id 0",
    "note": "",
    "source": "REAL"
   },
@@ -60,7 +60,7 @@
   {
    "area": "Покрытие и полнота",
    "status": "SUPPORTED",
-   "detail": "GOOD 79530 · DEGRADED 55580 · INCOMPLETE 51314 · INVALID 15366; активов 4, окон 3, рынков 0",
+   "detail": "GOOD 79661 · DEGRADED 55665 · INCOMPLETE 51422 · INVALID 15378; активов 4, окон 3, рынков 0",
    "note": "INVALID = не получена опорная цена; нулями не заменяется",
    "source": "REAL"
   },
@@ -73,41 +73,41 @@
   }
  ],
  "coverage": {
-  "total_snapshots": 202899,
-  "valid": 187533,
-  "GOOD": 79530,
-  "DEGRADED": 55580,
-  "INCOMPLETE": 51314,
-  "INVALID": 15366,
+  "total_snapshots": 203235,
+  "valid": 187857,
+  "GOOD": 79661,
+  "DEGRADED": 55665,
+  "INCOMPLETE": 51422,
+  "INVALID": 15378,
   "by_asset": {
-   "BTC": 50836,
-   "ETH": 50701,
-   "SOL": 50691,
-   "XRP": 50671
+   "BTC": 50920,
+   "ETH": 50785,
+   "SOL": 50775,
+   "XRP": 50755
   },
   "by_window": {
-   "15m": 91238,
-   "5m": 110093,
+   "15m": 91382,
+   "5m": 110285,
    "60m": 1568
   },
   "unique_markets": 0,
   "feature_availability_share": {
-   "acceleration": 0.6661,
+   "acceleration": 0.666,
    "book_ts_up": 1.0,
    "depth_10_up": 0.6963,
    "depth_1_up": 0.8603,
-   "imbalance_up": 0.7211,
+   "imbalance_up": 0.721,
    "liquidity": 1.0,
    "market_volume": 0.0,
-   "spread_up": 0.7211,
-   "volatility": 0.7414
+   "spread_up": 0.721,
+   "volatility": 0.7413
   },
   "raw_present_days": 90,
   "truncated_days": 0,
   "incomplete_rebuild_days": 86,
   "duplicate_ids": 0,
-  "missing_reference_prices": 15366,
+  "missing_reference_prices": 15378,
   "missing_volume": "UNAVAILABLE (источник не отдаёт)"
  },
- "built_at": "2026-11-28T03:18:19Z"
+ "built_at": "2026-11-28T15:28:10Z"
 }
